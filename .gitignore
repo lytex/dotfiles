@@ -1,0 +1,8 @@
+dot_doom.d/org-html-themes
+dot_doom.d/*~
+dot_doom.d/.vscode/
+dot_doom.d/jira.el
+dot_doom.d/work.el
+dot_doom.d/custom.el
+dot_doom.d/config.html
+dot_doom.d/modules/org-ql-queries.*
