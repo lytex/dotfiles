@@ -1,0 +1,17 @@
+[$Version]
+update_info=kxkb_variants.upd:split-variants
+
+[Layout]
+DisplayNames=,
+LayoutList=us,es
+LayoutLoopCount=-1
+Model=pc101
+Options=ctrl:nocaps,shift:both_capslock,grp:win_space_toggle
+ResetOldOptions=true
+ShowFlag=false
+ShowLabel=true
+ShowLayoutIndicator=true
+ShowSingle=false
+SwitchMode=Global
+Use=true
+VariantList=altgr-intl,

@@ -114,10 +114,28 @@ source "$HOME/.zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
 
 export NVIM_LOG_FILE="$HOME/.nvimlog"
 
+
+function fzf-cd-places () {
+    directory=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="file:///' | sed -E 's#[ ]*<bookmark href="file://([^"]+)">#\1#' | fzf --multi --preview "ls '{1}'")
+    cd "$directory"
+    clear
+}
+
+# Tag navigation
+function fzf-cd-tags () {
+    tag=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="tags:/' | grep -vF ' <bookmark href="tags:/">' | sed -E 's#[ ]*<bookmark href="tags:/([^"]+)">#\1#' | fzf --multi --preview 'baloosearch tag:{1}'); directory=$(baloosearch tag:$tag | fzf --multi --preview "ls '{1}'")
+    cd "$directory"
+    clear
+}
+zle -N fzf-cd-tags
+zle -N fzf-cd-places
+
 bindkey -v
 bindkey -a ' .' fzf-file-widget # Maybe ' fz' ?
 bindkey -a ' c' fzf-cd-widget
 bindkey -a ' r' fzf-history-widget
+bindkey -a ' p' fzf-cd-places
+bindkey -a ' t' fzf-cd-tags
 
 
 export WORKON_HOME=$HOME/.virtualenvs
@@ -127,10 +145,11 @@ source $HOME/.local/bin/virtualenvwrapper.sh
 eval $(thefuck --alias)
 alias f=fuck
 alias t=tldr
+alias c=chezmoi
 export PATH="$PATH:/$HOME/.local/bin"
 # alias c=$HOME/.local/bin/chezmoi
-export EDITOR=nvim
-export VISUAL=nvim
+export EDITOR=nvr
+export VISUAL=nvr
 
 if [ "$TERM" = "xterm-kitty" ]; then
     alias ssh="kitty +kitten ssh"
@@ -145,4 +164,4 @@ if [ ! "$TMUX" = "" ]; then export TERM=xterm-256color; fi
 export SHELL=/bin/zsh
 export ET_NO_TELEMETRY=false
 
-alias c=chezmoi
+
