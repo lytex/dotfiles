@@ -6,3 +6,8 @@ dot_doom.d/work.el
 dot_doom.d/custom.el
 dot_doom.d/config.html
 dot_doom.d/modules/org-ql-queries.*
+dot_ipython/profile_default/*
+dot_ipython/profile_default/*.py
+!dot_ipython/profile_default/startup/
+!dot_ipython/profile_default/requirements.*
+!dot_ipython/profile_default//.gitignore
