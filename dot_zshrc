@@ -164,4 +164,4 @@ if [ ! "$TMUX" = "" ]; then export TERM=xterm-256color; fi
 export SHELL=/bin/zsh
 export ET_NO_TELEMETRY=false
 
-
+function pipenv () {shift; eval "$@"}
