@@ -130,12 +130,16 @@ function fzf-cd-tags () {
 zle -N fzf-cd-tags
 zle -N fzf-cd-places
 
+autoload -U edit-command-line
+zle -N edit-command-line
+
 bindkey -v
 bindkey -a ' .' fzf-file-widget # Maybe ' fz' ?
 bindkey -a ' c' fzf-cd-widget
 bindkey -a ' r' fzf-history-widget
 bindkey -a ' p' fzf-cd-places
 bindkey -a ' t' fzf-cd-tags
+bindkey -a '  ' edit-command-line
 
 
 export WORKON_HOME=$HOME/.virtualenvs
