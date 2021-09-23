@@ -192,3 +192,5 @@ tms() {
     session=$(eval __tmux_fzf_get_session__)
     tmux $change -t "$session" || echo "No sessions found."
 }
+
+function pipenv () {shift; eval "$@"}
