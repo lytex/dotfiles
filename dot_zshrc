@@ -194,3 +194,5 @@ tms() {
 }
 
 function pipenv () {shift; eval "$@"}
+
+alias ccd='cd $(chezmoi source-path)'
