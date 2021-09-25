@@ -19,8 +19,11 @@ case $1 in
     python3-pip)
         sudo apt-get install -y python3-pip
         ;;
-    timeout)
+    inotifywait)
         sudo apt-get install -y inotify-tools
+        ;;
+    timeout)
+        sudo apt-get install -y coreutils
         ;;
     zsh)
         sudo apt-get install -y zsh
