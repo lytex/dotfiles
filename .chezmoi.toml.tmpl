@@ -1,0 +1,8 @@
+{{- $desktop := promptBool "Is this a desktop computer?" -}}
+
+[data]
+{{ if $desktop }}
+desktop = true
+{{ else }}
+desktop = false
+{{ end }}

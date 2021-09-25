@@ -1,0 +1,6 @@
+{{ if not .desktop }}
+# Ignore non-esential dotfiles
+.local
+.zshrc
+{{ end }}
+README.org
