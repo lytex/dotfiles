@@ -1,6 +1,6 @@
 #!/bin/bash
 
-is_root() { [ "$EUID" -ne 0 ] }
+aliasis_root='[ "$EUID" -ne 0 ]'
 
 is_command() {
     command -v "$1" &>/dev/null
