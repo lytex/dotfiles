@@ -1,0 +1,8 @@
+#+TITLE: chezmoi README
+
+* Types of devices
+- Personal computer
+- Work computer
+- RaspberryPi
+- Mobile (termux and/or android shell)
+- dev (remote computers for monitoring)

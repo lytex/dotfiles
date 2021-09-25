@@ -155,6 +155,9 @@ alias gc-="git checkout -- ."
 alias gc-f="git checkout -- . && git clean -fd"
 alias gds='git diff --staged'
 
+# Custom git alias
+function gsh () {"git rebase -i HEAD~$1"}
+
 eval $(thefuck --alias)
 alias f=fuck
 alias t=tldr
