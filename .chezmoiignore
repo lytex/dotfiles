@@ -3,4 +3,5 @@
 .local
 .zshrc
 {{ end }}
+configure.sh
 README.org
