@@ -21,6 +21,7 @@ case $1 in
         ;;
     timeout)
         sudo apt-get install -y inotify-tools
+        ;;
     zsh)
         sudo apt-get install -y zsh
         ;;
