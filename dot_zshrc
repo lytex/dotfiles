@@ -148,14 +148,15 @@ source $HOME/.local/bin/virtualenvwrapper.sh
 # Git alias copied from:
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
 # so that (in theory) I only put what I know and use
+alias gds='git diff --staged'
 alias gss='git status -s'
+# Custom alias
 function gsp () {git stash && eval "$@ "&& git stash pop} # Surround a given function with stash and stash pop
 alias gc-="git checkout -- ."
 alias gc-f="git checkout -- . && git clean -fd"
-alias gds='git diff --staged'
-
-# Custom git alias
-function gsh () {"git rebase -i HEAD~$1"}
+function gsh () {git rebase -i HEAD~$1}
+function gfo () {git fetch origin:$1 $1}
+function gsm () {git commit -S -m "$@"}
 
 eval $(thefuck --alias)
 alias f=fuck
