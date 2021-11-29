@@ -155,7 +155,7 @@ function gsp () {git stash && eval "$@ "&& git stash pop} # Surround a given fun
 alias gc-="git checkout -- ."
 alias gc-f="git checkout -- . && git clean -fd"
 function gsh () {git rebase -i HEAD~$1}
-function gfo () {git fetch origin:$1 $1}
+function gfo () {git fetch origin $1:$1}
 function gsm () {git commit -S -m "$@"}
 
 eval $(thefuck --alias)
@@ -208,3 +208,5 @@ tms() {
 function pipenv () {shift; eval "$@"}
 
 alias ccd='cd $(chezmoi source-path)'
+
+alias copy='xclip -sel clip'
