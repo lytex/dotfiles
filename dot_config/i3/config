@@ -23,8 +23,8 @@
 # Applications
 #
 set $terminal i3-sensible-terminal -e "nvim"  --cmd "let g:neomux_win_num_status = '«Terminal[%{WindowNumber()}]»'" -c "Neomux"
-set $code_terminal export SHELL=zsh && ~/.local/kitty.app/bin/kitty
-# -c "set neomux_win_num_status '∥ W:[%{WindowNumber()}] ∥'"
+set $code_terminal ~/.local/kitty.app/bin/kitty sh -c "echo '  command lvim ~/.config/lvim/config.lua +:w +:term' | zsh -is"
+
 # set $editor /usr/bin/emacsclient -c
 # set $web /home/guillaume/.local/bin/firefox
 # set $email /home/guillaume/.local/bin/astroid
