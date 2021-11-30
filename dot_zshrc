@@ -210,3 +210,18 @@ function pipenv () {shift; eval "$@"}
 alias ccd='cd $(chezmoi source-path)'
 
 alias copy='xclip -sel clip'
+
+function lvim() {command lvim ~/.config/lvim/config.lua +:w +:next  "$@"}
+
+# Don't look this hack for too long
+function lvr () {
+    # Copy pwd to clipboard
+    xdotool type --window $(xdotool getwindowfocus) "pwd | xclip -sel clip"
+    xdotool key --window $(xdotool getwindowfocus) "Return"
+    # Exit to normal mode
+    xdotool key --window $(xdotool getwindowfocus) "control+backslash" key "control+n"
+    # Copy and edit
+    xdotool key --window $(xdotool getwindowfocus) "colon" key "e" key space key "control+shift+v"
+    xdotool type --window $(xdotool getwindowfocus) "/$@"
+    xdotool key --window $(xdotool getwindowfocus) "Return"
+}
