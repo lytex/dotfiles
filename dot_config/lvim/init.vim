@@ -94,24 +94,6 @@ inoremap <cr> <cr><c-g>u
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
-" Swap text without copying it (ddp, xp, ...)
-" Since we use the system register, the unnamed register is fine to store it
-vnoremap H ""x2h""p
-vnoremap J :m '>+1<cr>gv=gv
-vnoremap K :m '<-2<cr>gv=gv
-vnoremap L ""x""p
-
-nnoremap <leader>h ""x2h""p
-nnoremap <leader>j :m .+1<cr>==
-nnoremap <leader>k :m .-2<cr>==
-nnoremap <leader>l ""x""p
-
-inoremap <c-h> <esc>h ""x2h""pa
-inoremap <c-k> <esc>:m .-2<cr>==a
-inoremap <c-j> <esc>:m .+1<cr>==a
-inoremap <c-l> <esc> ""x""pa:set
-
-
 set number relativenumber " Hybrid numbers
 
 function ToggleRelativeNumber()
