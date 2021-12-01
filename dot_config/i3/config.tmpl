@@ -131,10 +131,10 @@ bindsym Mod4+r mode "$mode_window_resize"
 # send C-\ C-n (exit terminal mode) using C-'
 bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getwindowfocus) 'control+backslash' key 'control+n'
 
+assign [class="Ferdi"] number $ws4
 {{ if .work }}
 assign [class="Teams"] number $ws4
 assign [class="Slack"] number $ws4
-assign [class="Ferdi"] number $ws4
 assign [class="Evolution"] number $ws10
 assign [class="DBeaver"] number $ws5
 {{ end }}
