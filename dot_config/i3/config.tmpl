@@ -68,11 +68,19 @@ set $ws1 "1: Main"
 set $ws2 "2: Meetings"
 set $ws3 "3: Maintenance"
 set $ws4 "4: Chat"
+{{ if .work }}
+set $ws5 "5: DBeaver"
+{{ else }}
 set $ws5 5
+{{ end }}
 set $ws6 6
 set $ws7 7
 set $ws8 8
+{{ if .work }}
+set $ws9 "9: misc term"
+{{ else }}
 set $ws9 9
+{{ end }}
 set $ws10 10
 
 # Plasma compatibility improvements
@@ -123,7 +131,13 @@ bindsym Mod4+r mode "$mode_window_resize"
 # send C-\ C-n (exit terminal mode) using C-'
 bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getwindowfocus) 'control+backslash' key 'control+n'
 
+{{ if .work }}
+assign [class="Teams"] number $ws4
+assign [class="Slack"] number $ws4
+assign [class="Ferdi"] number $ws4
 assign [class="Evolution"] number $ws10
+assign [class="DBeaver"] number $ws5
+{{ end }}
 
 exec i3-msg workspace number $ws1 # Start at defined workspace instead of at workspace 1 (default)
 # Toggle i3 bar
@@ -580,3 +594,5 @@ mode "$mode_move_workspace" {
 bar {
         status_command i3status
 }
+
+# vim: sw=4 ts=4 wm=4 et ft=conf
