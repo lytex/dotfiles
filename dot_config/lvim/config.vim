@@ -4,6 +4,10 @@ else
     call plug#begin('~/.vim/plugged')
 endif
 
+
+let g:vim_monokai_tasty_italic = 1
+colorscheme vim-monokai-tasty
+
 if has('nvim')
     Plug 'ThePrimeagen/vim-be-good'
 endif

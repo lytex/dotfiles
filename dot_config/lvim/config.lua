@@ -18,6 +18,10 @@ lvim.leader = "space"
 -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- unmap a default keymapping
+lvim.keys.normal_mode["<C-h>"] = ""
+lvim.keys.normal_mode["<C-j>"] = ""
+lvim.keys.normal_mode["<C-k>"] = ""
+lvim.keys.normal_mode["<C-l>"] = ""
 -- lvim.keys.normal_mode["<C-Up>"] = ""
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
@@ -179,6 +183,7 @@ lvim.plugins = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
 
+lvim.builtin.which_key.mappings["w"] = {}
 
 vim.cmd 'source ~/.config/lvim/init.vim'
 

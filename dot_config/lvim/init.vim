@@ -43,8 +43,6 @@ set lazyredraw " No fancy redraw stuff, :set lz if you want to enable it
 inoremap jk <Esc>
 
 syntax enable " enable syntax processing
-let g:vim_monokai_tasty_italic = 1
-colorscheme vim-monokai-tasty
 
 " Bidirectional integration with system clipboard
 set clipboard=unnamedplus

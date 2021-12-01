@@ -18,6 +18,8 @@ nnoremap <silent> <leader><tab>n :tabe<CR>
 nnoremap <silent> <leader><tab>d :tabclose<CR>
 nnoremap          <leader><tab>N :TabooOpen<Space>
 nnoremap          <leader><tab>r :TabooRename<Space>
+nnoremap          <leader><tab>] :tabnext
+nnoremap          <leader><tab>[ :tabprevious
 
 
 nnoremap <Leader>w <C-w>
