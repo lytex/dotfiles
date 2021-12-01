@@ -8,4 +8,12 @@ desktop = false
 {{ end }}
 
 
+{{- $work := promptBool "Is this a work computer?" -}}
+
+{{ if $work }}
+work = true
+{{ else }}
+work = false
+{{ end }}
+
 # vim: sw=2 ts=2 wm=2 et ft=toml
