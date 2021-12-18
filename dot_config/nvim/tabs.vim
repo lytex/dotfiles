@@ -1,6 +1,5 @@
 
 let g:taboo_tab_format = "%n:%f%m"
-Plug 'gcmt/taboo.vim'
 set sessionoptions+=tabpages,globals
 
 nnoremap <leader><tab>1 1gt
