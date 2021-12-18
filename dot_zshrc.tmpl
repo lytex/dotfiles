@@ -140,6 +140,9 @@ bindkey -a ' p' fzf-cd-places
 bindkey -a ' t' fzf-cd-tags
 bindkey -a '  ' edit-command-line
 
+function tag() {
+    setfattr -n user.xdg.tags -v $@
+}
 
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
@@ -164,6 +167,7 @@ alias t=tldr
 alias tb="command t" # From neomux
 alias c=chezmoi
 export PATH="$PATH:/$HOME/.local/bin"
+export PATH="$PATH:/home/julian/.cargo/bin"
 # alias c=$HOME/.local/bin/chezmoi
 export EDITOR="nvr --remote-wait"
 export VISUAL="nvr --remote-wait"
