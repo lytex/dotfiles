@@ -118,6 +118,10 @@ return packer.startup(function(use)
   use "CoatiSoftware/vim-sourcetrail"
   use "sheerun/vim-polyglot"
   use "gcmt/taboo.vim"
+  use {
+    'glacambre/firenvim',
+    run = function() vim.fn['firenvim#install'](0) end 
+  }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

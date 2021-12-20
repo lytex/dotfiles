@@ -1,10 +1,3 @@
-lua << EOF
-use {
-    'glacambre/firenvim',
-    run = function() vim.fn['firenvim#install'](0) end 
-}
-EOF
-
 au BufEnter github.com_*.txt set filetype=markdown
 au BufEnter console.cloud.google.com_bigquery*.txt set filetype=sql
 let g:firenvim_config = {
