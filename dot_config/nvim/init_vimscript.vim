@@ -17,9 +17,6 @@ onoremap <silent> X :<c-u>call sneak#wrap(v:operator,   2, 1, 0, 1)<cr>
 
 let g:highlightedyank_highlight_duration = 100
 
-map <c-h>c :lua require('telescope.builtin').help_tags()<cr>
-
-
 let g:neomux_default_shell = "zsh"
 let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
@@ -94,18 +91,6 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 set number relativenumber " Hybrid numbers
 
-function ToggleRelativeNumber()
-    if &relativenumber
-        set norelativenumber
-    else
-        set relativenumber
-    endif
-endfunction
-
-" Toggle line numbers with <leader>tl
-nmap <silent>  <leader>tl :call ToggleRelativeNumber()<CR>
-
-
 autocmd TermOpen * setlocal nonumber norelativenumber mouse=a " Disable relative number in terminal and mouse support
 
 " Tabs
@@ -117,5 +102,5 @@ set expandtab " expand tabs into spaces
 set smartindent " insert indent automatically on new line
 
 " Different tab/space stops"
-autocmd Filetype yaml,markdown,html,css,json,javascript,sql setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd Filetype yaml,markdown,html,css,json,javascript,sql,lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
