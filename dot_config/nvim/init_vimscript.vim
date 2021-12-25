@@ -27,7 +27,6 @@ nnoremap <silent> ZB :<C-u>bd!<CR>
 
 runtime tabs.vim
 
-runtime lang.vim
 runtime jumphl.vim
 DoJumpHl 
 
