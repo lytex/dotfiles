@@ -61,7 +61,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-	use("lunarvim/darkplus.nvim")
+	use("patstockwell/vim-monokai-tasty")
 
 	-- cmp plugins
 	use("hrsh7th/nvim-cmp") -- The completion plugin
@@ -89,37 +89,74 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
+	-- See TS syntax tree along with the current file
+	use("nvim-treesitter/playground")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
 
-	-- Custom plugins
-	use("ThePrimeagen/vim-be-good")
+	-- Vim movements & commands
 	-- Surround an object with a character
 	use("tpope/vim-surround")
+	-- Define pairs of mappings [<cmd> ]<cmd> that do <cmd> forwards and backwards
 	use("tpope/vim-unimpaired")
+	-- Repeat vim-unimpaired and vim-surround commands
+	use("tpope/vim-repeat")
+	-- use <EasyMotion-prefix> <motion> to highlight possible motions (jk, web, ...)
 	use("easymotion/vim-easymotion")
+	-- motions like f, t using 2 characters
 	use("justinmk/vim-sneak")
+	-- highlight posible f, t motions
 	use("unblevable/quick-scope")
+	-- Movements inside () [] {} , and more
+	use("wellle/targets.vim")
+
+	-- syntax highlighting and more for most languages
+	use("sheerun/vim-polyglot")
+
 	use("machakann/vim-highlightedyank")
+	-- Auto insertion of [], {}, (), "" keeping the cursor in the middle
 	use("jiangmiao/auto-pairs")
+
+	-- Smooth C-u, C-d and more
 	use("psliwka/vim-smoothie")
+
+	-- Fancy tabbed terminal emulator to run multiple shell windows and only one neovim instance (neovim-remote)
 	use("nikvdp/neomux")
-	use("patstockwell/vim-monokai-tasty")
-	use("ActivityWatch/aw-watcher-vim")
+	-- Better tab management
+	use("gcmt/taboo.vim")
+	-- Interactive terminal
 	use("metakirby5/codi.vim")
+
+	-- Get statistics about vim usage
+	use("ActivityWatch/aw-watcher-vim")
+	-- Integration with Sourcetral (Source code visualization)
+	use("CoatiSoftware/vim-sourcetrail")
+
+	-- Movements for python and space indented languages
 	use("jeetsukumaran/vim-pythonsense")
 	use("michaeljsmith/vim-indent-object")
-	use("CoatiSoftware/vim-sourcetrail")
-	use("sheerun/vim-polyglot")
-	use("gcmt/taboo.vim")
+
+	-- neovim in the browser
 	use({
 		"glacambre/firenvim",
 		run = function()
 			vim.fn["firenvim#install"](0)
 		end,
 	})
+
+	-- use("axvr/org.vim")
+	-- use({
+	-- 	"nvim-orgmode/orgmode",
+	-- 	ft = { "org" },
+	-- 	config = function()
+	-- 		require("orgmode").setup({})
+	-- 	end,
+	-- })
+
+	-- misc
+	use("ThePrimeagen/vim-be-good")
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
