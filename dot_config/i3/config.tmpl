@@ -23,7 +23,10 @@
 # Applications
 #
 set $terminal i3-sensible-terminal -e "nvim"  --cmd "let g:neomux_win_num_status = '«Terminal[%{WindowNumber()}]»'" -c "Neomux"
-set $code_terminal ~/.local/kitty.app/bin/kitty sh -c nvim 
+set $code_terminal ~/.local/kitty.app/bin/kitty --title=kitty --class=kitty --name=kitty sh -c nvim 
+# Hack to prevent killing a terminal window with unsaved work
+# Control+semicolon i k confirms kill and closes the nagbar
+set $gentle_kill zsh -c '[[ "$(xdotool getactivewindow getwindowname)" =~ "^(Alacritty|kitty)$" ]] && i3-nagbar -m "KILL Are you sure??" || wmctrl -c :ACTIVE:'
 
 # set $editor /usr/bin/emacsclient -c
 # set $web /home/guillaume/.local/bin/firefox
@@ -126,10 +129,10 @@ bindsym Mod1+Mod4+8 move container to workspace number $ws8
 bindsym Mod1+Mod4+9 move container to workspace number $ws9
 bindsym Mod1+Mod4+0 move container to workspace number $ws0
 
-bindsym Mod4+q kill
+bindsym Mod4+q exec $gentle_kill
 bindsym Mod4+r mode "$mode_window_resize"
 # send C-\ C-n (exit terminal mode) using C-'
-bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getwindowfocus) 'control+backslash' key 'control+n'
+bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getactivewindow) 'control+backslash' key 'control+n'
 
 assign [class="Ferdi"] number $ws4
 {{ if .work }}
@@ -179,7 +182,7 @@ mode "$mode_switch" {
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
     # quit focused window
-    bindsym q kill
+    bindsym q exec $gentle_kill
     bindsym w mode "$mode_move_workspace"
     bindsym r mode "$mode_window_resize"
     # go to open window
@@ -248,7 +251,7 @@ mode "$mode_navigate" {
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
    # quit focused window
-    bindsym q kill
+    bindsym q exec $gentle_kill
     bindsym w mode "$mode_move_workspace"
     bindsym r mode "$mode_window_resize"
     # go to open window
@@ -316,7 +319,7 @@ mode "$mode_move_container" {
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
     # quit focused window
-    bindsym q kill
+    bindsym q exec $gentle_kill
     bindsym w mode "$mode_move_workspace"
     bindsym r mode "$mode_window_resize"
     # go to open window
@@ -356,7 +359,7 @@ mode "$mode_move_container" {
     bindsym Shift+l move container to output down
 
     # quit focused window
-    bindsym q kill
+    bindsym q exec $gentle_kill
 
     # toggle tiling / floating
     bindsym Shift+space floating toggle
@@ -390,7 +393,7 @@ mode "$mode_layout" {
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
     # quit focused window
-    bindsym q kill
+    bindsym q exec $gentle_kill
     bindsym r mode "$mode_window_resize"
     # go to open window
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
@@ -445,7 +448,7 @@ mode "$mode_window_resize" {
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
     # quit focused window
-    bindsym q kill
+    bindsym q exec $gentle_kill
     bindsym w mode "$mode_move_workspace"
     # go to open window
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
