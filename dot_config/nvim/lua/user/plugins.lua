@@ -82,7 +82,8 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 
 	-- Telescope
-	use("nvim-telescope/telescope.nvim")
+	use({ "nvim-telescope/telescope.nvim", commit = "9aaaa0c5f3eb665b51bbcafda084de4b0952fef0" })
+	use("nvim-telescope/telescope-project.nvim")
 
 	-- Treesitter
 	use({
