@@ -34,4 +34,16 @@ vim.cmd([[
     autocmd!
     autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
   augroup end
-]])
+
+  function! ToggleFormatOnSave()
+      if !exists('#_lsp#BufWritePre')
+        augroup _lsp
+          autocmd!
+          autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()
+        augroup end
+      else
+        augroup _lsp
+          autocmd!
+        augroup end
+      endif
+  endfunction]])

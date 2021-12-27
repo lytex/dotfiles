@@ -15,7 +15,7 @@ toggleterm.setup({
 	persist_size = true,
 	direction = "float",
 	close_on_exit = true,
-	shell = vim.o.shell,
+	shell = "zsh",
 	float_opts = {
 		border = "curved",
 		winblend = 0,
@@ -67,4 +67,25 @@ local python = Terminal:new({ cmd = "python", hidden = true })
 
 function _PYTHON_TOGGLE()
 	python:toggle()
+end
+
+-- Toggle stuff
+
+-- Sometimes a floating window gets stuck and this function comes in handy
+function CloseAllFloatingWindows()
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		local config = vim.api.nvim_win_get_config(win)
+		if config.relative ~= "" then
+			vim.api.nvim_win_close(win, false)
+			print("Closing window", win)
+		end
+	end
+end
+
+function ToggleRelativeNumber()
+	if vim.opt.relativenumber:get() then
+		vim.opt.relativenumber = false
+	else
+		vim.opt.relativenumber = true
+	end
 end

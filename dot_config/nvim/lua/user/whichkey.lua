@@ -78,25 +78,6 @@ local opts = {
 	nowait = true, -- use `nowait` when creating keymaps
 }
 
--- Sometimes a floating window gets stuck and this function comes in handy
-function CloseAllFloatingWindows()
-	for _, win in ipairs(vim.api.nvim_list_wins()) do
-		local config = vim.api.nvim_win_get_config(win)
-		if config.relative ~= "" then
-			vim.api.nvim_win_close(win, false)
-			print("Closing window", win)
-		end
-	end
-end
-
-function ToggleRelativeNumber()
-	if vim.opt.relativenumber:get() then
-		vim.opt.relativenumber = false
-	else
-		vim.opt.relativenumber = true
-	end
-end
-
 local mappings = {
 	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
 	["b"] = {
@@ -133,6 +114,7 @@ local mappings = {
 		r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
 		R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
 		s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+		S = { "<cmd>lua require 'gitsigns'.stage_buffer()<cr>", "Stage Hunk" },
 		u = {
 			"<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
 			"Undo Stage Hunk",
@@ -196,11 +178,13 @@ local mappings = {
 	t = {
 		name = "Terminal",
 		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
+		f = { "ToggleFormatOnSave()", "Toggle Format on Save" },
 		r = { "<cmd>Neomux<cr>", "Neomux" },
 		p = { "<cmd>TSPlaygroundToggle<cr>", "View TS Structure" },
 		l = { "<cmd>lua ToggleRelativeNumber()<cr>", "Toggle RelNumber" },
 		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+		v = { "<cmd>vim.diagnostic.config({ virtual_text = true })<cr>", "Enable VirtualText" },
+		b = { "<cmd>vim.diagnostic.config({ virtual_text = false })<cr>", "Disable VirtualText" },
 	},
 }
 
