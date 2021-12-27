@@ -126,6 +126,9 @@ local mappings = {
 			"<cmd>Gitsigns diffthis HEAD<cr>",
 			"Diff",
 		},
+		-- Send file to upper buffer,
+		-- Assumes there is a horizontal split
+		f = { "<cmd>norm<C-w>rmRgF<C-w>j`R<cr>", "go file buff up" },
 	},
 	h = {
 		name = "Help",
@@ -178,7 +181,7 @@ local mappings = {
 	t = {
 		name = "Terminal",
 		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
-		f = { "ToggleFormatOnSave()", "Toggle Format on Save" },
+		f = { "<cmd>call ToggleFormatOnSave()<cr>", "Toggle Format on Save" },
 		r = { "<cmd>Neomux<cr>", "Neomux" },
 		p = { "<cmd>TSPlaygroundToggle<cr>", "View TS Structure" },
 		l = { "<cmd>lua ToggleRelativeNumber()<cr>", "Toggle RelNumber" },
