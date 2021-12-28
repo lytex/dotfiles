@@ -115,11 +115,6 @@ return packer.startup(function(use)
 
 	-- syntax highlighting and more for most languages
 	use("sheerun/vim-polyglot")
-	-- Select python virtual environment
-	use("HallerPatrick/py_lsp.nvim")
-
-	-- Use .vimrc and .vimrc.lua safely
-	use("jenterkin/vim-autosource")
 
 	use("machakann/vim-highlightedyank")
 	-- Auto insertion of [], {}, (), "" keeping the cursor in the middle
