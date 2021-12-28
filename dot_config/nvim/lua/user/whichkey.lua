@@ -185,9 +185,8 @@ local mappings = {
 		r = { "<cmd>Neomux<cr>", "Neomux" },
 		p = { "<cmd>TSPlaygroundToggle<cr>", "View TS Structure" },
 		l = { "<cmd>lua ToggleRelativeNumber()<cr>", "Toggle RelNumber" },
-		h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
-		v = { "<cmd>vim.diagnostic.config({ virtual_text = true })<cr>", "Enable VirtualText" },
-		b = { "<cmd>vim.diagnostic.config({ virtual_text = false })<cr>", "Disable VirtualText" },
+		v = { "<cmd>lua vim.diagnostic.config({ virtual_text = true })<cr>", "Enable VirtualText" },
+		b = { "<cmd>lua vim.diagnostic.config({ virtual_text = false })<cr>", "Disable VirtualText" },
 	},
 }
 
