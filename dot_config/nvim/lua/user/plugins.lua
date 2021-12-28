@@ -124,6 +124,13 @@ return packer.startup(function(use)
 	-- Smooth C-u, C-d and more
 	use("psliwka/vim-smoothie")
 
+	use({
+		"jenterkin/vim-autosource",
+		config = function()
+			vim.g.autosource_hashdir = "$HOME/.cache/vim-autosource/hashes"
+		end,
+	})
+
 	-- Fancy tabbed terminal emulator to run multiple shell windows and only one neovim instance (neovim-remote)
 	use("nikvdp/neomux")
 	-- Better tab management
