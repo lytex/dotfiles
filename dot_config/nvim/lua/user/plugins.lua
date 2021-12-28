@@ -93,6 +93,7 @@ return packer.startup(function(use)
 	-- See TS syntax tree along with the current file
 	use("nvim-treesitter/playground")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("p00f/nvim-ts-rainbow")
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
