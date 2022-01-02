@@ -133,6 +133,7 @@ bindsym Mod4+q exec $gentle_kill
 bindsym Mod4+r mode "$mode_window_resize"
 # send C-\ C-n (exit terminal mode) using C-'
 bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getactivewindow) 'control+backslash' key 'control+n'
+bindsym --release Mod4+p exec xdotool key 'Print'
 
 assign [class="Ferdi"] number $ws4
 {{ if .work }}
