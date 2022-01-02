@@ -45,3 +45,6 @@ vim.cmd("set whichwrap+=<,>,[,],h,l")
 vim.cmd([[set iskeyword+=-]])
 vim.cmd([[set isfname+=32]]) -- Allow filenames with spaces
 vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
+
+vim.cmd([[let g:AutoPairsMapBS = 0]])
+vim.cmd([[let g:AutoPairsMapCh = 0]])

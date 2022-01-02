@@ -32,6 +32,8 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+-- Ctrl+Backspace deletes word
+keymap("i", "<C-h>", "<C-w>", opts)
 
 -- Visual --
 -- Stay in indent mode
