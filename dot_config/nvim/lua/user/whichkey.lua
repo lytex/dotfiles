@@ -93,11 +93,11 @@ local mappings = {
 		"Find files",
 	},
 	["."] = {
-		"<cmd>lua require('telescope.builtin').file_browser()<cr>",
+		"<cmd>lua require('telescope').extensions.file_browser.file_browser()<cr>",
 		"Find files",
 	},
 	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
-	["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+	["P"] = { "<cmd>lua require('telescope').extensions.project.project{display_type = 'full'}<cr>", "Projects" },
 
 	p = {
 		name = "Packer",

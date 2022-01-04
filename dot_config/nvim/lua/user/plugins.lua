@@ -52,7 +52,6 @@ return packer.startup(function(use)
 	use("moll/vim-bbye")
 	use("nvim-lualine/lualine.nvim")
 	use("akinsho/toggleterm.nvim")
-	use("ahmedkhalf/project.nvim")
 	use("lewis6991/impatient.nvim")
 	use("lukas-reineke/indent-blankline.nvim")
 	use("goolord/alpha-nvim")
@@ -84,6 +83,7 @@ return packer.startup(function(use)
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
 	use("nvim-telescope/telescope-project.nvim")
+	use("nvim-telescope/telescope-file-browser.nvim")
 
 	-- Treesitter
 	use({
@@ -97,6 +97,8 @@ return packer.startup(function(use)
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
+	-- Conflict markers highlighted
+	use("rhysd/conflict-marker.vim")
 
 	-- Vim movements & commands
 	-- Surround an object with a character
