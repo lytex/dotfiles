@@ -21,8 +21,8 @@ let g:neomux_default_shell = "zsh"
 let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 " C-u means erase selection like '<,'>:
-nnoremap <silent> ZC :<C-u>w<CR>:<C-u>bd<CR>
-nnoremap <silent> ZB :<C-u>bd!<CR>
+nnoremap <silent> ZC :<C-u>w<CR>:<C-u>Bd<CR>
+nnoremap <silent> ZB :<C-u>Bd!<CR>
 
 
 runtime tabs.vim
