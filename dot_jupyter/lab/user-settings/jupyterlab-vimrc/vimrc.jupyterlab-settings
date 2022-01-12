@@ -1,0 +1,15 @@
+{
+"imap":
+    [
+        ["<C-Esc>", "<Esc>"],
+    ],
+"nmap":
+    [
+        ["<C-Esc>", "<Esc>"],
+    ],
+"vmap":
+    [
+        ["<C-Esc>", "<Esc>"],
+    ],
+    "unnamedplus": true,
+}
