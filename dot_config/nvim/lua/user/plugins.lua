@@ -130,7 +130,7 @@ return packer.startup(function(use)
 	use({
 		"jenterkin/vim-autosource",
 		config = function()
-			vim.g.autosource_hashdir = "$HOME/.cache/vim-autosource/hashes"
+			vim.g.autosource_hashdir = os.getenv("HOME") .. "/.cache/vim-autosource/hashes"
 		end,
 	})
 
