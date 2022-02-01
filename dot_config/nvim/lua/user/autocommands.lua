@@ -32,15 +32,15 @@ vim.cmd([[
   " https://stackoverflow.com/questions/67550082/neovim-select-a-language-prompt
   augroup _lsp
     autocmd!
-    " Increase timeout to 1000ms for larger files
-    autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 1000)
+    " Increase timeout to 10000ms for larger files
+    autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 10000)
   augroup end
 
   function! ToggleFormatOnSave()
       if !exists('#_lsp#BufWritePre')
         augroup _lsp
           autocmd!
-          autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 1000)
+          autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 10000)
         augroup end
       else
         augroup _lsp
