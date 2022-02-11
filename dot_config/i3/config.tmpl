@@ -132,7 +132,11 @@ bindsym Mod4+r mode "$mode_window_resize"
 bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getactivewindow) 'control+backslash' key 'control+n'
 bindsym --release Mod4+p exec xdotool key 'Print'
 
+# Get windows class with xprop | grep 'CLASS'
+# Then click the appropiate window (use a i3 split)
 assign [class="Ferdi"] number $ws4
+assign [class="TelegramDesktop"] number $ws4
+assign [class="whatsdesk"] number $ws4
 {{ if .work }}
 assign [class="Teams"] number $ws4
 assign [class="Slack"] number $ws4
