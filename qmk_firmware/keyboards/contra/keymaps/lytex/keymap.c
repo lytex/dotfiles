@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "quantum.h"
 #include "keymap_us_international_linux.h"
+#include "keymap_spanish.h"
 
 /*
 // TAP_DANCE_ENABLE = yes  # Enables it in rules.mk
@@ -24,7 +25,16 @@ enum userspace_custom_keycodes {
     CU_OACU,
     CU_AACU,
     CU_NTIL,
-    CU_IQUE
+    CU_IQUE,
+    CU_GRV,
+    CU_CIRC,
+    CUS_EACU,
+    CUS_UDIA,
+    CUS_UACU,
+    CUS_IACU,
+    CUS_OACU,
+    CUS_AACU,
+    CUS_NTIL,
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -101,6 +111,105 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           unregister_code(KC_LSFT);
       }
       return false; // Skip all further processing of this key
+    case CU_GRV:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code((uint8_t) ES_GRV);
+          unregister_code((uint8_t) ES_GRV);
+          register_code((uint8_t) ES_GRV);
+          unregister_code((uint8_t) ES_GRV);
+      }
+      return false; // Skip all further processing of this key
+    case CU_CIRC:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code(KC_LSFT);
+          register_code((uint8_t) ES_GRV);
+          unregister_code((uint8_t) ES_GRV);
+          unregister_code(KC_LSFT);
+          register_code(KC_LSFT);
+          register_code((uint8_t) ES_GRV);
+          unregister_code((uint8_t) ES_GRV);
+          unregister_code(KC_LSFT);
+      }
+      return false; // Skip all further processing of this key
+    case CUS_EACU:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code((uint8_t) KC_QUOT);
+          unregister_code((uint8_t) KC_QUOT);
+          register_code(KC_LSFT);
+          register_code((uint8_t) KC_E);
+          unregister_code((uint8_t) KC_E);
+          unregister_code(KC_LSFT);
+      }
+      return false; // Skip all further processing of this key
+    case CUS_UDIA:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code(KC_LSFT);
+          register_code((uint8_t) KC_QUOT);
+          unregister_code((uint8_t) KC_QUOT);
+          unregister_code(KC_LSFT);
+          register_code(KC_LSFT);
+          register_code((uint8_t) KC_U);
+          unregister_code((uint8_t) KC_U);
+          unregister_code(KC_LSFT);
+      }
+      return false; // Skip all further processing of this key
+    case CUS_UACU:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code((uint8_t) KC_QUOT);
+          unregister_code((uint8_t) KC_QUOT);
+          register_code(KC_LSFT);
+          register_code((uint8_t) KC_U);
+          unregister_code((uint8_t) KC_U);
+          unregister_code(KC_LSFT);
+      }
+      return false; // Skip all further processing of this key
+    case CUS_IACU:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code((uint8_t) KC_QUOT);
+          unregister_code((uint8_t) KC_QUOT);
+          register_code(KC_LSFT);
+          register_code((uint8_t) KC_I);
+          unregister_code((uint8_t) KC_I);
+          unregister_code(KC_LSFT);
+      }
+      return false; // Skip all further processing of this key
+    case CUS_OACU:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code((uint8_t) KC_QUOT);
+          unregister_code((uint8_t) KC_QUOT);
+          register_code(KC_LSFT);
+          register_code((uint8_t) KC_O);
+          unregister_code((uint8_t) KC_O);
+          unregister_code(KC_LSFT);
+      }
+      return false; // Skip all further processing of this key
+    case CUS_AACU:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code((uint8_t) KC_QUOT);
+          unregister_code((uint8_t) KC_QUOT);
+          register_code(KC_LSFT);
+          register_code((uint8_t) KC_A);
+          unregister_code((uint8_t) KC_A);
+          unregister_code(KC_LSFT);
+      }
+      return false; // Skip all further processing of this key
+    case CUS_NTIL:
+      if (record->event.pressed) {
+        // Do something when pressed
+          register_code(KC_LSFT);
+          register_code((uint8_t) KC_SCLN);
+          unregister_code((uint8_t) KC_SCLN);
+          unregister_code(KC_LSFT);
+      }
+      return false; // Skip all further processing of this key
     default:
       return true; // Process all other keycodes normally
   }
@@ -111,6 +220,9 @@ enum contra_layers {
   _INVERSE_QWERTY,
   _SHIFTED_INVERSE_QWERTY,
   _ALTGR_INVERSE_QWERTY,
+  _ALTGR_SHIFTED_INVERSE_QWERTY,
+  _NUMBER_INVERSE_QWERTY,
+  _NUMBER_SHIFTED_INVERSE_QWERTY,
   _NUMBER,
   _NAVIGATION,
   _STENO
@@ -123,6 +235,9 @@ enum contra_layers {
 #define IQWERT TO(_INVERSE_QWERTY)
 #define SIQWER OSL(_SHIFTED_INVERSE_QWERTY)
 #define AIQWER OSL(_ALTGR_INVERSE_QWERTY)
+#define ASIQWE OSL(_ALTGR_SHIFTED_INVERSE_QWERTY)
+#define NIQWER OSL(_NUMBER_INVERSE_QWERTY)
+#define NISQWE OSL(_NUMBER_SHIFTED_INVERSE_QWERTY)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -157,7 +272,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * `------------------------------------------------------------------------------------' 
     */
 	[_NUMBER] = LAYOUT_ortho_4x12(
-    KC_GRV, KC_NO, KC_NO, KC_MINS, KC_EQL, KC_NO, KC_NO, KC_NO, KC_BSLS, KC_LBRC, KC_RBRC, KC_BSPC,
+    KC_GRV, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSLS, KC_LBRC, KC_RBRC, KC_BSPC,
     KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL,
     OSM(MOD_LSFT), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MT(MOD_LCTL, KC_ESC), KC_COMM, KC_DOT, KC_SLSH, OSM(MOD_RSFT),
     KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NUM, KC_SPC, KC_TRNS, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
@@ -222,15 +337,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     */
 	[_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
     KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
-    MT(MOD_LCTL, KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_LT, KC_MINS,
-    SIQWER, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_AMPR, SIQWER,
-        KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NUM, AIQWER, KC_NO, KC_NO, QWERTY),
+    MT(MOD_LCTL, KC_ESC), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, ES_SCLN, ES_QUOT,
+    SIQWER, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, ES_SLSH, SIQWER,
+    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, AIQWER, KC_NO, KC_NO, QWERTY),
 
 	[_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
     KC_TAB, S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T), S(KC_Y), S(KC_U), S(KC_I), S(KC_O), S(KC_P), KC_BSPC,
-    MT(MOD_LCTL, KC_ESC), S(KC_A), S(KC_S), S(KC_D), S(KC_F), S(KC_G), S(KC_H), S(KC_J), S(KC_K), S(KC_L), KC_GT, KC_AT,
-    KC_TRNS, S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B), S(KC_N), S(KC_M), KC_NUBS, S(KC_NUBS), KC_UNDS, KC_TRNS,
-    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NUM, AIQWER, KC_NO, KC_NO, QWERTY),
+    MT(MOD_LCTL, KC_ESC), S(KC_A), S(KC_S), S(KC_D), S(KC_F), S(KC_G), S(KC_H), S(KC_J), S(KC_K), S(KC_L), ES_COLN, ES_DQUO,
+    KC_TRNS, S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B), S(KC_N), S(KC_M), ES_LABK, ES_RABK, ES_QUES, KC_TRNS,
+    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, ASIQWE, KC_NO, KC_NO, QWERTY),
 
 	// [_ALTGR_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
  //    KC_TAB, ALTGR(KC_Q), ALTGR(KC_W), ALTGR(KC_E), ALTGR(KC_R), ALTGR(KC_T), ALTGR(KC_Y), ALTGR(KC_U), ALTGR(KC_I), ALTGR(KC_O), ALTGR(KC_P), KC_BSPC,
@@ -241,8 +356,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_ALTGR_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
     KC_TAB, KC_NO, KC_NO, CU_EACU, KC_NO, KC_NO, CU_UDIA, CU_UACU, CU_IACU, CU_OACU, KC_NO, KC_BSPC,
     MT(MOD_LCTL, KC_ESC), CU_AACU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
-    OSM(MOD_LSFT), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, CU_IQUE, OSM(MOD_RSFT),
-    KC_ESC, IQWERT, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NUM, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
+    ASIQWE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, CU_NTIL, KC_NO, KC_NO, KC_NO, CU_IQUE, ASIQWE,
+    KC_ESC, IQWERT, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, KC_TRNS, KC_NO, KC_NO, QWERTY),
+
+	[_ALTGR_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    KC_TAB, KC_NO, KC_NO, CUS_EACU, KC_NO, KC_NO, CUS_UDIA, CUS_UACU, CUS_IACU, CUS_OACU, KC_NO, KC_BSPC,
+    MT(MOD_LCTL, KC_ESC), CUS_AACU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,
+    KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, CUS_NTIL, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS,
+    KC_ESC, IQWERT, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, KC_TRNS, KC_NO, KC_NO, QWERTY),
+
+	[_NUMBER_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    CU_GRV, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSLS, ES_LBRC, ES_RBRC, KC_BSPC,
+    KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, ES_MINS, ES_EQL,
+    NISQWE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MT(MOD_LCTL, KC_ESC), KC_COMM, KC_DOT, ES_SLSH, NISQWE,
+    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_SPC, NAV, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
+
+	[_NUMBER_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    ES_TILD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSLS, ES_LCBR, ES_RCBR, KC_BSPC,
+    ES_EXLM, ES_AT, ES_HASH, ES_DLR, ES_PERC, CU_CIRC, ES_AMPR, ES_ASTR, ES_LPRN, ES_RPRN, ES_UNDS, ES_PLUS,
+    KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, MT(MOD_LCTL, KC_ESC), KC_COMM, KC_DOT, ES_SLSH, OSM(MOD_RSFT),
+    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_SPC, NAV, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
 };
 
 
