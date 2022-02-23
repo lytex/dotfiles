@@ -11,7 +11,7 @@ nnoremap <leader><tab>6 6gt
 nnoremap <leader><tab>7 7gt
 nnoremap <leader><tab>8 8gt
 nnoremap <leader><tab>9 9gt
-nnoremap <leader><tab>0 0gt
+nnoremap <leader><tab>0 10gt
 
 nnoremap <silent> <leader><tab>n :tabe<CR>
 nnoremap <silent> <leader><tab>d :tabclose<CR>
