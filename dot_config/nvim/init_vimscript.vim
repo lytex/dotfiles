@@ -18,6 +18,7 @@ onoremap <silent> X :<c-u>call sneak#wrap(v:operator,   2, 1, 0, 1)<cr>
 let g:highlightedyank_highlight_duration = 100
 
 let g:neomux_default_shell = "zsh"
+let g:neomux_exit_term_mode_map = ""
 let $GIT_EDITOR = 'nvr -cc split --remote-wait'
 autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 " C-u means erase selection like '<,'>:
