@@ -95,6 +95,13 @@ return packer.startup(function(use)
 	use("nvim-treesitter/playground")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("p00f/nvim-ts-rainbow")
+	use({
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+	})
 
 	-- Git
 	use("lewis6991/gitsigns.nvim")
