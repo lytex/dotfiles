@@ -170,6 +170,16 @@ local mappings = {
 			"Workspace Symbols",
 		},
 	},
+	r = {
+		e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
+		f = {
+			"<Esc><Cmd>lua require('refactoring').refactor('Extract Function To File')<CR>",
+			"Extract Function To File",
+		},
+		v = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
+		i = { "<Esc><Cmd>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
+		r = { "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>", "w/ Telescope" },
+	},
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
