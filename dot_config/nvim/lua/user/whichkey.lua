@@ -87,7 +87,12 @@ local mappings = {
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
-	["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+	["c"] = {
+		name = "CodeAction",
+		a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "CodeAction" },
+		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+		f = { "<cmd>lua vim.diagnostic.open_float()<CR>", "OpenFloat" },
+	},
 	["f"] = {
 		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 		"Find files",
@@ -162,14 +167,15 @@ local mappings = {
 			"Prev Diagnostic",
 		},
 		l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-		q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
+		q = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
 		s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
 		S = {
 			"<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
 			"Workspace Symbols",
 		},
 	},
+	["q"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },

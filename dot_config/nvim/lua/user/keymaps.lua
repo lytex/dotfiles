@@ -35,6 +35,14 @@ keymap("i", "jk", "<ESC>", opts)
 -- Ctrl+Backspace deletes word
 keymap("i", "<C-h>", "<C-w>", opts)
 
+-- QuickFixList Remappings
+keymap("n", "<C-j>", "<cmd>cnext<CR>", opts)
+keymap("n", "<C-k>", "<cmd>cprev<CR>", opts)
+keymap("n", "<C-q>", "<cmd>copen<CR>", opts)
+keymap("n", "<leader>j", "<cmd>lnext<CR>", opts)
+keymap("n", "<leader>k", "<cmd>lprev<CR>", opts)
+keymap("n", "<leader>q", "<cmd>lopen<CR>", opts)
+
 -- Visual --
 -- Stay in indent mode
 keymap("v", "<", "<gv", opts)
