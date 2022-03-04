@@ -2,6 +2,7 @@
 #include "quantum.h"
 #include "keymap_us_international_linux.h"
 #include "keymap_spanish.h"
+#include <print.h>
 
 /*
 // TAP_DANCE_ENABLE = yes  # Enables it in rules.mk
@@ -36,6 +37,34 @@ enum userspace_custom_keycodes {
     CUS_AACU,
     CUS_NTIL,
 };
+
+
+enum contra_layers {
+  _QWERTY,
+  _INVERSE_QWERTY,
+  _SHIFTED_INVERSE_QWERTY,
+  _ALTGR_INVERSE_QWERTY,
+  _ALTGR_SHIFTED_INVERSE_QWERTY,
+  _NUMBER_INVERSE_QWERTY,
+  _NUMBER_SHIFTED_INVERSE_QWERTY,
+  _NUMBER,
+  _NAVIGATION,
+  _STENO
+};
+
+#define QWERTY TO(_QWERTY)
+#define NUM OSL(_NUMBER)
+#define NAV OSL(_NAVIGATION)
+#define STENO TO(_STENO)
+#define IQWERT TO(_INVERSE_QWERTY)
+#define SIQWER OSL(_SHIFTED_INVERSE_QWERTY)
+#define AIQWER OSL(_ALTGR_INVERSE_QWERTY)
+#define ASIQWE OSL(_ALTGR_SHIFTED_INVERSE_QWERTY)
+#define NIQWER OSL(_NUMBER_INVERSE_QWERTY)
+#define NISQWE OSL(_NUMBER_SHIFTED_INVERSE_QWERTY)
+
+
+uint8_t custom_shift_num = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -210,35 +239,59 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           unregister_code(KC_LSFT);
       }
       return false; // Skip all further processing of this key
+    case OSM(MOD_LSFT):
+    case OSM(MOD_RSFT):
+      if (record->event.pressed) {
+        // Do something when pressed
+            if (get_oneshot_layer() == _NUMBER) {
+                set_oneshot_layer(_NUMBER, ONESHOT_START);
+                    
+                custom_shift_num = 1;
+            }
+        }
     default:
+
+#define CUTOFF 4
+      if (record->event.pressed) {
+/* char* str = "0";
+          custom_shift_num++;
+          sprintf(str, "%i", custom_shift_num);
+          send_string(str); */
+    if ((get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) &&
+            (custom_shift_num == 1)) {
+              custom_shift_num = 2;
+            }
+          
+
+          /* if (get_oneshot_layer() == _NUMBER) { 
+              SEND_STRING("asdfnumber");
+          }
+          if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
+              SEND_STRING("Shift");
+          } */
+            /* if ((custom_shift_num >= CUTOFF) && ((get_oneshot_layer() == _NUMBER) &&
+                (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))))) {
+              clear_oneshot_layer_state(ONESHOT_PRESSED);
+              custom_shift_num = 0;
+          } */
+      }
       return true; // Process all other keycodes normally
   }
 }
 
-enum contra_layers {
-  _QWERTY,
-  _INVERSE_QWERTY,
-  _SHIFTED_INVERSE_QWERTY,
-  _ALTGR_INVERSE_QWERTY,
-  _ALTGR_SHIFTED_INVERSE_QWERTY,
-  _NUMBER_INVERSE_QWERTY,
-  _NUMBER_SHIFTED_INVERSE_QWERTY,
-  _NUMBER,
-  _NAVIGATION,
-  _STENO
-};
 
-#define QWERTY TO(_QWERTY)
-#define NUM OSL(_NUMBER)
-#define NAV OSL(_NAVIGATION)
-#define STENO TO(_STENO)
-#define IQWERT TO(_INVERSE_QWERTY)
-#define SIQWER OSL(_SHIFTED_INVERSE_QWERTY)
-#define AIQWER OSL(_ALTGR_INVERSE_QWERTY)
-#define ASIQWE OSL(_ALTGR_SHIFTED_INVERSE_QWERTY)
-#define NIQWER OSL(_NUMBER_INVERSE_QWERTY)
-#define NISQWE OSL(_NUMBER_SHIFTED_INVERSE_QWERTY)
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
 
+        if (record->event.pressed) {
+          if (custom_shift_num == 2) { 
+              clear_oneshot_layer_state(ONESHOT_PRESSED);
+              custom_shift_num = 0;
+          }
+          // if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
+          // }
+        }
+    
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
