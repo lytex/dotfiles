@@ -24,6 +24,10 @@ autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 " C-u means erase selection like '<,'>:
 nnoremap <silent> ZC :<C-u>w<CR>:<C-u>Bd<CR>
 nnoremap <silent> ZB :<C-u>Bd!<CR>
+" ZZ doesn't work when editing a patch, use ZX in these cases
+nmap <silent> ZX ZC<C-w>qa
+nnoremap <silent> ZM :<C-u>:q!<CR>
+
 
 
 runtime tabs.vim
