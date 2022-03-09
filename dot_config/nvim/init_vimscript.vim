@@ -29,7 +29,6 @@ nmap <silent> ZX ZC<C-w>qa
 nnoremap <silent> ZM :<C-u>:q!<CR>
 
 
-
 runtime tabs.vim
 
 runtime jumphl.vim
@@ -108,3 +107,20 @@ set smartindent " insert indent automatically on new line
 " Different tab/space stops"
 autocmd Filetype yaml,markdown,html,css,json,javascript,sql,lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
+
+let g:conflict_marker_enable_highlight = 1
+" disable the default highlight group
+let g:conflict_marker_highlight_group = ''
+" disable keybindings
+let g:conflict_marker_enable_mappings = 0
+
+" Include text after begin and end markers
+let g:conflict_marker_begin = '^<<<<<<< .*$'
+let g:conflict_marker_end   = '^>>>>>>> .*$'
+
+" from https://michurin.github.io/xterm256-color-picker/
+highlight ConflictMarkerBegin ctermbg=34 
+highlight ConflictMarkerOurs ctermbg=22  
+highlight ConflictMarkerTheirs ctermbg=27 
+highlight ConflictMarkerEnd ctermbg=39 
+highlight ConflictMarkerCommonAncestorsHunk ctermbg=yellow

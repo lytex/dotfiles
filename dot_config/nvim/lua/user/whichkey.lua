@@ -138,6 +138,15 @@ local mappings = {
 		-- Send file to upper buffer,
 		-- Assumes there is a horizontal split
 		f = { "<cmd>norm<C-w>rmRgF<C-w>j`R<cr>", "go file buff up" },
+		-- conflict
+		h = {
+			name = "Git conflict",
+			t = { "<cmd>ConflictMarkerThemselves<cr>", ">>> pick theirs" },
+			o = { "<cmd>ConflictMarkerOurselves<cr>", "<<< pick ours" },
+			n = { "<cmd>ConflictMarkerOurselves<cr>", "🙅 pick none" },
+			b = { "<cmd>ConflictMarkerBoth<cr>", "🤷 pick both" },
+			B = { "<cmd>ConflictMarkerBoth<cr>", "!🤷 pick both (inverted)" },
+		},
 	},
 	h = {
 		name = "Help",
