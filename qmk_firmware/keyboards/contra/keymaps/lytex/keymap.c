@@ -63,6 +63,10 @@ enum contra_layers {
 #define NIQWER OSL(_NUMBER_INVERSE_QWERTY)
 #define NISQWE OSL(_NUMBER_SHIFTED_INVERSE_QWERTY)
 
+const uint16_t PROGMEM test_combo1[] = {KC_J, KC_K, COMBO_END};
+combo_t key_combos[COMBO_COUNT] = {
+    COMBO(test_combo1, KC_ESC),
+};
 
 uint8_t custom_shift_num = 0;
 
@@ -345,7 +349,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[_NAVIGATION] = LAYOUT_ortho_4x12(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
     MT(MOD_LCTL, KC_ESC), KC_HOME, KC_PGUP, KC_PGDN, KC_END, KC_PSCR, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_DEL, KC_ENT,
     OSM(MOD_LSFT), KC_BRID, KC_BRIU, KC_NO, KC_NO, KC_MUTE, KC_VOLD, KC_VOLU, KC_MRWD, KC_MPLY, KC_MFFD, OSM(MOD_RSFT),
-    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_ESC, NUM, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
+    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_NO, NUM, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
    /******************************************************************************************************************/
 
    /* Steno
