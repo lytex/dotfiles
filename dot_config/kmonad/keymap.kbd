@@ -20,8 +20,14 @@
             srs (sticky-key 500 rsft)
             sra (sticky-key 500 ralt)
 
-            e_j (tap-hold-next-release 200 j (layer-next esc_layer2))
-            e_k (tap-hold-next-release 200 k (layer-next esc_layer))
+            ;; e_j (tap-hold-next-release 200 j (layer-next esc_layer2))
+            ;; e_k (tap-hold-next-release 200 k (layer-next esc_layer))
+            e_j (cmd-button "touch /tmp/kmonadj" "if ! ls /tmp/monadk; then xdotool key 'j' && rm /tmp/kmonadj; else xdotool key 'Escape'; fi" )
+            e_k (cmd-button "if ! ls /tmp/kmonadj; then xdotool key 'k'; else xdotool key 'Escape'; fi"  )
+            ;; e_k (cmd-button "touch /tmp/kmonadk" "if ! ls /tmp/monadj; then xdotool key 'k' && rm /tmp/kmonadk; else xdotool key 'Escape'; fi" )
+
+            ;; e_j (tap-hold-next-release 200 (multi-tap 20 j 20 k esc) (layer-next esc_layer2))
+            ;; e_k (tap-hold-next-release 200 (multi-tap 20 k 20 j esc) (layer-next esc_layer))
             )
 
 (defsrc
@@ -70,5 +76,6 @@
   ;; cmp-seq ralt    ;; Set the compose key to `RightAlt'
   ;; cmp-seq-delay 5 ;; 5ms delay between each compose-key sequence press
   fallthrough true
+  allow-cmd true
         )
 ;; vim: ft=lisp
