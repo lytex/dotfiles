@@ -209,6 +209,25 @@ tms() {
     tmux $change -t "$session" || echo "No sessions found."
 }
 
+function launch_script_in_session_window() {
+        session=$1
+        window=$2
+        shift 2
+        if tmux list-windows -t "$session"; then
+            tmux neww -t "$session": -n "$window" -d "$@"
+        else
+            tmux new -s "$session" -n "$window" -d "$@"
+        fi
+}
+
+
+function jl(){
+    last=$(tmux list-windows -t jupyter | sed -E "s/.+jupyter_([0-9]+).+/\1/" | sort -nr | head -n 1)
+    last=${last:=8887}
+    next=$((last+1))
+    launch_script_in_session_window jupyter jupyter_$next jupyter lab
+}
+
 function pipenv () {shift; eval "$@"}
 
 alias ccd='cd $(chezmoi source-path)'
