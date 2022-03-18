@@ -1,20 +1,4 @@
-#| --------------------------------------------------------------------------
-
-                         KMonad: US ansi 100% template
-
-  This file contains the `defsrc` configuration for a standard US-ansi 100%
-  keyboard. Modelled on a standard DAS-keyboard 100%. Copy out the 'defsrc'
-  layer to start your own keyboard configuration. Copy out the `deflayer`
-  template to easily start a new layer with matching `transparent` buttons.
-
-
-  -------------------------------------------------------------------------- |#
-
-
-
-(defalias   slc (sticky-key 500 lctl)
-            sls (sticky-key 500 lsft)
-            slm (sticky-key 500 lmet)
+#| -------------------------------------------------------------------------- KMonad: US ansi 100% template This file contains the `defsrc` configuration for a standard US-ansi 100% keyboard. Modelled on a standard DAS-keyboard 100%. Copy out the 'defsrc' layer to start your own keyboard configuration. Copy out the `deflayer` template to easily start a new layer with matching `transparent` buttons. -------------------------------------------------------------------------- |# (defalias   slc (sticky-key 500 lctl) sls (sticky-key 500 lsft) slm (sticky-key 500 lmet)
             sla (sticky-key 500 lalt)
             src (sticky-key 500 rctl)
             srs (sticky-key 500 rsft)
@@ -22,8 +6,8 @@
 
             ;; e_j (tap-hold-next-release 200 j (layer-next esc_layer2))
             ;; e_k (tap-hold-next-release 200 k (layer-next esc_layer))
-            e_j (cmd-button "touch /tmp/kmonadj" "if ! ls /tmp/monadk; then xdotool key 'j' && rm /tmp/kmonadj; else xdotool key 'Escape'; fi" )
-            e_k (cmd-button "if ! ls /tmp/kmonadj; then xdotool key 'k'; else xdotool key 'Escape'; fi"  )
+            e_j (cmd-button "rm /tmp/kmonadesc; touch /tmp/kmonadj" "if ! ls /tmp/kmonadk; then xdotool key 'j' && rm /tmp/kmonadj; elif ! ls /tmp/kmonadesc && ls /tmp/kmonadj; then xdotool key 'Escape' && touch /tmp/kmonadesc; fi; rm /tmp/kmonadk")
+            e_k (cmd-button "rm /tmp/kmonadesc; touch /tmp/kmonadk" "if ! ls /tmp/kmonadj; then xdotool key 'k' && rm /tmp/kmonadk; elif ! ls /tmp/kmonadesc && ls /tmp/kmonadk; then xdotool key 'Escape' && touch /tmp/kmonadesc; fi; rm /tmp/kmonadj")
             ;; e_k (cmd-button "touch /tmp/kmonadk" "if ! ls /tmp/monadj; then xdotool key 'k' && rm /tmp/kmonadk; else xdotool key 'Escape'; fi" )
 
             ;; e_j (tap-hold-next-release 200 (multi-tap 20 j 20 k esc) (layer-next esc_layer2))
