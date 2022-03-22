@@ -19,8 +19,8 @@ toggleterm.setup({
 	float_opts = {
 		border = "curved",
 		winblend = 0,
-		width = 80,
-		height = 24,
+		width = 120,
+		height = 80,
 		highlights = {
 			border = "Normal",
 			background = "Normal",
@@ -41,7 +41,7 @@ end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, float_opts = { width = 100, height = 40 } })
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true, float_opts = { width = 120, height = 80 } })
 
 function _LAZYGIT_TOGGLE()
 	lazygit:toggle()
