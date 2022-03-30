@@ -216,6 +216,7 @@ function launch_script_in_session_window() {
         if tmux list-windows -t "$session"; then
             tmux neww -t "$session": -n "$window" -d "$@"
         else
+            echo tmux new -s "$session" -n "$window" -d "$@"
             tmux new -s "$session" -n "$window" -d "$@"
         fi
 }
@@ -225,7 +226,10 @@ function jl(){
     last=$(tmux list-windows -t jupyter | sed -E "s/.+jupyter_([0-9]+).+/\1/" | sort -nr | head -n 1)
     last=${last:=8887}
     next=$((last+1))
-    launch_script_in_session_window jupyter jupyter_$next "pip3 uninstall -y jupyter jupyter_core jupyter-client jupyter-console notebook qtconsole nbconvert nbformat && pip3 install jupyter jupyter_core jupyter-client jupyter-console notebook qtconsole nbconvert nbformat && jupyter lab" 
+    launch_script_in_session_window jupyter jupyter_$next "$@ pip3 uninstall -y jupyter jupyter_core jupyter-client \
+    jupyter-console notebook qtconsole nbconvert nbformat && \
+    pip3 install jupyter jupyter_core jupyter-client jupyter-console notebook qtconsole nbconvert nbformat && \
+    jupyter lab" 
 }
 
 function pipenv () {shift; eval "$@"}
