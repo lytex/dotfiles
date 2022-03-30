@@ -4,143 +4,154 @@
 # You can refer to the official documentation:
 # https://espanso.org/docs/
 
-toggle_key: "RIGHT_ALT"
+toggle_key: 'RIGHT_ALT'
 
 backend: Clipboard
 
 # Matches are the substitution rules, when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
-
   # Dates
   # Trigger with : so that they won't be triggered by ;da for example
-  - trigger: ":date"
-    replace: "{{mydate}}"
+  - trigger: ':date'
+    replace: '{{mydate}}'
     vars:
       - name: mydate
         type: date
         params:
-          format: "%Y-%m-%d"
+          format: '%Y-%m-%d'
 
-  - trigger: ":timestamp"
-    replace: "{{mydate}}"
+  - trigger: ':timestamp'
+    replace: '{{mydate}}'
     vars:
       - name: mydate
         type: date
         params:
-          format: "%Y-%m-%d %H:%M:%S"
+          format: '%Y-%m-%d %H:%M:%S'
 
-  - trigger: ";ra"
-    replace: "→"
+  - trigger: ';ra'
+    replace: '→'
 
-  - trigger: ";rua"
-    replace: "⇒"
+  - trigger: ';rua'
+    replace: '⇒'
 
-  - trigger: ";rra"
-    replace: "⇉"
-    
-  - trigger: ";la"
-    replace: "←"
+  - trigger: ';rra'
+    replace: '⇉'
 
-  - trigger: ";lua"
-    replace: "⇐"
+  - trigger: ';la'
+    replace: '←'
 
-  - trigger: ";lla"
-    replace: "⇇"
-    
-  - trigger: ";ba"
-    replace: "↔"
+  - trigger: ';lua'
+    replace: '⇐'
 
-  - trigger: ";bua"
-    replace: "⇔"
+  - trigger: ';lla'
+    replace: '⇇'
 
-  - trigger: ";lra"
-    replace: "⇆"
-    
-  - trigger: ";rla"
-    replace: "⇄"
+  - trigger: ';ba'
+    replace: '↔'
 
-  - trigger: ";ua"
-    replace: "↑"
+  - trigger: ';bua'
+    replace: '⇔'
 
-  - trigger: ";uua"
-    replace: "⇑"
+  - trigger: ';lra'
+    replace: '⇆'
 
-  - trigger: ";uuua"
-    replace: "⇈"
-    
-  - trigger: ";da"
-    replace: "↓"
+  - trigger: ';rla'
+    replace: '⇄'
 
-  - trigger: ";dua"
-    replace: "⇓"
+  - trigger: ';ua'
+    replace: '↑'
 
-  - trigger: ";dda"
-    replace: "⇊"
-    
-  - trigger: ";aa"
-    replace: "↕"
+  - trigger: ';uua'
+    replace: '⇑'
 
-  - trigger: ";aua"
-    replace: "⇕"
+  - trigger: ';uuua'
+    replace: '⇈'
 
-  - trigger: ";lta"
-    replace: "↖"
+  - trigger: ';da'
+    replace: '↓'
 
-  - trigger: ";rta"
-    replace: "↗"
+  - trigger: ';dua'
+    replace: '⇓'
 
-  - trigger: ";rba"
-    replace: "↘"
+  - trigger: ';dda'
+    replace: '⇊'
 
-  - trigger: ";lba"
-    replace: "↙"
+  - trigger: ';aa'
+    replace: '↕'
 
-  - trigger: ";ula"
-    replace: "↰"
+  - trigger: ';aua'
+    replace: '⇕'
 
-  - trigger: ";ura"
-    replace: "↱"
+  - trigger: ';lta'
+    replace: '↖'
 
-  - trigger: ";dla"
-    replace: "↲"
+  - trigger: ';rta'
+    replace: '↗'
 
-  - trigger: ";dra"
-    replace: "↳"
+  - trigger: ';rba'
+    replace: '↘'
 
-  - trigger: ";rda"
-    replace: "↴"
+  - trigger: ';lba'
+    replace: '↙'
 
-  - trigger: ";dlla"
-    replace: "↵"
+  - trigger: ';ula'
+    replace: '↰'
 
-  - trigger: ";ccc"
-    replace: "🔄"
+  - trigger: ';ura'
+    replace: '↱'
 
-  - trigger: ";shrug"
+  - trigger: ';dla'
+    replace: '↲'
+
+  - trigger: ';dra'
+    replace: '↳'
+
+  - trigger: ';rda'
+    replace: '↴'
+
+  - trigger: ';dlla'
+    replace: '↵'
+
+  - trigger: ';ccc'
+    replace: '🔄'
+
+  - trigger: ';chm'
+    replace: '✓'
+
+  - trigger: ';chb'
+    replace: '☑'
+
+  - trigger: ';crs'
+    replace: '❌'
+
+  - trigger: ';crb'
+    replace: '☒'
+
+  - trigger: ';shrug'
     replace: "¯\\_(ツ)_/¯"
 
-  - trigger: ";ftable"
-    replace: "(╯°□°）╯︵ ┻━┻"
+  - trigger: ';ftable'
+    replace: '(╯°□°）╯︵ ┻━┻'
 
-################################# python libs ##################################
+  ################################# python libs ##################################
 
-  - trigger: ";ipython"
-    replace: "from IPython import embed; embed()"
+  - trigger: ';ipython'
+    replace: 'from IPython import embed; embed()'
 
-  - trigger: ";pd"
-    replace: "import pandas as pd"
+  - trigger: ';pd'
+    replace: 'import pandas as pd'
 
-  - trigger: ";plt"
-    replace: "import matplotlib.pyplot as plt"
+  - trigger: ';plt'
+    replace: 'import matplotlib.pyplot as plt'
 
-  - trigger: ";np"
-    replace: "import numpy as np"
+  - trigger: ';np'
+    replace: 'import numpy as np'
 
-############################# new server installs ##############################
+  ############################# new server installs ##############################
 
-  - trigger: ";tmux"
-    replace: "sudo apt-get install -y tmux"
+  - trigger: ';tmux'
+    replace: 'sudo apt-get install -y tmux'
 
-  - trigger: ";vim"
-    replace: "sudo apt-get install -y vim"
+  - trigger: ';vim'
+    replace: 'sudo apt-get install -y vim'
