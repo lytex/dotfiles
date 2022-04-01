@@ -42,6 +42,7 @@ set lazyredraw " No fancy redraw stuff, :set lz if you want to enable it
 " Remap escape
 inoremap jk <Esc>
 
+filetype plugin on
 syntax enable " enable syntax processing
 
 " Bidirectional integration with system clipboard
