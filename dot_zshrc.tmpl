@@ -169,8 +169,8 @@ alias c=chezmoi
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 # alias c=$HOME/.local/bin/chezmoi
-export EDITOR="nvr --remote-wait"
-export VISUAL="nvr --remote-wait"
+export EDITOR="nvr --remote-wait -s"
+export VISUAL="nvr --remote-wait -s"
 
 if [ "$TERM" = "xterm-kitty" ]; then
     alias ssh="kitty +kitten ssh"
@@ -239,9 +239,13 @@ alias ccd='cd $(chezmoi source-path)'
 alias copy='xclip -sel clip'
 
 function nvr() {
-    xdotool key --window $(xdotool getwindowfocus) "control+backslash" key "control+n"
-    xdotool type --window $(xdotool getwindowfocus) "mTa"
-    command nvr "$@"
+    if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+        xdotool key --window $(xdotool getwindowfocus) "control+backslash" key "control+n"
+        xdotool type --window $(xdotool getwindowfocus) "mTa"
+        command nvr --remote-wait-silent "$@"
+    else
+        command nvim "$@"
+    fi
 }
 
 function lvim() {
