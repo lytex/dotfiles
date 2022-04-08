@@ -7,6 +7,11 @@ vim.cmd([[
     autocmd FileType qf set nobuflisted
   augroup end
 
+  augroup _nvim_tree
+    autocmd!
+    autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif
+  augroup end
+
   augroup _git
     autocmd!
     autocmd FileType gitcommit setlocal wrap
