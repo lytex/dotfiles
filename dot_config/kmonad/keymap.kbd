@@ -7,8 +7,8 @@
             ;; e_j (tap-hold-next-release 200 j (layer-next esc_layer2))
             ;; e_k (tap-hold-next-release 200 k (layer-next esc_layer))
             ;; xdotool takes a time that makes the kmonadesc lock fail, so we send it as a new process to avoid blocking creating the lock
-            e_j (tap-hold-next 150 j (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonad &)" "if ! ls /tmp/kmonad; then (rm /tmp/kmonad &); elif ! ls /tmp/kmonadesc; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi; (rm /tmp/kmonad &)") :timeout-button j)
-            e_k (tap-hold-next 150 k (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonad &)" "if ! ls /tmp/kmonad; then (rm /tmp/kmonad &); elif ! ls /tmp/kmonadesc; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi; (rm /tmp/kmonad &)") :timeout-button k)
+            e_j (tap-hold-next 150 j (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonadj &); rm /tmp/kmonadk" "if ! ls /tmp/kmonadesc && ls /tmp/kmonadj && ls /tmp/kmonadk; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi;") :timeout-button j)
+            e_k (tap-hold-next 150 k (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonadk &); rm /tmp/kmonadj" "if ! ls /tmp/kmonadesc && ls /tmp/kmonadj && ls /tmp/kmonadk; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi;") :timeout-button k)
             ;; e_k (cmd-button "touch /tmp/kmonadk" "if ! ls /tmp/monadj; then xdotool key 'k' && rm /tmp/kmonadk; else xdotool key 'Escape'; fi" )
 
             ;; e_j (tap-hold-next-release 200 (multi-tap 20 j 20 k esc) (layer-next esc_layer2))
