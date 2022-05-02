@@ -69,6 +69,26 @@ nvim_tree.setup({
 		cmd = nil,
 		args = {},
 	},
+	actions = {
+		use_system_clipboard = true,
+		change_dir = {
+			enable = true,
+			global = false,
+			restrict_above_cwd = false,
+		},
+		open_file = {
+			quit_on_open = false,
+			resize_window = false,
+			window_picker = {
+				enable = true,
+				chars = "ASDFJKL;GHQWERUIOPTYZXCNM,.VB",
+				exclude = {
+					filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+					buftype = { "nofile", "terminal", "help" },
+				},
+			},
+		},
+	},
 	filters = {
 		dotfiles = false,
 		custom = {},
