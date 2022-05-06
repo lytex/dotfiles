@@ -4,15 +4,11 @@
             srs (sticky-key 500 rsft)
             sra (sticky-key 500 ralt)
 
-            ;; e_j (tap-hold-next-release 200 j (layer-next esc_layer2))
-            ;; e_k (tap-hold-next-release 200 k (layer-next esc_layer))
             ;; xdotool takes a time that makes the kmonadesc lock fail, so we send it as a new process to avoid blocking creating the lock
             e_j (tap-hold-next 150 j (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonadj &); rm /tmp/kmonadk" "if ! ls /tmp/kmonadesc && ls /tmp/kmonadj && ls /tmp/kmonadk; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi;") :timeout-button j)
-            e_k (tap-hold-next 150 k (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonadk &); rm /tmp/kmonadj" "if ! ls /tmp/kmonadesc && ls /tmp/kmonadj && ls /tmp/kmonadk; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi;") :timeout-button k)
-            ;; e_k (cmd-button "touch /tmp/kmonadk" "if ! ls /tmp/monadj; then xdotool key 'k' && rm /tmp/kmonadk; else xdotool key 'Escape'; fi" )
+            e_k (tap-hold-next 150 k (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonadk &); rm /tmp/kmonadj" "if ! ls /tmp/kmonadesc && ls /tmp/kmonadk && ls /tmp/kmonadj; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi;") :timeout-button k)
+            ;; l (tap-hold-next 150 l (cmd-button "if [ -e /tmp/kmonadj -a ! -e /tmp/kmonadk ]; then (xdotool type 'jl' &) && rm /tmp/kmonadj; elif [ -e /tmp/kmonadk -a ! -e /tmp/kmonadj ]; then (xdotool type 'kl' &) && rm /tmp/kmonadk; else (xdotool key 'l' &); fi") :timeout-button l)
 
-            ;; e_j (tap-hold-next-release 200 (multi-tap 20 j 20 k esc) (layer-next esc_layer2))
-            ;; e_k (tap-hold-next-release 200 (multi-tap 20 k 20 j esc) (layer-next esc_layer))
             )
 
 (defsrc
@@ -29,29 +25,9 @@
   esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
   grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
-  ;; @slc a    s    d    f    g    h    j    k    l    ;    '    ret                        kp4  kp5  kp6
   @slc a    s    d    f    g    h  @e_j  @e_k  l    ;    '    ret                        kp4  kp5  kp6
   @sls z    x    c    v    b    n    m    ,    .    /    @srs                 up         kp1  kp2  kp3  kprt
   @slc @slm @sla           spc            @sra rmet cmp  @src            left down rght  kp0  kp.
-)
-
-
-(deflayer esc_layer
-  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
-  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
-  @slc a    s    d    f    g    h   esc   k    l    ;    '    ret                        kp4  kp5  kp6
-  @sls z    x    c    v    b    n    m    ,    .    /    @srs                 up         kp1  kp2  kp3  kprt
-  @slc @slm @sla           spc            @sra rmet cmp  @src            left down rght  kp0  kp.
-)
-
-(deflayer esc_layer2
-  _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
-  _    _    _    _    _    _    _    _   esc   _    _    _    _                          _    _    _
-  _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
-  _    _    _              _              _    _    _    _               _    _    _     _    _
 )
 
 
