@@ -193,7 +193,7 @@ mode "$mode_switch" {
     # go to open window
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
     bindsym a mode "$mode_layout"
-    bindsym m mode "$mode_move_container"
+    bindsym v mode "$mode_move_container"
     # rename current workspace
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
@@ -239,9 +239,9 @@ mode "$mode_switch" {
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym v exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
+    bindsym m exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
 }
 
 
@@ -265,7 +265,7 @@ mode "$mode_navigate" {
     # go to open window
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
     bindsym a mode "$mode_layout"
-    bindsym m mode "$mode_move_container"
+    bindsym v mode "$mode_move_container"
     # rename current workspace
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
@@ -310,9 +310,9 @@ mode "$mode_navigate" {
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym v exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
+    bindsym m exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
 }
 
 # [hjkl] keeps focus
@@ -413,7 +413,7 @@ mode "$mode_layout" {
     bindsym r mode "$mode_window_resize"
     # go to open window
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
-    bindsym m mode "$mode_move_container"
+    # bindsym v mode "$mode_move_container" # clashes with vertical split
 
     # split following vim convention (which is the opposite of i3 convention)
     # split in horizontal orientation
@@ -470,7 +470,7 @@ mode "$mode_window_resize" {
     # go to open window
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
     bindsym a mode "$mode_layout"
-    bindsym m mode "$mode_move_container"
+    bindsym v mode "$mode_move_container"
 
     # Pressing left will shrink the window’s width.
     # Pressing right will grow the window’s width.
@@ -496,9 +496,9 @@ mode "$mode_window_resize" {
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym x exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym v exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
+    bindsym m exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
 }
 
 # set $mode_i3_special reload [c]onfiguration, [r]estart, [k]ill nagbar, [q]uit & start kde, [i]
