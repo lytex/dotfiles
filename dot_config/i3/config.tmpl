@@ -167,7 +167,9 @@ bindsym Control+Mod1+h exec --no-startup-id i3lock -c 553333 && systemctl suspen
 # r activates resize mode
 # o searches jumps to a window by title
 # a goes to layout mode (horizontal, vertical, stacking, tabbed mode)
-# m goes to move mode
+# v goes to move mode
+# m sets marks
+# ' goes to a mark
 # Escape (or Control+Escape) goes to default mode 
 # Some modes are transient modes, meaning once a command is pressed, they return to default mode without having to press Escape
 
@@ -194,6 +196,10 @@ mode "$mode_switch" {
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
     bindsym a mode "$mode_layout"
     bindsym v mode "$mode_move_container"
+    # read 1 character and mark the current window with this character
+    bindsym m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+    # read 1 character and go to the window with the character
+    bindsym apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
     # rename current workspace
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
@@ -266,6 +272,10 @@ mode "$mode_navigate" {
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
     bindsym a mode "$mode_layout"
     bindsym v mode "$mode_move_container"
+    # read 1 character and mark the current window with this character
+    bindsym m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+    # read 1 character and go to the window with the character
+    bindsym apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
     # rename current workspace
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
@@ -336,6 +346,10 @@ mode "$mode_move_container" {
     # go to open window
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
     bindsym a mode "$mode_layout"
+    # read 1 character and mark the current window with this character
+    bindsym m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+    # read 1 character and go to the window with the character
+    bindsym apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
     # rename current workspace
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
@@ -393,7 +407,6 @@ mode "$mode_move_container" {
     bindsym v exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym m exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
 }
 
 # set $mode_layout Layout split [h]orizontally, [v]ertically, [f]ullscreen, [s]tacking, [w]indow, toggle s[p]lit, [d] toggle floating/tiling, [space] navigate
@@ -471,6 +484,14 @@ mode "$mode_window_resize" {
     bindsym o exec $rofi -location 2 -width 100 -show window; mode default
     bindsym a mode "$mode_layout"
     bindsym v mode "$mode_move_container"
+    # read 1 character and mark the current window with this character
+    bindsym m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
+    # read 1 character and go to the window with the character
+    bindsym apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 1 -P 'Goto: '
+    # rename current workspace
+    bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
+    # rename current window
+    bindsym period exec i3-input -F 'exec i3-msg title_format "%s"' -P 'New name for this window: '
 
     # Pressing left will shrink the window’s width.
     # Pressing right will grow the window’s width.
