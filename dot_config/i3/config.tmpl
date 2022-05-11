@@ -133,6 +133,7 @@ bindsym Mod4+r mode "$mode_window_resize"
 bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getactivewindow) 'control+backslash' key 'control+n'
 bindsym --release Mod4+p exec xdotool key 'Print'
 
+for_window [ class="^Microsoft Teams" ] floating enable
 # Get windows class with xprop | grep 'CLASS'
 # Then click the appropiate window (use a i3 split)
 assign [class="Ferdi"] number $ws4
