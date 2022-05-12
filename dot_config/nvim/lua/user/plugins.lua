@@ -115,6 +115,8 @@ return packer.startup(function(use)
 	use("tpope/vim-unimpaired")
 	-- Repeat vim-unimpaired and vim-surround commands
 	use("tpope/vim-repeat")
+	-- Case preserving substitution and more
+	use("tpope/vim-abolish")
 	-- use <EasyMotion-prefix> <motion> to highlight possible motions (jk, web, ...)
 	use("easymotion/vim-easymotion")
 	-- motions like f, t using 2 characters
