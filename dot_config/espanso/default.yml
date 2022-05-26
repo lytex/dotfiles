@@ -155,3 +155,6 @@ matches:
 
   - trigger: ';vim'
     replace: 'sudo apt-get install -y vim'
+
+  - trigger: ';osc52'
+    replace: echo -e "\033]52;c;$( $|$ | base64)\a"
