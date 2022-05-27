@@ -238,6 +238,14 @@ alias ccd='cd $(chezmoi source-path)'
 
 alias copy='xclip -sel clip'
 
+function addpro () {
+    projects_file="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/telescope-projects.txt"
+    if ! grep $(pwd) $projects_file; then
+        name=${PWD##*/}
+        echo -n "$name=$PWD=w0=1" >> $projects_file
+    fi
+}
+
 function nvr() {
     if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
         xdotool key --window $(xdotool getwindowfocus) "control+backslash" key "control+n"
