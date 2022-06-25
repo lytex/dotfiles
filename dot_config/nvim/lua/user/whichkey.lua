@@ -136,7 +136,7 @@ local mappings = {
 			"Diff",
 		},
 		-- Send file to upper buffer,
-		-- Assumes there is a horizontal split
+		-- Assumes there is a even horizontal split
 		f = { "<cmd>norm<C-w>rmRgF<C-w>j`R<cr>", "go file buff up" },
 		-- conflict
 		h = {
@@ -185,6 +185,18 @@ local mappings = {
 		},
 	},
 	["q"] = { "<cmd>lua vim.diagnostic.setloclist()<CR>", "Quickfix" },
+	d = {
+		name = "debugger",
+		b = { "<cmd>lua require('dap').toggle_breakpoint()<cr>" },
+		c = { "<cmd>lua require('dap').continue()<cr>" },
+		i = { "<cmd>lua require('dap').step_into()<cr>" },
+		o = { "<cmd>lua require('dap').step_over()<cr>" },
+		O = { "<cmd>lua require('dap').step_out()<cr>" },
+		r = { "<cmd>lua require('dap').repl.toggle()<cr>" },
+		l = { "<cmd>lua require('dap').run_last()<cr>" },
+		u = { "<cmd>lua require('dapui').toggle()<cr>" },
+		t = { "<cmd>lua require('dap').terminate()<cr>" },
+	},
 	s = {
 		name = "Search",
 		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
