@@ -54,6 +54,8 @@ cmp.setup({
 	mapping = {
 		["<C-k>"] = cmp.mapping.select_prev_item(),
 		["<C-j>"] = cmp.mapping.select_next_item(),
+		["<Up>"] = cmp.mapping.select_prev_item(),
+		["<Down>"] = cmp.mapping.select_next_item(),
 		-- ["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
 		-- ["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
@@ -122,7 +124,7 @@ cmp.setup({
 		select = false,
 	},
 	window = {
-		documentation = "native",
+		documentation = cmp.config.window.bordered(),
 	},
 	experimental = {
 		ghost_text = false,
