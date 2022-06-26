@@ -5,6 +5,8 @@ vim.cmd([[
     autocmd TextYankPost * silent!lua require('vim.highlight').on_yank({higroup = 'Visual', timeout = 200}) 
     autocmd BufWinEnter * :set formatoptions-=cro
     autocmd FileType qf set nobuflisted
+    " Open all folds by default
+    autocmd BufReadPost,FileReadPost * normal zR
   augroup end
 
   augroup _nvim_tree

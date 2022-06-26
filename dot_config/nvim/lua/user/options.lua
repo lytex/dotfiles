@@ -32,6 +32,8 @@ local options = {
 	wrap = false, -- display lines as one long line
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
+	foldmethod = "expr",
+	foldexpr = "nvim_treesitter#foldexpr()",
 	-- guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
