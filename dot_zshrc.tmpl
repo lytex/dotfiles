@@ -245,6 +245,9 @@ function addpro () {
         echo -n "$name=$PWD=w0=1" >> $projects_file
     fi
 }
+function addpass () {
+    cat "$@" | pass insert -m "$PWD/$@"
+}
 
 function nvr() {
     if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
