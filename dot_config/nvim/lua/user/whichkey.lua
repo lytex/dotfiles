@@ -3,6 +3,22 @@ if not status_ok then
 	return
 end
 
+local function merge_tables(t1, t2)
+	for key, value in pairs(t2) do
+		t1[key] = value
+	end
+	return t1
+end
+
+function Find_files_noignore_nohidden()
+	require("telescope.builtin").find_files(
+		merge_tables(
+			require("telescope.themes").get_dropdown({ previewer = false }),
+			{ hidden = true, no_ignore = true }
+		)
+	)
+end
+
 local setup = {
 	plugins = {
 		marks = true, -- shows a list of your marks on ' and `
@@ -94,7 +110,7 @@ local mappings = {
 		f = { "<cmd>lua vim.diagnostic.open_float()<CR>", "OpenFloat" },
 	},
 	["f"] = {
-		"<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
+		[[<cmd>lua Find_files_noignore_nohidden()<cr>]],
 		"Find files",
 	},
 	["."] = {
@@ -218,6 +234,13 @@ local mappings = {
 		l = { "<cmd>lua ToggleRelativeNumber()<cr>", "Toggle RelNumber" },
 		v = { "<cmd>lua vim.diagnostic.config({ virtual_text = true })<cr>", "Enable VirtualText" },
 		b = { "<cmd>lua vim.diagnostic.config({ virtual_text = false })<cr>", "Disable VirtualText" },
+	},
+
+	v = {
+		name = "Evaluate",
+		o = { "<cmd>LegendaryScratch<cr>", "Open" },
+		v = { "<cmd>LegendaryEvalBuf<cr>", "Everything" },
+		l = { "<cmd>LegendaryEvalLine<cr>", "Line" },
 	},
 }
 
