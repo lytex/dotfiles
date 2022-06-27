@@ -34,6 +34,9 @@ set $gentle_kill zsh -c '( xprop -id $(xdotool getactivewindow) | grep -i -e ala
 # set $shell /usr/bin/fish
 set $rofi /usr/bin/rofi -matching regex -sort-method fzf -sort -font "Fantasque Sans Mono 14"
 
+# Script: https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu#n27
+set $password_command "/usr/share/doc/pass/examples/dmenu/passmenu"
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # font pango:monospace 8
@@ -233,6 +236,8 @@ mode "$mode_switch" {
 
     bindsym i mode "$mode_i3_special"
 
+    bindsym c exec $password_command; mode "default"
+
     # Show the first scratchpad window
     bindsym x scratchpad show
 
@@ -244,7 +249,6 @@ mode "$mode_switch" {
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym m exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -312,6 +316,8 @@ mode "$mode_navigate" {
 
     bindsym i mode "$mode_i3_special"
 
+    bindsym c exec $password_command; mode "default"
+
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym e exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym r exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -320,7 +326,6 @@ mode "$mode_navigate" {
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym m exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -396,6 +401,8 @@ mode "$mode_move_container" {
 
     bindsym i mode "$mode_i3_special"
 
+    bindsym c exec $password_command; mode "default"
+
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym e exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -405,7 +412,6 @@ mode "$mode_move_container" {
     bindsym f exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym v exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -452,6 +458,8 @@ mode "$mode_layout" {
 
     bindsym i mode "$mode_i3_special"
 
+    bindsym c exec $password_command; mode "default"
+
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym e exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -463,7 +471,6 @@ mode "$mode_layout" {
     bindsym l exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym x exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
 }
@@ -507,6 +514,8 @@ mode "$mode_window_resize" {
 
     bindsym i mode "$mode_i3_special"
 
+    bindsym c exec $password_command; mode "default"
+
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym e exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym r exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -520,7 +529,6 @@ mode "$mode_window_resize" {
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym x exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym m exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -616,6 +624,8 @@ mode "$mode_move_workspace" {
 
     bindsym i mode "$mode_i3_special"
 
+    bindsym c exec $password_command; mode "default"
+
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym q exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym w exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -633,7 +643,6 @@ mode "$mode_move_workspace" {
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym z exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym x exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym c exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym v exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym b exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym n exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
