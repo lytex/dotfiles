@@ -249,6 +249,11 @@ function addpass () {
     cat "$@" | pass insert -m "$PWD/$@"
 }
 
+function arup () {
+    # Fuzzy find for a program while showing info of the package
+    paru -Ss $1 | grep -v '   '  | fzf --multi --preview 'paru -Si {1}' | awk '{print $1}' | xargs -ro paru -S
+}
+
 function nvr() {
     if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
         xdotool key --window $(xdotool getwindowfocus) "control+backslash" key "control+n"
@@ -270,7 +275,8 @@ function lvim() {
 alias k=kubectl
 source <(kubectl completion zsh)
 alias g=gcloud
-if [ -f /usr/share/google-cloud-sdk/completion.zsh.inc ]; then source /usr/share/google-cloud-sdk/completion.zsh.inc; fi
+source /etc/profile.d/google-cloud-sdk.sh
+if [ -f $HOME/.cache/paru/clone/google-cloud-sdk/completion.zsh.inc ]; then source $HOME/.cache/paru/clone/google-cloud-sdk/completion.zsh.inc; fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
