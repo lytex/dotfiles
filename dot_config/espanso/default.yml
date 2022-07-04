@@ -6,6 +6,8 @@
 
 toggle_key: 'RIGHT_ALT'
 
+search_trigger: 'off'
+
 backend: Clipboard
 
 # Matches are the substitution rules, when you type the "trigger" string
