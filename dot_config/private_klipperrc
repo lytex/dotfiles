@@ -1,0 +1,11 @@
+[Actions]
+EnableMagicMimeActions=false
+
+[General]
+IgnoreImages=false
+IgnoreSelection=true
+MaxClipItems=2048
+SelectionTextOnly=false
+TimeoutForActionPopups=2
+URLGrabberEnabled=true
+Version=5.22.5
