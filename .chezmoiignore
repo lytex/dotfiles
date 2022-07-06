@@ -3,7 +3,6 @@
 .local
 .zshrc
 {{ end }}
-configure.sh
 README.org
 .config/nvim/plugin/
 .config/nvim/.git/
