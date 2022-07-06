@@ -33,15 +33,16 @@ keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
 -- Ctrl+Backspace deletes word
-keymap("i", "<C-h>", "<C-w>", opts)
+vim.keymap.set("i", "<C-BS>", "<C-w>")
+-- keymap("i", "<C-BS>", "<C-w>", opts) --This one is not working, no idea why
 
 -- QuickFixList Remappings
-keymap("n", "<C-j>", "<cmd>cnext<CR>", opts)
-keymap("n", "<C-k>", "<cmd>cprev<CR>", opts)
-keymap("n", "<C-q>", "<cmd>copen<CR>", opts)
-keymap("n", "<leader>j", "<cmd>lnext<CR>", opts)
-keymap("n", "<leader>k", "<cmd>lprev<CR>", opts)
-keymap("n", "<leader>q", "<cmd>lopen<CR>", opts)
+keymap("n", "<C-j>", "<cmd>cnext<cr>", opts)
+keymap("n", "<C-k>", "<cmd>cprev<cr>", opts)
+keymap("n", "<C-q>", "<cmd>copen<cr>", opts)
+keymap("n", "<leader>j", "<cmd>lnext<cr>", opts)
+keymap("n", "<leader>k", "<cmd>lprev<cr>", opts)
+keymap("n", "<leader>q", "<cmd>lopen<cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
