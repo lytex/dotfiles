@@ -60,6 +60,7 @@ return packer.startup(function(use)
 
 	-- Colorschemes
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
+	use({ "shaunsingh/solarized.nvim", commit = "34c2245a6ddfd85766f6127768f6b04b0ae2f84a" })
 	use({ "patstockwell/vim-monokai-tasty", commit = "13a0d38fea1e21fa39deb27fafcfa35335ccc2f4" })
 
 	-- cmp plugins
