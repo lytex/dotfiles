@@ -145,7 +145,6 @@ function tag() {
 }
 
 {{ if .work }}
-source /usr/bin/virtualenvwrapper.sh
 eval "$(pdm --pep582)"
 {{ else }}
 export WORKON_HOME=$HOME/.virtualenvs
