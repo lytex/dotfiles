@@ -6,7 +6,7 @@
 
 toggle_key: 'RIGHT_ALT'
 
-search_trigger: 'off'
+search_trigger: 'iwillnevertypethisstuff'
 
 backend: Clipboard
 
