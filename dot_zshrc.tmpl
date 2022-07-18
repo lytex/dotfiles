@@ -246,7 +246,7 @@ function addpro () {
     projects_file="${XDG_DATA_HOME:-$HOME/.local/share}/nvim/telescope-projects.txt"
     if ! grep "$PWD" "$projects_file"; then
         name=${PWD##*/}
-        echo -n "\n$name=$PWD=w0=1" >> $projects_file
+        echo -n "$name=$PWD=w0=1" >> $projects_file
     fi
 }
 function addpass () {
