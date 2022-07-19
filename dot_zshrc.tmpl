@@ -144,7 +144,8 @@ function tag() {
 }
 
 {{ if .work }}
-eval "$(pdm --pep582)"
+export PYENV_ROOT=$ZPY_VENVS_HOME
+eval "$(pyenv init -)"
 {{ else }}
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
