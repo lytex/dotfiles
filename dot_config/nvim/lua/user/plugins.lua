@@ -179,7 +179,7 @@ return packer.startup(function(use)
 	-- neovim in the browser
 	use({
 		"glacambre/firenvim",
-		commit = "e90f87872b313df15a06119ddbb84cdf1599657c",
+		commit = "f679455c294c62eddee86959cfc9f1b1f79fe97d",
 		run = function()
 			vim.fn["firenvim#install"](0)
 		end,
