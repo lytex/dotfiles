@@ -1,0 +1,3 @@
+tmp=/tmp/npm
+cache=/home/julian/.cache/npm
+prefix=/home/julian/.npm
