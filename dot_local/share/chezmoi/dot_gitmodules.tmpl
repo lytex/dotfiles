@@ -1,0 +1,9 @@
+{{ if .work }}
+[submodule "dot_ssh"]
+	path = dot_ssh
+	url = https://github.com/lytex/dot_ssh_work.git
+{{ else }}
+[submodule "dot_ssh"]
+	path = dot_ssh
+	url = https://github.com/lytex/dot_ssh_personal.git
+{{ end }}
