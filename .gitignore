@@ -13,5 +13,4 @@ dot_ipython/profile_default/*.py
 !dot_ipython/profile_default/.gitignore
 dot_config/nvim/plugin
 dot_config/nvim/dot_git/
-.gitmodules
 dot_ssh
