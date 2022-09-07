@@ -1,0 +1,3 @@
+[submodule "dot_ssh"]
+	path = dot_ssh
+	url = git@github.com:lytex/dot_ssh_personal.git 
