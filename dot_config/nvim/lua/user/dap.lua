@@ -18,6 +18,29 @@ dap_install.setup({})
 dap_install.config("python", {})
 -- add other configs here
 
+dapui.setup(
+  layouts = {
+    {
+      elements = {
+        'scopes',
+        'breakpoints',
+        'stacks',
+        'watches',
+      },
+      size = 40,
+      position = 'left',
+    },
+    {
+      elements = {
+        'repl',
+        'console',
+      },
+      size = 10,
+      position = 'bottom',
+    },
+  },
+)
+
 dapui.setup({
 	sidebar = {
 		elements = {
