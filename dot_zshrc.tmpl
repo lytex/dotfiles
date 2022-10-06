@@ -151,7 +151,6 @@ function addtag {
     tag=$1
     shift 1
     all_tags=$(gettag "$@")
-    all_tags=$(echo "$all_tags,$tag" | sed 's/,/\n/g' | sort -u)
     new_tags=$(echo "$all_tags,$tag" | sed "s/,/\n/g" | sort -u | sed -z "s/\n/,/g" | sed 's/,$/\n/')
     tag "$new_tags" "$@"
 }
