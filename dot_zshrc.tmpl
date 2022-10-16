@@ -140,7 +140,27 @@ bindkey -a ' t' fzf-cd-tags
 bindkey -a '  ' edit-command-line
 
 function tag() {
-    setfattr -n user.xdg.tags -v $@
+    setfattr -n user.xdg.tags -v "$@"
+}
+
+function gettag() {
+    getfattr -n user.xdg.tags "$@" | grep -F "user.xdg.tags" | sed -e 's/user.xdg.tags=//' -e 's/"//g' 
+}
+
+function addtag {
+    tag=$1
+    shift 1
+    all_tags=$(gettag "$@")
+    new_tags=$(echo "$all_tags,$tag" | sed "s/,/\n/g" | sort -u | sed -z "s/\n/,/g" | sed 's/,$/\n/')
+    tag "$new_tags" "$@"
+}
+
+function rmtag {
+    tag=$1
+    shift 1
+    all_tags=$(gettag "$@")
+    new_tags=$(echo "$all_tags" | sed -e "s/$tag,//" -e "s/,$tag$//")
+    tag "$new_tags" "$@"
 }
 
 {{ if .work }}
