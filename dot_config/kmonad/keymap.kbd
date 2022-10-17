@@ -1,12 +1,12 @@
 #| -------------------------------------------------------------------------- KMonad: US ansi 100% template This file contains the `defsrc` configuration for a standard US-ansi 100% keyboard. Modelled on a standard DAS-keyboard 100%. Copy out the 'defsrc' layer to start your own keyboard configuration. Copy out the `deflayer` template to easily start a new layer with matching `transparent` buttons. -------------------------------------------------------------------------- |#
 (defalias   
-            slc (tap-hold 100 (around-next-timeout 500 lctl XX) lctl)
-            sls (tap-hold 100 (around-next-timeout 500 lsft XX) lsft)
-            sla (tap-hold 100 (around-next-timeout 500 lalt XX) lalt)
-            slm (tap-hold 100 (around-next-timeout 500 lmet XX) lmet)
-            src (tap-hold 100 (around-next-timeout 500 rctl XX) rctl)
-            srs (tap-hold 100 (around-next-timeout 500 rsft XX) rsft)
-            sra (tap-hold 100 (around-next-timeout 500 ralt XX) ralt)
+            slc (tap-hold 150 (around-next-timeout 500 lctl XX) lctl)
+            sls (tap-hold 150 (around-next-timeout 500 lsft XX) lsft)
+            sla (tap-hold 150 (around-next-timeout 500 lalt XX) lalt)
+            slm (tap-hold 150 (around-next-timeout 500 lmet XX) lmet)
+            src (tap-hold 150 (around-next-timeout 500 rctl XX) rctl)
+            srs (tap-hold 150 (around-next-timeout 500 rsft XX) rsft)
+            sra (tap-hold 150 (around-next-timeout 500 ralt XX) ralt)
 
             ;; xdotool takes a time that makes the kmonadesc lock fail, so we send it as a new process to avoid blocking creating the lock
             e_j (tap-hold-next 150 j (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonadj &); rm /tmp/kmonadk" "if ! ls /tmp/kmonadesc && ls /tmp/kmonadj && ls /tmp/kmonadk; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi;") :timeout-button j)
