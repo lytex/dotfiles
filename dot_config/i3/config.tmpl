@@ -88,6 +88,12 @@ set $ws9 "9: misc term"
 set $ws9 9
 {{ end }}
 set $ws10 10
+{{ if .work }}
+workspace $ws1 output "HDMI-1"
+workspace $ws4 output "eDP-1"
+workspace $ws5 output "DP-2-1"
+workspace $ws10 output "eDP-1"
+{{ end }}
 
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable
