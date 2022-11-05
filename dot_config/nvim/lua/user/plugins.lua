@@ -86,14 +86,16 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope-project.nvim", commit = "91e9a9737b8522b5a4ecbd8464504da35a1e96cd" })
 	use({ "nvim-telescope/telescope-file-browser.nvim", commit = "b1bc53e0da3d26f0003ffb9602115ce258411aa5" })
 	use({
-		"nvim-telescope/telescope-fzf-native.nvim", commit = "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90",
+		"nvim-telescope/telescope-fzf-native.nvim",
+		commit = "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90",
 
 		run = "make",
 	})
 
 	-- Treesitter
 	use({
-		"nvim-treesitter/nvim-treesitter", commit = "aebc6cf6bd4675ac86629f516d612ad5288f7868",
+		"nvim-treesitter/nvim-treesitter",
+		commit = "aebc6cf6bd4675ac86629f516d612ad5288f7868",
 
 		run = ":TSUpdate",
 	})
@@ -102,7 +104,8 @@ return packer.startup(function(use)
 	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" })
 	use({ "p00f/nvim-ts-rainbow", commit = "1ec3f880585c644ddd50a51502c59f4e36f03e62" })
 	use({
-		"ThePrimeagen/refactoring.nvim", commit = "c9ca8e3bbf7218101f16e6a03b15bf72b99b2cae",
+		"ThePrimeagen/refactoring.nvim",
+		commit = "c9ca8e3bbf7218101f16e6a03b15bf72b99b2cae",
 
 		requires = {
 			{ "nvim-lua/plenary.nvim", commit = "9e7c62856e47053ec7b17f82c5da0f1e678d92c8" },
@@ -153,7 +156,8 @@ return packer.startup(function(use)
 	use({ "psliwka/vim-smoothie", commit = "df1e324e9f3395c630c1c523d0555a01d2eb1b7e" })
 
 	use({
-		"jenterkin/vim-autosource", commit = "569440e157d6eb37fb098dfe95252533553a56f5",
+		"jenterkin/vim-autosource",
+		commit = "569440e157d6eb37fb098dfe95252533553a56f5",
 
 		config = function()
 			vim.g.autosource_hashdir = os.getenv("HOME") .. "/.cache/vim-autosource/hashes"
@@ -178,7 +182,8 @@ return packer.startup(function(use)
 
 	-- neovim in the browser
 	use({
-		"glacambre/firenvim", commit = "56a49d79904921a8b4405786e12b4e12fbbf171b",
+		"glacambre/firenvim",
+		commit = "a96710eaf6e6c2de78341c32d8dc7b39727ad54c",
 
 		run = function()
 			vim.fn["firenvim#install"](0)
