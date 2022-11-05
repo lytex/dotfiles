@@ -22,7 +22,7 @@
 
 # Applications
 #
-set $terminal /usr/bin/alacritty -e zsh
+set $terminal ( ps -A | grep alacritty ) && /usr/bin/alacritty msg create-window -e zsh || /usr/bin/alacritty -e zsh
 set $code_terminal /usr/bin/kitty --title=kitty --class=kitty --name=kitty sh --login -c nvim 
 # Hack to prevent killing a terminal window with unsaved work
 # i k confirms kill and closes the nagbar, closing with the graphical X keeps the terminal open
@@ -88,6 +88,12 @@ set $ws9 "9: misc term"
 set $ws9 9
 {{ end }}
 set $ws10 10
+{{ if .work }}
+workspace $ws1 output "HDMI-1"
+workspace $ws4 output "eDP-1"
+workspace $ws5 output "DP-2-1"
+workspace $ws10 output "eDP-1"
+{{ end }}
 
 # Plasma compatibility improvements
 for_window [window_role="pop-up"] floating enable
