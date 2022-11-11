@@ -1,0 +1,8 @@
+#!/bin/zsh
+if [ -v "$VIMRUNTIME" ]; then
+    xdotool key --window $(xdotool getwindowfocus) "control+backslash" key "control+n"
+    xdotool type --window $(xdotool getwindowfocus) "mTa"
+    command nvr "$@"
+else
+    command nvim "$@"
+fi

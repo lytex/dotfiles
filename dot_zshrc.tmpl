@@ -194,8 +194,8 @@ export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.npm/bin"
 alias c=chezmoi
-export EDITOR="nvr"
-export VISUAL="nvr"
+export EDITOR="nvr_wrapper"
+export VISUAL="nvr_wrapper"
 
 if [ "$TERM" = "xterm-kitty" ]; then
     alias ssh="kitty +kitten ssh"
@@ -277,16 +277,6 @@ function addpass () {
 function arup () {
     # Fuzzy find for a program while showing info of the package
     paru -Ss $1 | grep -v '   '  | fzf --multi --preview 'paru -Si {1}' | awk '{print $1}' | xargs -ro paru -S
-}
-
-function nvr() {
-    if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-        xdotool key --window $(xdotool getwindowfocus) "control+backslash" key "control+n"
-        xdotool type --window $(xdotool getwindowfocus) "mTa"
-        command nvr --remote-wait-silent "$@"
-    else
-        command nvim "$@"
-    fi
 }
 
 function lvim() {
