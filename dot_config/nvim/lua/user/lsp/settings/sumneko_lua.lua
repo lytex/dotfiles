@@ -1,6 +1,5 @@
 return {
 	settings = {
-
 		Lua = {
 			diagnostics = {
 				globals = { "vim" },
@@ -11,6 +10,10 @@ return {
 					[vim.fn.stdpath("config") .. "/lua"] = true,
 				},
 			},
+			telemetry = {
+				enable = false,
+			},
 		},
 	},
 }
+

@@ -76,9 +76,11 @@ return packer.startup(function(use)
 	use({ "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" }) -- a bunch of snippets to use
 
 	-- LSP
-	use({ "neovim/nvim-lspconfig", commit = "af43c300d4134db3550089cd4df6c257e3734689" }) -- enable LSP
-	use({ "williamboman/nvim-lsp-installer", commit = "23820a878a5c2415bfd3b971d1fe3c79e4dd6763" }) -- simple to use language server installer
-	use({ "tamago324/nlsp-settings.nvim", commit = "aabd318a4c94fc080389b532f3436660475fb6b2" }) -- language server settings defined in json for
+
+	use({ "neovim/nvim-lspconfig", commit = "f11fdff7e8b5b415e5ef1837bdcdd37ea6764dda" }) -- enable LSP
+	use({ "williamboman/mason.nvim", commit = "c2002d7a6b5a72ba02388548cfaf420b864fbc12" })
+	use({ "williamboman/mason-lspconfig.nvim", commit = "0051870dd728f4988110a1b2d47f4a4510213e31" })
+	--[[ use({ "williamboman/nvim-lsp-installer", commit = "23820a878a5c2415bfd3b971d1fe3c79e4dd6763" }) -- simple to use language server installer ]]
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "c8624325198513411cf9dcacde76f14d2260220f" }) -- for formatters and linters
 	use({
 		"kevinhwang91/nvim-ufo",
