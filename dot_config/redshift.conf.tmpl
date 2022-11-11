@@ -3,7 +3,7 @@
 ; Set the day and night screen temperatures (Neutral is 6500K)
 temp-day=6500
 {{ if .work }}
-temp-night=3500
+temp-night=4500
 {{ else }}
 temp-night=2500
 {{ end }}
@@ -18,7 +18,11 @@ transition=1
 ; It is also possible to use different settings for day and night
 ; since version 1.8.
 brightness-day=1.0
+{{ if .work }}
+brightness-night=1.0
+{{ else }}
 brightness-night=0.8
+{{ end }}
 ; Set the screen gamma (for all colors, or each color channel
 ; individually)
 gamma=0.8
