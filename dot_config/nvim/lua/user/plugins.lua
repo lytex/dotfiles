@@ -80,6 +80,11 @@ return packer.startup(function(use)
 	use({ "williamboman/nvim-lsp-installer", commit = "23820a878a5c2415bfd3b971d1fe3c79e4dd6763" }) -- simple to use language server installer
 	use({ "tamago324/nlsp-settings.nvim", commit = "aabd318a4c94fc080389b532f3436660475fb6b2" }) -- language server settings defined in json for
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "c8624325198513411cf9dcacde76f14d2260220f" }) -- for formatters and linters
+	use({
+		"kevinhwang91/nvim-ufo",
+		commit = "5da70eb121a890df8a5b25e6cc30d88665af97b8",
+		requires = { "kevinhwang91/promise-async", commit = "70b09063cdf029079b25c7925e4494e7416ee995" },
+	})
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" })
