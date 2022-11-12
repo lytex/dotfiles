@@ -43,6 +43,13 @@ vim.cmd([[
     autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 10000)
   augroup end
 
+set viewoptions-=options
+augroup remember_folds
+    autocmd!
+    autocmd BufWinLeave *.* if &ft !=# 'help' | mkview | endif
+    autocmd BufWinEnter *.* if &ft !=# 'help' | silent! loadview | endif
+augroup END
+
   function! ToggleFormatOnSave()
       if !exists('#_lsp#BufWritePre')
         augroup _lsp
