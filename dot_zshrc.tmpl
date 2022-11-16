@@ -159,7 +159,7 @@ function rmtag {
     tag=$1
     shift 1
     all_tags=$(gettag "$@")
-    new_tags=$(echo "$all_tags" | sed -e "s/$tag,//" -e "s/,$tag$//")
+    new_tags=$(echo "$all_tags" | sed -e "s/$tag,//" -e "s/,$tag$//" | sed "s/^$tag$//")
     tag "$new_tags" "$@"
 }
 
