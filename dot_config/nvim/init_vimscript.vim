@@ -108,6 +108,8 @@ set smartindent " insert indent automatically on new line
 " Different tab/space stops"
 autocmd Filetype yaml,markdown,html,css,json,javascript,sql,lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 
+set title
+
 
 let g:conflict_marker_enable_highlight = 1
 " disable the default highlight group
