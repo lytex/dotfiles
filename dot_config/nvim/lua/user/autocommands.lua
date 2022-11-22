@@ -40,7 +40,7 @@ vim.cmd([[
   augroup _lsp
     autocmd!
     " Increase timeout to 10000ms for larger files
-    autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 10000)
+    autocmd BufWritePre * lua vim.lsp.buf.format(nil, 10000)
   augroup end
 
 set viewoptions-=options
@@ -54,7 +54,7 @@ augroup END
       if !exists('#_lsp#BufWritePre')
         augroup _lsp
           autocmd!
-          autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync(nil, 10000)
+          autocmd BufWritePre * lua vim.lsp.buf.format(nil, 10000)
         augroup end
       else
         augroup _lsp

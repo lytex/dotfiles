@@ -69,7 +69,7 @@ end
 
 local function lsp_keymaps(bufnr)
 	local opts = { noremap = true, silent = true }
-	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
+	vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format()' ]])
 	local keymap = vim.api.nvim_buf_set_keymap
 	keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
 	keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
