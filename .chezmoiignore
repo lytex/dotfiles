@@ -4,6 +4,8 @@
 .zshrc
 {{ end }}
 README.org
+img/
 .config/nvim/plugin/
 .config/nvim/.git/
 hooks
+install.sh
