@@ -1,0 +1,14 @@
+[init]
+	defaultBranch = master
+{{ if not .work }}[user]
+	name = lytex
+	email = julianlpc15@gmail.com
+	signingkey = 5718FD5B62644C307E041E2A76C4950D0942C47C{{ end }}
+[alias]
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[pull]
+	rebase = false
+[push]
+	autoSetupRemote = true
+[protocol "file"]
+	allow = always
