@@ -60,6 +60,7 @@ done
 
 mkdir -p ~/.config/autostart
 
+# TODO Do not install unless in work profile
 echo "[Desktop Entry]
 Type=Application
 Version=1.0
@@ -133,7 +134,7 @@ echo 'patched-fonts/FiraCode' >> .git/info/sparse-checkout && git config core.sp
 mkdir -p ~/.local/share/fonts && find . -iname '*.otf'  | grep -e "Complete" -e "Complete Mono" | grep -v "Windows" | \
     xargs -I _ bash -c 'cp "_" ~/.local/share/fonts/'
 
-cd /tmp && mkdir fantasque && cd fantasque || exit 1
+cd /tmp && mkdir -p fantasque && cd fantasque || exit 1
 curl -sL https://github.com/belluzj/fantasque-sans/releases/download/v1.8.0/FantasqueSansMono-Normal.tar.gz -o \
     FantasqueSansMono-Normal.tar.gz
 tar xfz FantasqueSansMono-Normal.tar.gz && cd OTF || exit 1
@@ -150,7 +151,7 @@ read -r
 gpg --import ~/.credentials/private.key
 gpg --decrypt --recipient rpi@rpi ~/.device-keys/personal.gpg > /tmp/personal
 gpg --import /tmp/personal
-mkdir ~/.ssh && find ~/.password-store/home/julian/.ssh/ -type f | xargs -I _ bash -c 'gpg -d _ > $(echo _ | sed -e s#/home/julian/.password-store## -e s/\.gpg$//) && chmod 600 $(echo _ | sed -e s#/home/julian/.password-store## -e s/\.gpg$//)'
+mkdir -p ~/.ssh && find ~/.password-store/home/julian/.ssh/ -type f | xargs -I _ bash -c 'gpg -d _ > $(echo _ | sed -e s#/home/julian/.password-store## -e s/\.gpg$//) && chmod 600 $(echo _ | sed -e s#/home/julian/.password-store## -e s/\.gpg$//)'
 
 pip install lxml
 systemctl --user stop syncthing
@@ -180,7 +181,7 @@ echo "Continuar cuando estén las carpetas ya sincronizadas:"
 echo "ls ~/org"
 read -r
 cd ~/.doom.d && git submodule init org-html-themes && git submodule sync org-html-themes && git submodule update org-html-themes; cd -
-mkdir ~/.emacs.d && cd ~/.emacs.d || exit 1
+mkdir -p ~/.emacs.d && cd ~/.emacs.d || exit 1
 git init .
 git remote add origin https://github.com/doomemacs/doomemacs
 git fetch --depth 1 origin d0cdf8f5c6ca7ebaae371a54a3114193d876ce51 # El último antes de eliminar init.el que funcione
@@ -204,12 +205,7 @@ mkdir -p "$HOME/.zsh/plugins"
 git clone https://github.com/kutsan/zsh-system-clipboard "$HOME/.zsh/plugins/zsh-system-clipboard"
 chezmoi apply --force
 
-
-
-pip install --user pdm
-mkdir "$ZSH_CUSTOM/plugins/pdm"
-pdm completion zsh > "$ZSH_CUSTOM/plugins/pdm/_pdm"
-python -m pip install --user pdm-venv # Justo ahora [2022-07-05 Tue] están migrando a 2.0 en la que tienen incluido pdm-venv
+# TODO Instalar zpy
 
 # TODO Paso manual: https://github.com/flameshot-org/flameshot#on-kde-plasma-desktop=
 
