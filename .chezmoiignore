@@ -9,3 +9,4 @@ img/
 .config/nvim/.git/
 hooks
 install.sh
+remove.py
