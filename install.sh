@@ -10,6 +10,7 @@ sudo pacman -S doas --noconfirm
 
 declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git yarn ttf-fira-code python-wheel
 syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi alacritty kitty python-xattr thefuck tealdeer flameshot fortune-mod
+go unzip #lua, clang lsp in neovim
 i3-wm i3lock i3status unclutter lazygit okular rofi passmenu dmenu wmctrl
 fuse2 bluez bluez-utils docker plantuml
 alsa-utils # alsamixer y aplay están aquí
@@ -18,6 +19,7 @@ emacs
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
 calibre
 firefox
+xdg-desktop-portal xdg-desktop-portal-kde # Poner GTK_USE_PORTAL=1 en /etc/environment
 noto-fonts-emoji
 noto-fonts-cjk # Chinese Japanese Korean fonts
 pinta kolourpaint
@@ -205,9 +207,7 @@ mkdir -p "$HOME/.zsh/plugins"
 git clone https://github.com/kutsan/zsh-system-clipboard "$HOME/.zsh/plugins/zsh-system-clipboard"
 chezmoi apply --force
 
-# TODO Instalar zpy
-
-# TODO Paso manual: https://github.com/flameshot-org/flameshot#on-kde-plasma-desktop=
+# TODO Paso manual: https://github.com/flameshot-org/flameshot#on-kde-plasma-desktop
 
 cargo install stylua
 npm install --save-dev --save-exact prettier
