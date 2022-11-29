@@ -8,7 +8,7 @@
 sync_dir = "~/Work"
 # skip_file = ""
 # monitor_interval = "300"
-skip_dir = "4archive"
+skip_dir = "4archive|.git"
 # log_dir = "/var/log/onedrive/"
 # drive_id = ""
 # upload_only = "false"
@@ -55,3 +55,4 @@ skip_dir = "4archive"
 # display_running_config = "false"
 # read_only_auth_scope = "false"
 # cleanup_local_files = "false"
+# vim: sw=4 ts=4 wm=4 et ft=conf
