@@ -3,7 +3,10 @@
 {{ if not .work }}[user]
 	name = lytex
 	email = julianlpc15@gmail.com
-	signingkey = 5718FD5B62644C307E041E2A76C4950D0942C47C{{ end }}
+	signingkey = 5718FD5B62644C307E041E2A76C4950D0942C47C{{ else }}[user]
+	name = Julián López Carballal
+	email = julopezc@acciona.com
+	signingkey = 3D5AE531650E3E17C863D3484D4BD9AB9C62DB9D{{ end }}
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [pull]
