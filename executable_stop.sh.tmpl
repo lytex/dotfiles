@@ -1,0 +1,7 @@
+#!/bin/bash
+systemctl stop gitsync --user
+systemctl stop syncthing --user
+{{ if .work }}
+systemctl stop onedrive --user
+umount /media/julian/*
+{{ end }}
