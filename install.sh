@@ -42,6 +42,7 @@ pandoc-bin bookmarksync-git ferdium-bin notion-app drawio-desktop-bin
 ttf-ms-win11-auto # Windows fonts
 winff
 samsung-unified-driver # Printer driver
+qmk-udev-rules-git # QMK
 # Work stuff
 dbeaver google-cloud-sdk teams)
 
@@ -194,6 +195,14 @@ yes | ~/.emacs.d/bin/doom install
 ~/.emacs.d/bin/doom install # !Aquí dependo de que esté sincronizado ~/org con Syncthing! porque hace falta org-ql-queries.el
 ln -s ~/org/org-ql-queries.el ~/.doom.d/modules/ # Y luego además linkarla
 
+# QMK
+git clone https://github.com/qmk/qmk_firmware "$HOME"
+cd "$HOME/qmk_firmware/"
+make git-submodule
+qmk config user.keyboard=contra
+qmk setup
+qmk config user.keyboard=ydm40
+qmk setup
 
 tldr --update # Para que tenga cache tldr por si no hay conexión
 ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
