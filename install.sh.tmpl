@@ -28,9 +28,11 @@ gnome-keyring
 print-manager
 rebuild-detector pacman-contrib # pacman utilities
 # https://wiki.archlinux.org/title/TeX_Live
-texlive-most
-# Work stuff
-rclone evolution evolution-ews kubectl github-cli remmina)
+texlive-most)
+
+# {{ if .work }}
+pacman_packages+=(rclone evolution evolution-ews kubectl github-cli remmina)
+# {{ end }}
 
 sudo pacman -S "${pacman_packages[@]}" --noconfirm
 
@@ -43,9 +45,10 @@ ttf-ms-win11-auto # Windows fonts
 winff
 samsung-unified-driver # Printer driver
 qmk-udev-rules-git # QMK
-# Work stuff
-dbeaver google-cloud-sdk teams
-onedrive-abraunegg)
+)
+# {{ if .work }}
+paru_packages+=(dbeaver google-cloud-sdk teams onedrive-abraunegg)
+# {{ end }}
 
 paru -S "${paru_packages[@]}" --noconfirm
 
@@ -64,7 +67,6 @@ done
 
 mkdir -p ~/.config/autostart
 
-# TODO Do not install unless in work profile
 echo "[Desktop Entry]
 Type=Application
 Version=1.0
@@ -102,7 +104,7 @@ Exec=/usr/bin/emacs --daemon
 StartupNotify=false
 Terminal=true" > ~/.config/autostart/emacs.desktop
 
-# Work stuff
+# {{ if .work }}
 Name=rclone mount
 Comment=rclone mount start script
 echo "[Desktop Entry]
@@ -111,7 +113,6 @@ Version=1.0
 Exec=rclone --vfs-cache-mode writes mount gdrive:  /media/julian/gdrive
 StartupNotify=false
 Terminal=true" > ~/.config/autostart/rclone.desktop
-
 echo "[Desktop Entry]
 Type=Application
 Version=1.0
@@ -128,7 +129,7 @@ Comment=evolution
 Exec=evolution
 StartupNotify=false
 Terminal=true" > ~/.config/autostart/evolution.desktop
-
+# {{ end }}
 
 cd /tmp || exit 1
 git clone --depth 1 --no-checkout --filter=blob:none https://github.com/ryanoasis/nerd-fonts
@@ -249,3 +250,4 @@ cp ~/.doom.d/emacs/emacs_client.desktop ~/.local/share/applications/emacs_client
 xdg-settings set default-web-browser firefox.desktop
 
 chmod 700 ~/Documents
+# vim: sw=4 ts=4 wm=4 et ft=bash
