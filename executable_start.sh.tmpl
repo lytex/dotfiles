@@ -1,0 +1,9 @@
+#!/bin/bash
+systemctl start gitsync --user
+systemctl start syncthing --user
+{{ if .work }}
+systemctl start onedrive --user
+ls /media/julian/gdrive || rclone --vfs-cache-mode writes mount gdrive:  /media/julian/gdrive
+ls /media/julian/julian || rclone --vfs-cache-mode writes mount julian:  /media/julian/julian
+ls /media/julian/onedrive || rclone --vfs-cache-mode writes mount onedrive:  /media/julian/onedrive
+{{ end }}

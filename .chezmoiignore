@@ -3,6 +3,9 @@
 .local
 .zshrc
 {{ end }}
+{{ if not .work }}
+.config/onedrive
+{{ end }}
 README.org
 img/
 .config/nvim/plugin/

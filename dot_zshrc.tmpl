@@ -163,14 +163,9 @@ function rmtag {
     tag "$new_tags" "$@"
 }
 
-{{ if .work }}
 export PYENV_ROOT=$ZPY_VENVS_HOME
 eval "$(pyenv init -)"
-{{ else }}
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source $HOME/.local/bin/virtualenvwrapper.sh
-{{ end }}
+PATH=$(echo $PATH | sed "s#$PYENV_ROOT/shims##" | sed "s/::/:/g")
 
 # Git alias copied from:
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh

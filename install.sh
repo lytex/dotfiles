@@ -30,7 +30,7 @@ rebuild-detector pacman-contrib # pacman utilities
 # https://wiki.archlinux.org/title/TeX_Live
 texlive-most
 # Work stuff
-evolution evolution-ews kubectl github-cli remmina)
+rclone evolution evolution-ews kubectl github-cli remmina)
 
 sudo pacman -S "${pacman_packages[@]}" --noconfirm
 
@@ -44,7 +44,8 @@ winff
 samsung-unified-driver # Printer driver
 qmk-udev-rules-git # QMK
 # Work stuff
-dbeaver google-cloud-sdk teams)
+dbeaver google-cloud-sdk teams
+onedrive-abraunegg)
 
 paru -S "${paru_packages[@]}" --noconfirm
 
