@@ -19,6 +19,7 @@ emacs
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
 calibre
 firefox
+qmk
 xdg-desktop-portal xdg-desktop-portal-kde # Poner GTK_USE_PORTAL=1 en /etc/environment
 noto-fonts-emoji
 noto-fonts-cjk # Chinese Japanese Korean fonts
@@ -198,7 +199,7 @@ yes | ~/.emacs.d/bin/doom install
 ln -s ~/org/org-ql-queries.el ~/.doom.d/modules/ # Y luego además linkarla
 
 # QMK
-git clone https://github.com/qmk/qmk_firmware "$HOME"
+git clone https://github.com/qmk/qmk_firmware "$HOME/qmk_firmware"
 cd "$HOME/qmk_firmware/"
 make git-submodule
 qmk config user.keyboard=contra
