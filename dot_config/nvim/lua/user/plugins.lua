@@ -180,8 +180,6 @@ return packer.startup(function(use)
 
 	-- Get statistics about vim usage
 	use({ "ActivityWatch/aw-watcher-vim", commit = "3df3aa78dc10ebb655df652ee1464b27d001f6a2" })
-	-- Integration with Sourcetral (Source code visualization)
-	use({ "CoatiSoftware/vim-sourcetrail", commit = "c9c621a7ab81c52a661457ccf33a64fd7c56fd9d" })
 
 	-- Movements for python and space indented languages
 	use({ "jeetsukumaran/vim-pythonsense", commit = "9200a57629c904ed2ab8c9b2e8c5649d311794ba" })
