@@ -172,6 +172,14 @@ rm /tmp/personal
 
 # Suponiendo que tengo ya instaladas las claves
 git clone git@github.com:lytex/dotfiles.git ~/.local/share/chezmoi/
+
+# Repositorios privados con credenciales
+# {{ if .work }}
+git clone git@github.com:lytex/dotfiles.git ~/.local/share/chezmoi/dot_ssh
+# {{ else }}
+git clone git@github.com:lytex/dot_ssh_personal.git ~/.local/share/chezmoi/dot_ssh
+# {{ end }}
+
 chezmoi init # Responder a unas preguntas aquí, buen momento para parar la instalación.
 # Puedo utilizar un token de github para bajarme los chezmoi, y aprovechar esto para configurar las claves, pero entonces tengo que sustituir luego el remote de este repo
 
