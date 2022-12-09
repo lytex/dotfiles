@@ -199,8 +199,12 @@ yes | ~/.emacs.d/bin/doom install
 ln -s ~/org/org-ql-queries.el ~/.doom.d/modules/ # Y luego además linkarla
 
 # QMK
-git clone https://github.com/qmk/qmk_firmware "$HOME/qmk_firmware"
 cd "$HOME/qmk_firmware/"
+git init .
+git remote add origin https://github.com/qmk/qmk_firmware
+git fetch --depth 1 origin 0206bd9df31521fcfd764c3dd4cff383e4957151
+git checkout FETCH_HEAD
+
 make git-submodule
 qmk config user.keyboard=contra
 qmk setup
