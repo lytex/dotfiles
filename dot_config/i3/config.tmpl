@@ -138,9 +138,14 @@ bindsym Mod1+Mod4+0 move container to workspace number $ws0
 
 bindsym Mod4+q exec $gentle_kill
 bindsym Mod4+r mode "$mode_window_resize"
+bindsym --release Mod4+p exec /usr/bin/emacs
+bindsym --release Mod4+o exec /usr/bin/emacsclient -c -a ""
+bindsym --release Mod4+f exec /usr/bin/firefox
+bindsym --release Mod4+n exec $code_terminal 
+bindsym --release Mod4+a exec $terminal 
+bindsym --release Mod4+e exec  /usr/bin/dolphin
 # send C-\ C-n (exit terminal mode) using C-'
 bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getactivewindow) 'control+backslash' key 'control+n'
-bindsym --release Mod4+p exec xdotool key 'Print'
 
 # Get windows class with xprop | grep 'CLASS'
 # Then click the appropiate window (use a i3 split)
