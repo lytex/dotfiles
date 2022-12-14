@@ -19,6 +19,7 @@ emacs
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
 calibre
 firefox
+qmk
 xdg-desktop-portal xdg-desktop-portal-kde # Poner GTK_USE_PORTAL=1 en /etc/environment
 noto-fonts-emoji
 noto-fonts-cjk # Chinese Japanese Korean fonts
@@ -43,7 +44,7 @@ declare -a paru_packages=(activitywatch-bin ripgrep-git kmonad-git espanso-bin h
 pandoc-bin bookmarksync-git ferdium-bin notion-app drawio-desktop-bin
 ttf-ms-win11-auto # Windows fonts
 winff
-samsung-unified-driver # Printer driver
+samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
 )
 # {{ if .work }}
@@ -171,6 +172,14 @@ rm /tmp/personal
 
 # Suponiendo que tengo ya instaladas las claves
 git clone git@github.com:lytex/dotfiles.git ~/.local/share/chezmoi/
+
+# Repositorios privados con credenciales
+# {{ if .work }}
+git clone git@github.com:lytex/dotfiles.git ~/.local/share/chezmoi/dot_ssh
+# {{ else }}
+git clone git@github.com:lytex/dot_ssh_personal.git ~/.local/share/chezmoi/dot_ssh
+# {{ end }}
+
 chezmoi init # Responder a unas preguntas aquí, buen momento para parar la instalación.
 # Puedo utilizar un token de github para bajarme los chezmoi, y aprovechar esto para configurar las claves, pero entonces tengo que sustituir luego el remote de este repo
 
@@ -198,8 +207,12 @@ yes | ~/.emacs.d/bin/doom install
 ln -s ~/org/org-ql-queries.el ~/.doom.d/modules/ # Y luego además linkarla
 
 # QMK
-git clone https://github.com/qmk/qmk_firmware "$HOME"
 cd "$HOME/qmk_firmware/"
+git init .
+git remote add origin https://github.com/qmk/qmk_firmware
+git fetch --depth 1 origin 0206bd9df31521fcfd764c3dd4cff383e4957151
+git checkout FETCH_HEAD
+
 make git-submodule
 qmk config user.keyboard=contra
 qmk setup
@@ -240,7 +253,7 @@ sudo usermod -aG audio "$USER"
 newgrp docker
 
 mkdir -p ~/.local/share/wallpapers
-ln -s /usr/share/wallpapers/Next/contents/images/5120x2880.jpg ~/.local/share/wallpapers/i3-wallpaper
+ln -s /usr/share/wallpapers/Next/contents/images/5120x2880.* ~/.local/share/wallpapers/i3-wallpaper
 mkdir -p ~/.local/share/applications
 cp ~/.doom.d/org-roam-capture/org-protocol.desktop ~/.local/share/applications/org-protocol.desktop
 xdg-mime default org-protocol.desktop x-scheme-handler/org-protocol

@@ -4,5 +4,5 @@ COMMAND_ENABLE = no        # Commands for debug and configuration
 NKRO_ENABLE = yes           # Enable N-Key Rollover
 COMBO_ENABLE = yes
 
-RGBLIGHT_SUPPORTED = no
-BACKLIGHT_SUPPORTED = no
+RGBLIGHT_SUPPORTED = yes
+BACKLIGHT_SUPPORTED = yes

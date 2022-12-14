@@ -1,6 +1,9 @@
 #!/bin/bash
 systemctl stop gitsync --user
 systemctl stop syncthing --user
+balooctl suspend
+systemctl stop --user kde-baloo
+systemctl stop --user plasma-baloorunner
 {{ if .work }}
 systemctl stop onedrive --user
 umount /media/julian/*
