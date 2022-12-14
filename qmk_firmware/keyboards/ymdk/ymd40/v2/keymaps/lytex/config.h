@@ -8,4 +8,4 @@
 #define COMBO_TERM 50
 
 #undef RGBLED_NUM
-#define RGBLED_NUM 48
+#define RGBLED_NUM 51
