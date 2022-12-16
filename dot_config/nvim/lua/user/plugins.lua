@@ -129,7 +129,7 @@ return packer.startup(function(use)
 	--[[ use({ "ravenxrz/DAPInstall.nvim" }) ]]
 
 	-- Not used for keybindings, only to evaluate lua code
-	use({ "mrjones2014/legendary.nvim", commit = "59309190f3c80a41160e29d644a15ceb5c64e239" })
+	use({ "mrjones2014/legendary.nvim", commit = "7be09ac0cf0ac12d65e41c706822a24eb0b92971" })
 
 	-- Conflict markers highlighted
 	use({ "rhysd/conflict-marker.vim", commit = "22b6133116795ea8fb6705ddca981aa8faecedda" })
@@ -151,6 +151,11 @@ return packer.startup(function(use)
 	use({ "unblevable/quick-scope", commit = "428e8698347f254d24b248af9f656194a80081e5" })
 	-- Movements inside () [] {} , and more
 	use({ "wellle/targets.vim", commit = "8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d" })
+	use({
+		"kana/vim-textobj-entire",
+		commit = "64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a",
+		requires = { "kana/vim-textobj-user", commit = "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
+	})
 
 	-- syntax highlighting and more for most languages
 	use({ "sheerun/vim-polyglot", commit = "38282d58387cff48ac203f6912c05e4c8686141b" })
