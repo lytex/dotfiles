@@ -13,3 +13,4 @@ img/
 hooks
 install.sh
 remove.py
+tag.sh

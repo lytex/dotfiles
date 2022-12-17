@@ -1,0 +1,8 @@
+.doom.d/org-html-themes
+.zsh
+.oh-my-zsh
+.emacs.d
+.cache/paru
+.local/share/nvim
+Downloads
+.cargo/registry
