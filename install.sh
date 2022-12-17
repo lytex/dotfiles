@@ -1,4 +1,14 @@
 #!/bin/bash
+
+# Ask questions at the beggining without depending on chezmoi,
+# so that we don't have a bootstrapping problem
+read -p "Is this a work computer? [y/n] " yn
+
+case $yn in 
+    [yY]) export WORK_ENV=1 ;;
+	[nN]) export WORK_ENV=0 ;;
+	* ) exit 1 ;;
+esac
 sudo pacman -Syu --noconfirm
 
 sudo pacman -S doas --noconfirm
@@ -8,20 +18,21 @@ sudo pacman -S doas --noconfirm
 # usermod -aG wheel julian
 # usermod -aG audio julian # Para tener acceso al audio
 
-declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git yarn ttf-fira-code python-wheel
-syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi alacritty kitty python-xattr thefuck tealdeer flameshot fortune-mod
+declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git
+yarn ttf-fira-code python-wheel syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi
+alacritty kitty python-xattr thefuck tealdeer flameshot fortune-mod
 go unzip #lua, clang lsp in neovim
 flatpak
 i3-wm i3lock i3status unclutter lazygit okular rofi passmenu dmenu wmctrl
 fuse2 bluez bluez-utils docker plantuml
-alsa-utils # alsamixer y aplay están aquí
+alsa-utils # alsamixer, aplay
 # en vez de emacs puede estar interesante emacs-nativecomp
 emacs
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
 calibre
 firefox
 qmk
-xdg-desktop-portal xdg-desktop-portal-kde # Poner GTK_USE_PORTAL=1 en /etc/environment
+xdg-desktop-portal xdg-desktop-portal-kde # Add GTK_USE_PORTAL=1 to /etc/environment
 noto-fonts-emoji
 noto-fonts-cjk # Chinese Japanese Korean fonts
 pinta kolourpaint
@@ -32,9 +43,9 @@ rebuild-detector pacman-contrib # pacman utilities
 # https://wiki.archlinux.org/title/TeX_Live
 texlive-most)
 
-# {{ if .work }}
-pacman_packages+=(rclone evolution evolution-ews kubectl github-cli remmina)
-# {{ end }}
+if (( $WORK_ENV == 1)); then
+    pacman_packages+=(rclone evolution evolution-ews kubectl github-cli remmina)
+fi
 
 sudo pacman -S "${pacman_packages[@]}" --noconfirm
 
@@ -48,21 +59,20 @@ winff
 samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
 )
-# {{ if .work }}
-paru_packages+=(google-cloud-sdk teams onedrive-abraunegg)
-# {{ end }}
+if (( $WORK_ENV == 1 )); then
+    paru_packages+=(google-cloud-sdk teams onedrive-abraunegg)
+fi
 
 paru -S "${paru_packages[@]}" --noconfirm
 
 declare -a systemctl_enable=(NetworkManager bluetooth cups.service docker.socket docker.service containerd.service cronie.service)
 declare -a systemctl_enable_user=(espanso.service syncthing redshift)
 
+if (( $WORK_ENV == 1 )); then
+    declare -a flathub_packages=(io.dbeaver.DBeaverCommunity)
 
-# {{ if .work }}
-declare -a flathub_packages=(io.dbeaver.DBeaverCommunity)
-
-flatpak install flathub "${flathub_packages[@]}"
-# {{ end }}
+    flatpak install flathub "${flathub_packages[@]}"
+fi
 
 # MAYBE Add a --now to enable and start the service
 
@@ -113,32 +123,32 @@ Exec=/usr/bin/emacs --daemon
 StartupNotify=false
 Terminal=true" > ~/.config/autostart/emacs.desktop
 
-# {{ if .work }}
-Name=rclone mount
-Comment=rclone mount start script
-echo "[Desktop Entry]
-Type=Application
-Version=1.0
-Exec=rclone --vfs-cache-mode writes mount gdrive:  /media/julian/gdrive
-StartupNotify=false
-Terminal=true" > ~/.config/autostart/rclone.desktop
-echo "[Desktop Entry]
-Type=Application
-Version=1.0
-Name=rclone mount
-Comment=rclone mount start script
-Exec=rclone --vfs-cache-mode writes mount julian:  /media/julian/julian
-StartupNotify=false
-Terminal=true" > ~/.config/autostart/rclone_julian.desktop
-echo "[Desktop Entry]
-Type=Application
-Version=1.0
-Name=evolution
-Comment=evolution
-Exec=evolution
-StartupNotify=false
-Terminal=true" > ~/.config/autostart/evolution.desktop
-# {{ end }}
+if (( $WORK_ENV == 1 )); then
+    Name=rclone mount
+    Comment=rclone mount start script
+    echo "[Desktop Entry]
+    Type=Application
+    Version=1.0
+    Exec=rclone --vfs-cache-mode writes mount gdrive:  /media/julian/gdrive
+    StartupNotify=false
+    Terminal=true" > ~/.config/autostart/rclone.desktop
+    echo "[Desktop Entry]
+    Type=Application
+    Version=1.0
+    Name=rclone mount
+    Comment=rclone mount start script
+    Exec=rclone --vfs-cache-mode writes mount julian:  /media/julian/julian
+    StartupNotify=false
+    Terminal=true" > ~/.config/autostart/rclone_julian.desktop
+    echo "[Desktop Entry]
+    Type=Application
+    Version=1.0
+    Name=evolution
+    Comment=evolution
+    Exec=evolution
+    StartupNotify=false
+    Terminal=true" > ~/.config/autostart/evolution.desktop
+fi
 
 cd /tmp || exit 1
 git clone --depth 1 --no-checkout --filter=blob:none https://github.com/ryanoasis/nerd-fonts
@@ -183,10 +193,11 @@ git clone git@github.com:lytex/dotfiles.git ~/.local/share/chezmoi/
 
 # Repositorios privados con credenciales
 # {{ if .work }}
-git clone git@github.com:lytex/dotfiles.git ~/.local/share/chezmoi/dot_ssh
-# {{ else }}
-git clone git@github.com:lytex/dot_ssh_personal.git ~/.local/share/chezmoi/dot_ssh
-# {{ end }}
+if (( $WORK_ENV == 1 )); then
+    git clone git@github.com:lytex/dotfiles.git ~/.local/share/chezmoi/dot_ssh
+else
+    git clone git@github.com:lytex/dot_ssh_personal.git ~/.local/share/chezmoi/dot_ssh
+fi
 
 chezmoi init # Responder a unas preguntas aquí, buen momento para parar la instalación.
 # Puedo utilizar un token de github para bajarme los chezmoi, y aprovechar esto para configurar las claves, pero entonces tengo que sustituir luego el remote de este repo
