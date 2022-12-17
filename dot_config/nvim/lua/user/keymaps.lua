@@ -35,6 +35,7 @@ keymap("i", "jk", "<ESC>", opts)
 -- Ctrl+Backspace deletes word
 vim.keymap.set("i", "<C-BS>", "<C-w>")
 vim.keymap.set("i", "<C-H>", "<C-w>")
+vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 -- keymap("i", "<C-BS>", "<C-w>", opts) --This one is not working, no idea why
 
 -- QuickFixList Remappings

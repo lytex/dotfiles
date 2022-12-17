@@ -151,6 +151,9 @@ return packer.startup(function(use)
 	use({ "unblevable/quick-scope", commit = "428e8698347f254d24b248af9f656194a80081e5" })
 	-- Movements inside () [] {} , and more
 	use({ "wellle/targets.vim", commit = "8d6ff2984cdfaebe5b7a6eee8f226a6dd1226f2d" })
+	-- Work with arguments also
+	use({ "PeterRincker/vim-argumentative", commit = "63a5f7deb675c38126de626f4c00e000902462fe" })
+	-- https://github.com/AndrewRadev/sideways.vim Also good
 	use({
 		"kana/vim-textobj-entire",
 		commit = "64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a",
