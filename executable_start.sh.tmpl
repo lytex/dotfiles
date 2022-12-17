@@ -7,3 +7,7 @@ ls /media/julian/gdrive || rclone --vfs-cache-mode writes mount gdrive:  /media/
 ls /media/julian/julian || rclone --vfs-cache-mode writes mount julian:  /media/julian/julian
 ls /media/julian/onedrive || rclone --vfs-cache-mode writes mount onedrive:  /media/julian/onedrive
 {{ end }}
+balooctl resume
+systemctl start --user kde-baloo
+systemctl start --user plasma-baloorunner
+
