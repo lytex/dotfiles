@@ -192,6 +192,7 @@ return packer.startup(function(use)
 	-- Movements for python and space indented languages
 	use({ "jeetsukumaran/vim-pythonsense", commit = "9200a57629c904ed2ab8c9b2e8c5649d311794ba" })
 	use({ "michaeljsmith/vim-indent-object", commit = "5c5b24c959478929b54a9e831a8e2e651a465965" })
+	use({ "jeetsukumaran/vim-indentwise", commit = "608bd6876d3b56d469e0e615eb774a6e06095dbf" })
 
 	-- neovim in the browser
 	use({
