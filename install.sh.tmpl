@@ -11,6 +11,7 @@ sudo pacman -S doas --noconfirm
 declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git yarn ttf-fira-code python-wheel
 syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi alacritty kitty python-xattr thefuck tealdeer flameshot fortune-mod
 go unzip #lua, clang lsp in neovim
+flatpak
 i3-wm i3lock i3status unclutter lazygit okular rofi passmenu dmenu wmctrl
 fuse2 bluez bluez-utils docker plantuml
 alsa-utils # alsamixer y aplay están aquí
@@ -48,13 +49,20 @@ samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
 )
 # {{ if .work }}
-paru_packages+=(dbeaver google-cloud-sdk teams onedrive-abraunegg)
+paru_packages+=(google-cloud-sdk teams onedrive-abraunegg)
 # {{ end }}
 
 paru -S "${paru_packages[@]}" --noconfirm
 
 declare -a systemctl_enable=(NetworkManager bluetooth cups.service docker.socket docker.service containerd.service cronie.service)
 declare -a systemctl_enable_user=(espanso.service syncthing redshift)
+
+
+# {{ if .work }}
+declare -a flathub_packages=(io.dbeaver.DBeaverCommunity)
+
+flatpak install flathub "${flathub_packages[@]}"
+# {{ end }}
 
 # MAYBE Add a --now to enable and start the service
 
