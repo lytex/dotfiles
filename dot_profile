@@ -1,3 +1,8 @@
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.npm/bin"
+
+if [ -n $PATH_INJECTION ]; then
+    export PATH="$PATH:$HOME/.local/bin/kitty_$$"
+    export PATH_INJECTION_PID=$$
+fi

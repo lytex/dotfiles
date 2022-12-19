@@ -23,7 +23,7 @@
 # Applications
 #
 set $terminal ( ps -A | grep alacritty ) && /usr/bin/alacritty msg create-window -e zsh || /usr/bin/alacritty -e zsh
-set $code_terminal PATH_INJECTION=1 /usr/bin/kitty nvim
+set $code_terminal PATH_INJECTION=1 /usr/bin/kitty sh --login -c nvim
 # Hack to prevent killing a terminal window with unsaved work
 # i k confirms kill and closes the nagbar, closing with the graphical X keeps the terminal open
 set $gentle_kill zsh -c '( xprop -id $(xdotool getactivewindow) | grep -i -e alacritty ) && i3-nagbar -m "KILL Are you sure??" || wmctrl -c :ACTIVE:'
