@@ -2,20 +2,27 @@
 # Original file: default.yml
 
 matches:
-  - trigger: ":date"
-    replace: "{{mydate}}"
+  - trigger: ':date'
+    replace: '{{mydate}}'
     vars:
       - name: mydate
         type: date
         params:
-          format: "%Y-%m-%d"
-  - trigger: ":timestamp"
-    replace: "{{mydate}}"
+          format: '%Y-%m-%d'
+  - trigger: ':timestamp'
+    replace: '{{mydate}}'
     vars:
       - name: mydate
         type: date
         params:
-          format: "%Y-%m-%d %H:%M:%S"
+          format: '%Y-%m-%d %H:%M:%S'
+  - trigger: ':ttt'
+    replace: '{{mydate}}'
+    vars:
+      - name: mydate
+        type: date
+        params:
+          format: '%Y%m%d%H%M%S'
   - trigger: ;ra
     replace: →
   - trigger: ;rua
