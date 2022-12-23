@@ -217,7 +217,8 @@ cd ~/.doom.d && git submodule init org-html-themes && git submodule sync org-htm
 mkdir -p ~/.emacs.d && cd ~/.emacs.d || exit 1
 git init .
 git remote add origin https://github.com/doomemacs/doomemacs
-git fetch --depth 1 origin d0cdf8f5c6ca7ebaae371a54a3114193d876ce51 # El último antes de eliminar init.el que funcione
+git fetch --depth 1 origin d5ccac5d71c819035fa251f01d023b3f94b4fba4 # Actualizado a v3.0.0-pre
+# d0cdf8f5c6ca7ebaae371a54a3114193d876ce51 # El último antes de eliminar init.el que funcione
 # 9d52ba27472634724d7ae5195033161b5121b1b4 es el siguiente que funciona? 
 # https://github.com/doomemacs/doomemacs/issues/6852#issuecomment-1259140811
 git checkout FETCH_HEAD
