@@ -8,7 +8,7 @@
 sync_dir = "~/Work"
 # skip_file = ""
 # monitor_interval = "300"
-skip_dir = "4archive|.git|1projects/PostGIS/Datos de descarga|__pycache__"
+skip_dir = "4archive|.git|1projects/PostGIS/Datos de descarga|__pycache__|Microsoft Teams Chat Files|Whiteboards"
 # log_dir = "/var/log/onedrive/"
 # drive_id = ""
 # upload_only = "false"
