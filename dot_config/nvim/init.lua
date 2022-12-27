@@ -24,3 +24,4 @@ require("user.whichkey")
 require("user.autocommands")
 
 vim.cmd("source ~/.config/nvim/init_vimscript.vim")
+vim.cmd("source ~/.config/nvim/yinote.vim")
