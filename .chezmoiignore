@@ -6,6 +6,9 @@
 {{ if not .work }}
 .config/onedrive
 .vrapperrc
+.local/share/nvim/telescope-projects-work.txt
+{{ else }}
+.local/share/nvim/telescope-projects-personal.txt
 {{ end }}
 README.org
 img/
