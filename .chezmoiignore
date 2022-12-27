@@ -5,6 +5,7 @@
 {{ end }}
 {{ if not .work }}
 .config/onedrive
+.vrapperrc
 {{ end }}
 README.org
 img/

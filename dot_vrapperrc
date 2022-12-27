@@ -1,0 +1,32 @@
+" C-u means erase selection like '<,'>:
+nnoremap <silent> ZC :<C-u>w<CR>:<C-u>Bd<CR>
+nnoremap <silent> ZB :<C-u>Bd!<CR>
+" ZZ doesn't work when editing a patch, use ZX in these cases
+nmap <silent> ZX ZC<C-w>qa
+nnoremap <silent> ZM :<C-u>:q!<CR>
+
+" Remap escape
+inoremap jk <Esc>
+
+" Bidirectional integration with system clipboard
+set clipboard=unnamedplus
+:vnoremap y "+y
+
+set ignorecase " ignore case when searching
+set smartcase " match case when there is an upercase letter
+
+" Y goes to the end of line
+map Y y$
+" Center vim after jumping to next/prev result
+nnoremap n nzzzv
+nnoremap N Nzzzv
+" Keep the cursor in place when joining lines
+nnoremap J mzJ`z
+
+inoremap <m-k> <esc>:m .-2<cr>==a
+inoremap <m-j> <esc>:m .+1<cr>==a
+
+vnoremap <m-k> <esc>:m .-2<cr>==
+vnoremap <m-j> <esc>:m .+1<cr>==
+nnoremap <m-k> <esc>:m .-2<cr>==
+nnoremap <m-j> <esc>:m .+1<cr>==
