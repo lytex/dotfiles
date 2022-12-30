@@ -296,10 +296,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     // clang-format off
     [_QWERTY] = LAYOUT_ortho_4x12(
-        KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
-        OSM(MOD_LCTL), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
-        OSM(MOD_LSFT), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, KC_SLSH, OSM(MOD_RSFT),
-        KC_ESC, IQWERT, RGB_TOG, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NUM, OSM(MOD_RALT), RGB_MOD, STENO, QWERTY),
+    KC_TAB,        KC_Q,   KC_W,    KC_E,          KC_R,          KC_T, KC_Y,   KC_U, KC_I,          KC_O,    KC_P,    KC_BSPC,
+    OSM(MOD_LCTL), KC_A,   KC_S,    KC_D,          KC_F,          KC_G, KC_H,   KC_J, KC_K,          KC_L,    KC_SCLN, KC_QUOT,
+    OSM(MOD_LSFT), KC_Z,   KC_X,    KC_C,          KC_V,          KC_B, KC_N,   KC_M, KC_COMM,       KC_DOT,  KC_SLSH, OSM(MOD_RSFT),
+    KC_ESC,        IQWERT, RGB_TOG, OSM(MOD_LGUI), OSM(MOD_LALT), NAV,  KC_SPC, NUM,  OSM(MOD_RALT), RGB_MOD, STENO,   QWERTY),
     // clang-format on
     /******************************************************************************************************************/
 
@@ -314,7 +314,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | Esc  |      | GUI  | Alt  |      | NAV  | SPC  | TRNS |AltGr |      |      |QWERTY|
      * `------------------------------------------------------------------------------------'
      */
-    [_NUMBER] = LAYOUT_ortho_4x12(KC_GRV, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSLS, KC_LBRC, KC_RBRC, KC_BSPC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, OSM(MOD_LSFT), KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, OSM(MOD_LCTL), KC_COMM, KC_DOT, KC_SLSH, OSM(MOD_RSFT), KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NUM, KC_SPC, KC_TRNS, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
+    // clang-format off
+    [_NUMBER] = LAYOUT_ortho_4x12(
+    KC_GRV,        KC_NO, KC_NO, KC_NO,         KC_NO,         KC_NO, KC_NO,  KC_NO,         KC_BSLS,       KC_LBRC, KC_RBRC, KC_BSPC,
+    KC_1,          KC_2,  KC_3,  KC_4,          KC_5,          KC_6,  KC_7,   KC_8,          KC_9,          KC_0,    KC_MINS, KC_EQL,
+    OSM(MOD_LSFT), KC_NO, KC_NO, KC_NO,         KC_NO,         KC_NO, KC_NO,  OSM(MOD_LCTL), KC_COMM,       KC_DOT,  KC_SLSH, OSM(MOD_RSFT),
+    KC_ESC,        KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NUM,   KC_SPC, KC_TRNS,       OSM(MOD_RALT), KC_NO,   KC_NO,   QWERTY),
+    // clang-format on
     /******************************************************************************************************************/
 
     /* Navigation
@@ -328,7 +334,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | Esc  |      |      | GUI  | Alt  | TRNS |      | NUM  |AltGr |      |      |QWERTY|
      * `------------------------------------------------------------------------------------'
      */
-    [_NAVIGATION] = LAYOUT_ortho_4x12(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12, OSM(MOD_LCTL), KC_HOME, KC_PGUP, KC_PGDN, KC_END, KC_PSCR, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_DEL, KC_ENT, OSM(MOD_LSFT), KC_BRID, KC_BRIU, KC_NO, KC_NO, KC_MUTE, KC_VOLD, KC_VOLU, KC_MRWD, KC_MPLY, KC_MFFD, OSM(MOD_RSFT), KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, OSM(MOD_LCTL), NUM, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
+    // clang-format off
+    [_NAVIGATION] = LAYOUT_ortho_4x12(
+    KC_F1,         KC_F2,   KC_F3,   KC_F4,         KC_F5,         KC_F6,   KC_F7,         KC_F8,   KC_F9,         KC_F10,  KC_F11,  KC_F12,
+    OSM(MOD_LCTL), KC_HOME, KC_PGUP, KC_PGDN,       KC_END,        KC_PSCR, KC_LEFT,       KC_DOWN, KC_UP,         KC_RGHT, KC_DEL,  KC_ENT,
+    OSM(MOD_LSFT), KC_BRID, KC_BRIU, KC_NO,         KC_NO,         KC_MUTE, KC_VOLD,       KC_VOLU, KC_MRWD,       KC_MPLY, KC_MFFD, OSM(MOD_RSFT),
+    KC_ESC,        KC_NO,   KC_NO,   OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, OSM(MOD_LCTL), NUM,     OSM(MOD_RALT), KC_NO,   KC_NO,   QWERTY),
+    // clang-format on
     /******************************************************************************************************************/
 
     /* Steno
@@ -353,7 +365,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | RESET|      |      |      |   A  |   O  |   E  |   U  |      |      |      |QWERTY|
      * `------------------------------------------------------------------------------------'
      */
-    [_STENO] = LAYOUT_ortho_4x12(KC_NO, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC, KC_NO, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC, KC_NO, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, QK_BOOT, KC_NO, KC_NO, KC_NO, KC_C, KC_V, KC_N, KC_M, KC_NO, KC_NO, KC_NO, QWERTY),
+    // clang-format off
+    [_STENO] = LAYOUT_ortho_4x12(
+    KC_NO,   KC_1,  KC_2,  KC_3,  KC_4, KC_5, KC_6, KC_7, KC_8,  KC_9,  KC_0,    KC_BSPC,
+    KC_NO,   KC_Q,  KC_W,  KC_E,  KC_R, KC_T, KC_Y, KC_U, KC_I,  KC_O,  KC_P,    KC_LBRC,
+    KC_NO,   KC_A,  KC_S,  KC_D,  KC_F, KC_G, KC_H, KC_J, KC_K,  KC_L,  KC_SCLN, KC_QUOT,
+    QK_BOOT, KC_NO, KC_NO, KC_NO, KC_C, KC_V, KC_N, KC_M, KC_NO, KC_NO, KC_NO,   QWERTY),
+    // clang-format on
     /******************************************************************************************************************/
 
     /* Inverse Qwerty
@@ -367,21 +385,47 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * | Esc  |      |      | GUI  | Alt  | NAV  | SPC  | NUM  |AltGr |      |      |QWERTY|
      * `------------------------------------------------------------------------------------'
      */
-    [_INVERSE_QWERTY] = LAYOUT_ortho_4x12(KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC, OSM(MOD_LCTL), KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, ES_SCLN, ES_QUOT, SIQWER, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_N, KC_M, KC_COMM, KC_DOT, ES_SLSH, SIQWER, KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, AIQWER, KC_NO, KC_NO, QWERTY),
+    // clang-format off
+    [_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    KC_TAB,        KC_Q,  KC_W,  KC_E,          KC_R,          KC_T, KC_Y,   KC_U,   KC_I,    KC_O,   KC_P,    KC_BSPC,
+    OSM(MOD_LCTL), KC_A,  KC_S,  KC_D,          KC_F,          KC_G, KC_H,   KC_J,   KC_K,    KC_L,   ES_SCLN, ES_QUOT,
+    SIQWER,        KC_Z,  KC_X,  KC_C,          KC_V,          KC_B, KC_N,   KC_M,   KC_COMM, KC_DOT, ES_SLSH, SIQWER,
+    KC_ESC,        KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV,  KC_SPC, NIQWER, AIQWER,  KC_NO,  KC_NO,   QWERTY),
 
-    [_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(KC_TAB, S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T), S(KC_Y), S(KC_U), S(KC_I), S(KC_O), S(KC_P), KC_BSPC, OSM(MOD_LCTL), S(KC_A), S(KC_S), S(KC_D), S(KC_F), S(KC_G), S(KC_H), S(KC_J), S(KC_K), S(KC_L), ES_COLN, ES_DQUO, KC_TRNS, S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B), S(KC_N), S(KC_M), ES_LABK, ES_RABK, ES_QUES, KC_TRNS, KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, ASIQWE, KC_NO, KC_NO, QWERTY),
+    [_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    KC_TAB,        S(KC_Q), S(KC_W), S(KC_E), S(KC_R), S(KC_T), S(KC_Y), S(KC_U), S(KC_I), S(KC_O), S(KC_P), KC_BSPC,
+    OSM(MOD_LCTL), S(KC_A), S(KC_S), S(KC_D), S(KC_F), S(KC_G), S(KC_H), S(KC_J), S(KC_K), S(KC_L), ES_COLN, ES_DQUO,
+    KC_TRNS,       S(KC_Z), S(KC_X), S(KC_C), S(KC_V), S(KC_B), S(KC_N), S(KC_M), ES_LABK, ES_RABK, ES_QUES, KC_TRNS,
+    KC_ESC,        KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, ASIQWE, KC_NO, KC_NO, QWERTY),
 
-    // [_ALTGR_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
-    //    KC_TAB, ALTGR(KC_Q), ALTGR(KC_W), ALTGR(KC_E), ALTGR(KC_R), ALTGR(KC_T), ALTGR(KC_Y), ALTGR(KC_U), ALTGR(KC_I), ALTGR(KC_O), ALTGR(KC_P), KC_BSPC,
-    //    OSM(MOD_LCTL), ALTGR(KC_A), ALTGR(KC_S), ALTGR(KC_D), ALTGR(KC_F), ALTGR(KC_G), ALTGR(KC_H), ALTGR(KC_J), ALTGR(KC_K), ALTGR(KC_L), KC_GT, KC_AT,
-    //    KC_TRNS, ALTGR(KC_Z), ALTGR(KC_X), ALTGR(KC_C), ALTGR(KC_V), ALTGR(KC_B), ALTGR(KC_N), ALTGR(KC_M), KC_NUBS, KC_NUBS, KC_UNDS, KC_TRNS,
-    //    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NUM, KC_TRNS, KC_NO, KC_NO, QWERTY),
+    /* [_ALTGR_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+       KC_TAB,        ALTGR(KC_Q), ALTGR(KC_W), ALTGR(KC_E),   ALTGR(KC_R),   ALTGR(KC_T), ALTGR(KC_Y), ALTGR(KC_U), ALTGR(KC_I), ALTGR(KC_O), ALTGR(KC_P), KC_BSPC,
+       OSM(MOD_LCTL), ALTGR(KC_A), ALTGR(KC_S), ALTGR(KC_D),   ALTGR(KC_F),   ALTGR(KC_G), ALTGR(KC_H), ALTGR(KC_J), ALTGR(KC_K), ALTGR(KC_L), KC_GT,       KC_AT,
+       KC_TRNS,       ALTGR(KC_Z), ALTGR(KC_X), ALTGR(KC_C),   ALTGR(KC_V),   ALTGR(KC_B), ALTGR(KC_N), ALTGR(KC_M), KC_NUBS,     KC_NUBS,     KC_UNDS,     KC_TRNS,
+       KC_ESC,        KC_NO,       KC_NO,       OSM(MOD_LGUI), OSM(MOD_LALT), NAV,         KC_SPC,      NUM,         KC_TRNS,     KC_NO,       KC_NO,       QWERTY), */
 
-    [_ALTGR_INVERSE_QWERTY] = LAYOUT_ortho_4x12(KC_TAB, KC_NO, KC_NO, CU_EACU, KC_NO, KC_NO, CU_UDIA, CU_UACU, CU_IACU, CU_OACU, KC_NO, KC_BSPC, OSM(MOD_LCTL), CU_AACU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, ASIQWE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, CU_NTIL, KC_NO, KC_NO, KC_NO, CU_IQUE, ASIQWE, KC_ESC, IQWERT, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, KC_TRNS, KC_NO, KC_NO, QWERTY),
+    [_ALTGR_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    KC_TAB,        KC_NO,   KC_NO, CU_EACU,       KC_NO,         KC_NO, CU_UDIA, CU_UACU, CU_IACU, CU_OACU, KC_NO,   KC_BSPC,
+    OSM(MOD_LCTL), CU_AACU, KC_NO, KC_NO,         KC_NO,         KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+    ASIQWE,        KC_NO,   KC_NO, KC_NO,         KC_NO,         KC_NO, CU_NTIL, KC_NO,   KC_NO,   KC_NO,   CU_IQUE, ASIQWE,
+    KC_ESC,        IQWERT,  KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV,   KC_SPC,  NIQWER,  KC_TRNS, KC_NO,   KC_NO,   QWERTY),
 
-    [_ALTGR_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(KC_TAB, KC_NO, KC_NO, CUS_EACU, KC_NO, KC_NO, CUS_UDIA, CUS_UACU, CUS_IACU, CUS_OACU, KC_NO, KC_BSPC, OSM(MOD_LCTL), CUS_AACU, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, CUS_NTIL, KC_NO, KC_NO, KC_NO, KC_NO, KC_TRNS, KC_ESC, IQWERT, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV, KC_SPC, NIQWER, KC_TRNS, KC_NO, KC_NO, QWERTY),
+    [_ALTGR_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    KC_TAB,        KC_NO,    KC_NO, CUS_EACU,      KC_NO,         KC_NO, CUS_UDIA, CUS_UACU, CUS_IACU, CUS_OACU, KC_NO, KC_BSPC,
+    OSM(MOD_LCTL), CUS_AACU, KC_NO, KC_NO,         KC_NO,         KC_NO, KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO, KC_NO,
+    KC_TRNS,       KC_NO,    KC_NO, KC_NO,         KC_NO,         KC_NO, CUS_NTIL, KC_NO,    KC_NO,    KC_NO,    KC_NO, KC_TRNS,
+    KC_ESC,        IQWERT,   KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), NAV,   KC_SPC,   NIQWER,   KC_TRNS,  KC_NO,    KC_NO, QWERTY),
 
-    [_NUMBER_INVERSE_QWERTY] = LAYOUT_ortho_4x12(CU_GRV, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, ES_BSLS, ES_LBRC, ES_RBRC, KC_BSPC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, ES_MINS, ES_EQL, NISQWE, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, OSM(MOD_LCTL), KC_COMM, KC_DOT, ES_SLSH, NISQWE, KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_SPC, NAV, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
+    [_NUMBER_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    CU_GRV, KC_NO, KC_NO, KC_NO,         KC_NO,         KC_NO,   KC_NO,  KC_NO,         ES_BSLS,       ES_LBRC, ES_RBRC, KC_BSPC,
+    KC_1,   KC_2,  KC_3,  KC_4,          KC_5,          KC_6,    KC_7,   KC_8,          KC_9,          KC_0,    ES_MINS, ES_EQL,
+    NISQWE, KC_NO, KC_NO, KC_NO,         KC_NO,         KC_NO,   KC_NO,  OSM(MOD_LCTL), KC_COMM,       KC_DOT,  ES_SLSH, NISQWE,
+    KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_SPC, NAV,           OSM(MOD_RALT), KC_NO,   KC_NO,   QWERTY),
 
-    [_NUMBER_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(ES_TILD, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, ES_PIPE, ES_LCBR, ES_RCBR, KC_BSPC, ES_EXLM, ES_AT, ES_HASH, ES_DLR, ES_PERC, CU_CIRC, ES_AMPR, ES_ASTR, ES_LPRN, ES_RPRN, ES_UNDS, ES_PLUS, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, OSM(MOD_LCTL), KC_COMM, KC_DOT, ES_SLSH, OSM(MOD_RSFT), KC_ESC, KC_NO, KC_NO, OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_SPC, NAV, OSM(MOD_RALT), KC_NO, KC_NO, QWERTY),
+    [_NUMBER_SHIFTED_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
+    ES_TILD, KC_NO, KC_NO,   KC_NO,         KC_NO,         KC_NO,   KC_NO,   KC_NO,         ES_PIPE,       ES_LCBR, ES_RCBR, KC_BSPC,
+    ES_EXLM, ES_AT, ES_HASH, ES_DLR,        ES_PERC,       CU_CIRC, ES_AMPR, ES_ASTR,       ES_LPRN,       ES_RPRN, ES_UNDS, ES_PLUS,
+    KC_TRNS, KC_NO, KC_NO,   KC_NO,         KC_NO,         KC_NO,   KC_NO,   OSM(MOD_LCTL), KC_COMM,       KC_DOT,  ES_SLSH, OSM(MOD_RSFT),
+    KC_ESC,  KC_NO, KC_NO,   OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_SPC,  NAV,           OSM(MOD_RALT), KC_NO,   KC_NO,   QWERTY),
+    // clang-format on
 };
