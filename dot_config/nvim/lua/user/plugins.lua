@@ -109,7 +109,10 @@ return packer.startup(function(use)
 	-- See TS syntax tree along with the current file
 	use({ "nvim-treesitter/playground", commit = "e6a0bfaf9b5e36e3a327a1ae9a44a989eae472cf" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" })
-	use({ "p00f/nvim-ts-rainbow", commit = "1ec3f880585c644ddd50a51502c59f4e36f03e62" })
+	use({
+		"https://gitlab.com/HiPhish/nvim-ts-rainbow2",
+		commit = "09dcb851701747b3f4c5c1088befc88e1601942d",
+	})
 	use({
 		"ThePrimeagen/refactoring.nvim",
 		commit = "c9ca8e3bbf7218101f16e6a03b15bf72b99b2cae",
