@@ -255,7 +255,7 @@ chezmoi apply --force
 
 cargo install stylua
 npm install --save-dev --save-exact prettier
-pip3 install isort pylint black --user
+pip3 install isort pylint flake8 black --user
 
 systemctl mask plasma-kwin_x11.service --user
 systemctl enable plasma-i3 --user
