@@ -10,6 +10,7 @@
 {{ else }}
 .local/share/nvim/telescope-projects-personal.txt
 {{ end }}
+.local/share/nvim/telescope-projects-example.txt
 README.org
 img/
 .config/nvim/plugin/
