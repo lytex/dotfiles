@@ -293,4 +293,5 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 {{ end }}
 
+PATH=$(echo $PATH | sed -E 's/::+/:/g')
 # vim: sw=4 ts=4 wm=4 et ft=zsh
