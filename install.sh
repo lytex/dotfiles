@@ -30,7 +30,7 @@ alsa-utils # alsamixer, aplay
 emacs
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
 calibre
-firefox
+firefox chromium
 qmk
 xdg-desktop-portal xdg-desktop-portal-kde # Add GTK_USE_PORTAL=1 to /etc/environment
 noto-fonts-emoji
