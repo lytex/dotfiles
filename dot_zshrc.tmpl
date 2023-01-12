@@ -237,7 +237,6 @@ function launch_script_in_session_window() {
         if tmux list-windows -t "$session"; then
             tmux neww -t "$session": -n "$window" -d "$@"
         else
-            echo tmux new -s "$session" -n "$window" -d "$@"
             tmux new -s "$session" -n "$window" -d "$@"
         fi
 }
