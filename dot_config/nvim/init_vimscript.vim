@@ -28,6 +28,11 @@ nnoremap <silent> ZB :<C-u>Bd!<CR>
 nmap <silent> ZX ZC<C-w>qa
 nnoremap <silent> ZM :<C-u>:q!<CR>
 
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 runtime tabs.vim
 
