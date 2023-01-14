@@ -122,6 +122,7 @@ return packer.startup(function(use)
 			{ "nvim-treesitter/nvim-treesitter", commit = "aebc6cf6bd4675ac86629f516d612ad5288f7868" },
 		},
 	})
+	use({ "nvim-treesitter/nvim-treesitter-textobjects", commit = "e2ee8fd7259389deaa898d1216fdc6846a26c627" })
 
 	-- Git
 	use({ "lewis6991/gitsigns.nvim", commit = "f98c85e7c3d65a51f45863a34feb4849c82f240f" })
@@ -162,6 +163,7 @@ return packer.startup(function(use)
 		commit = "64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a",
 		requires = { "kana/vim-textobj-user", commit = "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
 	})
+	use({ "junegunn/vim-easy-align", commit = "12dd6316974f71ce333e360c0260b4e1f81169c3" })
 
 	-- syntax highlighting and more for most languages
 	use({ "sheerun/vim-polyglot", commit = "38282d58387cff48ac203f6912c05e4c8686141b" })

@@ -222,6 +222,7 @@ local mappings = {
 		c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
 		h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
 		M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+		m = { "<cmd>Telescope marks<cr>", "marks" },
 		r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
 		R = { "<cmd>Telescope registers<cr>", "Registers" },
 		k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
@@ -229,7 +230,7 @@ local mappings = {
 	},
 
 	t = {
-		name = "Terminal",
+		name = "Toggle",
 		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
 		f = { "<cmd>call ToggleFormatOnSave()<cr>", "Toggle Format on Save" },
 		r = { "<cmd>Neomux<cr>", "Neomux" },
