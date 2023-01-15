@@ -26,8 +26,7 @@ flatpak
 i3-wm i3lock i3status unclutter lazygit okular rofi passmenu dmenu wmctrl
 fuse2 bluez bluez-utils docker plantuml
 alsa-utils # alsamixer, aplay
-# en vez de emacs puede estar interesante emacs-nativecomp
-emacs
+emacs-nativecomp
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
 calibre
 firefox chromium
