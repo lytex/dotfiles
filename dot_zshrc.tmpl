@@ -252,6 +252,21 @@ function jl(){
     jupyter lab" 
 }
 
+function ipykernel-create() {
+    pip install tornado ipykernel
+    ipython kernel install --user --name=$1
+}
+
+
+function ipykernel-remove() {
+    jupyter kernelspec uninstall $1
+}
+
+function ipykernel-list() {
+    jupyter kernelspec list | awk -n 'NR >= 2 {print $2}' | \
+        xargs -I _ /bin/bash -c "echo -e \"\u001b[36;1m\" && ls -1 _/kernel.json && echo -en \"\u001b[0m\" && cat _/kernel.json | jq && echo"
+}
+
 function pipenv () {shift; eval "$@"}
 
 alias ccd='cd $(chezmoi source-path)'
