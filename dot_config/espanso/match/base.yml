@@ -25,74 +25,109 @@ matches:
           format: '%Y%m%d%H%M%S'
   - trigger: ;ra
     replace: →
+    label: right arrow
   - trigger: ;rua
     replace: ⇒
+    label: right uppercase arrow
   - trigger: ;rra
     replace: ⇉
+    label: double right arrow
   - trigger: ;la
     replace: ←
+    label: left arrow
   - trigger: ;lua
     replace: ⇐
+    label: left uppercase arrow
   - trigger: ;lla
     replace: ⇇
+    label: double left arrow
   - trigger: ;ba
     replace: ↔
+    label: both ends arrow
   - trigger: ;bua
     replace: ⇔
+    label: both ends uppercase arrow
   - trigger: ;lra
     replace: ⇆
+    label: left right arrow
   - trigger: ;rla
     replace: ⇄
+    label: right left arrow
   - trigger: ;ua
     replace: ↑
+    label: up arrow
   - trigger: ;uua
     replace: ⇑
+    label: up uppercase arrow
   - trigger: ;uuua
     replace: ⇈
+    label: double up arrow
   - trigger: ;da
+    label: down arrow
     replace: ↓
   - trigger: ;dua
     replace: ⇓
+    label: down uppercase arrow
   - trigger: ;dda
     replace: ⇊
+    label: double down arrow
   - trigger: ;aa
     replace: ↕
+    label: up and down arrow
   - trigger: ;aua
     replace: ⇕
+    label: up and down uppercase arrow
   - trigger: ;lta
     replace: ↖
+    label: left top arrow
   - trigger: ;rta
     replace: ↗
+    label: right top arrow
   - trigger: ;rba
     replace: ↘
+    label: right bottom arrow
   - trigger: ;lba
     replace: ↙
+    label: left bottom arrow
   - trigger: ;ula
     replace: ↰
+    label: up left arrow
   - trigger: ;ura
     replace: ↱
+    label: up right arrow
   - trigger: ;dla
     replace: ↲
+    label: down left arrow
   - trigger: ;dra
     replace: ↳
+    label: down right arrow
   - trigger: ;rda
     replace: ↴
+    label: right down arrow
   - trigger: ;dlla
     replace: ↵
+    label: down left arrow (alt)
   - trigger: ;ccc
     replace: 🔄
+    label: cyclic
   - trigger: ;chm
     replace: ✓
+    label: chechmark
   - trigger: ;chb
     replace: ☑
+    label: checkbox
   - trigger: ;crs
     replace: ❌
+    label: cross
   - trigger: ;crb
     replace: ☒
+    label: crossbox
   - trigger: ;shrug
     replace: "¯\\_(ツ)_/¯"
+    label: shrug
   - trigger: ;ftable
     replace: (╯°□°）╯︵ ┻━┻
+    label: fliptable
   - trigger: ;ipython
     replace: from IPython import embed; embed()
   - trigger: ;pd
