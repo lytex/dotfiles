@@ -267,6 +267,10 @@ function ipykernel-list() {
         xargs -I _ /bin/bash -c "echo -e \"\u001b[36;1m\" && ls -1 _/kernel.json && echo -en \"\u001b[0m\" && cat _/kernel.json | jq && echo"
 }
 
+function ipykernel-cache() {
+    find . -iname "metadata.json" | xargs -I _ bash -c "echo -e \"\u001b[36;1m_\" echo -en \"\u001b[0m\"  && cat _ | jq && echo" \;
+}
+
 function pipenv () {shift; eval "$@"}
 
 alias ccd='cd $(chezmoi source-path)'
