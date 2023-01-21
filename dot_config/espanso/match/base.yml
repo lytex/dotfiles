@@ -142,3 +142,6 @@ matches:
     replace: sudo apt-get install -y vim
   - trigger: ;osc52
     replace: "echo -e \"\\033]52;c;$( $|$ | base64)\\a\""
+  - trigger: ;tproject
+    replace: "{{ output \"awk\" \"-F\" \"=\" \"/julian\\\\/code\\\\/$|$/{print $5}\"  \"/home/julian/.local/share/nvim/telescope-projects.txt\" | trim }}"
+    label: telescope project snippet for chezmoi templates
