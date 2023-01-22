@@ -145,3 +145,16 @@ matches:
   - trigger: ;tproject
     replace: "{{ output \"awk\" \"-F\" \"=\" \"/julian\\\\/code\\\\/$|$/{print $5}\"  \"/home/julian/.local/share/nvim/telescope-projects.txt\" | trim }}"
     label: telescope project snippet for chezmoi templates
+
+  - trigger: ;blackformatoff
+    replace: \# fmt:off
+  - trigger: ;blackformaton
+    replace: \# fmt:on
+  - trigger: ;clangformatoff
+    replace: // clang-format off
+  - trigger: ;clangformaton
+    replace: // clang-format on
+  - trigger: ;styluaformatoff
+    replace: '-- stylua: ignore start'
+  - trigger: ;styluaformaton
+    replace: '-- stylua: ignore end'
