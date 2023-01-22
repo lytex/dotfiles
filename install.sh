@@ -28,7 +28,7 @@ fuse2 bluez bluez-utils docker plantuml
 alsa-utils # alsamixer, aplay
 emacs-nativecomp
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
-calibre gwenview
+calibre gwenview evince
 firefox chromium
 qmk
 xdg-desktop-portal xdg-desktop-portal-kde # Add GTK_USE_PORTAL=1 to /etc/environment
