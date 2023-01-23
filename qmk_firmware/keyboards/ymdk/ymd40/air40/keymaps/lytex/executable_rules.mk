@@ -5,4 +5,5 @@ NKRO_ENABLE = yes           # Enable N-Key Rollover
 COMBO_ENABLE = yes
 
 RGBLIGHT_SUPPORTED = no
+RBGLIGHT_ENABLED = no
 BACKLIGHT_SUPPORTED = no

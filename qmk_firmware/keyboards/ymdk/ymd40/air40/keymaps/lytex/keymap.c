@@ -39,7 +39,7 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     CUS_NTIL,
 }; */
 
-enum contra_layers { _QWERTY, _NUMBER, _NAVIGATION };
+enum contra_layers { _QWERTY, _NUMBER, _NAVIGATION, _RGB };
 
 #define QWERTY TO(_QWERTY)
 #define NUM OSL(_NUMBER)
@@ -51,235 +51,236 @@ enum contra_layers { _QWERTY, _NUMBER, _NAVIGATION };
 #define ASIQWE OSL(_ALTGR_SHIFTED_INVERSE_QWERTY)
 #define NIQWER OSL(_NUMBER_INVERSE_QWERTY)
 #define NISQWE OSL(_NUMBER_SHIFTED_INVERSE_QWERTY) */
+#define RGB OSL(_RGB)
 
 const uint16_t PROGMEM test_combo1[]           = {KC_J, KC_K, COMBO_END};
 combo_t                key_combos[COMBO_COUNT] = {
     COMBO(test_combo1, KC_ESC),
 };
 
-// uint8_t custom_shift_num = 0;
+uint8_t custom_shift_num = 0;
 
-// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//     switch (keycode) {
-//         case CU_EACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code((uint8_t)KC_E);
-//                 unregister_code((uint8_t)KC_E);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_UDIA:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 unregister_code(KC_LSFT);
-//                 register_code((uint8_t)KC_U);
-//                 unregister_code((uint8_t)KC_U);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_UACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code((uint8_t)KC_U);
-//                 unregister_code((uint8_t)KC_U);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_IACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code((uint8_t)KC_I);
-//                 unregister_code((uint8_t)KC_I);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_OACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code((uint8_t)KC_O);
-//                 unregister_code((uint8_t)KC_O);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_AACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code((uint8_t)KC_A);
-//                 unregister_code((uint8_t)KC_A);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_NTIL:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_SCLN);
-//                 unregister_code((uint8_t)KC_SCLN);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_IQUE:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_EQL);
-//                 unregister_code((uint8_t)KC_EQL);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_GRV:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)ES_GRV);
-//                 unregister_code((uint8_t)ES_GRV);
-//                 register_code((uint8_t)ES_GRV);
-//                 unregister_code((uint8_t)ES_GRV);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CU_CIRC:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)ES_GRV);
-//                 unregister_code((uint8_t)ES_GRV);
-//                 unregister_code(KC_LSFT);
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)ES_GRV);
-//                 unregister_code((uint8_t)ES_GRV);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CUS_EACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_E);
-//                 unregister_code((uint8_t)KC_E);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CUS_UDIA:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 unregister_code(KC_LSFT);
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_U);
-//                 unregister_code((uint8_t)KC_U);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CUS_UACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_U);
-//                 unregister_code((uint8_t)KC_U);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CUS_IACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_I);
-//                 unregister_code((uint8_t)KC_I);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CUS_OACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_O);
-//                 unregister_code((uint8_t)KC_O);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CUS_AACU:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code((uint8_t)KC_QUOT);
-//                 unregister_code((uint8_t)KC_QUOT);
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_A);
-//                 unregister_code((uint8_t)KC_A);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case CUS_NTIL:
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 register_code(KC_LSFT);
-//                 register_code((uint8_t)KC_SCLN);
-//                 unregister_code((uint8_t)KC_SCLN);
-//                 unregister_code(KC_LSFT);
-//             }
-//             return false; // Skip all further processing of this key
-//         case OSM(MOD_LSFT):
-//         case OSM(MOD_RSFT):
-//             if (record->event.pressed) {
-//                 // Do something when pressed
-//                 if (get_oneshot_layer() == _NUMBER) {
-//                     set_oneshot_layer(_NUMBER, ONESHOT_START);
-//
-//                     custom_shift_num = 1;
-//                 }
-//             }
-//         default:
-//
-// #define CUTOFF 4
-//             if (record->event.pressed) {
-//                 /* char* str = "0";
-//                           custom_shift_num++;
-//                           sprintf(str, "%i", custom_shift_num);
-//                           send_string(str); */
-//                 if ((get_oneshot_mods() & (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT))) && (custom_shift_num == 1)) {
-//                     custom_shift_num = 2;
-//                 }
-//
-//                 /* if (get_oneshot_layer() == _NUMBER) {
-//                     SEND_STRING("asdfnumber");
-//                 }
-//                 if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
-//                     SEND_STRING("Shift");
-//                 } */
-//                 /* if ((custom_shift_num >= CUTOFF) && ((get_oneshot_layer() == _NUMBER) &&
-//                     (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))))) {
-//                   clear_oneshot_layer_state(ONESHOT_PRESSED);
-//                   custom_shift_num = 0;
-//               } */
-//             }
-//             return true; // Process all other keycodes normally
-//     }
-// }
-//
-// void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
-//     if (record->event.pressed) {
-//         if (custom_shift_num == 2) {
-//             clear_oneshot_layer_state(ONESHOT_PRESSED);
-//             custom_shift_num = 0;
-//         }
-//         // if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
-//         // }
-//     }
-// }
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        /* case CU_EACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code((uint8_t)KC_E);
+                unregister_code((uint8_t)KC_E);
+            }
+            return false; // Skip all further processing of this key
+        case CU_UDIA:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                unregister_code(KC_LSFT);
+                register_code((uint8_t)KC_U);
+                unregister_code((uint8_t)KC_U);
+            }
+            return false; // Skip all further processing of this key
+        case CU_UACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code((uint8_t)KC_U);
+                unregister_code((uint8_t)KC_U);
+            }
+            return false; // Skip all further processing of this key
+        case CU_IACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code((uint8_t)KC_I);
+                unregister_code((uint8_t)KC_I);
+            }
+            return false; // Skip all further processing of this key
+        case CU_OACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code((uint8_t)KC_O);
+                unregister_code((uint8_t)KC_O);
+            }
+            return false; // Skip all further processing of this key
+        case CU_AACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code((uint8_t)KC_A);
+                unregister_code((uint8_t)KC_A);
+            }
+            return false; // Skip all further processing of this key
+        case CU_NTIL:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_SCLN);
+                unregister_code((uint8_t)KC_SCLN);
+            }
+            return false; // Skip all further processing of this key
+        case CU_IQUE:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_EQL);
+                unregister_code((uint8_t)KC_EQL);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key
+        case CU_GRV:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)ES_GRV);
+                unregister_code((uint8_t)ES_GRV);
+                register_code((uint8_t)ES_GRV);
+                unregister_code((uint8_t)ES_GRV);
+            }
+            return false; // Skip all further processing of this key
+        case CU_CIRC:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code(KC_LSFT);
+                register_code((uint8_t)ES_GRV);
+                unregister_code((uint8_t)ES_GRV);
+                unregister_code(KC_LSFT);
+                register_code(KC_LSFT);
+                register_code((uint8_t)ES_GRV);
+                unregister_code((uint8_t)ES_GRV);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key
+        case CUS_EACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_E);
+                unregister_code((uint8_t)KC_E);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key
+        case CUS_UDIA:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                unregister_code(KC_LSFT);
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_U);
+                unregister_code((uint8_t)KC_U);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key
+        case CUS_UACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_U);
+                unregister_code((uint8_t)KC_U);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key
+        case CUS_IACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_I);
+                unregister_code((uint8_t)KC_I);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key
+        case CUS_OACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_O);
+                unregister_code((uint8_t)KC_O);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key
+        case CUS_AACU:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code((uint8_t)KC_QUOT);
+                unregister_code((uint8_t)KC_QUOT);
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_A);
+                unregister_code((uint8_t)KC_A);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key
+        case CUS_NTIL:
+            if (record->event.pressed) {
+                // Do something when pressed
+                register_code(KC_LSFT);
+                register_code((uint8_t)KC_SCLN);
+                unregister_code((uint8_t)KC_SCLN);
+                unregister_code(KC_LSFT);
+            }
+            return false; // Skip all further processing of this key */
+        case OSM(MOD_LSFT):
+        case OSM(MOD_RSFT):
+            if (record->event.pressed) {
+                // Do something when pressed
+                if (get_oneshot_layer() == _NUMBER) {
+                    set_oneshot_layer(_NUMBER, ONESHOT_START);
+
+                    custom_shift_num = 1;
+                }
+            }
+        default:
+
+            // #define CUTOFF 4
+            if (record->event.pressed) {
+                /* char* str = "0";
+                          custom_shift_num++;
+                          sprintf(str, "%i", custom_shift_num);
+                          send_string(str); */
+                if ((get_oneshot_mods() & (MOD_BIT(KC_LSFT) | MOD_BIT(KC_RSFT))) && (custom_shift_num == 1)) {
+                    custom_shift_num = 2;
+                }
+
+                /* if (get_oneshot_layer() == _NUMBER) {
+                    SEND_STRING("asdfnumber");
+                }
+                if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
+                    SEND_STRING("Shift");
+                } */
+                /* if ((custom_shift_num >= CUTOFF) && ((get_oneshot_layer() == _NUMBER) &&
+                    (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))))) {
+                  clear_oneshot_layer_state(ONESHOT_PRESSED);
+                  custom_shift_num = 0;
+              } */
+            }
+            return true; // Process all other keycodes normally
+    }
+}
+
+void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (record->event.pressed) {
+        if (custom_shift_num == 2) {
+            clear_oneshot_layer_state(ONESHOT_PRESSED);
+            custom_shift_num = 0;
+        }
+        // if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
+        // }
+    }
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -291,16 +292,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |------+------+------+------+------+------|------+------+------+------+------+------|
      * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Shift|
      * |------+------+------+------+------+------+------+------+------+------+------+------|
-     * | Esc  |IQWERT|      | GUI  | Alt  | NAV  | SPC  | NUM  |AltGr |      |STENO |QWERTY|
+     * | Esc  |IQWERT| RGB  | GUI  | Alt  | NAV  | SPC  | NUM  |AltGr |      |STENO |QWERTY|
      * `------------------------------------------------------------------------------------'
      */
 
     // clang-format off
     [_QWERTY] = LAYOUT_ortho_4x12(
-    KC_TAB,        KC_Q,   KC_W,    KC_E,          KC_R,          KC_T, KC_Y,   KC_U, KC_I,          KC_O,    KC_P,    KC_BSPC,
-    OSM(MOD_LCTL), KC_A,   KC_S,    KC_D,          KC_F,          KC_G, KC_H,   KC_J, KC_K,          KC_L,    KC_SCLN, KC_QUOT,
-    OSM(MOD_LSFT), KC_Z,   KC_X,    KC_C,          KC_V,          KC_B, KC_N,   KC_M, KC_COMM,       KC_DOT,  KC_SLSH, OSM(MOD_RSFT),
-    KC_ESC,  RGB_TOG, RGB_MOD , OSM(MOD_LGUI), OSM(MOD_LALT), NAV,  KC_SPC, NUM,  OSM(MOD_RALT), OSM(MOD_RCTL), KC_NO,   QWERTY),
+    KC_TAB,        KC_Q,  KC_W, KC_E,          KC_R,          KC_T, KC_Y,   KC_U, KC_I,          KC_O,          KC_P,    KC_BSPC,
+    OSM(MOD_LCTL), KC_A,  KC_S, KC_D,          KC_F,          KC_G, KC_H,   KC_J, KC_K,          KC_L,          KC_SCLN, KC_QUOT,
+    OSM(MOD_LSFT), KC_Z,  KC_X, KC_C,          KC_V,          KC_B, KC_N,   KC_M, KC_COMM,       KC_DOT,        KC_SLSH, OSM(MOD_RSFT),
+    KC_ESC,        KC_NO, RGB,  OSM(MOD_LGUI), OSM(MOD_LALT), NAV,  KC_SPC, NUM,  OSM(MOD_RALT), OSM(MOD_RCTL), KC_NO,   QWERTY),
     // clang-format on
     /******************************************************************************************************************/
 
@@ -428,5 +429,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ES_EXLM, ES_AT, ES_HASH, ES_DLR,        ES_PERC,       CU_CIRC, ES_AMPR, ES_ASTR,       ES_LPRN,       ES_RPRN, ES_UNDS, ES_PLUS,
     KC_TRNS, KC_NO, KC_NO,   KC_NO,         KC_NO,         KC_NO,   KC_NO,   OSM(MOD_LCTL), KC_COMM,       KC_DOT,  ES_SLSH, OSM(MOD_RSFT),
     KC_ESC,  KC_NO, KC_NO,   OSM(MOD_LGUI), OSM(MOD_LALT), KC_TRNS, KC_SPC,  NAV,           OSM(MOD_RALT), KC_NO,   KC_NO,   QWERTY), */
+
+    /* RGB
+     * ,-----------------------------------------------------------------------------------.
+     * | Tab  |   Q  |   W  |   E  |   R  |   T  |   Y  |   U  |   I  |   O  | ↑SPD |  BS  |
+     * |------+------+------+------+------+-------------+------+------+------+------+------|
+     * | Ctrl |   A  |   S  |   D  |   F  |   G  |   H  | MOD  | TOG  | ↑HUE | ↑SAT | ↑VAL |
+     * |------+------+------+------+------+------|------+------+------+------+------+------|
+     * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Shift|
+     * |------+------+------+------+------+------+------+------+------+------+------+------|
+     * | Esc  |IQWERT|      | GUI  | Alt  | NAV  | SPC  | NUM  |AltGr |      |STENO |QWERTY|
+     * `------------------------------------------------------------------------------------'
+     */
+    [_RGB] = LAYOUT_ortho_4x12(
+    KC_NO,         KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   RGB_SPI, KC_NO,
+    KC_NO,         KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, RGB_MOD, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,
+    OSM(MOD_LSFT), KC_NO, KC_NO,   KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
+    KC_NO,         KC_NO, KC_TRNS, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO),
     // clang-format on
 };
+//                                                                  ga    *     ,
+// Visual align using EasyAlign: select in visual mode, then ga*, (align all by comma)
