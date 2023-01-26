@@ -23,6 +23,8 @@ matches:
         type: date
         params:
           format: '%Y%m%d%H%M%S'
+  - trigger: ':00'
+    replace: '00:00:00'
   - trigger: ;ra
     replace: →
     label: right arrow
