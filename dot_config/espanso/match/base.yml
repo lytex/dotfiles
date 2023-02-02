@@ -138,6 +138,8 @@ matches:
     replace: import matplotlib.pyplot as plt
   - trigger: ;np
     replace: import numpy as np
+  - trigger: ;sysbk
+    replace: import sys; sys.__breakpointhook__()
   - trigger: ;tmux
     replace: sudo apt-get install -y tmux
   - trigger: ;vim
