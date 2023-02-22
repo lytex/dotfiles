@@ -271,6 +271,10 @@ function ipykernel-cache() {
     find . -iname "metadata.json" | xargs -I _ bash -c "echo -e \"\u001b[36;1m_\" && echo -en \"\u001b[0m\"  && cat _ | jq && echo" \;
 }
 
+function get-venv() {
+    echo $PATH | awk -F : '{print $1}' | xclip -sel clip
+}
+
 function zpy-list() {
 for dir in ~/.local/share/venvs/*; do
     echo -en "\u001b[36;1m$dir\u001b[32;1m $(readlink $dir/project)\u001b[0m\n";
