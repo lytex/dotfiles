@@ -9,6 +9,14 @@ matches:
         type: date
         params:
           format: '%Y-%m-%d'
+  # The :dat<num1>e expands to the date num1 days before today
+  - regex: ":dat(?P<num1>\\d+)e"
+    replace: '{{result}}'
+    vars:
+      - name: result
+        type: shell
+        params:
+          cmd: 'date -d "-$ESPANSO_NUM1 days" +''%Y-%m-%d'''
   - trigger: ':timestamp'
     replace: '{{mydate}}'
     vars:
