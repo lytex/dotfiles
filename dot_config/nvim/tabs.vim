@@ -22,6 +22,8 @@ nnoremap          <leader><tab>[ :tabprevious<CR>
 
 
 nnoremap <Leader>w <C-w>
+" C-w works even on terminal windows
+nnoremap <C-w> <C-\><C-n><C-w>
 nnoremap <Leader>wd <C-w>q
 nnoremap <silent> <leader>qq :q<CR>
 
