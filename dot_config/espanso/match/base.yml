@@ -2,37 +2,6 @@
 # Original file: default.yml
 
 matches:
-  - trigger: ':date'
-    replace: '{{mydate}}'
-    vars:
-      - name: mydate
-        type: date
-        params:
-          format: '%Y-%m-%d'
-  # The :dat<num1>e expands to the date num1 days before today
-  - regex: ":dat(?P<num1>\\d+)e"
-    replace: '{{result}}'
-    vars:
-      - name: result
-        type: shell
-        params:
-          cmd: 'date -d "-$ESPANSO_NUM1 days" +''%Y-%m-%d'''
-  - trigger: ':timestamp'
-    replace: '{{mydate}}'
-    vars:
-      - name: mydate
-        type: date
-        params:
-          format: '%Y-%m-%d %H:%M:%S'
-  - trigger: ':ttt'
-    replace: '{{mydate}}'
-    vars:
-      - name: mydate
-        type: date
-        params:
-          format: '%Y%m%d%H%M%S'
-  - trigger: ':000'
-    replace: '00:00:00'
   - trigger: ;ra
     replace: →
     label: right arrow
@@ -138,16 +107,6 @@ matches:
   - trigger: ;ftable
     replace: (╯°□°）╯︵ ┻━┻
     label: fliptable
-  - trigger: ;ipython
-    replace: from IPython import embed; embed()
-  - trigger: ;pd
-    replace: import pandas as pd
-  - trigger: ;plt
-    replace: import matplotlib.pyplot as plt
-  - trigger: ;np
-    replace: import numpy as np
-  - trigger: ;sysbk
-    replace: import sys; sys.__breakpointhook__()
   - trigger: ;tmux
     replace: sudo apt-get install -y tmux
   - trigger: ;vim
@@ -167,61 +126,6 @@ matches:
   - trigger: ;clangformaton
     replace: // clang-format on
   - trigger: ;styluaformatoff
-    replace: '-- stylua: ignore start'
+    replace: "-- stylua: ignore start"
   - trigger: ;styluaformaton
-    replace: '-- stylua: ignore end'
-
-  - trigger: ;muse1
-    replace: '𝅝 '
-    label: Redonda (música)
-  - trigger: ;muse2
-    replace: '𝅗𝅥 '
-    label: Blanca (música)
-  - trigger: ;muse4
-    replace: ♩
-    label: Negra (música)
-  - trigger: ;musee8
-    replace: '𝅘𝅥𝅮 '
-    label: Corchea
-  - trigger: ;muse88
-    replace: ♫
-    label: Corcheas
-  - trigger: ;muse16
-    replace: ♬
-    label: Semicorcheas
-  - trigger: ;sil1
-    replace: '𝄻 '
-    label: Silencio de redonda (música)
-  - trigger: ;sil2
-    replace: '𝄼 '
-    label: Silencio de blanca (música)
-  - trigger: ;sil4
-    replace: '𝄽 '
-    label: Silencio de negra (música)
-  - trigger: ;sil8
-    replace: '𝄾 '
-    label: Silencio de corchea (música)
-  - trigger: ;sil16
-    replace: '𝄿 '
-    label: Silencio de semicorchea (música)
-  - trigger: ;flat
-    replace: ♭
-    label: Bemol
-  - trigger: ;sharp
-    replace: ♯
-    label: Sostenido
-  - trigger: ;becua
-    replace: ♮
-    label: Becuadro
-  - trigger: ';I;'
-    replace: 𝄆
-    label: Compás repetición (izq)
-  - trigger: ';;I'
-    replace: 𝄇
-    label: Compás repetición (dcho)
-  - trigger: ;cresc
-    replace: 𝆒
-    label: crescendo
-  - trigger: ;dim
-    replace: 𝆓
-    label: diminuendo
+    replace: "-- stylua: ignore end"

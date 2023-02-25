@@ -1,0 +1,55 @@
+matches:
+  - trigger: ;muse1
+    replace: "𝅝 "
+    label: Redonda (música)
+  - trigger: ;muse2
+    replace: "𝅗𝅥 "
+    label: Blanca (música)
+  - trigger: ;muse4
+    replace: ♩
+    label: Negra (música)
+  - trigger: ;musee8
+    replace: "𝅘𝅥𝅮 "
+    label: Corchea
+  - trigger: ;muse88
+    replace: ♫
+    label: Corcheas
+  - trigger: ;muse16
+    replace: ♬
+    label: Semicorcheas
+  - trigger: ;sil1
+    replace: "𝄻 "
+    label: Silencio de redonda (música)
+  - trigger: ;sil2
+    replace: "𝄼 "
+    label: Silencio de blanca (música)
+  - trigger: ;sil4
+    replace: "𝄽 "
+    label: Silencio de negra (música)
+  - trigger: ;sil8
+    replace: "𝄾 "
+    label: Silencio de corchea (música)
+  - trigger: ;sil16
+    replace: "𝄿 "
+    label: Silencio de semicorchea (música)
+  - trigger: ;flat
+    replace: ♭
+    label: Bemol
+  - trigger: ;sharp
+    replace: ♯
+    label: Sostenido
+  - trigger: ;becua
+    replace: ♮
+    label: Becuadro
+  - trigger: ";I;"
+    replace: 𝄆
+    label: Compás repetición (izq)
+  - trigger: ";;I"
+    replace: 𝄇
+    label: Compás repetición (dcho)
+  - trigger: ;cresc
+    replace: 𝆒
+    label: crescendo
+  - trigger: ;dim
+    replace: 𝆓
+    label: diminuendo

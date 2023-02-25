@@ -1,0 +1,11 @@
+matches:
+  - trigger: ;ipython
+    replace: from IPython import embed; embed()
+  - trigger: ;pd
+    replace: import pandas as pd
+  - trigger: ;plt
+    replace: import matplotlib.pyplot as plt
+  - trigger: ;np
+    replace: import numpy as np
+  - trigger: ;sysbk
+    replace: import sys; sys.__breakpointhook__()
