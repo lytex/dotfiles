@@ -91,7 +91,7 @@ return packer.startup(function(use)
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" })
 	use({ "nvim-telescope/telescope-project.nvim", commit = "91e9a9737b8522b5a4ecbd8464504da35a1e96cd" })
-	use({ "nvim-telescope/telescope-file-browser.nvim", commit = "b1bc53e0da3d26f0003ffb9602115ce258411aa5" })
+	use({ "nvim-telescope/telescope-file-browser.nvim", commit = "61b3769065131129716974f7fb63f82ee409bd80" })
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
 		commit = "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90",
@@ -192,7 +192,7 @@ return packer.startup(function(use)
 	use({ "metakirby5/codi.vim", commit = "28983696f59f47221380b4f7d78237dc04f9c62f" })
 
 	-- Get statistics about vim usage
-	use({ "ActivityWatch/aw-watcher-vim", commit = "3df3aa78dc10ebb655df652ee1464b27d001f6a2" })
+	--[[ use({ "ActivityWatch/aw-watcher-vim", commit = "d595afc6f35a6567553ca999ece544982385fa35" }) ]]
 
 	-- Movements for python and space indented languages
 	use({ "jeetsukumaran/vim-pythonsense", commit = "9200a57629c904ed2ab8c9b2e8c5649d311794ba" })
