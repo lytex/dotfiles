@@ -1,0 +1,4 @@
+matches:
+  - trigger: ;urlencode
+    replace: encodeURIComponent("$|$")
+    label: urlencode javascript console encodeURIComponent
