@@ -163,6 +163,13 @@ function rmtag {
     tag "$new_tags" "$@"
 }
 
+# Moving a org-noter file to ~/org/roam while keeping a link
+function pdflink {
+    file="$@"
+    mv "$file" ~/org/roam
+    ln -s "~/org/roam/$file" "$file"
+}
+
 export PYENV_ROOT=$ZPY_VENVS_HOME
 eval "$(pyenv init -)"
 PATH=$(echo $PATH | sed "s#$PYENV_ROOT/shims##" | sed "s/::/:/g")
