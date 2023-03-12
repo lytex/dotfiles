@@ -95,7 +95,11 @@ local opts = {
 }
 
 local mappings = {
-	["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+	["a"] = {
+		name = "Alpha",
+		a = { "<cmd>Alpha<cr>", "Alpha" },
+		r = { "<cmd>source $MYVIMRC | source ~/.config/nvim/lua/user/colorscheme.lua<cr>", "Reload" },
+	},
 	["b"] = {
 		name = "buffer/bookmark",
 		b = {
