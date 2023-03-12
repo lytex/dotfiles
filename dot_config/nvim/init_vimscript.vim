@@ -56,7 +56,16 @@ set clipboard=unnamedplus
 set mouse=a " Use mouse
 
 set colorcolumn=80,120
-highlight ColorColumn ctermbg=0 guibg=black
+try
+ if system("/usr/bin/plasma-apply-desktoptheme --list-themes | grep current | grep dark || true") == ""
+    highlight ColorColumn ctermbg=7 guibg=lightgrey
+  else
+    colorscheme vim-monokai-tasty
+    highlight ColorColumn ctermbg=0 guibg=black
+  endif
+catch /^Vim\%((\a\+)\)\=:E185/
+  set background=dark
+endtry
 
 set ignorecase " ignore case when searching
 set smartcase " match case when there is an upercase letter
