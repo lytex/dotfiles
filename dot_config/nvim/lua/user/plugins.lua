@@ -92,6 +92,7 @@ return packer.startup(function(use)
 	use({ "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" })
 	use({ "nvim-telescope/telescope-project.nvim", commit = "91e9a9737b8522b5a4ecbd8464504da35a1e96cd" })
 	use({ "nvim-telescope/telescope-file-browser.nvim", commit = "61b3769065131129716974f7fb63f82ee409bd80" })
+	use({ "lytex/telescope-live-grep-args.nvim" })
 	use({
 		"nvim-telescope/telescope-fzf-native.nvim",
 		commit = "65c0ee3d4bb9cb696e262bca1ea5e9af3938fc90",

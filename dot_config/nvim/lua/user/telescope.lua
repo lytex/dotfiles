@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 local actions = require("telescope.actions")
+local lga_actions = require("telescope-live-grep-args.actions")
 
 telescope.setup({
 	defaults = {
@@ -19,6 +20,7 @@ telescope.setup({
 
 				["<C-j>"] = actions.move_selection_next,
 				["<C-k>"] = actions.move_selection_previous,
+				["<C-a>"] = lga_actions.tokenize(),
 
 				["<C-c>"] = actions.close,
 
