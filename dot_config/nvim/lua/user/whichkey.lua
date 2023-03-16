@@ -106,6 +106,18 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Buffers",
 		},
+		m = {
+			"<cmd>lua require('bookmarks').add_bookmarks()<cr>",
+			"Add bookmark",
+		},
+		M = {
+			"<cmd>lua require('bookmarks').delete()<cr>",
+			"Delete bookmark",
+		},
+	},
+	["<CR>"] = {
+		"<cmd>lua require('bookmarks').toggle_bookmarks()<cr>",
+		"Jump to bookmark",
 	},
 	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
