@@ -26,6 +26,8 @@ telescope.setup({
 
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
+				["<Left>"] = actions.add_selection,
+				["<Right>"] = actions.remove_selection,
 
 				["<CR>"] = actions.select_default,
 				["<C-x>"] = actions.select_horizontal,
@@ -43,7 +45,7 @@ telescope.setup({
 				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
-				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+				["<C-h>"] = actions.which_key,
 			},
 
 			n = {
@@ -60,12 +62,16 @@ telescope.setup({
 
 				["j"] = actions.move_selection_next,
 				["k"] = actions.move_selection_previous,
+				["l"] = actions.add_selection,
+				["h"] = actions.remove_selection,
 				["H"] = actions.move_to_top,
 				["M"] = actions.move_to_middle,
 				["L"] = actions.move_to_bottom,
 
 				["<Down>"] = actions.move_selection_next,
 				["<Up>"] = actions.move_selection_previous,
+				["<Left>"] = actions.add_selection,
+				["<Right>"] = actions.remove_selection,
 				["gg"] = actions.move_to_top,
 				["G"] = actions.move_to_bottom,
 
