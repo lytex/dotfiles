@@ -5,6 +5,8 @@ matches:
     replace: import pandas as pd
   - trigger: ;plt
     replace: import matplotlib.pyplot as plt
+  - trigger: ;sns
+    replace: import seaborn as sns
   - trigger: ;np
     replace: import numpy as np
   - trigger: ;sysbk
