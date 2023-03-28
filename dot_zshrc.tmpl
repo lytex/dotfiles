@@ -108,7 +108,11 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+{{ if .work }}
 alias doom=~/.emacs.d/bin/doom
+{{ else }}
+alias doom=~/.config/emacs/bin/doom
+{{ end }}
 source "$HOME/.zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
 
 export NVIM_LOG_FILE="$HOME/.nvimlog"
@@ -303,6 +307,28 @@ function addpro () {
 }
 function addpass () {
     cat "$@" | pass insert -m "$PWD/$@"
+}
+
+function darkmode () {
+    plasma-apply-colorscheme BreezeDark
+    plasma-apply-lookandfeel -a org.kde.breezedark.desktop
+    plasma-apply-desktoptheme breeze-dark
+
+    plasma-apply-cursortheme Quintom_Ink
+    chezmoi apply ~/.config/alacritty/alacritty.yml
+    chezmoi apply ~/.config/i3/config
+    i3 reload
+}
+
+function lightmode () {
+    plasma-apply-colorscheme BreezeLight
+    plasma-apply-lookandfeel -a org.kde.breeze.desktop
+    plasma-apply-desktoptheme breeze-light
+
+    plasma-apply-cursortheme Quintom_Ink
+    chezmoi apply ~/.config/alacritty/alacritty.yml
+    chezmoi apply ~/.config/i3/config
+    i3 reload
 }
 
 function arup () {
