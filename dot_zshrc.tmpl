@@ -108,11 +108,8 @@ source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-{{ if .work }}
-alias doom=~/.emacs.d/bin/doom
-{{ else }}
 alias doom=~/.config/emacs/bin/doom
-{{ end }}
+
 source "$HOME/.zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
 
 export NVIM_LOG_FILE="$HOME/.nvimlog"
