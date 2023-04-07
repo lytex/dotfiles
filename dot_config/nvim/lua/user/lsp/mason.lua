@@ -12,7 +12,7 @@ local servers = {
 	"clangd",
 	"gopls",
 	"jsonls",
-	"sumneko_lua",
+	"lua_ls",
 	"cssls",
 	"html",
 	"tsserver",
