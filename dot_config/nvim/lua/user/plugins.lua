@@ -55,10 +55,7 @@ return packer.startup(function(use)
 	use({ "lewis6991/impatient.nvim", commit = "c90e273f7b8c50a02f956c24ce4804a47f18162e" })
 	use({ "lukas-reineke/indent-blankline.nvim", commit = "018bd04d80c9a73d399c1061fa0c3b14a7614399" })
 	use({ "goolord/alpha-nvim", commit = "dafa11a6218c2296df044e00f88d9187222ba6b0" })
-	use({ "antoinemadec/FixCursorHold.nvim", commit = "1900f89dc17c603eec29960f57c00bd9ae696495" }) -- This is needed to fix lsp doc highlight
 	use({ "folke/which-key.nvim", commit = "4b73390eec680b4c061ea175eb32c0ff3412271d" })
-	use({ "olimorris/persisted.nvim", commit = "e053ff33488431dc5bf9239b08650e650ec67292" })
-	use({ "crusj/bookmarks.nvim", commit = "1c95ec30f4b01c45f5b7f36eb495cb56a82f8c5d" })
 	-- Colorschemes
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	use({ "shaunsingh/solarized.nvim", commit = "fe02ed49cc017cc93657bd6306a2624394611c69" })
@@ -81,7 +78,6 @@ return packer.startup(function(use)
 	use({ "neovim/nvim-lspconfig", commit = "1ec6f5cbf6ffc44c84783d70039df5295ca22b4e" }) -- enable LSP
 	use({ "williamboman/mason.nvim", commit = "489f22baed01c28e4b5ee163d36063f0db71346e" })
 	use({ "williamboman/mason-lspconfig.nvim", commit = "a5ca8b03972b347b74b2ad2f7f23f120a514593b" })
-	--[[ use({ "williamboman/nvim-lsp-installer",  }) -- simple to use language server installer ]]
 	use({ "jose-elias-alvarez/null-ls.nvim", commit = "5855128178fa78293acdfb5b4e41ef046779240b" }) -- for formatters and linters
 	use({
 		"kevinhwang91/nvim-ufo",
@@ -92,7 +88,6 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "942fe5faef47b21241e970551eba407bc10d9547" })
-	use({ "nvim-telescope/telescope-project.nvim", commit = "fa081e35ba7397e5147a51ece693aa3afda167fc" })
 	use({ "nvim-telescope/telescope-file-browser.nvim", commit = "e0fcb12702ad0d2873544a31730f9aaef04fd032" })
 	use({ "lytex/telescope-live-grep-args.nvim", commit = "64046ecfaa0a720554da1138d6042ee0ae9f0614" })
 	use({
@@ -100,6 +95,19 @@ return packer.startup(function(use)
 		commit = "580b6c48651cabb63455e97d7e131ed557b8c7e2",
 
 		run = "make",
+	})
+
+	-- Projects
+	use({ "lytex/telescope-project.nvim", commit = "8ad5cfb7dc7a499e7e5a7757b544f116fc154e18" })
+	use({ "olimorris/persisted.nvim", commit = "e053ff33488431dc5bf9239b08650e650ec67292" }) -- Persistence of folds and cursor position
+	use({ "crusj/bookmarks.nvim", commit = "1c95ec30f4b01c45f5b7f36eb495cb56a82f8c5d" }) -- Per project bookmarks
+	use({
+		"jenterkin/vim-autosource",
+		commit = "569440e157d6eb37fb098dfe95252533553a56f5",
+
+		config = function()
+			vim.g.autosource_hashdir = os.getenv("HOME") .. "/.cache/vim-autosource/hashes"
+		end,
 	})
 
 	-- Treesitter
@@ -177,15 +185,6 @@ return packer.startup(function(use)
 
 	-- Smooth C-u, C-d and more
 	use({ "psliwka/vim-smoothie", commit = "df1e324e9f3395c630c1c523d0555a01d2eb1b7e" })
-
-	use({
-		"jenterkin/vim-autosource",
-		commit = "569440e157d6eb37fb098dfe95252533553a56f5",
-
-		config = function()
-			vim.g.autosource_hashdir = os.getenv("HOME") .. "/.cache/vim-autosource/hashes"
-		end,
-	})
 
 	-- Fancy tabbed terminal emulator to run multiple shell windows and only one neovim instance (neovim-remote)
 	use({ "nikvdp/neomux", commit = "74415f819edc9306e1955ec27cd5fa36cf33e13e" })

@@ -5,6 +5,7 @@ end
 
 local actions = require("telescope.actions")
 local lga_actions = require("telescope-live-grep-args.actions")
+local project_actions = require("telescope._extensions.project.actions")
 
 telescope.setup({
 	defaults = {
@@ -101,6 +102,12 @@ telescope.setup({
 			override_file_sorter = true, -- override the file sorter
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 		},
+		project = {
+			search_by = "path",
+			hidden_files = true, -- default: false
+			sync_with_nvim_tree = true, -- default false
+		},
+
 		-- Your extension configuration goes here:
 		-- extension_name = {
 		--   extension_config_key = value,
@@ -109,5 +116,6 @@ telescope.setup({
 	},
 })
 
+telescope.load_extension("project")
 telescope.load_extension("fzf")
 telescope.load_extension("refactoring")
