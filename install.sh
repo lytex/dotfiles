@@ -21,6 +21,7 @@ sudo pacman -S doas --noconfirm
 declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git
 yarn ttf-fira-code python-wheel syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi
 alacritty kitty python-xattr thefuck tealdeer bat man-pages flameshot fortune-mod
+graphviz
 go unzip #lua, clang lsp in neovim
 flatpak
 i3-wm i3lock i3status unclutter lazygit okular rofi passmenu dmenu wmctrl
