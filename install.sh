@@ -60,7 +60,7 @@ samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
 )
 if (( $WORK_ENV == 1 )); then
-    paru_packages+=(google-cloud-sdk teams onedrive-abraunegg)
+    paru_packages+=(google-cloud-cli teams onedrive-abraunegg)
 fi
 
 paru -S "${paru_packages[@]}" --noconfirm
