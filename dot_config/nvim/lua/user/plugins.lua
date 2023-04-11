@@ -143,7 +143,7 @@ return packer.startup(function(use)
 	--[[ use({ "ravenxrz/DAPInstall.nvim" }) ]]
 
 	-- Not used for keybindings, only to evaluate lua code
-	use({ "mrjones2014/legendary.nvim", commit = "b8cb553dff63a1ded1be1f258cf8e0e4c443e302" })
+	use({ "mrjones2014/legendary.nvim", commit = "3563c43bd4e8eba7986f82340bccdba28727d708" })
 
 	-- Conflict markers highlighted
 	use({ "rhysd/conflict-marker.vim", commit = "11a4d42244755505b66b15cd4496a150432eb5e3" })
