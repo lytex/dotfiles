@@ -167,8 +167,8 @@ function rmtag {
 # Moving a org-noter file to ~/org/roam while keeping a link
 function pdflink {
     file="$@"
-    mv "$file" ~/org/roam
-    ln -s "~/org/roam/$file" "$file"
+    mv "$file" "$HOME/org/roam"
+    ln -s "$HOME/org/roam/$file" "$file"
 }
 
 export PYENV_ROOT=$ZPY_VENVS_HOME
@@ -344,7 +344,7 @@ function lvim() {
 alias k=kubectl
 source <(kubectl completion zsh)
 alias g=gcloud
-source /etc/profile.d/google-cloud-sdk.sh
+source /etc/profile.d/google-cloud-cli.sh
 if [ -f $HOME/.cache/paru/clone/google-cloud-sdk/completion.zsh.inc ]; then source $HOME/.cache/paru/clone/google-cloud-sdk/completion.zsh.inc; fi
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

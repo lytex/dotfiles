@@ -25,7 +25,7 @@ graphviz
 go unzip #lua, clang lsp in neovim
 flatpak
 i3-wm i3lock i3status unclutter lazygit okular rofi passmenu dmenu wmctrl
-fuse2 bluez bluez-utils docker plantuml
+fuse2 bluez bluez-utils docker docker-buildx plantuml
 alsa-utils # alsamixer, aplay
 emacs-nativecomp
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
@@ -60,7 +60,7 @@ samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
 )
 if (( $WORK_ENV == 1 )); then
-    paru_packages+=(google-cloud-sdk teams onedrive-abraunegg)
+    paru_packages+=(google-cloud-cli teams onedrive-abraunegg)
 fi
 
 paru -S "${paru_packages[@]}" --noconfirm
