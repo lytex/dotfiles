@@ -25,7 +25,7 @@ graphviz
 go unzip #lua, clang lsp in neovim
 flatpak
 i3-wm i3lock i3status unclutter lazygit okular rofi passmenu dmenu wmctrl
-fuse2 bluez bluez-utils docker plantuml
+fuse2 bluez bluez-utils docker docker-buildx plantuml
 alsa-utils # alsamixer, aplay
 emacs-nativecomp
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
