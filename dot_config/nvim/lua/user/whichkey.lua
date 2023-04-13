@@ -106,6 +106,10 @@ local mappings = {
 			"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
 			"Buffers",
 		},
+		l = {
+			"<cmd>lua require('bookmarks').toggle_bookmarks()<cr>",
+			"List bookmarks",
+		},
 		m = {
 			"<cmd>lua require('bookmarks').add_bookmarks()<cr>",
 			"Add bookmark",

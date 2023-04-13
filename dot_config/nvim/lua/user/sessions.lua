@@ -10,6 +10,7 @@ if not status_ok then
 end
 bookmarks.setup({
 	keymap = {
+		toggle = "<space>bl",
 		jump = "<CR>", -- Jump from bookmarks
 		order = "<space><space>", -- Order bookmarks by frequency or updated_time
 		delete_on_virt = "\\dd", -- Delete bookmark at virt text line
