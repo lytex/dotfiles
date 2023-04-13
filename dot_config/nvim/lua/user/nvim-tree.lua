@@ -16,7 +16,7 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 vim.g.window_picker_chars = "ASDFJKL;GHQWERUIOPTYZXCNM,.VB"
 
 nvim_tree.setup({
-	disable_netrw = true,
+	disable_netrw = false, -- to enable gx
 	hijack_netrw = true,
 	open_on_tab = false,
 	hijack_cursor = false,
