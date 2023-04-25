@@ -173,7 +173,7 @@ function pdflink {
 
 export PYENV_ROOT=$ZPY_VENVS_HOME
 eval "$(pyenv init -)"
-PATH=$(echo $PATH | sed "s#$PYENV_ROOT/shims##" | sed "s/::/:/g")
+# PATH=$(echo $PATH | sed "s#$PYENV_ROOT/shims##" | sed "s/::/:/g")
 
 # Git alias copied from:
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/plugins/git/git.plugin.zsh
