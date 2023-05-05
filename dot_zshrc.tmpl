@@ -289,6 +289,14 @@ for dir in ~/.local/share/venvs/*; do
 done | grep -v -e shims -e versions
 }
 
+function zpy-env() {
+    ln -s "$(dirname $(dirname $(which python)))" "$ZPY_VENVS_HOME/$(md5sum <<< $PWD | awk '{print $1}')/venv" 
+}
+
+function zpy-rm() {
+    rm -rf "$ZPY_VENVS_HOME/$(md5sum <<< $PWD | awk '{print $1}')/venv" 
+}
+
 function pipenv () {shift; eval "$@"}
 
 alias ccd='cd $(chezmoi source-path)'
