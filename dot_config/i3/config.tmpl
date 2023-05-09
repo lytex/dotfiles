@@ -152,6 +152,11 @@ bindsym --release Mod4+f exec /usr/bin/firefox
 bindsym --release Mod4+n exec $code_terminal 
 bindsym --release Mod4+a exec $terminal 
 bindsym --release Mod4+e exec  /usr/bin/dolphin
+# Okular: toggle "Open new files in tabs"
+bindsym --release Mod4+x exec xdotool key --window $(xdotool getactivewindow) "control+shift+comma" \
+&& sleep 1 && xdotool key --window $(xdotool getactivewindow) "Alt+f" && sleep 1 &&\
+xdotool key --window $(xdotool getactivewindow) key "Enter"
+
 # send C-\ C-n (exit terminal mode) using C-'
 bindsym --release Control+apostrophe exec xdotool key --window $(xdotool getactivewindow) 'control+backslash' key 'control+n'
 
