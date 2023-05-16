@@ -100,7 +100,7 @@ return packer.startup(function(use)
 	-- Projects
 	use({ "lytex/telescope-project.nvim", commit = "8ad5cfb7dc7a499e7e5a7757b544f116fc154e18" })
 	use({ "olimorris/persisted.nvim", commit = "e053ff33488431dc5bf9239b08650e650ec67292" }) -- Persistence of folds and cursor position
-	use({ "crusj/bookmarks.nvim", commit = "1c95ec30f4b01c45f5b7f36eb495cb56a82f8c5d" }) -- Per project bookmarks
+	use({ "crusj/bookmarks.nvim", commit = "6f34f1e18bb44c3fc2a0b003d01a7115c84331d9" }) -- Per project bookmarks
 	use({
 		"jenterkin/vim-autosource",
 		commit = "569440e157d6eb37fb098dfe95252533553a56f5",

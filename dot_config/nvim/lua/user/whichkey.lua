@@ -107,7 +107,7 @@ local mappings = {
 			"Buffers",
 		},
 		l = {
-			"<cmd>lua require('bookmarks').toggle_bookmarks()<cr>",
+			"<cmd>Telescope bookmarks<cr>",
 			"List bookmarks",
 		},
 		m = {
