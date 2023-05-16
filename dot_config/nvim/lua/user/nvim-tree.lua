@@ -112,7 +112,10 @@ nvim_tree.setup({
 			custom_only = false,
 			list = {
 				{ key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-				{ key = "h", cb = tree_cb("close_node") },
+				{ key = { "h", "zc", "<TAB>" }, cb = tree_cb("close_node") },
+				{ key = "gh", cb = tree_cb("parent_node") },
+				{ key = "gj", cb = tree_cb("next_sibling") },
+				{ key = "gk", cb = tree_cb("prev_sibling") },
 				{ key = "v", cb = tree_cb("vsplit") },
 			},
 		},
