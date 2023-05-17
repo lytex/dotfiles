@@ -73,6 +73,8 @@ vim.cmd([[
     autocmd!
     " Increase timeout to 10000ms for larger files
     autocmd BufWritePre * lua vim.lsp.buf.format(nil, 10000)
+    " Different tab/space stops"
+    autocmd Filetype yaml,markdown,html,css,json,javascript,sql,lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
   augroup end
 
 set viewoptions-=options

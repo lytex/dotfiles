@@ -119,9 +119,6 @@ set shiftwidth=4 " number of spaces per level of indentation
 set expandtab " expand tabs into spaces
 " set smartindent " (conflicts with treesitter) insert indent automatically on new line
 
-" Different tab/space stops"
-autocmd Filetype yaml,markdown,html,css,json,javascript,sql,lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
-
 set title
 
 
