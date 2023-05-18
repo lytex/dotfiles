@@ -22,6 +22,7 @@ require("user.indentline")
 require("user.alpha")
 require("user.whichkey")
 require("user.autocommands")
+require("user.firenvim")
 
 vim.cmd("source ~/.config/nvim/init_vimscript.vim")
 vim.cmd("source ~/.config/nvim/yinote.vim")
