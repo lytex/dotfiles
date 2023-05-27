@@ -46,7 +46,7 @@ return packer.startup(function(use)
 	use({ "nvim-lua/plenary.nvim", commit = "253d34830709d690f013daf2853a9d21ad7accab" }) -- Useful lua functions used ny lots of plugins
 	use({ "windwp/nvim-autopairs", commit = "0fd6519d44eac3a6736aafdb3fe9da916c3701d4" }) -- Autopairs, integrates with both cmp and treesitter
 	use({ "numToStr/Comment.nvim", commit = "8d3aa5c22c2d45e788c7a5fe13ad77368b783c20" }) -- Easily comment stuff
-	use({ "kyazdani42/nvim-web-devicons", commit = "4ec26d67d419c12a4abaea02f1b6c57b40c08d7e" })
+	use({ "kyazdani42/nvim-web-devicons", commit = "0568104bf8d0c3ab16395433fcc5c1638efc25d4" })
 	use({ "kyazdani42/nvim-tree.lua", commit = "d1410cb0896a3aad5d84ddc54284774a627c6d63" })
 	use({ "akinsho/bufferline.nvim", commit = "ef4fdc5cea3473801dce89b5fdfe633380c80c65" })
 	use({ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" })
@@ -144,6 +144,7 @@ return packer.startup(function(use)
 
 	-- Not used for keybindings, only to evaluate lua code
 	use({ "mrjones2014/legendary.nvim", commit = "3563c43bd4e8eba7986f82340bccdba28727d708" })
+	use({ "slembcke/debugger.lua", commit = "a37cc462133a30b3bee4bef37674047bd05e5fc1" })
 
 	-- Conflict markers highlighted
 	use({ "rhysd/conflict-marker.vim", commit = "11a4d42244755505b66b15cd4496a150432eb5e3" })
