@@ -208,8 +208,9 @@ return lazy.setup({
 	{
 		"glacambre/firenvim",
 		commit = "ee4ef314bd990b2b05b7fbd95b857159e444a2fe",
-
+		cond = not not vim.g.started_by_firenvim,
 		build = function()
+			require("lazy").load({ plugins = "firenvim", wait = true })
 			vim.fn["firenvim#install"](0)
 		end,
 	},
