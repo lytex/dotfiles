@@ -399,10 +399,15 @@ export NVM_DIR="$HOME/.nvm"
 {{ end }}
 
 PATH=$(echo $PATH | sed -E 's/::+/:/g')
-# Remove PATH for kitty terminals
+# Remove PATH for nvim terminals
 if [ $VIRTUAL_ENV ] && [ $PATH_INJECTION ]; then
     zpy_hash=$(md5sum <<< $PWD | awk '{print $1}')
     unset VIRTUAL_ENV
     export PATH=$(echo $PATH | sed "s%$ZPY_VENVS_HOME/$zpy_hash/venv/bin:%%g")
+fi
+
+if [ $PATH_INJECTION ]; then
+    export PATH="$PATH:$HOME/.local/bin/alacritty_$$"
+    export PATH_INJECTION_PID=$$
 fi
 # vim: sw=4 ts=4 wm=4 et ft=zsh
