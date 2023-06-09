@@ -60,7 +60,16 @@ samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
 )
 if (( $WORK_ENV == 1 )); then
-    paru_packages+=(google-cloud-cli google-cloud-cli-gke-gcloud-auth-plugin teams onedrive-abraunegg)
+    # google-cloud-cli google-cloud-cli-gke-gcloud-auth-plugin # install without pacman
+    # You cannot perform this action because this Google Cloud CLI installation is managed by an external package manager
+    paru_packages+=(teams onedrive-abraunegg)
+fi
+if (( $WORK_ENV == 1 )); then
+    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-434.0.0-linux-x86_64.tar.gz
+    tar -xf google-cloud-cli-434.0.0-linux-x86_64.tar.gz
+    # TODO actually install this stuff
+    # ./google-cloud-sdk/install.sh --help
+    # https://cloud.google.com/sdk/docs/install
 fi
 
 paru -S "${paru_packages[@]}" --noconfirm
