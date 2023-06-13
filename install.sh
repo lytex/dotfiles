@@ -214,7 +214,7 @@ echo "Continuar cuando estén las carpetas ya sincronizadas:"
 echo "ls ~/org"
 read -r
 cd ~/.doom.d && git submodule init org-html-themes && git submodule sync org-html-themes && git submodule update org-html-themes; cd -
-mkdir -p ~/.emacs.d && cd ~/.emacs.d || exit 1
+mkdir -p ~/.config/emacs && cd ~/.config/emacs || exit 1
 git init .
 git remote add origin https://github.com/doomemacs/doomemacs
 git fetch --depth 1 origin d5ccac5d71c819035fa251f01d023b3f94b4fba4 # Actualizado a v3.0.0-pre
@@ -222,8 +222,8 @@ git fetch --depth 1 origin d5ccac5d71c819035fa251f01d023b3f94b4fba4 # Actualizad
 # 9d52ba27472634724d7ae5195033161b5121b1b4 es el siguiente que funciona? 
 # https://github.com/doomemacs/doomemacs/issues/6852#issuecomment-1259140811
 git checkout FETCH_HEAD
-yes | ~/.emacs.d/bin/doom install 
-~/.emacs.d/bin/doom install # !Aquí dependo de que esté sincronizado ~/org con Syncthing! porque hace falta org-ql-queries.el
+yes | ~/.config/emacs/bin/doom install 
+~/.config/emacs/bin/doom install # !Aquí dependo de que esté sincronizado ~/org con Syncthing! porque hace falta org-ql-queries.el
 ln -s ~/org/org-ql-queries.el ~/.doom.d/modules/ # Y luego además linkarla
 
 # QMK
