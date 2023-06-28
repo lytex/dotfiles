@@ -58,6 +58,7 @@ ttf-ms-win11-auto # Windows fonts
 winff
 samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
+emacs-pdf-tools-git # To avoid error while loading shared libraries: libpoppler.so.XXX
 )
 if (( $WORK_ENV == 1 )); then
     # google-cloud-cli google-cloud-cli-gke-gcloud-auth-plugin # install without pacman
@@ -275,6 +276,7 @@ plasma-apply-desktoptheme breeze-dark
 plasma-apply-cursortheme Quintom_Ink
 
 pip3 install neovim-remote
+git clone https://github.com/slembcke/debugger.lua ~/.local/share/debugger.lua
 
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
