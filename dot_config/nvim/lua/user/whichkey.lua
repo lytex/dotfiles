@@ -274,6 +274,7 @@ local mappings = {
 		v = { "<cmd>LegendaryEvalBuf<cr>", "Everything" },
 		l = { "<cmd>LegendaryEvalLine<cr>", "Line" },
 	},
+	x = { "<cmd>call Scratch()<cr>", "Scratch" },
 }
 
 local visual_opts = { mode = "v", noremap = true, silent = true, expr = false }
