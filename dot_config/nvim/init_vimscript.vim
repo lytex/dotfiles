@@ -29,6 +29,7 @@ nmap <silent> ZX ZC<C-w>qa
 nnoremap <silent> ZM :<C-u>:q!<CR>
 
 " Scratch buffers
+" https://vi.stackexchange.com/questions/11310/what-is-a-scratch-window
 function! Scratch()
     split
     noswapfile hide enew
