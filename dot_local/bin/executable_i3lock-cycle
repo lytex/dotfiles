@@ -1,0 +1,12 @@
+#!/bin/bash
+
+SCREEN_RESOLUTION="$(xdpyinfo | grep dimensions | cut -d' ' -f7)"
+BGCOLOR="#000000"
+images=($(ls /usr/share/wallpapers/*/contents/images/2560x1600*.png
+    ls /usr/share/wallpapers/*/contents/images/3840x2160*.png
+    ls /usr/share/wallpapers/*/contents/images/5120x2880*.png
+    ls /usr/share/wallpapers/*/contents/images/3200x2000*.png))
+convert "${images[ $RANDOM % ${#images[@]} ]}" -gravity Center -background \
+ $BGCOLOR -extent "$SCREEN_RESOLUTION" RGB:- \
+ | i3lock --raw "$SCREEN_RESOLUTION":rgb -c $BGCOLOR -i /dev/stdin
+
