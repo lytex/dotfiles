@@ -71,6 +71,7 @@ if (( $WORK_ENV == 1 )); then
     # TODO actually install this stuff
     # ./google-cloud-sdk/install.sh --help
     # https://cloud.google.com/sdk/docs/install
+    # gcloud components install gke-gcloud-auth-plugin when installed gcloud and kubectl
 fi
 
 paru -S "${paru_packages[@]}" --noconfirm
