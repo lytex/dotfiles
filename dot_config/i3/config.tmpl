@@ -184,7 +184,7 @@ bindsym --release Control+Mod1+j exec xset dpms force off
 
 # Lock screen
 bindsym --release Control+Mod1+l exec --no-startup-id i3lock -c 553333 && xset dpms force off
-bindsym --release Mod4+l exec --no-startup-id /home/julian/.local/bin/i3lock-cycle -c 553333 && xset dpms force off
+bindsym --release Mod4+l exec --no-startup-id $HOME/.local/bin/i3lock-cycle
 # Hibernate (really sleep)
 bindsym Control+Mod1+h exec --no-startup-id i3lock -c 553333 && systemctl suspend
 
