@@ -88,7 +88,7 @@ return lazy.setup({
 	},
 
 	-- Telescope
-	{ "nvim-telescope/telescope.nvim", commit = "942fe5faef47b21241e970551eba407bc10d9547" },
+	{ "nvim-telescope/telescope.nvim", commit = "276362a8020c6e94c7a76d49aa00d4923b0c02f3" },
 	{ "nvim-telescope/telescope-file-browser.nvim", commit = "e0fcb12702ad0d2873544a31730f9aaef04fd032" },
 	{ "lytex/telescope-live-grep-args.nvim", commit = "64046ecfaa0a720554da1138d6042ee0ae9f0614" },
 	{
@@ -146,7 +146,6 @@ return lazy.setup({
 
 	-- Not used for keybindings, only to evaluate lua code
 	{ "mrjones2014/legendary.nvim", commit = "3563c43bd4e8eba7986f82340bccdba28727d708" },
-	{ "slembcke/debugger.lua", commit = "a37cc462133a30b3bee4bef37674047bd05e5fc1" },
 
 	-- Conflict markers highlighted
 	{ "rhysd/conflict-marker.vim", commit = "11a4d42244755505b66b15cd4496a150432eb5e3" },
