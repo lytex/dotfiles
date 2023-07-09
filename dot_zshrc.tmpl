@@ -189,7 +189,7 @@ alias gc-f="git checkout -- . && git clean -fd"
 function gsh () {git rebase -i HEAD~$1}
 function gfo () {git fetch origin $1:$1}
 function gsm () {git commit -S -m "$@"}
-function g1 () {git --no-pager log -1 --format=%H | xclip -sel clip} # Copy full hash of the current commit to clipboard
+function g1 () {git --no-pager log -1 --format=%H | sed -z '$ s/\n$//' | xclip -sel clip} # Copy full hash of the current commit to clipboard
 
 eval $(thefuck --alias)
 alias f=fuck
