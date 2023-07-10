@@ -249,7 +249,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // Do something when pressed
             if (get_oneshot_layer() == _NUMBER) {
                 set_oneshot_layer(_NUMBER, ONESHOT_START);
-                    
+
                 custom_shift_num = 1;
             }
         }
@@ -265,9 +265,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             (custom_shift_num == 1)) {
               custom_shift_num = 2;
             }
-          
 
-          /* if (get_oneshot_layer() == _NUMBER) { 
+
+          /* if (get_oneshot_layer() == _NUMBER) {
               SEND_STRING("asdfnumber");
           }
           if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
@@ -287,14 +287,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
 
         if (record->event.pressed) {
-          if (custom_shift_num == 2) { 
+          if (custom_shift_num == 2) {
               clear_oneshot_layer_state(ONESHOT_PRESSED);
               custom_shift_num = 0;
           }
           // if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
           // }
         }
-    
+
 }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -308,7 +308,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  | Shift|
     * |------+------+------+------+------+------+------+------+------+------+------+------|
     * | Esc  |IQWERT|      | GUI  | Alt  | NAV  | SPC  | NUM  |AltGr |      |STENO |QWERTY|
-    * `------------------------------------------------------------------------------------' 
+    * `------------------------------------------------------------------------------------'
     */
 	[_QWERTY] = LAYOUT_ortho_4x12(
     KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
@@ -326,7 +326,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * | Shift|      |      |      |      |      |      | C/Esc|   ,  |   .  |   /  | Shift|
     * |------+------+------+------+------+------+------+------+------+------+------+------|
     * | Esc  |      | GUI  | Alt  |      | NAV  | SPC  | TRNS |AltGr |      |      |QWERTY|
-    * `------------------------------------------------------------------------------------' 
+    * `------------------------------------------------------------------------------------'
     */
 	[_NUMBER] = LAYOUT_ortho_4x12(
     KC_GRV, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_BSLS, KC_LBRC, KC_RBRC, KC_BSPC,
@@ -344,7 +344,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * | Shift| BRID | BRIU |      |      | MUTE | VOLD | VOLU | MRWD | MPLY | MFFD | Shift|
     * |------+------+------+------+------+------+------+------+------+------+------+------|
     * | Esc  |      |      | GUI  | Alt  | TRNS |      | NUM  |AltGr |      |      |QWERTY|
-    * `------------------------------------------------------------------------------------' 
+    * `------------------------------------------------------------------------------------'
     */
 	[_NAVIGATION] = LAYOUT_ortho_4x12(KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
     OSM(MOD_LCTL), KC_HOME, KC_PGUP, KC_PGDN, KC_END, KC_PSCR, KC_LEFT, KC_DOWN, KC_UP, KC_RGHT, KC_DEL, KC_ENT,
@@ -360,8 +360,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |------+------+------+------+------+------|------+------+------+------+------+------|
     * |      |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  '   |
     * |------+------+------+------+------+------+------+------+------+------+------+------|
-    * | RESET|      |      |      |   C  |   V  |   N  |   M  |      |      |      |QWERTY|
-    * `------------------------------------------------------------------------------------' 
+    * |REBOOT|      |      |      |   C  |   V  |   N  |   M  |      |      |      |QWERTY|
+    * `------------------------------------------------------------------------------------'
 
        With Plover applied:
     * ,-----------------------------------------------------------------------------------.
@@ -371,14 +371,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * |------+------+------+------+------+------|------+------+------+------+------+------|
     * |      |   S  |   K  |   W  |   R  |   *  |   *  |   R  |   B  |   G  |   S  |  Z   |
     * |------+------+------+------+------+------+------+------+------+------+------+------|
-    * | RESET|      |      |      |   A  |   O  |   E  |   U  |      |      |      |QWERTY|
-    * `------------------------------------------------------------------------------------' 
+    * |REBOOT|      |      |      |   A  |   O  |   E  |   U  |      |      |      |QWERTY|
+    * `------------------------------------------------------------------------------------'
     */
 	[_STENO] = LAYOUT_ortho_4x12(
     KC_NO, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC,
     KC_NO, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC,
-    KC_NO, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT, 
-    RESET, KC_NO, KC_NO, KC_NO, KC_C, KC_V, KC_N, KC_M, KC_NO, KC_NO, KC_NO, QWERTY),
+    KC_NO, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
+    QK_REBOOT, KC_NO, KC_NO, KC_NO, KC_C, KC_V, KC_N, KC_M, KC_NO, KC_NO, KC_NO, QWERTY),
    /******************************************************************************************************************/
 
    /* Inverse Qwerty
@@ -390,7 +390,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   &  | Shift|
     * |------+------+------+------+------+------+------+------+------+------+------+------|
     * | Esc  |      |      | GUI  | Alt  | NAV  | SPC  | NUM  |AltGr |      |      |QWERTY|
-    * `------------------------------------------------------------------------------------' 
+    * `------------------------------------------------------------------------------------'
     */
 	[_INVERSE_QWERTY] = LAYOUT_ortho_4x12(
     KC_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_BSPC,
