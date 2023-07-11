@@ -2,7 +2,7 @@
 #include "quantum.h"
 #include "keymap_us_international_linux.h"
 #include "keymap_spanish.h"
-#include <print.h>
+#include "print.h"
 
 /*
 // TAP_DANCE_ENABLE = yes  # Enables it in rules.mk
@@ -63,6 +63,7 @@ enum contra_layers {
 #define NIQWER OSL(_NUMBER_INVERSE_QWERTY)
 #define NISQWE OSL(_NUMBER_SHIFTED_INVERSE_QWERTY)
 
+
 const uint16_t PROGMEM test_combo1[] = {KC_J, KC_K, COMBO_END};
 combo_t key_combos[COMBO_COUNT] = {
     COMBO(test_combo1, KC_ESC),
@@ -71,8 +72,9 @@ combo_t key_combos[COMBO_COUNT] = {
 uint8_t custom_shift_num = 0;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  uprintf("timer_read32: %d\n",  timer_read32());
   switch (keycode) {
-    case CU_EACU:
+    /* case CU_EACU:
       if (record->event.pressed) {
         // Do something when pressed
           register_code((uint8_t) KC_QUOT);
@@ -242,7 +244,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           unregister_code((uint8_t) KC_SCLN);
           unregister_code(KC_LSFT);
       }
-      return false; // Skip all further processing of this key
+      return false; // Skip all further processing of this key */
     case OSM(MOD_LSFT):
     case OSM(MOD_RSFT):
       if (record->event.pressed) {
@@ -250,7 +252,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             if (get_oneshot_layer() == _NUMBER) {
                 set_oneshot_layer(_NUMBER, ONESHOT_START);
 
+                uprintf("254 custom_shift_num: %d\n",  custom_shift_num);
                 custom_shift_num = 1;
+                uprintf("256 custom_shift_num: %d\n", custom_shift_num);
             }
         }
     default:
@@ -263,7 +267,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           send_string(str); */
     if ((get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) &&
             (custom_shift_num == 1)) {
+              uprintf("269 custom_shift_num: %d\n", custom_shift_num);
               custom_shift_num = 2;
+              uprintf("271 custom_shift_num: %d\n", custom_shift_num);
             }
 
 
@@ -289,7 +295,9 @@ void post_process_record_user(uint16_t keycode, keyrecord_t *record) {
         if (record->event.pressed) {
           if (custom_shift_num == 2) {
               clear_oneshot_layer_state(ONESHOT_PRESSED);
+              uprintf("297 custom_shift_num: %d\n", custom_shift_num);
               custom_shift_num = 0;
+              uprintf("299 custom_shift_num: %d\n", custom_shift_num);
           }
           // if (get_oneshot_mods() & (MOD_BIT(KC_LSFT)|MOD_BIT(KC_RSFT))) {
           // }
@@ -378,7 +386,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_BSPC,
     KC_NO, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y, KC_U, KC_I, KC_O, KC_P, KC_LBRC,
     KC_NO, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H, KC_J, KC_K, KC_L, KC_SCLN, KC_QUOT,
-    QK_REBOOT, KC_NO, KC_NO, KC_NO, KC_C, KC_V, KC_N, KC_M, KC_NO, KC_NO, KC_NO, QWERTY),
+    QK_BOOT, DB_TOGG, KC_NO, KC_NO, KC_C, KC_V, KC_N, KC_M, KC_NO, KC_NO, KC_NO, QWERTY),
    /******************************************************************************************************************/
 
    /* Inverse Qwerty
@@ -436,4 +444,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 
-
+void keyboard_post_init_user(void) {
+  // Customise these values to desired behaviour
+  debug_enable=true;
+  // debug_matrix=true;
+  // debug_keyboard=true;
+  //debug_mouse=true;
+}
