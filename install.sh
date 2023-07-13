@@ -52,7 +52,7 @@ sudo pacman -S "${pacman_packages[@]}" --noconfirm
 git clone https://aur.archlinux.org/paru-bin.git ~/.local/share/paru-bin && cd ~/.local/share/paru-bin || exit 1
 makepkg -sri --noconfirm
 
-declare -a paru_packages=(activitywatch-bin ripgrep-git kmonad-git espanso-bin hushboard-git shellcheck-bin google-chrome
+declare -a paru_packages=(activitywatch-bin ripgrep-git kmonad-git espanso-bin shellcheck-bin google-chrome
 pandoc-bin bookmarksync-git ferdium-bin notion-app drawio-desktop-bin
 ttf-ms-win11-auto # Windows fonts
 winff
@@ -105,16 +105,6 @@ Comment=flameshot start script
 Exec=/usr/bin/flameshot
 StartupNotify=false
 Terminal=true" > ~/.config/autostart/flameshot.desktop
-
-echo "[Desktop Entry]
-Type=Application
-Version=1.0
-Name=hushboard
-Comment=hushboard start script
-Exec=/usr/bin/hushboard
-StartupNotify=false
-Terminal=true" > ~/.config/autostart/hushboard.desktop
-
 
 echo "[Desktop Entry]
 Type=Application
