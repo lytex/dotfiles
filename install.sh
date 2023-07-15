@@ -18,7 +18,7 @@ sudo pacman -S doas --noconfirm
 # usermod -aG wheel julian
 # usermod -aG audio julian # Para tener acceso al audio
 
-declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git
+declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git curl
 yarn ttf-fira-code python-wheel syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi
 alacritty kitty python-xattr thefuck tealdeer bat man-pages flameshot fortune-mod
 graphviz
@@ -59,6 +59,7 @@ winff
 samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
 emacs-pdf-tools-git # To avoid error while loading shared libraries: libpoppler.so.XXX
+anki
 )
 if (( $WORK_ENV == 1 )); then
     # google-cloud-cli google-cloud-cli-gke-gcloud-auth-plugin # install without pacman
