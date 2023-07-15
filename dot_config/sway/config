@@ -228,16 +228,16 @@ mode "$mode_switch" {
     bindsym f workspace back_and_forth; mode "$mode_navigate"
     bindsym s exec i3-msg "sticky toggle"
     # go to workspace
-    bindsym exclam workspace number $ws1; mode "$mode_navigate"
-    bindsym at workspace number $ws2; mode "$mode_navigate"
-    bindsym numbersign workspace number $ws3; mode "$mode_navigate"
-    bindsym dollar workspace number $ws4; mode "$mode_navigate"
-    bindsym percent workspace number $ws5; mode "$mode_navigate"
-    bindsym asciicircum workspace number $ws6; mode "$mode_navigate"
-    bindsym ampersand workspace number $ws7; mode "$mode_navigate"
-    bindsym asterisk workspace number $ws8; mode "$mode_navigate"
-    bindsym parenleft workspace number $ws9; mode "$mode_navigate"
-    bindsym parenright workspace number $ws10; mode "$mode_navigate"
+    bindsym 1 workspace number $ws1; mode "$mode_navigate"
+    bindsym 2 workspace number $ws2; mode "$mode_navigate"
+    bindsym 3 workspace number $ws3; mode "$mode_navigate"
+    bindsym 4 workspace number $ws4; mode "$mode_navigate"
+    bindsym 5 workspace number $ws5; mode "$mode_navigate"
+    bindsym 6 workspace number $ws6; mode "$mode_navigate"
+    bindsym 7 workspace number $ws7; mode "$mode_navigate"
+    bindsym 8 workspace number $ws8; mode "$mode_navigate"
+    bindsym 9 workspace number $ws9; mode "$mode_navigate"
+    bindsym 0 workspace number $ws10; mode "$mode_navigate"
     # change focus between tiling / floating windows
     bindsym d focus mode_toggle
 
@@ -307,16 +307,16 @@ mode "$mode_navigate" {
     bindsym f workspace back_and_forth
     bindsym s exec i3-msg "sticky toggle"
     # go to workspace
-    bindsym exclam workspace number $ws1
-    bindsym at workspace number $ws2
-    bindsym numbersign workspace number $ws3
-    bindsym dollar workspace number $ws4
-    bindsym percent workspace number $ws5
-    bindsym asciicircum workspace number $ws6
-    bindsym ampersand workspace number $ws7
-    bindsym asterisk workspace number $ws8
-    bindsym parenleft workspace number $ws9
-    bindsym parenright workspace number $ws10
+    bindsym 1 workspace number $ws1
+    bindsym 2 workspace number $ws2
+    bindsym 3 workspace number $ws3
+    bindsym 4 workspace number $ws4
+    bindsym 5 workspace number $ws5
+    bindsym 6 workspace number $ws6
+    bindsym 7 workspace number $ws7
+    bindsym 8 workspace number $ws8
+    bindsym 9 workspace number $ws9
+    bindsym 0 workspace number $ws10
     # change focus between tiling / floating windows
     bindsym d focus mode_toggle
 
@@ -387,16 +387,16 @@ mode "$mode_move_container" {
     bindsym x move scratchpad
 
     # move focused container to workspace
-    bindsym exclam move container to workspace number $ws1
-    bindsym at move container to workspace number $ws2
-    bindsym numbersign move container to workspace number $ws3
-    bindsym dollar move container to workspace number $ws4
-    bindsym percent move container to workspace number $ws5
-    bindsym asciicircum move container to workspace number $ws6
-    bindsym ampersand move container to workspace number $ws7
-    bindsym asterisk move container to workspace number $ws8
-    bindsym parenleft move container to workspace number $ws9
-    bindsym parenright move container to workspace number $ws10
+    bindsym 1 move container to workspace number $ws1
+    bindsym 2 move container to workspace number $ws2
+    bindsym 3 move container to workspace number $ws3
+    bindsym 4 move container to workspace number $ws4
+    bindsym 5 move container to workspace number $ws5
+    bindsym 6 move container to workspace number $ws6
+    bindsym 7 move container to workspace number $ws7
+    bindsym 8 move container to workspace number $ws8
+    bindsym 9 move container to workspace number $ws9
+    bindsym 0 move container to workspace number $ws10
 
     # move container to outputs
     bindsym Shift+h move container to output right
@@ -627,16 +627,16 @@ mode "$mode_move_workspace" {
     bindsym l move workspace to output down
 
     # get workspace to current output
-    bindsym exclam [workspace="1"] move workspace to output current
-    bindsym at [workspace="2"] move workspace to output current
-    bindsym numbersign [workspace="3"] move workspace to output current
-    bindsym dollar [workspace="4"] move workspace to output current
-    bindsym percent [workspace="5"] move workspace to output current
-    bindsym asciicircum [workspace="6"] move workspace to output current
-    bindsym ampersand [workspace="7"] move workspace to output current
-    bindsym asterisk [workspace="8"] move workspace to output current
-    bindsym parenleft [workspace="9"] move workspace to output current
-    bindsym parenright [workspace="10"] move workspace to output current
+    bindsym 1 [workspace="1"] move workspace to output current
+    bindsym 2 [workspace="2"] move workspace to output current
+    bindsym 3 [workspace="3"] move workspace to output current
+    bindsym 4 [workspace="4"] move workspace to output current
+    bindsym 5 [workspace="5"] move workspace to output current
+    bindsym 6 [workspace="6"] move workspace to output current
+    bindsym 7 [workspace="7"] move workspace to output current
+    bindsym 8 [workspace="8"] move workspace to output current
+    bindsym 9 [workspace="9"] move workspace to output current
+    bindsym 0 [workspace="10"] move workspace to output current
 
     bindsym i mode "$mode_i3_special"
 
