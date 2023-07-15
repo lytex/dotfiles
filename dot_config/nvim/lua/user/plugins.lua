@@ -189,7 +189,15 @@ return lazy.setup({
 	{ "psliwka/vim-smoothie", commit = "df1e324e9f3395c630c1c523d0555a01d2eb1b7e" },
 
 	-- Fancy tabbed terminal emulator to run multiple shell windows and only one neovim instance (neovim-remote)
-	{ "nikvdp/neomux", commit = "74415f819edc9306e1955ec27cd5fa36cf33e13e" },
+	{
+		"nikvdp/neomux",
+		commit = "74415f819edc9306e1955ec27cd5fa36cf33e13e",
+		keys = {
+			{ " tr", "<cmd>lua require('lazy').load({plugins = 'neomux'})<cr><cmd>Neomux<cr>", desc = "Neomux" },
+			{ "<C-w>t", "lua require('lazy').load({plugins = 'neomux'})<cmd>split<CR><cmd>call NeomuxTerm()<CR>" },
+			{ "<C-w>T", "lua require('lazy').load({plugins = 'neomux'})<cmd>vsplit<CR><cmd>call NeomuxTerm()<CR>" },
+		},
+	},
 	-- Better tab management
 	{ "gcmt/taboo.vim", commit = "caf948187694d3f1374913d36f947b3f9fa1c22f" },
 	-- Interactive terminal

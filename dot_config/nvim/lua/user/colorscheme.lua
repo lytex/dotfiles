@@ -1,6 +1,6 @@
 vim.cmd([[
 try
- if system("/usr/bin/plasma-apply-desktoptheme --list-themes | grep current | grep dark || true") == ""
+ if system("cat ~/.config/plasmarc | grep dark || true") == ""
     colorscheme solarized
   else
     colorscheme vim-monokai-tasty

@@ -261,7 +261,7 @@ local mappings = {
 		name = "Toggle",
 		t = { "<cmd>lua _HTOP_TOGGLE()<cr>", "Htop" },
 		f = { "<cmd>call ToggleFormatOnSave()<cr>", "Toggle Format on Save" },
-		r = { "<cmd>Neomux<cr>", "Neomux" },
+		r = { "<cmd>lua require('lazy').load({plugins = 'neomux'})<cr><cmd>Neomux<cr>", "Neomux" },
 		p = { "<cmd>TSPlaygroundToggle<cr>", "View TS Structure" },
 		l = { "<cmd>lua ToggleRelativeNumber()<cr>", "Toggle RelNumber" },
 		v = { "<cmd>lua vim.diagnostic.config({ virtual_text = true })<cr>", "Enable VirtualText" },
