@@ -20,6 +20,7 @@
 # Not really needed, except for ydotool:
 # exec --no-startup-id setxkbmap fr bepo
 
+
 # Applications
 #
 set $terminal ( ps -A | grep alacritty ) && /usr/bin/alacritty msg create-window -e zsh || /usr/bin/alacritty -e zsh
@@ -46,7 +47,7 @@ set $password_command "/usr/bin/passmenu"
 font pango:Fantasque Sans Mono 10
 
 # exec_always feh --bg-fill ~/.local/share/wallpapers/i3-wallpaper # symlink to your actual wallpaper
-# exec --no-startup-id /usr/lib/pam_kwallet_init
+exec --no-startup-id /usr/lib/pam_kwallet_init
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -96,7 +97,8 @@ for_window [window_role="task_dialog"] floating enable
 
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
-for_window [class="plasmashell"] floating enable;
+# for_window [app_id="org.kde.plasmashell"] floating enable;
+# for_window [app_id="org.kde.plasmashell"] move absolute 10% 10%;
 for_window [class="Plasma"] floating enable; border none
 for_window [title="plasma-desktop"] floating enable; border none
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
@@ -106,8 +108,8 @@ for_window [class="krunner"] floating enable; border none
 for_window [class="Kmix"] floating enable; border none
 for_window [class="Klipper"] floating enable; border none
 for_window [class="Plasmoidviewer"] floating enable; border none
-for_window [class="plasmashell" window_type="notification"] border none, move right 40ppt, move down 40ppt
-no_focus [class="plasmashell" window_type="notification"]
+for_window [app_id="org.kde.plasmashell" title="Plasma"] border none, move right 40ppt, move down 40ppt
+no_focus [app_id="org.kde.plasmashell" window_type="notification"]
 for_window [class="ibus-ui-emojier-plasma"] floating enable; border none
 for_window [class="plasma.emojier"] floating enable; border none
 
