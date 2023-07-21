@@ -90,7 +90,7 @@ return lazy.setup({
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", commit = "276362a8020c6e94c7a76d49aa00d4923b0c02f3" },
 	{ "nvim-telescope/telescope-file-browser.nvim", commit = "e0fcb12702ad0d2873544a31730f9aaef04fd032" },
-	{ "lytex/telescope-live-grep-args.nvim", commit = "64046ecfaa0a720554da1138d6042ee0ae9f0614" },
+	{ "lytex/telescope-live-grep-args.nvim", commit = "2f8dd161ed138cac596b948d187f8823799cc5c4" },
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		commit = "580b6c48651cabb63455e97d7e131ed557b8c7e2",
@@ -99,7 +99,7 @@ return lazy.setup({
 	},
 
 	-- Projects
-	{ "lytex/telescope-project.nvim", commit = "8ad5cfb7dc7a499e7e5a7757b544f116fc154e18" },
+	{ "nvim-telescope/telescope-project.nvim", commit = "7c64b181dd4e72deddcf6f319e3bf1e95b2a2f30" },
 	{ "olimorris/persisted.nvim", commit = "e053ff33488431dc5bf9239b08650e650ec67292" }, -- Persistence of folds and cursor position
 	{ "crusj/bookmarks.nvim", commit = "6f34f1e18bb44c3fc2a0b003d01a7115c84331d9" }, -- Per project bookmarks
 	{
@@ -221,6 +221,13 @@ return lazy.setup({
 			vim.fn["firenvim#install"](0)
 		end,
 	},
+
+	-- {
+	-- 	"nvim-orgmode/orgmode",
+	-- 	config = function()
+	-- 		require("orgmode").setup({})
+	-- 	end,
+	-- },
 
 	-- use("axvr/org.vim")
 	-- use({
