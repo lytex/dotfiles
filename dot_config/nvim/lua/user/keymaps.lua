@@ -65,3 +65,8 @@ keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Reload with F5
 keymap("", "<f5>", "<cmd>e! %<cr>", opts)
+
+-- Terminal --
+
+-- Delete buffer and close window on C-d
+keymap("t", "<C-d>", [[<C-d><C-\><C-n><cmd>:Bd!<cr><cmd>quit<cr>]], opts)
