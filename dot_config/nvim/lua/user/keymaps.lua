@@ -70,3 +70,15 @@ keymap("", "<f5>", "<cmd>e! %<cr>", opts)
 
 -- Delete buffer and close window on C-d
 keymap("t", "<C-d>", [[<C-d><C-\><C-n><cmd>:Bd!<cr><cmd>quit<cr>]], opts)
+
+function _OPEN_TERMINAL_NVIM()
+	local nvim_tmux_session = assert(io.open("/tmp/nvim_tmux_session", "r"))
+	local tmux_session = nvim_tmux_session:read("*all")
+	nvim_tmux_session:close()
+	-- Always open a new instance of alacritty, to avoid shared sessions
+	local cmd = [[(setsid sh -c 'export $(cat /tmp/nvim_env); /usr/bin/alacritty -e zsh' &)]]
+	os.execute(cmd)
+	os.execute("sleep 5")
+	os.execute([[(setsid sh -c 'cd ~ && /usr/bin/alacritty -e zsh' &)]])
+end
+keymap("t", "<C-a>", [[<C-u>  xptenv<cr><cmd>lua _OPEN_TERMINAL_NVIM()<cr>i<C-d>]], term_opts)

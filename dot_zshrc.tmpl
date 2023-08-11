@@ -193,6 +193,17 @@ function g1 () {git --no-pager log -1 --format=%H | sed -z '$ s/\n$//' | xclip -
 function setenv () {set -a; source ${1:-.env}; set +a;} # Set environment variables from an optional file, .env if not provided
 function setenvf () {set -a; source $(find . -name '.env' | fzf --multi --preview 'bat {1} --language .env --color always || cat {1}'); set +a;} # Set environment variables finding all .env under current directory
 
+function xptenv() {
+   touch /tmp/nvim_tmux_session && chmod 600 /tmp/nvim_tmux_session
+   touch /tmp/nvim_env && chmod 600 /tmp/nvim_env 
+   export | grep -v ALACRITTY_SOCKET > /tmp/nvim_env
+   if $TMUX; then
+       tmux display-message -p '#I'> /tmp/nvim_tmux_session
+    else
+        echo "" > /tmp/nvim_tmux_session
+    fi
+}
+
 eval $(thefuck --alias)
 alias f=fuck
 alias t=tldr
@@ -230,7 +241,7 @@ tms() {
     [[ -n "$TMUX" ]] && change="switch-client" || change="attach-session"
     if [[ -n "$1" ]]; then
         if [[ "$1" == "-ask" ]]; then
-            read -r -p "New tmux session name: " session_name
+            read -r "?New tmux session name: " session_name
         else
             session_name="$1"
         fi
