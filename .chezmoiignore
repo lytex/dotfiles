@@ -5,6 +5,7 @@
 {{ end }}
 {{ if not .work }}
 .config/onedrive
+.config/autostart/onedrive-check.desktop
 .vrapperrc
 .local/share/nvim/telescope-projects-work.txt
 {{ else }}
