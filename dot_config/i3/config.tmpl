@@ -76,9 +76,9 @@ workspace_layout tabbed
 # to display names or symbols instead of plain workspace numbers you can use
 # something like: set $ws1 1:mail
 #                 set $ws2 2:
-set $ws1 "1: Main"
-set $ws2 "2: Meetings"
-set $ws3 "3: Maintenance"
+set $ws1 1
+set $ws2 2
+set $ws3 3
 set $ws4 "4: Chat"
 {{ if .work }}
 set $ws5 "5: DBeaver"
@@ -89,11 +89,7 @@ set $ws6 6
 {{ end }}
 set $ws7 7
 set $ws8 8
-{{ if .work }}
-set $ws9 "9: misc term"
-{{ else }}
-set $ws9 9
-{{ end }}
+set $ws8 9
 set $ws10 10
 {{ if .work }}
 workspace $ws1 output "HDMI-1"
