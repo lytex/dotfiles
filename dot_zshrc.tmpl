@@ -190,6 +190,8 @@ function gsh () {git rebase -i HEAD~$1}
 function gfo () {git fetch origin $1:$1}
 function gsm () {git commit -S -m "$@"}
 function g1 () {git --no-pager log -1 --format=%H | sed -z '$ s/\n$//' | xclip -sel clip} # Copy full hash of the current commit to clipboard
+function setenv () {set -a; source ${1:-.env}; set +a;} # Set environment variables from an optional file, .env if not provided
+function setenvf () {set -a; source $(find . -name '.env' | fzf --multi --preview 'bat {1} --language .env --color always || cat {1}'); set +a;} # Set environment variables finding all .env under current directory
 
 eval $(thefuck --alias)
 alias f=fuck
