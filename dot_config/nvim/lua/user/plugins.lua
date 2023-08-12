@@ -1,6 +1,3 @@
-local fn = vim.fn
-
--- Install Lazy if it's not installed
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -43,7 +40,6 @@ end
 -- Install your plugins here
 return lazy.setup({
 	-- My plugins here
-	{ "nvim-lua/popup.nvim", commit = "b7404d35d5d3548a82149238289fa71f7f6de4ac" }, -- An implementation of the Popup API from vim in Neovim
 	{ "nvim-lua/plenary.nvim", commit = "253d34830709d690f013daf2853a9d21ad7accab" }, -- Useful lua functions used ny lots of plugins
 	{ "windwp/nvim-autopairs", commit = "0fd6519d44eac3a6736aafdb3fe9da916c3701d4" }, -- Autopairs, integrates with both cmp and treesitter
 	{ "numToStr/Comment.nvim", commit = "8d3aa5c22c2d45e788c7a5fe13ad77368b783c20" }, -- Easily comment stuff
@@ -53,7 +49,6 @@ return lazy.setup({
 	{ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" },
 	{ "nvim-lualine/lualine.nvim", commit = "c28a7427c3fb29322db136f0564ec58807b26747" },
 	{ "akinsho/toggleterm.nvim", commit = "b86982429325112d2b20c6d0cc7a5c4b182ab705" },
-	{ "lewis6991/impatient.nvim", commit = "c90e273f7b8c50a02f956c24ce4804a47f18162e" },
 	{ "lukas-reineke/indent-blankline.nvim", commit = "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
 	{ "goolord/alpha-nvim", commit = "dafa11a6218c2296df044e00f88d9187222ba6b0" },
 	{ "folke/which-key.nvim", commit = "4b73390eec680b4c061ea175eb32c0ff3412271d" },
@@ -80,6 +75,7 @@ return lazy.setup({
 	{ "williamboman/mason.nvim", commit = "489f22baed01c28e4b5ee163d36063f0db71346e" },
 	{ "williamboman/mason-lspconfig.nvim", commit = "a5ca8b03972b347b74b2ad2f7f23f120a514593b" },
 	{ "jose-elias-alvarez/null-ls.nvim", commit = "5855128178fa78293acdfb5b4e41ef046779240b" }, -- for formatters and linters
+	{ "RRethy/vim-illuminate", commit = "d6ca7f77eeaf61b3e6ce9f0e5a978d606df44298" },
 	{
 		"kevinhwang91/nvim-ufo",
 		commit = "9e829d5cfa3de6a2ff561d86399772b0339ae49d",
