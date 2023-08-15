@@ -5,3 +5,4 @@ backend: Clipboard
 toggle_key: RIGHT_ALT
 search_shortcut: CTRL+ALT+SPACE
 disable_x11_fast_inject: true
+x11_use_xclip_backend: true
