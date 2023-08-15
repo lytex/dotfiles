@@ -44,7 +44,7 @@ return lazy.setup({
 	{ "windwp/nvim-autopairs", commit = "ae5b41ce880a6d850055e262d6dfebd362bb276e" }, -- Autopairs, integrates with both cmp and treesitter
 	{ "numToStr/Comment.nvim", commit = "0236521ea582747b58869cb72f70ccfa967d2e89" }, -- Easily comment stuff
 	{ "kyazdani42/nvim-web-devicons", commit = "ab899311f8ae00a47eae8e0879506cead8eb1561" },
-	{ "kyazdani42/nvim-tree.lua", commit = "18c7a3119839adc4599d838726deae662859c8b2" },
+	{ "kyazdani42/nvim-tree.lua", commit = "d1410cb0896a3aad5d84ddc54284774a627c6d63" },
 	{ "akinsho/bufferline.nvim", commit = "417b303328118b6d836ae330142e88771c48a8a3" },
 	{ "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" },
 	{ "nvim-lualine/lualine.nvim", commit = "45e27ca739c7be6c49e5496d14fcf45a303c3a63" },
