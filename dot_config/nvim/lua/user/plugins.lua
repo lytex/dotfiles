@@ -210,7 +210,7 @@ return lazy.setup({
 	-- neovim in the browser
 	{
 		"glacambre/firenvim",
-		commit = "ee4ef314bd990b2b05b7fbd95b857159e444a2fe",
+		commit = "1acdf0270bdd9b83a876a15c99dca3c9b40fbaa5",
 
 		cond = not not vim.g.started_by_firenvim,
 		build = function()
