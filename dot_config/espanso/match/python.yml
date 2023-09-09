@@ -11,3 +11,5 @@ matches:
     replace: import numpy as np
   - trigger: ;sysbk
     replace: import sys; sys.__breakpointhook__()
+  - trigger: :sysexit
+    replace: from sys import exit; exit()

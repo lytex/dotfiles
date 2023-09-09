@@ -121,9 +121,9 @@ matches:
     label: Change tmux directory to current dir
 
   - trigger: ;blackformatoff
-    replace: \# fmt:off
+    replace: "# fmt:off"
   - trigger: ;blackformaton
-    replace: \# fmt:on
+    replace: "# fmt:on"
   - trigger: ;clangformatoff
     replace: // clang-format off
   - trigger: ;clangformaton
