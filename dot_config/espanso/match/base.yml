@@ -117,7 +117,7 @@ matches:
     replace: "{{ output \"awk\" \"-F\" \"=\" \"/julian\\\\/code\\\\/$|$/{print $5}\"  \"/home/julian/.local/share/nvim/telescope-projects.txt\" | trim }}"
     label: telescope project snippet for chezmoi templates
   - trigger: ;cdtmux
-    replace: "attach-session -t . -c \"#{pane_current_path}\""
+    replace: 'attach-session -t . -c "#{pane_current_path}"'
     label: Change tmux directory to current dir
 
   - trigger: ;blackformatoff
@@ -132,3 +132,7 @@ matches:
     replace: "-- stylua: ignore start"
   - trigger: ;styluaformaton
     replace: "-- stylua: ignore end"
+
+  - trigger: ;skeleton
+    replace: "(org-noter-pdftools-create-skeleton '($|$ .  ))"
+    label: Create org-noter skeleton from a page range
