@@ -1,4 +1,11 @@
 matches:
+  - trigger: ";dateexplain"
+    replace: |
+      :dat<num1>e -> now-num1 days before today
+      :dat<month>m -> YYYY-(month now - month)-01)
+      :datw -> last monday
+      :dat<num>w -> monday <num> weeks before
+    label: Explain espanso advanced dates
   - trigger: ":date"
     replace: "{{mydate}}"
     vars:
