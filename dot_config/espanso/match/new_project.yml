@@ -19,6 +19,7 @@ matches:
           fi
       }
 
+      OPTIND=1
       while getopts ":l:" opt; do
         case ${opt} in
           l)
