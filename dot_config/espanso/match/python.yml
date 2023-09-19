@@ -13,3 +13,6 @@ matches:
     replace: import sys; sys.__breakpointhook__()
   - trigger: :sysexit
     replace: from sys import exit; exit()
+  - trigger: ;pycache
+    label: Remove __pycache__ files from git
+    replace: find . -iname "__pycache__" -exec git rm --cached -r {} \;
