@@ -270,6 +270,7 @@ plasma-apply-cursortheme Quintom_Ink
 
 pip3 install neovim-remote
 git clone https://github.com/slembcke/debugger.lua ~/.local/share/debugger.lua
+git clone https://github.com/hakimel/reveal.js ~/.local/share/reveal.js
 
 sudo groupadd docker
 sudo usermod -aG docker "$USER"
