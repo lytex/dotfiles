@@ -1,21 +1,21 @@
 <?xml version='1.0'?>
 <!DOCTYPE gui SYSTEM 'kpartgui.dtd'>
-<gui name="okular_part" version="49">
+<gui name="okular_part" version="54">
  <MenuBar>
   <Menu name="file">
    <text>&amp;File</text>
-   <Action name="get_new_stuff" group="file_open"/>
-   <Action name="import_ps" group="file_open"/>
-   <Action name="file_save" group="file_save"/>
-   <Action name="file_save_as" group="file_save"/>
-   <Action name="file_reload" group="file_save"/>
-   <Action name="file_print" group="file_print"/>
-   <Action name="file_print_preview" group="file_print"/>
-   <Action name="open_containing_folder" group="file_print"/>
-   <Action name="properties" group="file_print"/>
-   <Action name="embedded_files" group="file_print"/>
-   <Action name="file_export_as" group="file_print"/>
-   <Action name="file_share" group="file_print"/>
+   <Action group="file_open" name="get_new_stuff"/>
+   <Action group="file_open" name="import_ps"/>
+   <Action group="file_save" name="file_save"/>
+   <Action group="file_save" name="file_save_as"/>
+   <Action group="file_save" name="file_reload"/>
+   <Action group="file_print" name="file_print"/>
+   <Action group="file_print" name="file_print_preview"/>
+   <Action group="file_print" name="open_containing_folder"/>
+   <Action group="file_print" name="properties"/>
+   <Action group="file_print" name="embedded_files"/>
+   <Action group="file_print" name="file_export_as"/>
+   <Action group="file_print" name="file_share"/>
   </Menu>
   <Menu name="edit">
    <text>&amp;Edit</text>
@@ -35,8 +35,8 @@
    <text>&amp;View</text>
    <Action name="presentation"/>
    <Separator/>
-   <Action name="view_zoom_in"/>
    <Action name="view_zoom_out"/>
+   <Action name="view_zoom_in"/>
    <Action name="view_actual_size"/>
    <Action name="view_fit_to_width"/>
    <Action name="view_fit_to_page"/>
@@ -96,17 +96,22 @@
   </Menu>
   <Menu name="settings">
    <text>&amp;Settings</text>
-   <Action name="show_leftpanel" group="show_merge"/>
-   <Action name="show_bottombar" group="show_merge"/>
-   <Action name="options_configure_generators" group="configure_merge"/>
-   <Action name="options_configure" group="configure_merge"/>
+   <Action group="show_merge" name="colorscheme_menu"/>
+   <Action group="show_merge" name="show_leftpanel"/>
+   <Action group="show_merge" name="show_bottombar"/>
+   <Action group="configure_merge" name="options_configure_generators"/>
+   <Action group="configure_merge" name="options_configure"/>
   </Menu>
   <Menu name="help">
    <text>&amp;Help</text>
-   <Action name="help_about_backend" group="about_merge"/>
+   <Action group="about_merge" name="help_about_backend"/>
   </Menu>
  </MenuBar>
- <ToolBar hidden="true" iconText="icononly" newline="true" name="annotationToolBar">
+ <ToolBar newline="true" hidden="true" position="right" name="quickAnnotationToolBar" iconText="icononly" iconSize="32">
+  <text>Quick Annotation Toolbar</text>
+  <Action name="quick_annotation_action_bar"/>
+ </ToolBar>
+ <ToolBar newline="true" hidden="true" name="annotationToolBar" iconText="icononly">
   <text>Annotation Toolbar</text>
   <Action name="annotation_highlighter"/>
   <Action name="annotation_underline"/>
@@ -146,75 +151,21 @@
   <Action name="view_zoom_in"/>
  </ToolBar>
  <ActionProperties scheme="Default">
-  <Action priority="0" name="show_leftpanel"/>
-  <Action name="annotation_constrain_ratio_angle" shortcut=""/>
-  <Action name="annotation_ellipse" shortcut=""/>
-  <Action name="annotation_favorites" shortcut=""/>
-  <Action name="annotation_polygon" shortcut=""/>
-  <Action name="annotation_settings_advanced" shortcut=""/>
-  <Action name="annotation_settings_color" shortcut=""/>
-  <Action name="annotation_settings_font" shortcut=""/>
-  <Action name="annotation_settings_inner_color" shortcut=""/>
-  <Action name="annotation_settings_opacity" shortcut=""/>
-  <Action name="annotation_settings_pin" shortcut=""/>
-  <Action name="annotation_settings_width" shortcut=""/>
-  <Action name="annotation_straight_line" shortcut=""/>
+  <Action priority="0" name="view_zoom_out"/>
+  <Action priority="0" name="view_zoom_in"/>
   <Action name="edit_copy" shortcut="Ctrl+C; Y"/>
   <Action name="edit_find_next" shortcut="F3; N"/>
   <Action name="edit_find_prev" shortcut="Shift+F3; Shift+N"/>
-  <Action name="edit_select_all_current_page" shortcut=""/>
-  <Action name="embedded_files" shortcut=""/>
-  <Action name="file_export_as" shortcut=""/>
-  <Action name="file_print_preview" shortcut=""/>
-  <Action name="file_share" shortcut=""/>
   <Action name="first_page" shortcut="Ctrl+Home; G, G"/>
   <Action name="go_goto_page" shortcut="Ctrl+G; :"/>
   <Action name="go_next" shortcut=""/>
   <Action name="go_previous" shortcut=""/>
-  <Action name="help_about_backend" shortcut=""/>
-  <Action name="hide_annotation_toolbar" shortcut=""/>
-  <Action name="import_ps" shortcut=""/>
   <Action name="last_page" shortcut="Ctrl+End; Shift+G"/>
-  <Action name="next_bookmark" shortcut=""/>
-  <Action name="open_containing_folder" shortcut=""/>
-  <Action name="options_configure_annotations" shortcut=""/>
-  <Action name="options_configure_generators" shortcut=""/>
-  <Action name="page_number" shortcut=""/>
-  <Action name="presentation_drawing_Black" shortcut=""/>
-  <Action name="presentation_drawing_Blue" shortcut=""/>
-  <Action name="presentation_drawing_Green" shortcut=""/>
-  <Action name="presentation_drawing_Red" shortcut=""/>
-  <Action name="presentation_drawing_White" shortcut=""/>
-  <Action name="presentation_drawing_Yellow" shortcut=""/>
-  <Action name="presentation_drawing_eraser" shortcut=""/>
-  <Action name="presentation_erase_drawings" shortcut=""/>
-  <Action name="presentation_play_pause" shortcut=""/>
-  <Action name="previous_bookmark" shortcut=""/>
-  <Action name="rename_bookmark" shortcut=""/>
-  <Action name="rtl_page_layout" shortcut=""/>
-  <Action name="show_bottombar" shortcut=""/>
-  <Action name="show_signatures" shortcut=""/>
-  <Action name="speak_current_page" shortcut=""/>
-  <Action name="speak_document" shortcut=""/>
-  <Action name="speak_pause_resume" shortcut=""/>
-  <Action name="speak_stop_all" shortcut=""/>
+  <Action priority="0" name="show_leftpanel"/>
   <Action name="toggle_change_colors" shortcut=""/>
-  <Action name="view_auto_fit" shortcut=""/>
-  <Action name="view_continuous" shortcut=""/>
-  <Action name="view_fit_to_page" shortcut=""/>
-  <Action name="view_fit_to_width" shortcut=""/>
-  <Action name="view_orientation_original" shortcut=""/>
-  <Action name="view_orientation_rotate_ccw" shortcut=""/>
-  <Action name="view_orientation_rotate_cw" shortcut=""/>
-  <Action name="view_render_mode_facing" shortcut=""/>
-  <Action name="view_render_mode_facing_center_first" shortcut=""/>
-  <Action name="view_render_mode_overview" shortcut=""/>
-  <Action name="view_render_mode_single" shortcut=""/>
   <Action name="view_scroll_page_down" shortcut="Space; Ctrl+D"/>
   <Action name="view_scroll_page_up" shortcut="Shift+Space; Ctrl+U"/>
-  <Action name="view_toggle_forms" shortcut=""/>
-  <Action name="view_trim_margins" shortcut=""/>
-  <Action name="view_trim_selection" shortcut=""/>
-  <Action name="zoom_to" shortcut=""/>
+  <Action name="go_document_back" shortcut="Alt+Shift+Left; [, B"/>
+  <Action name="go_document_forward" shortcut="Alt+Shift+Right; ], B"/>
  </ActionProperties>
 </gui>
