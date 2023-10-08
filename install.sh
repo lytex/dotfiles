@@ -28,6 +28,7 @@ i3-wm i3lock i3status unclutter lazygit okular rofi passmenu dmenu wmctrl
 fuse2 bluez bluez-utils docker docker-buildx plantuml
 alsa-utils # alsamixer, aplay
 emacs-nativecomp
+ripgrep
 man cronie libreoffice-fresh fd xorg-xinput xorg-xkill ntfs-3g
 calibre gwenview evince
 firefox chromium
@@ -52,7 +53,7 @@ sudo pacman -S "${pacman_packages[@]}" --noconfirm
 git clone https://aur.archlinux.org/paru-bin.git ~/.local/share/paru-bin && cd ~/.local/share/paru-bin || exit 1
 makepkg -sri --noconfirm
 
-declare -a paru_packages=(activitywatch-bin ripgrep-git kmonad-git espanso-bin shellcheck-bin google-chrome
+declare -a paru_packages=(activitywatch-bin kmonad-git espanso-bin shellcheck-bin google-chrome
 pandoc-bin bookmarksync-git ferdium-bin notion-app drawio-desktop-bin
 ttf-ms-win11-auto # Windows fonts
 winff

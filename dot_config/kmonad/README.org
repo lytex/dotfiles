@@ -1,0 +1,7 @@
+#+TITLE: kmonad
+
+* jk remap in kmonad
+This remap is quite complicted. Here is explained in a [[https://en.wikipedia.org/wiki/Petri_net][Petri net]] and the corresponding reachability graph, i.e., the actual state diagram:
+
+[[file:../../img/jk_petri_net.png]]
+[[file:../../img/jk_graph.svg]]
