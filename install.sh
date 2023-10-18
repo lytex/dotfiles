@@ -68,12 +68,12 @@ if (( $WORK_ENV == 1 )); then
     paru_packages+=(teams onedrive-abraunegg)
 fi
 if (( $WORK_ENV == 1 )); then
+    cd ~/.local/share
     curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-434.0.0-linux-x86_64.tar.gz
-    tar -xf google-cloud-cli-434.0.0-linux-x86_64.tar.gz
-    # TODO actually install this stuff
-    # ./google-cloud-sdk/install.sh --help
-    # https://cloud.google.com/sdk/docs/install
-    # gcloud components install gke-gcloud-auth-plugin when installed gcloud and kubectl
+    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-451.0.0-linux-x86_64.tar.gz
+    tar -xf google-cloud-cli-451.0.0-linux-x86_64.tar.gz
+    ./google-cloud-sdk/install.sh --usage-reporting false --path-update false --command-completion false
+    gcloud components install gke-gcloud-auth-plugin
 fi
 
 paru -S "${paru_packages[@]}" --noconfirm
