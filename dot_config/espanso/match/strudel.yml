@@ -1,0 +1,9 @@
+matches:
+  - trigger: ;dnb
+    replace: |
+      stack(
+        s("[bd [[~ bd] ~ ]]")
+        ,s("[~ sd] [~ sd]")
+        ,s("[hh]*8").velocity(0.5)
+      ).bank("RolandTR909")
+    label: Drum and Bass 909
