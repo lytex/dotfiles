@@ -65,6 +65,8 @@ matches:
                         postgis/postgis:14-3.3
       fi
 
+      unset command_to_launch
+
     label: new project tmux start script
 
   - trigger: ;newpvimrc
