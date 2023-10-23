@@ -1,0 +1,18 @@
+matches:
+  - trigger: ;ipython
+    replace: from IPython import embed; embed()
+  - trigger: ;pd
+    replace: import pandas as pd
+  - trigger: ;plt
+    replace: import matplotlib.pyplot as plt
+  - trigger: ;sns
+    replace: import seaborn as sns
+  - trigger: ;np
+    replace: import numpy as np
+  - trigger: ;sysbk
+    replace: import sys; sys.__breakpointhook__()
+  - trigger: :sysexit
+    replace: from sys import exit; exit()
+  - trigger: ;pycache
+    label: Remove __pycache__ files from git
+    replace: find . -iname "__pycache__" -exec git rm --cached -r {} \;
