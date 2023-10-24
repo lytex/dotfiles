@@ -140,7 +140,7 @@ set title
 
 let g:conflict_marker_enable_highlight = 1
 " disable the default highlight group
-let g:conflict_marker_highlight_group = ''
+" let g:conflict_marker_highlight_group = ''
 " disable keybindings
 let g:conflict_marker_enable_mappings = 0
 
@@ -149,8 +149,8 @@ let g:conflict_marker_begin = '^<<<<<<< .*$'
 let g:conflict_marker_end   = '^>>>>>>> .*$'
 
 " from https://michurin.github.io/xterm256-color-picker/
-highlight ConflictMarkerBegin ctermbg=34 
-highlight ConflictMarkerOurs ctermbg=22  
-highlight ConflictMarkerTheirs ctermbg=27 
-highlight ConflictMarkerEnd ctermbg=39 
-highlight ConflictMarkerCommonAncestorsHunk ctermbg=yellow
+highlight ConflictMarkerBegin ctermbg=34 guibg=#00af00 
+highlight ConflictMarkerOurs ctermbg=22 guibg=#005f00
+highlight ConflictMarkerTheirs ctermbg=27 guibg=#005fff 
+highlight ConflictMarkerEnd ctermbg=39 guibg=#00afff
+highlight ConflictMarkerCommonAncestorsHunk ctermbg=yellow guibg=#d7d700
