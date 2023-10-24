@@ -114,16 +114,16 @@ source "$HOME/.zsh/plugins/zsh-system-clipboard/zsh-system-clipboard.zsh"
 
 export NVIM_LOG_FILE="$HOME/.nvimlog"
 
-alias my-fzf-command='fzf --height=10% --preview-window=noborder --border=top --info=inline'
+alias my-fzf-command='fzf --height=20% --preview-window=noborder --border=top --info=inline'
 
 function fzf-cd-places () {
-    directory=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="file:///' | sed -E 's#[ ]*<bookmark href="file://([^"]+)">#\1#' | sed 's/%/\\\\x/g' | xargs -I _ printf "_\n" |  my-fzf-command --preview "ls {}")
+    directory=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="file:///' | sed -E 's#[ ]*<bookmark href="file://([^"]+)">#\1#' | sed 's/%/\\\\x/g' | sort -u | xargs -I _ printf "_\n" |  my-fzf-command --preview "eza --color=always -w $(( $(brltty-ttysize | awk -Fx '{print $1}')/2 )) {}")
     RBUFFER=" '${directory}'${RBUFFER}"
 }
 
 # Tag navigation
 function fzf-cd-tags () {
-    tag=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="tags:/' | grep -vF ' <bookmark href="tags:/">' | sed -E 's#[ ]*<bookmark href="tags:/([^"]+)">#\1#' | my-fzf-command --preview 'baloosearch tag:{}'); directory=$(baloosearch tag:$tag | my-fzf-command --preview "ls {}")
+    tag=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="tags:/' | grep -vF ' <bookmark href="tags:/">' | sed -E 's#[ ]*<bookmark href="tags:/([^"]+)">#\1#' | sort -u | my-fzf-command --preview 'baloosearch tag:{} | sort -u'); directory=$(baloosearch tag:$tag | sort -u | my-fzf-command --preview "eza --color=always -w $(( $(brltty-ttysize | awk -Fx '{print $1}')/2 )) {}")
     RBUFFER=" '${directory}'${RBUFFER}"
 }
 zle -N fzf-cd-tags
