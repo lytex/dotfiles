@@ -34,6 +34,7 @@ local options = {
 	sidescrolloff = 8,
 	foldmethod = "expr",
 	foldexpr = "nvim_treesitter#foldexpr()",
+	virtualedit = "onemore",
 	-- guifont = "monospace:h17",               -- the font used in graphical neovim applications
 }
 
