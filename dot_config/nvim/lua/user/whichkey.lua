@@ -123,7 +123,7 @@ local mappings = {
 		"<cmd>lua require('bookmarks').toggle_bookmarks()<cr>",
 		"Jump to bookmark",
 	},
-	["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
+	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = {
@@ -187,10 +187,16 @@ local mappings = {
 		h = {
 			name = "Git conflict",
 			t = { "<cmd>ConflictMarkerThemselves<cr>", ">>> pick theirs" },
+			[">"] = { "<cmd>ConflictMarkerThemselves<cr>", ">>> pick theirs" },
 			o = { "<cmd>ConflictMarkerOurselves<cr>", "<<< pick ours" },
-			n = { "<cmd>ConflictMarkerOurselves<cr>", "🙅 pick none" },
+			["<"] = { "<cmd>ConflictMarkerOurselves<cr>", "<<< pick ours" },
+			n = { "<cmd>ConflictMarkerNone<cr>", "🙅 pick none" },
 			b = { "<cmd>ConflictMarkerBoth<cr>", "🤷 pick both" },
-			B = { "<cmd>ConflictMarkerBoth<cr>", "!🤷 pick both (inverted)" },
+			["="] = { "<cmd>ConflictMarkerBoth<cr>", "🤷 pick both" },
+			B = { "<cmd>ConflictMarkerBoth!<cr>", "!🤷 pick both (inverted)" },
+			["+"] = { "<cmd>ConflictMarkerBoth!<cr>", "🤷 pick both" },
+			j = { "<cmd>ConflictMarkerNextHunk<cr>", "🙅 pick none" },
+			k = { "<cmd>ConflictMarkerPrevHunk<cr>", "🙅 pick none" },
 		},
 	},
 	h = {
