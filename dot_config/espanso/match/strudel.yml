@@ -7,3 +7,20 @@ matches:
         ,s("[hh]*8").velocity(0.5)
       ).bank("RolandTR909")
     label: Drum and Bass 909
+  - trigger: ;midi
+    replace: .midi('UMC404HD 192k MIDI 1').midichan($|$)
+
+  - trigger: ;1/2
+    replace: 0.5
+  - trigger: ;1/4
+    replace: 0.25
+  - trigger: ;1/8
+    replace: 0.125
+  - trigger: ;1/16
+    replace: 0.0625
+  - trigger: ;1/32
+    replace: 0.03125
+  - trigger: ;1/64
+    replace: 0.015625
+  - trigger: ;1/128
+    replace: 0.0078125
