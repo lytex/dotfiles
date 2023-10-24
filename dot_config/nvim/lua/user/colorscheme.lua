@@ -4,6 +4,7 @@ try
     colorscheme solarized
   else
     colorscheme vim-monokai-tasty
+    set termguicolors " Make vim-illuminate work
   endif
 catch /^Vim\%((\a\+)\)\=:E185/
   colorscheme default

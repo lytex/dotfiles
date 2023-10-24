@@ -77,6 +77,9 @@ vim.cmd([[
     autocmd Filetype yaml,markdown,html,css,json,javascript,sql,lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
   augroup end
 
+
+autocmd VimEnter * hi link illuminatedWord Visual
+
 set viewoptions-=options
 augroup remember_folds
     autocmd!
