@@ -19,7 +19,7 @@ sudo pacman -S doas --noconfirm
 # usermod -aG audio julian # Para tener acceso al audio
 
 declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git curl
-yarn ttf-fira-code python-wheel syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi
+yarn ttf-fira-code ttf-fantasque-nerd python-wheel syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi
 bat eza # Rust replacements
 brltty # for brltty-ttysize
 alacritty kitty python-xattr thefuck tealdeer man-pages flameshot fortune-mod
@@ -154,23 +154,6 @@ if (( $WORK_ENV == 1 )); then
     StartupNotify=false
     Terminal=true" > ~/.config/autostart/evolution.desktop
 fi
-
-cd /tmp || exit 1
-git clone --depth 1 --no-checkout --filter=blob:none https://github.com/ryanoasis/nerd-fonts
-cd nerd-fonts || exit 1
-echo 'patched-fonts/FiraCode' >> .git/info/sparse-checkout && git config core.sparseCheckout true && \
-    git checkout master -- patched-fonts/FiraMono
-mkdir -p ~/.local/share/fonts && find . -iname '*.otf'  | grep -e "Complete" -e "Complete Mono" | grep -v "Windows" | \
-    xargs -I _ bash -c 'cp "_" ~/.local/share/fonts/'
-
-cd /tmp && mkdir -p fantasque && cd fantasque || exit 1
-curl -sL https://github.com/belluzj/fantasque-sans/releases/download/v1.8.0/FantasqueSansMono-Normal.tar.gz -o \
-    FantasqueSansMono-Normal.tar.gz
-tar xfz FantasqueSansMono-Normal.tar.gz && cd OTF || exit 1
-find . -iname '*.otf' -exec cp "{}" ~/.local/share/fonts/ \;
-
-fc-cache -vf
-
 
 cd
 echo "Continuar cuando estén las carpetas ya sincronizadas:"

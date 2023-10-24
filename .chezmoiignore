@@ -10,6 +10,8 @@
 .local/share/nvim/telescope-projects-work.txt
 {{ else }}
 .local/share/nvim/telescope-projects-personal.txt
+~/.config/espanso/match/strudel.yml
+~/.config/espanso/match/musica.yml
 {{ end }}
 .local/share/nvim/telescope-projects-example.txt
 README.org
