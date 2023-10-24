@@ -123,7 +123,7 @@ local mappings = {
 		"<cmd>lua require('bookmarks').toggle_bookmarks()<cr>",
 		"Jump to bookmark",
 	},
-	["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+	["e"] = { "<cmd>Neotree toggle<cr>", "Explorer" },
 	-- ["w"] = { "<cmd>w!<CR>", "Save" },
 	-- ["q"] = { "<cmd>q!<CR>", "Quit" },
 	["c"] = {
