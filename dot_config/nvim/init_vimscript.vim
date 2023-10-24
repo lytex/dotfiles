@@ -28,6 +28,13 @@ nnoremap <silent> ZB :<C-u>Bd!<CR>
 nmap <silent> ZX ZC<C-w>qa
 nnoremap <silent> ZM :<C-u>:q!<CR>
 
+" absolute path to clipboard
+nnoremap <F1> :let @+ = expand("%:p")<CR>
+" relative path to clipboard
+nnoremap <F2> :let @+ = expand("%:f")<CR>
+" filename to clipboard
+nnoremap <F3> :let @+ = expand("%:t")<CR>
+
 " Scratch buffers
 " https://vi.stackexchange.com/questions/11310/what-is-a-scratch-window
 function! Scratch()
