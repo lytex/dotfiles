@@ -3,6 +3,7 @@ Type=Application
 Version=1.0
 Name=onedrive daemon checker
 Comment=onedrive daemon checker
-Exec=sleep 10; systemctl is-active --quiet --user onedrive || notify-send -t 0 "onedrive daemon failed"
+Exec=/bin/sh -c 'sleep 10; systemctl is-active --quiet --user onedrive || notify-send -t 0 "onedrive daemon failed"'
 StartupNotify=false
 Terminal=true
+Environment="DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus" "DISPLAY=:0"
