@@ -69,7 +69,7 @@ func! s:SetHighlight(enable)
     endif
     if a:enable
         " add brown color
-        hi CursorLine cterm=NONE ctermbg=brown ctermfg=white guibg=brown guifg=white
+        hi CursorLine cterm=NONE ctermbg=brown ctermfg=white guibg=#af5f00 guifg=white
         setl cursorline
     else
         setl nocursorline
