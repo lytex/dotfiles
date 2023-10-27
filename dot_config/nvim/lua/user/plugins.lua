@@ -43,15 +43,16 @@ return lazy.setup({
 	{ "nvim-lua/plenary.nvim", commit = "267282a9ce242bbb0c5dc31445b6d353bed978bb" }, -- Useful lua functions used ny lots of plugins
 	{ "windwp/nvim-autopairs", commit = "ae5b41ce880a6d850055e262d6dfebd362bb276e" }, -- Autopairs, integrates with both cmp and treesitter
 	{ "numToStr/Comment.nvim", commit = "0236521ea582747b58869cb72f70ccfa967d2e89" }, -- Easily comment stuff
-	{ "nvim-neo-tree/neo-tree.nvim", commit = "7e2a3caf999e2028abb643eb0472f351b2777591" },
 	{
-		"nvim-neo-tree/neo-tree.nvim", commit = "7e2a3caf999e2028abb643eb0472f351b2777591",
+		"nvim-neo-tree/neo-tree.nvim",
+		commit = "7e2a3caf999e2028abb643eb0472f351b2777591",
 		dependencies = {
-			"nvim-lua/plenary.nvim", commit = "267282a9ce242bbb0c5dc31445b6d353bed978bb",
-			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-			"MunifTanjim/nui.nvim", commit = "c8de23342caf8d50b15d6b28368d36a56a69d76f",
+			{ "nvim-lua/plenary.nvim", commit = "267282a9ce242bbb0c5dc31445b6d353bed978bb" },
+			{ "nvim-tree/nvim-web-devicons" }, -- not strictly required, but recommended
+			{ "MunifTanjim/nui.nvim", commit = "c8de23342caf8d50b15d6b28368d36a56a69d76f" },
 			{
-				"s1n7ax/nvim-window-picker", commit = "fd5d3348b3e254ca3134f97793b4a8c702c4ad1d",
+				"s1n7ax/nvim-window-picker",
+				commit = "fd5d3348b3e254ca3134f97793b4a8c702c4ad1d",
 				version = "2.*",
 			},
 		},
@@ -67,6 +68,7 @@ return lazy.setup({
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	{ "shaunsingh/solarized.nvim", commit = "fe02ed49cc017cc93657bd6306a2624394611c69" },
 	{ "patstockwell/vim-monokai-tasty", commit = "8c1052347dd204a83ef72f7af36bdf2fa6861e0b" },
+	{ "norcalli/nvim-colorizer.lua", commit = "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6" },
 
 	-- cmp plugins
 	{ "hrsh7th/nvim-cmp", commit = "51f1e11a89ec701221877532ee1a23557d291dd5" }, -- The completion plugin
@@ -86,9 +88,13 @@ return lazy.setup({
 	{ "williamboman/mason.nvim", commit = "74eac861b013786bf231b204b4ba9a7d380f4bd9" },
 	{ "williamboman/mason-lspconfig.nvim", commit = "e86a4c84ff35240639643ffed56ee1c4d55f538e" },
 	{ "jose-elias-alvarez/null-ls.nvim", commit = "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7" }, -- for formatters and linters
-	{ "RRethy/vim-illuminate", commit = "5ed17582a8e97bf0a0c617c3cf762e98f87b9859" },
 	{
-		"kevinhwang91/nvim-ufo", commit = "aebd36bf5447862671356fcd5d4a8708ce6c9470",
+		"RRethy/vim-illuminate",
+		commit = "5ed17582a8e97bf0a0c617c3cf762e98f87b9859",
+	},
+	{
+		"kevinhwang91/nvim-ufo",
+		commit = "aebd36bf5447862671356fcd5d4a8708ce6c9470",
 
 		dependencies = { "kevinhwang91/promise-async", commit = "e94f35161b8c5d4a4ca3b6ff93dd073eb9214c0e" },
 	},
@@ -98,7 +104,8 @@ return lazy.setup({
 	{ "nvim-telescope/telescope-file-browser.nvim", commit = "ad7b637c72549713b9aaed7c4f9c79c62bcbdff0" },
 	{ "lytex/telescope-live-grep-args.nvim", commit = "2f8dd161ed138cac596b948d187f8823799cc5c4" },
 	{
-		"nvim-telescope/telescope-fzf-native.nvim", commit = "9bc8237565ded606e6c366a71c64c0af25cd7a50",
+		"nvim-telescope/telescope-fzf-native.nvim",
+		commit = "9bc8237565ded606e6c366a71c64c0af25cd7a50",
 
 		build = "make",
 	},
@@ -108,7 +115,8 @@ return lazy.setup({
 	{ "olimorris/persisted.nvim", commit = "315cd1a8a501ca8e0c1d55f0c245b9cc0e1ffa01" }, -- Persistence of folds and cursor position
 	{ "crusj/bookmarks.nvim", commit = "11a119791b44372eaca977136754f587b19af581" }, -- Per project bookmarks
 	{
-		"jenterkin/vim-autosource", commit = "569440e157d6eb37fb098dfe95252533553a56f5",
+		"jenterkin/vim-autosource",
+		commit = "569440e157d6eb37fb098dfe95252533553a56f5",
 
 		config = function()
 			vim.g.autosource_hashdir = os.getenv("HOME") .. "/.cache/vim-autosource/hashes"
@@ -117,7 +125,8 @@ return lazy.setup({
 
 	-- Treesitter
 	{
-		"nvim-treesitter/nvim-treesitter", commit = "11d79aa0f731439f2cd05579a64ac13857002f16",
+		"nvim-treesitter/nvim-treesitter",
+		commit = "11d79aa0f731439f2cd05579a64ac13857002f16",
 
 		build = ":TSUpdate",
 	},
@@ -128,7 +137,8 @@ return lazy.setup({
 		"https://gitlab.com/HiPhish/nvim-ts-rainbow2",
 	},
 	{
-		"ThePrimeagen/refactoring.nvim", commit = "5359e74291164fcaeaaecdea9ba753ad54eb53d0",
+		"ThePrimeagen/refactoring.nvim",
+		commit = "5359e74291164fcaeaaecdea9ba753ad54eb53d0",
 
 		dependencies = {
 			{ "nvim-lua/plenary.nvim", commit = "267282a9ce242bbb0c5dc31445b6d353bed978bb" },
@@ -172,7 +182,8 @@ return lazy.setup({
 	{ "PeterRincker/vim-argumentative", commit = "63a5f7deb675c38126de626f4c00e000902462fe" },
 	-- https://github.com/AndrewRadev/sideways.vim Also good
 	{
-		"kana/vim-textobj-entire", commit = "64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a",
+		"kana/vim-textobj-entire",
+		commit = "64a856c9dff3425ed8a863b9ec0a21dbaee6fb3a",
 
 		dependencies = { "kana/vim-textobj-user", commit = "41a675ddbeefd6a93664a4dc52f302fe3086a933" },
 	},
@@ -190,7 +201,8 @@ return lazy.setup({
 
 	-- Fancy tabbed terminal emulator to run multiple shell windows and only one neovim instance (neovim-remote)
 	{
-		"nikvdp/neomux", commit = "c3d253864784fdb33cc5013b7afc4f0910e2cac3",
+		"nikvdp/neomux",
+		commit = "c3d253864784fdb33cc5013b7afc4f0910e2cac3",
 
 		keys = {
 			{ " tr", "<cmd>lua require('lazy').load({plugins = 'neomux'})<cr><cmd>Neomux<cr>", desc = "Neomux" },
@@ -215,7 +227,8 @@ return lazy.setup({
 
 	-- neovim in the browser
 	{
-		"glacambre/firenvim", commit = "1acdf0270bdd9b83a876a15c99dca3c9b40fbaa5",
+		"glacambre/firenvim",
+		commit = "1acdf0270bdd9b83a876a15c99dca3c9b40fbaa5",
 
 		cond = not not vim.g.started_by_firenvim,
 		build = function()
