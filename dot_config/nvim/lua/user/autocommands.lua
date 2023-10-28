@@ -99,24 +99,3 @@ augroup END
         augroup end
       endif
   endfunction]])
-
-local function open_nvim_tree(data)
-	-- buffer is a real file on the disk
-	local real_file = vim.fn.filereadable(data.file) == 1
-
-	-- buffer is a [No Name]
-	local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
-
-	if not real_file and not no_name then
-		return
-	end
-
-	local status_ok, nvim_tree_api = pcall(require, "nvim-tree.api")
-	if not status_ok then
-		return
-	end
-	-- open the tree, find the file but don't focus it
-	nvim_tree_api.tree.toggle({ focus = false, find_file = true })
-end
-
-vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

@@ -13,16 +13,6 @@ nnoremap <leader><tab>8 8gt
 nnoremap <leader><tab>9 9gt
 nnoremap <leader><tab>0 10gt
 
-nnoremap <silent> <leader><tab>n :tabe<CR>
-nnoremap <silent> <leader><tab>d :tabclose<CR>
-nnoremap          <leader><tab>N :TabooOpen<Space>
-nnoremap          <leader><tab>r :TabooRename<Space>
-nnoremap          <leader><tab>, :TabooRename<Space>
-nnoremap          <leader><tab>. :TabooRename<Space>
-nnoremap          <leader><tab>] :tabnext<CR>
-nnoremap          <leader><tab>[ :tabprevious<CR>
-
-
 nnoremap <Leader>w <C-w>
 " C-w works even on terminal windows
 nnoremap <C-w> <C-\><C-n><C-w>
