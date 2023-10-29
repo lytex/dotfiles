@@ -111,7 +111,7 @@ return lazy.setup({
 	},
 
 	-- Projects
-	{ "nvim-telescope/telescope-project.nvim", commit = "7c64b181dd4e72deddcf6f319e3bf1e95b2a2f30" },
+	{ "lytex/telescope-project.nvim", commit = "9237849feb8206b82d1d0b88c9eda4d11b5ffe03" },
 	{ "olimorris/persisted.nvim", commit = "315cd1a8a501ca8e0c1d55f0c245b9cc0e1ffa01" }, -- Persistence of folds and cursor position
 	{ "crusj/bookmarks.nvim", commit = "11a119791b44372eaca977136754f587b19af581" }, -- Per project bookmarks
 	{

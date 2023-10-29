@@ -104,7 +104,7 @@ telescope.setup({
 			case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 		},
 		project = {
-			search_by = "path",
+			search_by = { "path", "title" },
 			hidden_files = true, -- default: false
 			sync_with_nvim_tree = true, -- default false
 		},
