@@ -13,7 +13,7 @@ telescope.setup({
 		prompt_prefix = " ",
 		selection_caret = " ",
 		path_display = { "smart" },
-		file_ignore_patterns = { "%.npz", "%.pyc", "%.luac" },
+		file_ignore_patterns = { "%.npz", "%.pyc", "%.luac", "%.ipynb" },
 
 		mappings = {
 			i = {
