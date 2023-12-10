@@ -69,9 +69,9 @@ if (( $WORK_ENV == 1 )); then
 fi
 if (( $WORK_ENV == 1 )); then
     cd ~/.local/share
-    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-434.0.0-linux-x86_64.tar.gz
-    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-451.0.0-linux-x86_64.tar.gz
-    tar -xf google-cloud-cli-451.0.0-linux-x86_64.tar.gz
+    gcloud_file=$(curl -Ssl https://cloud.google.com/sdk/docs/install | grep -F 'curl -O' | sed -E 's/.+(google-cloud-cli-[0-9]+\.[0-9]+\.[0-9]+-linux-x86_64.tar.gz).+/\1/')
+    curl -O "https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/$gcloud_file"
+    tar -xf "$gcloud_file"
     ./google-cloud-sdk/install.sh --usage-reporting false --path-update false --command-completion false
     gcloud components install gke-gcloud-auth-plugin
 fi
