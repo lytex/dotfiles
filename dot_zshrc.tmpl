@@ -338,6 +338,11 @@ function zpy-rm() {
     rm -rf "$ZPY_VENVS_HOME/$(md5sum <<< $PWD | awk '{print $1}')/venv" 
 }
 
+function zpy-check() {
+    # Checks requirements.txt. When using local user packages, pip-tools can pick local user versions instead of venv versions
+    eval $(cat requirements.txt | sed -E 's/==.+//;s/^/-e ^/' | tr '\n' ' ' | sed -E 's/^/pip freeze | grep /')
+}
+
 function pipenv () {shift; eval "$@"}
 
 alias ccd='cd $(chezmoi source-path)'
