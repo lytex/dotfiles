@@ -31,9 +31,7 @@ if not status_ok then
 	return
 end
 
-require("colorizer").setup({
-	"*",
-}, {
+colorizer.setup({ "css", "javascript", "python", "lua", "vim", "toml", "svelte", "typescript" }, {
 	RGB = true, -- #RGB hex codes
 	RRGGBB = true, -- #RRGGBB hex codes
 	names = true, -- "Name" codes like Blue
