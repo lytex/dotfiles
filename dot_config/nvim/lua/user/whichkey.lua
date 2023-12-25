@@ -148,7 +148,7 @@ local mappings = {
 		"<cmd>lua require('telescope').extensions.file_browser.file_browser()<cr>",
 		"Find files",
 	},
-	["F"] = { "<cmd>Telescope live_grep theme=ivy<cr>", "Find Text" },
+	["F"] = { "<CMD>lua require('telescope.builtin').live_grep({debounce = 100, theme= 'ivy'})<CR>", "Find Text" },
 	["P"] = { "<cmd>lua require('telescope').extensions.project.project{display_type = 'full'}<cr>", "Projects" },
 
 	p = {

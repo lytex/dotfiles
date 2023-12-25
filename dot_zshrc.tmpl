@@ -339,6 +339,11 @@ function zpy-rm() {
     rm -rf "$ZPY_VENVS_HOME/$(md5sum <<< $PWD | awk '{print $1}')/venv" 
 }
 
+function zpy-check() {
+    # Checks requirements.txt. When using local user packages, pip-tools can pick local user versions instead of venv versions
+    eval $(cat requirements.txt | sed -E 's/==.+//;s/^/-e ^/' | tr '\n' ' ' | sed -E 's/^/pip freeze | grep /')
+}
+
 function pipenv () {shift; eval "$@"}
 
 alias ccd='cd $(chezmoi source-path)'
@@ -367,7 +372,12 @@ function addpro () {
         echo -n "$name=$PWD=$workspace=1=$(date +%s)" >> $projects_file
     fi
 
+
+    {{ if .work }}
+    file_contents=$(gpg --decrypt $HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-work.txt.tmpl.asc) 
+    {{ else }}
     file_contents=$(gpg --decrypt $HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-personal.txt.tmpl.asc) 
+    {{ end }}
     if ! ( echo $file_contents | grep "=$PWD="); then
         chezmoi_gpg=$(cat $HOME/.config/chezmoi/chezmoi.toml | grep "recipient" | sed -E 's/\s*recipient\s*=\s*"(.+)"/\1/')
         name=${PWD##*/}
@@ -380,7 +390,8 @@ function addpro () {
         echo -En "$file_contents
 $name=$PWD=$workspace=1=$open_bracket output \"awk\" \"-F\" \"=\" \"$awk_cmd\"  \"/home/julian/.local/share/nvim/telescope-projects.txt\" | trim $closing_bracket" | \
             gpg --encrypt --armor --recipient  $chezmoi_gpg > \
-            $HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-personal.txt.tmpl.asc
+            {{ if .work }}$HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-work.txt.tmpl.asc{{ else }}$HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-personal.txt.tmpl.asc{{ end }}
+
     fi
 }
 
