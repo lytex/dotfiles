@@ -143,6 +143,7 @@ bindkey -a '  ' edit-command-line
 
 function tag() {
     setfattr -n user.xdg.tags -v "$@"
+    balooctl purge & # Clean cache, non-blocking, to trigger baloo reindex
 }
 
 function gettag() {
@@ -412,6 +413,12 @@ function lightmode () {
 function arup () {
     # Fuzzy find for a program while showing info of the package
     paru -Ss $1 | grep -v '   '  | fzf --multi --preview 'paru -Si {1}' | awk '{print $1}' | xargs -ro paru -S
+}
+
+function rf () {
+    # refile but for files
+    mv $1 $2
+    ln -s $2 $1
 }
 
 function lvim() {
