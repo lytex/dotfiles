@@ -349,6 +349,7 @@ function pipenv () {shift; eval "$@"}
 alias ccd='cd $(chezmoi source-path)'
 
 alias copy="sed -z '$ s/\n$//' | xclip -sel clip"
+alias past="xclip -sel clip -out"
 
 function addpro () {
 
