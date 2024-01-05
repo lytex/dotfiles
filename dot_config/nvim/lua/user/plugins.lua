@@ -87,7 +87,7 @@ return lazy.setup({
 	{ "neovim/nvim-lspconfig", commit = "0d29cad8de3b2c654315203fc1fe12fde722a18a" }, -- enable LSP
 	{ "williamboman/mason.nvim", commit = "74eac861b013786bf231b204b4ba9a7d380f4bd9" },
 	{ "williamboman/mason-lspconfig.nvim", commit = "e86a4c84ff35240639643ffed56ee1c4d55f538e" },
-	{ "jose-elias-alvarez/null-ls.nvim", commit = "0010ea927ab7c09ef0ce9bf28c2b573fc302f5a7" }, -- for formatters and linters
+	{ "nvimtools/none-ls.nvim", commit = "fbdcbf8e152529af846b3a333f039751829b84c2" }, -- for formatters and linters
 	{
 		"RRethy/vim-illuminate",
 		commit = "5ed17582a8e97bf0a0c617c3cf762e98f87b9859",
