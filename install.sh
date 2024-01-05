@@ -18,7 +18,7 @@ sudo pacman -S doas --noconfirm
 # usermod -aG wheel julian
 # usermod -aG audio julian # Para tener acceso al audio
 
-declare -a pacman_packages=(nodejs-lts-gallium npm rust python python-pip pyenv neovim git curl
+declare -a pacman_packages=(nodejs npm rust python python-pip pyenv neovim git curl
 yarn ttf-fira-code ttf-fantasque-nerd python-wheel syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi
 alacritty kitty python-xattr thefuck tealdeer bat man-pages flameshot fortune-mod
 graphviz
