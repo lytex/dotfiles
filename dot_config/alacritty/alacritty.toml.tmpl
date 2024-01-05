@@ -1,0 +1,86 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+
+{{- $example := output "/bin/bash" "-c" "/usr/bin/plasma-apply-desktoptheme --list-themes | grep current | grep light || true" }}
+{{ if eq $example "" }}
+# Default colors
+[colors.primary]
+background = '#2D2A2E'
+foreground = '#fff1f3'
+
+# Normal colors
+[colors.normal]
+black   = '#2c2525'
+red     = '#fd6883'
+green   = '#adda78'
+yellow  = '#f9cc6c'
+blue    = '#f38d70'
+magenta = '#a8a9eb'
+cyan    = '#85dacc'
+white   = '#fff1f3'
+
+# Bright colors
+[colors.bright]
+black   = '#72696a'
+red     = '#fd6883'
+green   = '#adda78'
+yellow  = '#f9cc6c'
+blue    = '#f38d70'
+magenta = '#a8a9eb'
+cyan    = '#85dacc'
+white   = '#fff1f3'
+{{ else }}
+# Colors (Solarized Light)
+
+# Default colors
+[colors.primary]
+background = '#fdf6e3'
+foreground = '#586e75'
+
+# Normal colors
+[colors.normal]
+black   = '#073642'
+red     = '#dc322f'
+green   = '#859900'
+yellow  = '#b58900'
+blue    = '#268bd2'
+magenta = '#d33682'
+cyan    = '#2aa198'
+white   = '#eee8d5'
+
+# Bright colors
+[colors.bright]
+black   = '#002b36'
+red     = '#cb4b16'
+green   = '#586e75'
+yellow  = '#657b83'
+blue    = '#839496'
+magenta = '#6c71c4'
+cyan    = '#93a1a1'
+white   = '#fdf6e3'
+{{ end }}
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[font.bold]
+family = "FuraMono Nerd Font Mono"
+style = "Bold"
+
+[font.bold_italic]
+family = "Fantasque Sans Mono"
+style = "Bold Italic"
+
+[font.italic]
+family = "Fantasque Sans Mono"
+style = "Italic"
+
+[font.normal]
+family = "FuraMono Nerd Font Mono"
+style = "Medium"
+
+# vim: sw=2 ts=2 wm=2 et ft=toml
