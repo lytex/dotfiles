@@ -4,32 +4,34 @@ draw_bold_text_with_bright_colors = true
 
 {{- $example := output "/bin/bash" "-c" "/usr/bin/plasma-apply-desktoptheme --list-themes | grep current | grep light || true" }}
 {{ if eq $example "" }}
+# Colors (Snazzy)
+
 # Default colors
 [colors.primary]
-background = '#2D2A2E'
-foreground = '#fff1f3'
+background = '#282a36'
+foreground = '#eff0eb'
 
 # Normal colors
 [colors.normal]
-black   = '#2c2525'
-red     = '#fd6883'
-green   = '#adda78'
-yellow  = '#f9cc6c'
-blue    = '#f38d70'
-magenta = '#a8a9eb'
-cyan    = '#85dacc'
-white   = '#fff1f3'
+black   = '#282a36'
+red     = '#ff5c57'
+green   = '#5af78e'
+yellow  = '#f3f99d'
+blue    = '#57c7ff'
+magenta = '#ff6ac1'
+cyan    = '#9aedfe'
+white   = '#f1f1f0'
 
 # Bright colors
 [colors.bright]
-black   = '#72696a'
-red     = '#fd6883'
-green   = '#adda78'
-yellow  = '#f9cc6c'
-blue    = '#f38d70'
-magenta = '#a8a9eb'
-cyan    = '#85dacc'
-white   = '#fff1f3'
+black   = '#686868'
+red     = '#ff5c57'
+green   = '#5af78e'
+yellow  = '#f3f99d'
+blue    = '#57c7ff'
+magenta = '#ff6ac1'
+cyan    = '#9aedfe'
+white   = '#f1f1f0'
 {{ else }}
 # Colors (Solarized Light)
 
