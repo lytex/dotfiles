@@ -29,6 +29,11 @@ keymap("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 keymap("n", "<A-j>", "<Esc>:m .+1<CR>==", opts)
 keymap("n", "<A-k>", "<Esc>:m .-2<CR>==", opts)
 
+--  Save with C-s
+keymap("n", "<C-s>", "<cmd>w<CR>", opts)
+keymap("i", "<C-s>", "<esc><cmd>w<CR><a>", opts)
+keymap("v", "<C-s>", "<esc><cmd>w<CR>gv", opts)
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
