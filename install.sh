@@ -45,7 +45,7 @@ rebuild-detector pacman-contrib # pacman utilities
 texlive-most)
 
 if (( $WORK_ENV == 1)); then
-    pacman_packages+=(rclone evolution evolution-ews kubectl github-cli remmina)
+    pacman_packages+=(rclone evolution evolution-ews kubectl kubectx k9s github-cli remmina)
 fi
 
 sudo pacman -S "${pacman_packages[@]}" --noconfirm
