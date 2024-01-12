@@ -217,6 +217,8 @@ return lazy.setup({
 	-- Interactive terminal
 	{ "metakirby5/codi.vim", commit = "83b9859aaf8066d95892e01eb9c01571a4b325dd" },
 
+	{ "christianrondeau/vim-base64", commit = "d15253105f6a329cd0632bf9dcbf2591fb5944b8" },
+
 	-- Get statistics about vim usage
 	--[[ { "ActivityWatch/aw-watcher-vim",  }, ]]
 

@@ -294,7 +294,10 @@ local mappings = {
 local visual_opts = { mode = "v", noremap = true, silent = true, expr = false }
 
 local visual_mappings = {
-
+	b = {
+		d = { "h<Esc><Cmd>call base64#v_atob()<cr>", "Base64 Decode" },
+		e = { "h<Esc><Cmd>call base64#v_btoa()<cr>", "Base64 Encode" },
+	},
 	r = {
 		e = { "<Esc><Cmd>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
 		f = {
