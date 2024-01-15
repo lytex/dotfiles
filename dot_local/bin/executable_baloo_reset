@@ -1,0 +1,8 @@
+#!/bin/bash
+
+balooctl suspend
+systemctl stop --user kde-baloo
+systemctl stop --user plasma-baloorunner
+balooctl purge
+systemctl start --user kde-baloo
+systemctl start --user plasma-baloorunner
