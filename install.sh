@@ -42,7 +42,7 @@ gnome-keyring
 print-manager
 rebuild-detector pacman-contrib # pacman utilities
 # https://wiki.archlinux.org/title/TeX_Live
-texlive-most)
+texlive)
 
 if (( $WORK_ENV == 1)); then
     pacman_packages+=(rclone evolution evolution-ews kubectl kubectx k9s github-cli remmina)
