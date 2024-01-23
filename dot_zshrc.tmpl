@@ -432,6 +432,11 @@ function rf () {
     mv $1 $2
     ln -s $2 $1
 }
+function mkcdir () {
+    # mkdir and cd all in one
+    mkdir -p -- "$1" &&
+       cd -P -- "$1"
+}
 
 function lvim() {
     if (($# > 0)); then
