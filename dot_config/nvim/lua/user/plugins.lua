@@ -136,7 +136,8 @@ return lazy.setup({
 	{ "nvim-treesitter/playground", commit = "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring", commit = "1277b4a1f451b0f18c0790e1a7f12e1e5fdebfee" },
 	{
-		"https://gitlab.com/HiPhish/nvim-ts-rainbow2",
+		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
+		commit = "35530b4ad48f01bdaa852da34e4de9930fb54c89",
 	},
 	{
 		"ThePrimeagen/refactoring.nvim",
@@ -223,11 +224,18 @@ return lazy.setup({
 	--[[ { "ActivityWatch/aw-watcher-vim",  }, ]]
 
 	-- Movements for python and space indented languages
-	{ "jeetsukumaran/vim-pythonsense", commit = "9200a57629c904ed2ab8c9b2e8c5649d311794ba" },
-	{ "michaeljsmith/vim-indent-object", commit = "5c5b24c959478929b54a9e831a8e2e651a465965" },
-	{ "jeetsukumaran/vim-indentwise", commit = "608bd6876d3b56d469e0e615eb774a6e06095dbf" },
+	{ "jeetsukumaran/vim-pythonsense", commit = "9200a57629c904ed2ab8c9b2e8c5649d311794ba", ft = { "python" } },
+	{ "michaeljsmith/vim-indent-object", commit = "5c5b24c959478929b54a9e831a8e2e651a465965", ft = { "python" } },
+	{ "jeetsukumaran/vim-indentwise", commit = "608bd6876d3b56d469e0e615eb774a6e06095dbf", ft = { "python" } },
 
 	{ "tidalcycles/vim-tidal", commit = "e440fe5bdfe07f805e21e6872099685d38e8b761" },
+
+	{ "PontusHanssen/pddl.vim", commit = "c7ff45feeba1789dd538c1b8dac00ae8ca9239be", ft = { "lisp", "pddl" } },
+	{
+		"gpanders/nvim-parinfer",
+		ft = { "lisp", "fennel", "clojure", "racket", "pddl" },
+		commit = "5ca09287ab3f4144f78ff7977fabc27466f71044",
+	},
 
 	-- neovim in the browser
 	{
