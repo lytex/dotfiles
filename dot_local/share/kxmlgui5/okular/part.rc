@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <!DOCTYPE gui SYSTEM 'kpartgui.dtd'>
-<gui name="okular_part" version="54">
+<gui version="54" name="okular_part">
  <MenuBar>
   <Menu name="file">
    <text>&amp;File</text>
@@ -107,11 +107,11 @@
    <Action group="about_merge" name="help_about_backend"/>
   </Menu>
  </MenuBar>
- <ToolBar newline="true" hidden="true" position="right" name="quickAnnotationToolBar" iconText="icononly" iconSize="32">
+ <ToolBar newline="true" iconText="icononly" hidden="true" name="quickAnnotationToolBar" iconSize="32" position="right">
   <text>Quick Annotation Toolbar</text>
   <Action name="quick_annotation_action_bar"/>
  </ToolBar>
- <ToolBar newline="true" hidden="true" name="annotationToolBar" iconText="icononly">
+ <ToolBar newline="true" iconText="icononly" hidden="true" name="annotationToolBar">
   <text>Annotation Toolbar</text>
   <Action name="annotation_highlighter"/>
   <Action name="annotation_underline"/>
@@ -153,19 +153,19 @@
  <ActionProperties scheme="Default">
   <Action priority="0" name="view_zoom_out"/>
   <Action priority="0" name="view_zoom_in"/>
-  <Action name="edit_copy" shortcut="Ctrl+C; Y"/>
-  <Action name="edit_find_next" shortcut="F3; N"/>
-  <Action name="edit_find_prev" shortcut="Shift+F3; Shift+N"/>
-  <Action name="first_page" shortcut="Ctrl+Home; G, G"/>
-  <Action name="go_goto_page" shortcut="Ctrl+G; :"/>
-  <Action name="go_next" shortcut=""/>
-  <Action name="go_previous" shortcut=""/>
-  <Action name="last_page" shortcut="Ctrl+End; Shift+G"/>
+  <Action shortcut="Ctrl+C; Y" name="edit_copy"/>
+  <Action shortcut="F3; N" name="edit_find_next"/>
+  <Action shortcut="Shift+F3; Shift+N" name="edit_find_prev"/>
+  <Action shortcut="Ctrl+Home; G, G" name="first_page"/>
+  <Action shortcut="Ctrl+G; :" name="go_goto_page"/>
+  <Action shortcut="" name="go_next"/>
+  <Action shortcut="" name="go_previous"/>
+  <Action shortcut="Ctrl+End; Shift+G" name="last_page"/>
   <Action priority="0" name="show_leftpanel"/>
-  <Action name="toggle_change_colors" shortcut=""/>
-  <Action name="view_scroll_page_down" shortcut="Space; Ctrl+D"/>
-  <Action name="view_scroll_page_up" shortcut="Shift+Space; Ctrl+U"/>
-  <Action name="go_document_back" shortcut="Alt+Shift+Left; [, B"/>
-  <Action name="go_document_forward" shortcut="Alt+Shift+Right; ], B"/>
+  <Action shortcut="" name="toggle_change_colors"/>
+  <Action shortcut="Space; D" name="view_scroll_page_down"/>
+  <Action shortcut="Shift+Space; U" name="view_scroll_page_up"/>
+  <Action shortcut="Alt+Shift+Left; [, B" name="go_document_back"/>
+  <Action shortcut="Alt+Shift+Right; ], B" name="go_document_forward"/>
  </ActionProperties>
 </gui>
