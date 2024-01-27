@@ -35,9 +35,9 @@ set $gentle_kill zsh -c '( xprop -id $(xdotool getactivewindow) | grep -i -e ala
 # set $shell /usr/bin/fish
 {{- $example := output "/bin/bash" "-c" "/usr/bin/plasma-apply-desktoptheme --list-themes | grep current | grep light || true" }}
 {{ if eq $example "" }}
-set $rofi /usr/bin/rofi -matching regex -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme Monokai
+set $rofi /usr/bin/rofi -matching fuzzy -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme Monokai
 {{ else }}
-set $rofi /usr/bin/rofi -matching regex -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme gruvbox-light-hard
+set $rofi /usr/bin/rofi -matching fuzzy -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme gruvbox-light-hard
 {{ end }}
 
 # Script: https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu#n27
