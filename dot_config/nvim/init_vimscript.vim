@@ -15,6 +15,9 @@ onoremap <silent> x :<c-u>call sneak#wrap(v:operator,   2, 0, 0, 1)<cr>
 onoremap <silent> Z :<c-u>call sneak#wrap(v:operator,   2, 1, 3, 1)<cr>
 onoremap <silent> X :<c-u>call sneak#wrap(v:operator,   2, 1, 0, 1)<cr>
 
+let g:qs_buftype_blacklist = ['terminal', 'nofile']
+let g:qs_filetype_blacklist = ['alpha']
+
 let g:highlightedyank_highlight_duration = 100
 
 let g:neomux_default_shell = "zsh"
