@@ -1,3 +1,6 @@
+if has('nvim')
+  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+endif
 let mapleader = " "
 
 map gs <Plug>(easymotion-prefix)
