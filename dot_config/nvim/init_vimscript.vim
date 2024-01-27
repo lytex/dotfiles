@@ -1,6 +1,3 @@
-if has('nvim')
-  let $GIT_EDITOR = 'nvr -cc split --remote-wait'
-endif
 let mapleader = " "
 
 map gs <Plug>(easymotion-prefix)
@@ -22,7 +19,9 @@ let g:highlightedyank_highlight_duration = 100
 
 let g:neomux_default_shell = "zsh"
 let g:neomux_exit_term_mode_map = "<C-M-s>" 
-let $GIT_EDITOR = 'nvr -cc split --remote-wait'
+if has('nvim')
+  let $GIT_EDITOR = 'nvr --remote-wait'
+endif
 autocmd FileType gitcommit,gitrebase,gitconfig set bufhidden=delete
 " C-u means erase selection like '<,'>:
 nnoremap <silent> ZC :<C-u>w<CR>:<C-u>Bd<CR>
