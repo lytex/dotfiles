@@ -4,5 +4,5 @@ if [ -z "$VIMRUNTIME" ]; then
 else
     xdotool key --window $(xdotool getwindowfocus) "control+backslash" key "control+n"
     xdotool type --window $(xdotool getwindowfocus) "mTa"
-    ~/.local/bin/nvr "$@"
+    ~/.local/bin/nvr --remote-wait "$@"
 fi
