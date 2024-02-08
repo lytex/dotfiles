@@ -277,7 +277,7 @@ local mappings = {
 		f = { "<cmd>call ToggleFormatOnSave()<cr>", "Toggle Format on Save" },
 		r = { "<cmd>lua require('lazy').load({plugins = 'neomux'})<cr><cmd>Neomux<cr>", "Neomux" },
 		p = { "<cmd>TSPlaygroundToggle<cr>", "View TS Structure" },
-		l = { "<cmd>lua ToggleRelativeNumber()<cr>", "Toggle RelNumber" },
+		l = { "<cmd>lua ToggleRelativeNumber(); vim.cmd('QuickScopeToggle')<cr>", "Toggle RelNumber" },
 		v = { "<cmd>lua vim.diagnostic.config({ virtual_text = true })<cr>", "Enable VirtualText" },
 		b = { "<cmd>lua vim.diagnostic.config({ virtual_text = false })<cr>", "Disable VirtualText" },
 	},
