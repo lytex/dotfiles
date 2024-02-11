@@ -16,3 +16,15 @@ matches:
   - trigger: ;pycache
     label: Remove __pycache__ files from git
     replace: find . -iname "__pycache__" -exec git rm --cached -r {} \;
+
+  - trigger: ;histpd
+    replace: $|$.hist(figsize=(15,10), bins=50); None
+    label: histogram in pandas
+  - trigger: ;scatterplotpd
+    replace: |
+      pd.plotting.scatter_matrix($|$, alpha=0.2, figsize=(32, 18), hist_kwds={"bins": 50}); None
+    label: scatter matrix plot in pandas
+  - trigger: ;corrpd
+    replace: |
+      $|$.corr().apply(np.abs).style.background_gradient(cmap=sns.color_palette("viridis", as_cmap=True))
+    label: correlation in pandas and seaborn
