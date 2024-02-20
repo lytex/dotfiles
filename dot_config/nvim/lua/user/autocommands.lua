@@ -77,6 +77,10 @@ vim.cmd([[
     autocmd Filetype yaml,markdown,html,css,json,javascript,sql,lua setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
   augroup end
 
+  " close terminal, delete buffer and quit window
+augroup _terminal
+    autocmd TermClose * execute 'Bdelete!' | wincmd q
+augroup end
 
 autocmd VimEnter * hi link illuminatedWord Visual
 

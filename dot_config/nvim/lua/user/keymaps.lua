@@ -74,7 +74,7 @@ keymap("", "<f5>", "<cmd>e! %<cr>", opts)
 -- Terminal --
 
 -- Delete buffer and close window on C-d
-keymap("t", "<C-d>", [[<C-d><C-\><C-n><cmd>:Bd!<cr><cmd>quit<cr>]], opts)
+-- keymap("t", "<C-d>", [[<C-d><C-\><C-n><cmd>:Bd!<cr><cmd>quit<cr>]], opts)
 
 function _OPEN_TERMINAL_NVIM()
 	local nvim_tmux_session = assert(io.open("/tmp/nvim_tmux_session", "r"))
