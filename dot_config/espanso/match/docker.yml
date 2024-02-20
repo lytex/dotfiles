@@ -1,0 +1,13 @@
+matches:
+  - trigger: ;dexec
+    replace: docker exec -it -u 0 $|$
+  - trigger: ;htop
+    replace: apt-get update && apt-get install -y htop
+  - trigger: ;top
+    replace: apt-get update && apt-get install -y procps
+  - trigger: ;ss
+    replace: apt-get update && apt-get install -y iproute2
+  - trigger: ;tmux
+    replace: apt-get update && apt-get install -y tmux
+  - trigger: ;vim
+    replace: apt-get update && apt-get install -y vim
