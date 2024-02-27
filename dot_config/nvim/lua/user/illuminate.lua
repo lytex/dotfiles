@@ -20,6 +20,7 @@ illuminate.configure({
 	},
 	delay = 200,
 	filetypes_denylist = {
+		"",
 		"dirvish",
 		"fugitive",
 		"alpha",
