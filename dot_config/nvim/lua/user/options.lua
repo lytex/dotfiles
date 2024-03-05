@@ -67,3 +67,9 @@ vim.cmd([[
 	highlight ConflictMarkerEnd guibg=#2f628e
 	highlight ConflictMarkerCommonAncestorsHunk guibg=#754a81
 ]])
+
+if vim.fn.system("cat ~/.config/plasmarc | grep dark || true") == "" then
+	vim.g.neovide_theme = "light"
+else
+	vim.g.neovide_theme = "dark"
+end

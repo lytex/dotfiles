@@ -66,6 +66,7 @@ return lazy.setup({
 	{ "lukas-reineke/indent-blankline.nvim", commit = "3c8a185da4b8ab7aef487219f5e001b11d4b6aaf", main = "ibl" },
 	{ "goolord/alpha-nvim", commit = "29074eeb869a6cbac9ce1fbbd04f5f5940311b32" },
 	{ "folke/which-key.nvim", commit = "4433e5ec9a507e5097571ed55c02ea9658fb268a" },
+	{ "mbbill/undotree", commit = "9dbbf3b7d19dda0d22ceca461818e4739ad8154d" },
 	-- Colorschemes
 	-- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
 	{ "shaunsingh/solarized.nvim", commit = "fe02ed49cc017cc93657bd6306a2624394611c69" },

@@ -46,7 +46,26 @@ vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 -- QuickFixList Remappings
 keymap("n", "<C-j>", "<cmd>cnext<cr>", opts)
 keymap("n", "<C-k>", "<cmd>cprev<cr>", opts)
-keymap("n", "<C-q>", "<cmd>copen<cr>", opts)
+keymap("n", "<C-q>", "<cmd>lua ToggleQuickfix()<CR>", opts)
+-- Toggle quickfix list with Ctrl+Q
+-- https://www.reddit.com/r/neovim/comments/ol2vx4/how_to_toggle_quickfix_with_lua/
+function ToggleQuickfix()
+	local qf_exists = false
+	for _, win in pairs(vim.fn.getwininfo()) do
+		if win["quickfix"] == 1 then
+			qf_exists = true
+		end
+	end
+	if qf_exists == true then
+		vim.cmd("cclose")
+		return
+	end
+	if not vim.tbl_isempty(vim.fn.getqflist()) then
+		-- Only open if it's not empty
+		vim.cmd("copen")
+	end
+end
+
 keymap("n", "<leader>j", "<cmd>lnext<cr>", opts)
 keymap("n", "<leader>k", "<cmd>lprev<cr>", opts)
 keymap("n", "<leader>q", "<cmd>lopen<cr>", opts)
@@ -87,3 +106,9 @@ function _OPEN_TERMINAL_NVIM()
 	os.execute([[(setsid sh -c 'cd ~ && /usr/bin/alacritty -e zsh' &)]])
 end
 keymap("t", "<C-a>", [[<C-u>  xptenv<cr><cmd>lua _OPEN_TERMINAL_NVIM()<cr>i<C-d>]], term_opts)
+
+-- Command
+
+-- c-s-v for neovide
+keymap("i", "<c-s-v>", "<c-r>+", { silent = true })
+keymap("c", "<c-s-v>", "<c-r>+", { silent = false })
