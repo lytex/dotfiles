@@ -28,3 +28,10 @@ matches:
     replace: |
       $|$.corr().apply(np.abs).style.background_gradient(cmap=sns.color_palette("viridis", as_cmap=True))
     label: correlation in pandas and seaborn
+  - trigger: ;iris
+    replace: |
+      import seaborn as sns
+      iris = sns.load_dataset('iris')
+      df = iris
+      iris.head()
+    label: load iris dataset
