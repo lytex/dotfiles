@@ -153,6 +153,8 @@ return lazy.setup({
 
 	-- Git
 	{ "lewis6991/gitsigns.nvim", commit = "3e6e91b09f0468c32d3b96dcacf4b947f037ce25" },
+	{ "tpope/vim-fugitive", commit = "2e88f14a585c014691904ba8fe39e6ea851c9422" },
+	{ "rbong/vim-flog", commit = "6289ab2e237ceeefdbcc7eb584b63d144bf88d94" },
 
 	-- DAP
 	--[[ { "mfussenegger/nvim-dap" }, ]]

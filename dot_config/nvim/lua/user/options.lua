@@ -51,6 +51,7 @@ vim.cmd([[set formatoptions-=cro]]) -- TODO: this doesn't seem to work
 
 vim.cmd([[let g:AutoPairsMapBS = 0]])
 vim.cmd([[let g:AutoPairsMapCh = 0]])
+vim.cmd("let g:polyglot_disabled = ['perl']")
 
 -- VSCode like conflict markers
 vim.cmd([[
