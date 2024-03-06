@@ -20,6 +20,8 @@ local servers = {
 	"bashls",
 	"jsonls",
 	"yamlls",
+	"omnisharp_mono",
+	"omnisharp",
 }
 
 local settings = {
@@ -39,7 +41,7 @@ mason.setup(settings)
 
 mason_lspconfig.setup({
 	ensure_installed = servers,
-	automatic_installation = true,
+	automatic_installation = { exclude = { "csharp_ls" } }, -- dotnet tool install --global csharp-ls --version 0.5.7 for .NET 6.0
 })
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")

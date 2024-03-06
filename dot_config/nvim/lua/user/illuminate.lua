@@ -39,6 +39,7 @@ illuminate.configure({
 		"qf",
 		"org",
 		"markdown",
+		"floggraph",
 	},
 	filetypes_allowlist = {},
 	modes_denylist = {},
