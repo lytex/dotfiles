@@ -13,5 +13,5 @@ matches:
     replace: apt-get update && apt-get install -y vim
   - trigger: ;ksecret
     replace: |
-      kubectl get secrets --namespace aggde-app-pre -o json | jq '{name: .items[].metadata.name, data: .items[].data |  map_values(@base64d)}'
+      kubectl get secrets -o json | jq '{name: .items[].metadata.name, data: .items[].data |  map_values(@base64d)}'
     label: kubectl get secrets and base64 decode
