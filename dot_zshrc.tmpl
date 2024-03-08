@@ -184,6 +184,7 @@ alias gds='git diff --staged'
 alias gss='git status -s'
 alias glp='git lg -p'
 export GPG_TTY=$(tty) # Without this line, signed commits error out
+export GIT_SSH_COMMAND="ssh -o IdentityAgent=none"
 # Custom alias
 function gsp () {git stash && eval "$@ "&& git stash pop} # Surround a given function with stash and stash pop
 alias gc-="git checkout -- ."
