@@ -55,3 +55,8 @@ matches:
           format: "%Y%m%d%H%M%S"
   - trigger: ":000"
     replace: "00:00:00"
+
+  - regex: ";\\[\\[(?P<char>(.{1}))"
+    replace: "{{char}}([^{{char}}]+){{char}}"
+  - regex: ";\\[\\](?P<char>(.{1}))"
+    replace: "{{char}}\\([^{{char}}]+\\){{char}}"
