@@ -456,13 +456,39 @@ function gpupdate () {
     gcloud projects list | tail +2 | awk '{print $1}' | xargs -I {} gcloud projects describe {} --format json | jq -s | jq 'map({(.name): (.projectId)})' > ~/.config/gcloud_projects.json
 }
 function gpswitch () {
+    # TODO detect if login is necessary
     # TODO fzf completion with both name and projectId
     gproject=$(gcloud projects list | tail +2 | awk '{print $2}' | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview "echo jq -r '\"map(select(has(\\\"{}\\\")))[0].\\\"{}\\\"\"' ~/.config/gcloud_projects.json | zsh")
     gproject=$(jq -r "map(select(has(\"$gproject\")))[0].\"$gproject\"" ~/.config/gcloud_projects.json)
-    cluster=$(gcloud container clusters --project "$gproject" list --format json | jq -r 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g' | fzf --height=20% --border=top)
+    gcloud config set project "$gproject"
+    cluster=$(gcloud container clusters --project "$gproject" list --format json | jq -r 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//' | fzf --height=20% --border=top)
+    # Assume only one cluster per zone, get the first one
     zone=$(gcloud container clusters --project "$gproject" list --format json | jq 'map({(.name): (.zone)})' | jq -r "map(select(has(\"$cluster\")))[0].\"$cluster\"")
     gcloud container clusters get-credentials $cluster --project "$gproject" --zone "$zone"
+    # TODO handle empty namespace
     namespace=$(kubectl config get-contexts | grep "$gproject" | sed -E 's/^\*/ /'  | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
+    kubectl config set-context --current --namespace="$namespace"
+}
+
+function azupdate () {
+    az login 
+    az account list | jq 'map({(.name): (.id)})' > ~/.config/azure_projects.json
+}
+
+function azswitch () {
+    # TODO detect if login is necessary
+    az login
+    # TODO fzf completion with both name and projectId
+    azaccount=$(az account list | jq 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//' | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview "echo jq -r '\"map(select(has(\\\"{}\\\")))[0].\\\"{}\\\"\"' ~/.config/azure_projects.json | zsh")
+    azsubs=$(jq -r "map(select(has(\"$azaccount\")))[0].\"$azaccount\"" ~/.config/azure_projects.json)
+    az account set --subscription "$azsubs" 
+    # Assume first id is ok
+    id=$(az aks list | jq -r '.[0].id')
+    name=${id##*/}
+    resource_group=${${${${${id#*/}#*/}#*/}#*/}%%/*}
+    az aks get-credentials --resource-group $resource_group --name "$name"
+    # TODO handle empty namespace
+    namespace=$(kubectl config get-contexts | grep "$name" | sed -E 's/^\*/ /'  | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
     kubectl config set-context --current --namespace="$namespace"
 }
 
