@@ -280,6 +280,14 @@ local mappings = {
 		l = { "<cmd>lua ToggleRelativeNumber(); vim.cmd('QuickScopeToggle')<cr>", "Toggle RelNumber" },
 		v = { "<cmd>lua vim.diagnostic.config({ virtual_text = true })<cr>", "Enable VirtualText" },
 		b = { "<cmd>lua vim.diagnostic.config({ virtual_text = false })<cr>", "Disable VirtualText" },
+		u = { "<cmd>UndotreeToggle<cr>", "Toggle Undotree" },
+	},
+
+	o = {
+		name = "text operations",
+		-- q = { "<cmd>lua require('before').show_edits_in_quickfix<cr>", "qflist prev edits" },
+		-- e = { "<cmd>lua require('before').show_edits_in_telescope<cr>", "telescope prev edits" },
+		u = { "<cmd>UndotreeToggle<cr>", "Undotree" },
 	},
 
 	v = {
