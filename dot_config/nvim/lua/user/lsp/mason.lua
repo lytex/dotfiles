@@ -22,6 +22,8 @@ local servers = {
 	"yamlls",
 	"omnisharp_mono",
 	"omnisharp",
+	"purescriptls",
+	"hls",
 }
 
 local settings = {
