@@ -16,7 +16,8 @@ onoremap <silent> Z :<c-u>call sneak#wrap(v:operator,   2, 1, 3, 1)<cr>
 onoremap <silent> X :<c-u>call sneak#wrap(v:operator,   2, 1, 0, 1)<cr>
 
 let g:qs_buftype_blacklist = ['terminal', 'nofile']
-let g:qs_filetype_blacklist = ['alpha']
+
+let g:qs_filetype_blacklist = ['', 'dirvish', 'fugitive', 'alpha', 'NvimTree', 'neo-tree', 'packer', 'neogitstatus', 'Trouble', 'lir', 'lazy', 'Outline', 'spectre_panel', 'toggleterm', 'DressingSelect', 'TelescopePrompt', 'qf', 'floggraph' ]
 
 let g:highlightedyank_highlight_duration = 100
 

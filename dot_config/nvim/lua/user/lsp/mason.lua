@@ -20,6 +20,8 @@ local servers = {
 	"bashls",
 	"jsonls",
 	"yamlls",
+	"dockerls",
+	"docker_compose_language_service",
 	"omnisharp_mono",
 	"omnisharp",
 	"purescriptls",
