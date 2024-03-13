@@ -21,6 +21,14 @@ matches:
         type: shell
         params:
           cmd: 'date -d "-$ESPANSO_NUM1 days" +"%Y-%m-%d"'
+  # The :dat<num1>e expands to the date num1 days before today
+  - regex: ":dat(?P<num1>\\d+)y"
+    replace: "{{result}}"
+    vars:
+      - name: result
+        type: shell
+        params:
+          cmd: 'date -d "-$ESPANSO_NUM1 years" +"%Y-01-01"'
   # The :dat<month>m expands to the first day of month, the given number of months before today (e.g. YYYY-MM-01)
   # The :dat<month>-<day>m expands to the given day, the given number of months before today
   - regex: ":dat(?P<month>\\d+)(?P<day>(-\\d+)?)m"
