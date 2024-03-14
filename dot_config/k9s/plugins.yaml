@@ -1,0 +1,122 @@
+plugins:
+  # See https://k9scli.io/topics/plugins/
+  raw-logs-follow:
+    shortCut: Ctrl-L
+    description: logs -f
+    scopes:
+      - po
+    command: kubectl
+    background: false
+    args:
+      - logs
+      - -f
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+  log-less:
+    shortCut: Shift-L
+    description: "logs|less"
+    scopes:
+      - po
+    command: zsh
+    background: false
+    args:
+      - -c
+      - '"$@" | less'
+      - dummy-arg
+      - kubectl
+      - logs
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+  log-less-timestamp:
+    shortCut: Ctrl-T
+    description: "timestamp: logs|less"
+    scopes:
+      - po
+    command: zsh
+    background: false
+    args:
+      - -c
+      - '"$@" | less'
+      - dummy-arg
+      - kubectl
+      - logs
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+      - --timestamps=true
+  log-less-container:
+    shortCut: Shift-L
+    description: "logs|less"
+    scopes:
+      - containers
+    command: zsh
+    background: false
+    args:
+      - -c
+      - '"$@" | less'
+      - dummy-arg
+      - kubectl
+      - logs
+      - -c
+      - $NAME
+      - $POD
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+  raw-logs-follow-container:
+    shortCut: Ctrl-L
+    description: logs -f
+    scopes:
+      - containers
+    command: kubectl
+    background: false
+    args:
+      - logs
+      - -f
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+  log-less-container-timestamp:
+    shortCut: Ctrl-T
+    description: "timestamp: logs|less"
+    scopes:
+      - containers
+    command: zsh
+    background: false
+    args:
+      - -c
+      - '"$@" | less'
+      - dummy-arg
+      - kubectl
+      - logs
+      - -c
+      - $NAME
+      - $POD
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+      - --timestamps=true
