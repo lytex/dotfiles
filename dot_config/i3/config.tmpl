@@ -35,9 +35,9 @@ set $gentle_kill zsh -c '( xprop -id $(xdotool getactivewindow) | grep -i -e ala
 # set $shell /usr/bin/fish
 {{- $example := output "/bin/bash" "-c" "/usr/bin/plasma-apply-desktoptheme --list-themes | grep current | grep light || true" }}
 {{ if eq $example "" }}
-set $rofi /usr/bin/rofi -matching regex -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme Monokai
+set $rofi /usr/bin/rofi -matching regex -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme Monokai -show-icons -location 2 -width 100
 {{ else }}
-set $rofi /usr/bin/rofi -matching regex -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme gruvbox-light-hard
+set $rofi /usr/bin/rofi -matching regex -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme gruvbox-light-hard -show-icons -location 2 -width 100
 {{ end }}
 
 # Script: https://git.zx2c4.com/password-store/tree/contrib/dmenu/passmenu#n27
@@ -214,7 +214,7 @@ mode "$mode_switch" {
 
     bindsym Control+semicolon nop
 
-    bindsym space exec $rofi -location 2 -width 100 -show drun; mode "default"
+    bindsym space exec $rofi -show drun; mode "default"
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
     # quit focused window
@@ -222,7 +222,7 @@ mode "$mode_switch" {
     bindsym w mode "$mode_move_workspace"
     bindsym r mode "$mode_window_resize"
     # go to open window
-    bindsym o exec $rofi -location 2 -width 100 -show window; mode default
+    bindsym o exec $rofi -show window; mode default
     bindsym a mode "$mode_layout"
     bindsym v mode "$mode_move_container"
     # read 1 character and mark the current window with this character
@@ -292,7 +292,7 @@ mode "$mode_navigate" {
     bindsym Control+semicolon mode "$mode_switch"
     bindsym Mod4+z mode "$mode_switch"
 
-    bindsym space exec $rofi -location 2 -width 100 -show drun; mode "default"
+    bindsym space exec $rofi -show drun; mode "default"
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
    # quit focused window
@@ -300,7 +300,7 @@ mode "$mode_navigate" {
     bindsym w mode "$mode_move_workspace"
     bindsym r mode "$mode_window_resize"
     # go to open window
-    bindsym o exec $rofi -location 2 -width 100 -show window; mode default
+    bindsym o exec $rofi -show window; mode default
     bindsym a mode "$mode_layout"
     bindsym v mode "$mode_move_container"
     # read 1 character and mark the current window with this character
@@ -370,7 +370,7 @@ mode "$mode_move_container" {
     bindsym Control+semicolon mode "$mode_switch"
     bindsym Mod4+z mode "$mode_switch"
 
-    bindsym space exec $rofi -location 2 -width 100 -show drun; mode "default"
+    bindsym space exec $rofi -show drun; mode "default"
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
     # quit focused window
@@ -378,7 +378,7 @@ mode "$mode_move_container" {
     bindsym w mode "$mode_move_workspace"
     bindsym r mode "$mode_window_resize"
     # go to open window
-    bindsym o exec $rofi -location 2 -width 100 -show window; mode default
+    bindsym o exec $rofi -show window; mode default
     bindsym a mode "$mode_layout"
     # read 1 character and mark the current window with this character
     bindsym m exec i3-input -F 'mark %s' -l 1 -P 'Mark: '
@@ -455,14 +455,14 @@ mode "$mode_layout" {
     bindsym Control+semicolon mode "$mode_switch"
     bindsym Mod4+z mode "$mode_switch"
 
-    bindsym space exec $rofi -location 2 -width 100 -show drun; mode "default"
+    bindsym space exec $rofi -show drun; mode "default"
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
     # quit focused window
     bindsym q exec $gentle_kill
     bindsym r mode "$mode_window_resize"
     # go to open window
-    bindsym o exec $rofi -location 2 -width 100 -show window; mode default
+    bindsym o exec $rofi -show window; mode default
     # bindsym v mode "$mode_move_container" # clashes with vertical split
 
     # split following vim convention (which is the opposite of i3 convention)
@@ -514,14 +514,14 @@ mode "$mode_window_resize" {
     bindsym Control+semicolon mode "$mode_switch"
     bindsym Mod4+z mode "$mode_switch"
 
-    bindsym space exec $rofi -location 2 -width 100 -show drun; mode "default"
+    bindsym space exec $rofi -show drun; mode "default"
     bindsym Return exec $terminal ; mode "default"
     bindsym Control+Return exec $code_terminal ; mode "default"
     # quit focused window
     bindsym q exec $gentle_kill
     bindsym w mode "$mode_move_workspace"
     # go to open window
-    bindsym o exec $rofi -location 2 -width 100 -show window; mode default
+    bindsym o exec $rofi -show window; mode default
     bindsym a mode "$mode_layout"
     bindsym v mode "$mode_move_container"
     # read 1 character and mark the current window with this character
