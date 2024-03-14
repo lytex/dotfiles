@@ -461,11 +461,13 @@ function gpswitch () {
     gproject=$(gcloud projects list | tail +2 | awk '{print $2}' | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview "echo jq -r '\"map(select(has(\\\"{}\\\")))[0].\\\"{}\\\"\"' ~/.config/gcloud_projects.json | zsh")
     gproject=$(jq -r "map(select(has(\"$gproject\")))[0].\"$gproject\"" ~/.config/gcloud_projects.json)
     gcloud config set project "$gproject"
+    # TODO cache clusters in json file
     cluster=$(gcloud container clusters --project "$gproject" list --format json | jq -r 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//' | fzf --height=20% --border=top)
     # Assume only one cluster per zone, get the first one
     zone=$(gcloud container clusters --project "$gproject" list --format json | jq 'map({(.name): (.zone)})' | jq -r "map(select(has(\"$cluster\")))[0].\"$cluster\"")
     gcloud container clusters get-credentials $cluster --project "$gproject" --zone "$zone"
     # TODO handle empty namespace
+    # TODO cache namespaces in json file
     namespace=$(kubectl config get-contexts | grep "$gproject" | sed -E 's/^\*/ /'  | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
     kubectl config set-context --current --namespace="$namespace"
 }
@@ -488,6 +490,7 @@ function azswitch () {
     resource_group=${${${${${id#*/}#*/}#*/}#*/}%%/*}
     az aks get-credentials --resource-group $resource_group --name "$name"
     # TODO handle empty namespace
+    # TODO cache clusters in json file
     namespace=$(kubectl config get-contexts | grep "$name" | sed -E 's/^\*/ /'  | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
     kubectl config set-context --current --namespace="$namespace"
 }

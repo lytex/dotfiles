@@ -47,6 +47,7 @@ vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 keymap("n", "<C-j>", "<cmd>cnext<cr>", opts)
 keymap("n", "<C-k>", "<cmd>cprev<cr>", opts)
 keymap("n", "<C-q>", "<cmd>lua ToggleQuickfix()<CR>", opts)
+keymap("t", "<C-q>", "<cmd>lua ToggleQuickfix()<CR>", opts)
 -- Toggle quickfix list with Ctrl+Q
 -- https://www.reddit.com/r/neovim/comments/ol2vx4/how_to_toggle_quickfix_with_lua/
 function ToggleQuickfix()
