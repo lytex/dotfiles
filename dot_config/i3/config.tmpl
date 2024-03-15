@@ -233,6 +233,8 @@ mode "$mode_switch" {
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
     bindsym period exec i3-input -F 'exec i3-msg title_format "%s"' -P 'New name for this window: '
+    # clone current terminal
+    bindsym t exec $HOME/.local/bin/spawn-alacritty-cwd
 
     # change focus
     bindsym h focus left; mode "$mode_navigate"
@@ -271,7 +273,6 @@ mode "$mode_switch" {
 
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym q exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym y exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -311,6 +312,8 @@ mode "$mode_navigate" {
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
     bindsym period exec i3-input -F 'exec i3-msg title_format "%s"' -P 'New name for this window: '
+    # clone current terminal
+    bindsym t exec $HOME/.local/bin/spawn-alacritty-cwd
 
     # change focus
     bindsym h focus left
@@ -349,7 +352,6 @@ mode "$mode_navigate" {
 
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym r exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym y exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -388,6 +390,8 @@ mode "$mode_move_container" {
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
     bindsym period exec i3-input -F 'exec i3-msg title_format "%s"' -P 'New name for this window: '
+    # clone current terminal
+    bindsym t exec $HOME/.local/bin/spawn-alacritty-cwd
 
     # move focused window
     bindsym h move left
@@ -434,7 +438,6 @@ mode "$mode_move_container" {
     bindsym e exec "wmfocus --font 'Fantasque Sans Mono':100"; mode "default"
 
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
-    bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym y exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym p exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -491,8 +494,10 @@ mode "$mode_layout" {
 
     bindsym e exec "wmfocus --font 'Fantasque Sans Mono':100"; mode "default"
 
+    # clone current terminal
+    bindsym t exec $HOME/.local/bin/spawn-alacritty-cwd
+
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
-    bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym y exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym g exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -532,6 +537,8 @@ mode "$mode_window_resize" {
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
     bindsym period exec i3-input -F 'exec i3-msg title_format "%s"' -P 'New name for this window: '
+    # clone current terminal
+    bindsym t exec $HOME/.local/bin/spawn-alacritty-cwd
 
     # Pressing left will shrink the window’s width.
     # Pressing right will grow the window’s width.
@@ -550,7 +557,6 @@ mode "$mode_window_resize" {
 
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym r exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym y exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym p exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -595,9 +601,11 @@ mode "$mode_i3_special" {
 
     bindsym e exec "wmfocus --font 'Fantasque Sans Mono':100"; mode "default"
 
+    # clone current terminal
+    bindsym t exec $HOME/.local/bin/spawn-alacritty-cwd
+
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym w exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym y exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym o exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
@@ -635,6 +643,8 @@ mode "$mode_move_workspace" {
     bindsym comma exec i3-input -F 'rename workspace to "%s"' -P 'New name for this workspace: '
     # rename current window
     bindsym period exec i3-input -F 'exec i3-msg title_format "%s"' -P 'New name for this window: '
+    # clone current terminal
+    bindsym t exec $HOME/.local/bin/spawn-alacritty-cwd
 
     # move whole workspace to outputs
     bindsym h move workspace to output right
@@ -660,11 +670,13 @@ mode "$mode_move_workspace" {
 
     bindsym e exec "wmfocus --font 'Fantasque Sans Mono':100"; mode "default"
 
+    # clone current terminal
+    bindsym t exec $HOME/.local/bin/spawn-alacritty-cwd
+
     # Alert on unrecognized commands and exit to default mode to avoid accidental input
     bindsym q exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym w exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym r exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
-    bindsym t exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym y exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym u exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
     bindsym o exec "i3-nagbar -m 'Unrecognized command, going back to default mode'"; mode "default"
