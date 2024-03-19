@@ -123,7 +123,7 @@ function fzf-cd-places () {
 
 # Tag navigation
 function fzf-cd-tags () {
-    tag=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="tags:/' | grep -vF ' <bookmark href="tags:/">' | sed -E 's#[ ]*<bookmark href="tags:/([^"]+)">#\1#' | sort -u | my-fzf-command --preview 'baloosearch66 tag:{} | sort -u'); directory=$(baloosearch6 tag:$tag | sort -u | my-fzf-command --preview "eza --color=always -w $(( $(brltty-ttysize | awk -Fx '{print $1}')/2 )) {}")
+    tag=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="tags:/' | grep -vF ' <bookmark href="tags:/">' | sed -E 's#[ ]*<bookmark href="tags:/([^"]+)">#\1#' | sort -u | my-fzf-command --preview 'baloosearch6 tag:{} | sort -u'); directory=$(baloosearch6 tag:$tag | sort -u | my-fzf-command --preview "eza --color=always -w $(( $(brltty-ttysize | awk -Fx '{print $1}')/2 )) {}")
     RBUFFER=" '${directory}'${RBUFFER}"
 }
 zle -N fzf-cd-tags
