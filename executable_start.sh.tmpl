@@ -7,7 +7,7 @@ systemctl start onedrive --user
 [ "$(ls -A /media/julian/julian)" ] || (setsid rclone --vfs-cache-mode writes mount julian:  /media/julian/julian &) 
 [ "$(ls -A /media/julian/onedrive)" ] || (setsid rclone --vfs-cache-mode writes mount onedrive:  /media/julian/onedrive &) 
 {{ end }}
-balooctl resume
+balooctl6 resume
 systemctl start --user kde-baloo
 systemctl start --user plasma-baloorunner
 
