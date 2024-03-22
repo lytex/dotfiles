@@ -453,35 +453,64 @@ source <(kubectl completion zsh)
 alias g=gcloud
 
 function gpupdate () {
-    gcloud projects list | tail +2 | awk '{print $1}' | xargs -I {} gcloud projects describe {} --format json | jq -s | jq 'map({(.name): (.projectId)})' > ~/.config/gcloud_projects.json
-}
-function gpswitch () {
     # TODO detect if login is necessary
+    gcloud projects list | tail +2 | awk '{print $1}' | xargs -I {} gcloud projects describe {} --format json | jq -s | jq 'map({(.name): (.projectId)})' > ~/.config/gcloud_projects.json
+    # TODO work with spaces in project list
+    # gcloud projects list | tail +2 | awk '{$1=""; $NF=""; print $0}' > ~/.config/gcloud_projects.txt
+    gcloud projects list | tail +2 | awk '{print $2}' > ~/.config/gcloud_projects.txt
+    for gproject in $(jq -r "map(to_entries) | flatten | .[].value" ~/.config/gcloud_projects.json); do
+        echo "gproject: $gproject"
+        mkdir -p "$HOME/.config/gcloud_projects/$gproject"
+        gcloud container clusters --project "$gproject" list --format json 2>/dev/null > "$HOME/.config/gcloud_projects/$gproject/clusters.json"
+        for cluster in $(cat "$HOME/.config/gcloud_projects/$gproject/clusters.json" | jq -r 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//'); do
+            echo "  cluster: $cluster"
+            mkdir -p "$HOME/.config/gcloud_projects/$gproject/$cluster"
+            gcloud container clusters --project "$gproject" list --format json > "$HOME/.config/gcloud_projects/$gproject/$cluster/zones.json"
+            # Assume only one cluster per zone, get the first one
+            zone=$(gcloud container clusters --project "$gproject" list --format json | jq 'map({(.name): (.zone)})' | jq -r "map(select(has(\"$cluster\")))[0].\"$cluster\"")
+            kubectl config get-contexts | grep "$gproject" | sed -E 's/^\*/ /' > "$HOME/.config/gcloud_projects/$gproject/$cluster/namespaces.txt"
+        done
+    done
+}
+
+function gpswitch () {
     # TODO fzf completion with both name and projectId
-    gproject=$(gcloud projects list | tail +2 | awk '{print $2}' | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview "echo jq -r '\"map(select(has(\\\"{}\\\")))[0].\\\"{}\\\"\"' ~/.config/gcloud_projects.json | zsh")
+    gproject=$(cat ~/.config/gcloud_projects.txt | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview "echo jq -r '\"map(select(has(\\\"{}\\\")))[0].\\\"{}\\\"\"' ~/.config/gcloud_projects.json | zsh")
     gproject=$(jq -r "map(select(has(\"$gproject\")))[0].\"$gproject\"" ~/.config/gcloud_projects.json)
     gcloud config set project "$gproject"
-    # TODO cache clusters in json file
-    cluster=$(gcloud container clusters --project "$gproject" list --format json | jq -r 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//' | fzf --height=20% --border=top)
+    cluster=$(cat "$HOME/.config/gcloud_projects/$gproject/clusters.json" | jq -r 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//' | fzf --height=20% --border=top)
     # Assume only one cluster per zone, get the first one
-    zone=$(gcloud container clusters --project "$gproject" list --format json | jq 'map({(.name): (.zone)})' | jq -r "map(select(has(\"$cluster\")))[0].\"$cluster\"")
+    zone=$(cat "$HOME/.config/gcloud_projects/$gproject/clusters.json" | jq 'map({(.name): (.zone)})' | jq -r "map(select(has(\"$cluster\")))[0].\"$cluster\"")
     gcloud container clusters get-credentials $cluster --project "$gproject" --zone "$zone"
     # TODO handle empty namespace
-    # TODO cache namespaces in json file
-    namespace=$(kubectl config get-contexts | grep "$gproject" | sed -E 's/^\*/ /'  | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
+    namespace=$(cat "$HOME/.config/gcloud_projects/$gproject/$cluster/namespaces.txt" | grep "$gproject" | sed -E 's/^\*/ /'  | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
     kubectl config set-context --current --namespace="$namespace"
 }
 
 function azupdate () {
-    az login 
+    # TODO detect if login is necessary
+    az login
+    az account list | jq 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//' > ~/.config/azure_projects.txt
     az account list | jq 'map({(.name): (.id)})' > ~/.config/azure_projects.json
+    IFS=$'\n' 
+    for azaccount in $(cat ~/.config/azure_projects.txt); do
+        azsubs=$(jq -r "map(select(has(\"$azaccount\")))[0].\"$azaccount\"" ~/.config/azure_projects.json)
+        mkdir -p "$HOME/.config/azure_projects/$azsubs"
+        echo "azaccount: $azaccount"
+        echo "azsubs: $azsubs"
+        az account set --subscription "$azsubs" 
+        id=$(az aks list | jq -r '.[0].id')
+        name=${id##*/}
+        resource_group=${${${${${id#*/}#*/}#*/}#*/}%%/*}
+        kubectl config get-contexts | grep "$name" | sed -E 's/^\*/ /'  > "$HOME/.config/azure_projects/$azsubs/namespaces.txt"
+    done
 }
 
 function azswitch () {
     # TODO detect if login is necessary
     az login
     # TODO fzf completion with both name and projectId
-    azaccount=$(az account list | jq 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//' | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview "echo jq -r '\"map(select(has(\\\"{}\\\")))[0].\\\"{}\\\"\"' ~/.config/azure_projects.json | zsh")
+    azaccount=$(IFS=$'\n' cat ~/.config/azure_projects.txt | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview "echo jq -r '\"map(select(has(\\\"{}\\\")))[0].\\\"{}\\\"\"' ~/.config/azure_projects.json | zsh")
     azsubs=$(jq -r "map(select(has(\"$azaccount\")))[0].\"$azaccount\"" ~/.config/azure_projects.json)
     az account set --subscription "$azsubs" 
     # Assume first id is ok
@@ -490,8 +519,7 @@ function azswitch () {
     resource_group=${${${${${id#*/}#*/}#*/}#*/}%%/*}
     az aks get-credentials --resource-group $resource_group --name "$name"
     # TODO handle empty namespace
-    # TODO cache clusters in json file
-    namespace=$(kubectl config get-contexts | grep "$name" | sed -E 's/^\*/ /'  | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
+    namespace=$(cat "$HOME/.config/azure_projects/$azsubs/namespaces.txt" | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
     kubectl config set-context --current --namespace="$namespace"
 }
 
