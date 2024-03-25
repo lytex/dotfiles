@@ -40,6 +40,7 @@ illuminate.configure({
 		"org",
 		"markdown",
 		"floggraph",
+		"lspinfo",
 	},
 	filetypes_allowlist = {},
 	modes_denylist = {},
