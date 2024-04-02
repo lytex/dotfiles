@@ -183,6 +183,7 @@ eval "$(pyenv init -)"
 alias gds='git diff --staged'
 alias gss='git status -s'
 alias glp='git lg -p'
+alias gtn='git tag -a "$(date +%Y%m%d%H%M)" -m "$(date +%Y%m%d%H%M)"'
 export GPG_TTY=$(tty) # Without this line, signed commits error out
 export GIT_SSH_COMMAND="ssh -o IdentityAgent=none"
 # Custom alias
