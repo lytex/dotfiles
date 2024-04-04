@@ -2,10 +2,11 @@
 EnableMagicMimeActions=false
 
 [General]
+ActionsInfoMessageShown=false
 IgnoreImages=false
 IgnoreSelection=true
 MaxClipItems=2048
-SelectionTextOnly=false
-TimeoutForActionPopups=2
+NoActionsForWM_CLASS=keditbookmarks,kcontrol,ksirc,klipper
+TimeoutForActionPopups=1
 URLGrabberEnabled=true
-Version={{ output "bash" "-c" "klipper -v  | awk '{print $2}'" | trim }}
+{{ output "tail" "-n" "1" "/home/julian/.config/klipperrc" | trim }}
