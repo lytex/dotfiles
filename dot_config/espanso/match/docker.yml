@@ -13,6 +13,8 @@ matches:
     replace: apt-get update && apt-get install -y vim
   - trigger: ;curl
     replace: apt-get update && apt-get install -y curl
+  - trigger: ;ncdu
+    replace: apt-get update && apt-get install -y ncdu
   - trigger: ;ksecret
     replace: |
       kubectl get secrets -o json | jq '{name: .items[].metadata.name, data: .items[].data |  map_values(@base64d)}'
