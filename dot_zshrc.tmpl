@@ -330,7 +330,7 @@ done | grep -v -e shims -e versions
 
 function zpy-big() {
     du -d 0 -h /home/julian/.local/share/venvs/* | sort -hr | xargs -I _ bash -c \
-    'echo -en "\\u001b[36;1m_\\u001b[32;1m"; echo _ | sed -E "s%^[^ ]+%%"; ' | grep -v -e versions -e shims
+        'echo -en "\\u001b[36;1m_\\u001b[32;1m"; echo -n " "; echo _/project | sed -E "s%^[^ ]+%%" | xargs readlink' | grep -v -e versions -e shims
 }
 
 function zpy-env() {
