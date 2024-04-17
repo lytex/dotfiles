@@ -61,6 +61,7 @@ samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
 emacs-pdf-tools-git # To avoid error while loading shared libraries: libpoppler.so.XXX
 anki
+cpulimit
 )
 if (( $WORK_ENV == 1 )); then
     # google-cloud-cli google-cloud-cli-gke-gcloud-auth-plugin # install without pacman
