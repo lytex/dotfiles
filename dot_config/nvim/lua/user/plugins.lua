@@ -97,7 +97,7 @@ return lazy.setup({
 	},
 	{
 		"kevinhwang91/nvim-ufo",
-		commit = "c6d88523f574024b788f1c3400c5d5b9bb1a0407",
+		commit = "a5390706f510d39951dd581f6d2a972741b3fa26",
 
 		dependencies = { "kevinhwang91/promise-async", commit = "94f6f03c6c1e2aab551aacdf0c1e597a7269abb6" },
 	},
@@ -117,6 +117,21 @@ return lazy.setup({
 	{ "lytex/telescope-project.nvim", commit = "9237849feb8206b82d1d0b88c9eda4d11b5ffe03" },
 	{ "olimorris/persisted.nvim", commit = "4e255cd85c7df9dea31500eeee012464c5645267" }, -- Persistence of folds and cursor position
 	{ "crusj/bookmarks.nvim", commit = "67b1678872c2772ef7d8cf1a87858c8b8fe7e03b" }, -- Per project bookmarks
+	{
+		"folke/flash.nvim",
+		commit = "48817af25f51c0590653bbc290866e4890fe1cbe",
+		event = "VeryLazy",
+		opts = {},
+		-- stylua: ignore
+		keys = {
+			{ "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+			{ "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+			{ "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+			{ "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+			{ "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+		},
+		-- stylua: ignore end
+	},
 	{
 		"jenterkin/vim-autosource",
 		commit = "569440e157d6eb37fb098dfe95252533553a56f5",
@@ -183,6 +198,7 @@ return lazy.setup({
 
 	-- Not used for keybindings, only to evaluate lua code
 	{ "mrjones2014/legendary.nvim", commit = "234e2ef8dec65db153c63a8b310c74155bb93ee7" },
+	{ "/ii14/neorepl.nvim" },
 
 	-- Conflict markers highlighted
 	{ "rhysd/conflict-marker.vim", commit = "11a4d42244755505b66b15cd4496a150432eb5e3" },
