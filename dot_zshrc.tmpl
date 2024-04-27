@@ -228,16 +228,19 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+setopt BASH_REMATCH
+
 alias nvim-lazy="NVIM_APPNAME=LazyVim nvim"
 alias nvim-kick="NVIM_APPNAME=kickstart nvim"
 alias nvim-chad="NVIM_APPNAME=NvChad nvim"
 alias nvim-astro="NVIM_APPNAME=AstroNvim nvim"
 alias nvim-lunar="NVIM_APPNAME=lvim nvim"
+alias nvim-tidal="NVIM_APPNAME=tidal nvim"
 
 # Neovim configuration switcher
 # https://gist.github.com/elijahmanor/b279553c0132bfad7eae23e34ceb593b
 function nvims() {
-  items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim")
+  items=("default" "kickstart" "LazyVim" "NvChad" "AstroNvim" "tidal")
   config=$(printf "%s\n" "${items[@]}" | fzf --prompt=" Neovim Config  " --height=~50% --layout=reverse --border --exit-0)
   if [[ -z $config ]]; then
     echo "Nothing selected"
@@ -376,11 +379,7 @@ function addpro () {
     fi
 
 
-    {{ if .work }}
-    file_contents=$(gpg --decrypt $HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-work.txt.tmpl.asc) 
-    {{ else }}
-    file_contents=$(gpg --decrypt $HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-personal.txt.tmpl.asc) 
-    {{ end }}
+    {{ if .work }}file_contents=$(gpg --decrypt $HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-work.txt.tmpl.asc){{ else }}file_contents=$(gpg --decrypt $HOME/.local/share/chezmoi/dot_local/share/private_nvim/encrypted_telescope-projects-personal.txt.tmpl.asc){{ end }}
     if ! ( echo $file_contents | grep "=$PWD="); then
         chezmoi_gpg=$(cat $HOME/.config/chezmoi/chezmoi.toml | grep "recipient" | sed -E 's/\s*recipient\s*=\s*"(.+)"/\1/')
         name=${PWD##*/}
