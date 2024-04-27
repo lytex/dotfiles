@@ -450,6 +450,7 @@ function lvim() {
 alias k=kubectl
 alias kx=kubectx
 source <(kubectl completion zsh)
+export KUBECTL_EXTERNAL_DIFF="diff --color=always"
 alias g=gcloud
 
 function gpupdate () {
