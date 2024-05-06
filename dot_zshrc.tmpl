@@ -518,7 +518,7 @@ function azswitch () {
     id=$(az aks list | jq -r '.[0].id')
     name=${id##*/}
     resource_group=${${${${${id#*/}#*/}#*/}#*/}%%/*}
-    az aks get-credentials --resource-group $resource_group --name "$name"
+    az aks get-credentials --resource-group $resource_group --name "$name"  --overwrite-existing 
     # TODO handle empty namespace
     namespace=$(cat "$HOME/.config/azure_projects/$azsubs/namespaces.txt" | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview 'echo kubectl get pods --namespace "{4}" | zsh' | awk '{print $4}')
     kubectl config set-context --current --namespace="$namespace"
