@@ -450,6 +450,11 @@ function lvim() {
 alias k=kubectl
 alias kx=kubectx
 alias k93=k9s
+function tk9s ()
+{
+    tmux new "tmux display-message -p '#{session_name}' > /tmp/tmux-k9s; sleep 1 ; "'tmux set-option -t $(cat /tmp/tmux-k9s) mouse off; tmux set-option -t $(cat /tmp/tmux-k9s) default-shell $(which k9s); k9s'
+}
+alias tk93=tk9s
 source <(kubectl completion zsh)
 export KUBECTL_EXTERNAL_DIFF="diff --color=always"
 alias g=gcloud
