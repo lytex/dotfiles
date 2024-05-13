@@ -299,7 +299,7 @@ local mappings = {
 	x = { "<cmd>call Scratch()<cr>", "Scratch" },
 }
 
-local visual_opts = { mode = "v", noremap = true, silent = true, expr = false }
+local visual_opts = { mode = "v", prefix = "<leader>", noremap = true, silent = true, expr = false }
 
 local visual_mappings = {
 	b = {
