@@ -2,7 +2,7 @@
 draw_bold_text_with_bright_colors = true
 
 
-{{- $example := output "/bin/bash" "-c" "/usr/bin/plasma-apply-desktoptheme --list-themes | grep current | grep light || true" }}
+{{- $example := output "/run/current-system/sw/bin/bash" "-c" "/run/current-system/sw/bin/plasma-apply-desktoptheme --list-themes | grep current | grep light || true" }}
 {{ if eq $example "" }}
 # Colors (Snazzy)
 

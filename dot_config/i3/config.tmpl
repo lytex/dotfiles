@@ -22,9 +22,9 @@
 
 # Applications
 #
-set $terminal ( ps -A | grep alacritty ) && /usr/bin/alacritty msg create-window -e zsh || /usr/bin/alacritty -e zsh
+set $terminal ( ps -A | grep alacritty ) && /run/current-system/sw/bin/alacritty msg create-window -e zsh || /run/current-system/sw/bin/alacritty -e zsh
 # -i means it executes .zshrc
-set $code_terminal ( ps -A | grep alacritty ) && PATH_INJECTION=1 /usr/bin/alacritty msg create-window -e zsh -i -c 'nvim' || (PATH_INJECTION=1 /usr/bin/alacritty -e zsh -i -c 'nvim')
+set $code_terminal ( ps -A | grep alacritty ) && PATH_INJECTION=1 /run/current-system/sw/bin/alacritty msg create-window -e zsh -i -c 'nvim' || (PATH_INJECTION=1 /run/current-system/sw/bin/alacritty -e zsh -i -c 'nvim')
 # Hack to prevent killing a terminal window with unsaved work
 # i k confirms kill and closes the nagbar, closing with the graphical X keeps the terminal open
 set $gentle_kill zsh -c '( xprop -id $(xdotool getactivewindow) | grep -i -e alacritty ) && i3-nagbar -m "KILL Are you sure??" || wmctrl -c :ACTIVE:'
@@ -33,7 +33,7 @@ set $gentle_kill zsh -c '( xprop -id $(xdotool getactivewindow) | grep -i -e ala
 # set $web /home/guillaume/.local/bin/firefox
 # set $email /home/guillaume/.local/bin/astroid
 # set $shell /usr/bin/fish
-{{- $example := output "/bin/bash" "-c" "/usr/bin/plasma-apply-desktoptheme --list-themes | grep current | grep light || true" }}
+{{- $example := output "/run/current-system/sw/bin/bash" "-c" "/run/current-system/sw/bin/plasma-apply-desktoptheme --list-themes | grep current | grep light || true" }}
 {{ if eq $example "" }}
 set $rofi /usr/bin/rofi -matching regex -sort-method fzf -sort -font "Fantasque Sans Mono 14" -theme Monokai -show-icons -location 2 -width 100
 {{ else }}
