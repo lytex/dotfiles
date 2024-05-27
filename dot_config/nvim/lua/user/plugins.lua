@@ -97,9 +97,9 @@ return lazy.setup({
 	},
 	{
 		"kevinhwang91/nvim-ufo",
-		commit = "a5390706f510d39951dd581f6d2a972741b3fa26",
+		commit = "65dda6360879f6ffe0278163b9192a573a0d2a08",
 
-		dependencies = { "kevinhwang91/promise-async", commit = "94f6f03c6c1e2aab551aacdf0c1e597a7269abb6" },
+		dependencies = { "kevinhwang91/promise-async", commit = "93540c168c5ed2b030ec3e6c40ab8bbb85e36355" },
 	},
 
 	-- Telescope
