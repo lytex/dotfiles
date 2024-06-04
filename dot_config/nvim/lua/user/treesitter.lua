@@ -24,6 +24,15 @@ configs.setup({
 		-- termcolors = {} -- table of colour name strings
 	},
 	indent = { enable = true, disable = { "yaml" } },
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "gnn",
+			node_incremental = "grn",
+			scope_incremental = "grc",
+			node_decremental = "grm",
+		},
+	},
 	playground = {
 		enable = true,
 		disable = {},
