@@ -169,8 +169,6 @@ return lazy.setup({
 
 		build = ":TSUpdate",
 	},
-	-- See TS syntax tree along with the current file
-	{ "nvim-treesitter/playground", commit = "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
 	{ "JoosepAlviste/nvim-ts-context-commentstring", commit = "1277b4a1f451b0f18c0790e1a7f12e1e5fdebfee" },
 	{
 		"https://gitlab.com/HiPhish/rainbow-delimiters.nvim",
