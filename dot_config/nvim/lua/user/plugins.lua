@@ -243,6 +243,8 @@ return lazy.setup({
 	{ "machakann/vim-highlightedyank", commit = "fa3f57b097e9521ce41a66b6c7cf5d9adea70ea3" },
 	-- Auto insertion of [], {}, (), "" keeping the cursor in the middle
 	{ "jiangmiao/auto-pairs", commit = "39f06b873a8449af8ff6a3eee716d3da14d63a76" },
+	-- use CTRL-A/CTRL-X to increment dates, times, and more
+	{ "tpope/vim-speeddating", commit = "5a36fd29df63ea3f65562bd2bb837be48a5ec90b" },
 
 	-- Smooth C-u, C-d and more
 	{ "psliwka/vim-smoothie", commit = "df1e324e9f3395c630c1c523d0555a01d2eb1b7e" },
