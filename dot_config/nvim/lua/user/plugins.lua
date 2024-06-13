@@ -105,6 +105,13 @@ return lazy.setup({
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", commit = "87e92ea31b2b61d45ad044cf7b2d9b66dad2a618" },
 	{ "nvim-telescope/telescope-file-browser.nvim", commit = "4bd5657b14b58e069287f5ac591a647bb860b2ed" },
+	{
+		"nvim-telescope/telescope-frecency.nvim",
+		commit = "1f2e9b07ac7f927f36c17313071cc12759670767",
+		config = function()
+			require("telescope").load_extension("frecency")
+		end,
+	},
 	{ "lytex/telescope-live-grep-args.nvim", commit = "2f8dd161ed138cac596b948d187f8823799cc5c4" },
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
