@@ -141,7 +141,7 @@ local mappings = {
 		f = { "<cmd>lua vim.diagnostic.open_float()<CR>", "OpenFloat" },
 	},
 	["f"] = {
-		[[<cmd>lua Find_files_noignore_nohidden()<cr>]],
+		[[<cmd>Telescope frecency workspace=CWD<cr>]],
 		"Find files",
 	},
 	["."] = {
