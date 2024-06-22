@@ -17,6 +17,7 @@ sudo pacman -S doas --noconfirm
 # echo -e "permit :wheel" >> /etc/doas.conf && chmod -c 0400 /etc/doas.conf
 # usermod -aG wheel julian
 # usermod -aG audio julian # Para tener acceso al audio
+# usermod -aG input julian # Para poder ejecutar kmonad
 
 declare -a pacman_packages=(nodejs npm rust python python-pip pyenv neovim git curl
 yarn ttf-fira-code ttf-fantasque-nerd python-wheel syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi
