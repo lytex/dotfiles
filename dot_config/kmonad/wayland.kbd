@@ -1,22 +1,26 @@
 #| -------------------------------------------------------------------------- KMonad: US ansi 100% template This file contains the `defsrc` configuration for a standard US-ansi 100% keyboard. Modelled on a standard DAS-keyboard 100%. Copy out the 'defsrc' layer to start your own keyboard configuration. Copy out the `deflayer` template to easily start a new layer with matching `transparent` buttons. -------------------------------------------------------------------------- |#
 ;; Run sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
+;; sudo mkdir -p /tmp/mode/
 ;; ydotool keyboard codes:
 ;; https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+;; Filter some commands so that they don't get sent e.g. to neovim
+;; kdotool getactivewindow | xargs kdotool getwindowname | grep -v nvim
 
 (defalias   
     slc (tap-hold 150 (around-next-timeout 200 lctl XX) lctl)
-    slcw (tap-macro @slc (layer-switch esc_layer2)) ;; slc wrapper
+    ;; This shouldn't be @slc, maybe (around-next-timeout 200 lctl XX) since the 150 timeout is already expired
+    ;; The solution has to work with this: https://github.com/kmonad/kmonad/issues/542
+    ;; TODO Debug Ctrl <150ms Shift+; issues
+    slcw (around-next-timeout 150 (layer-switch esc_layer2) @slc) ;; slc wrapper: Control >150ms SemiColon does not trigger layer-switch
     csc (tap-macro (cmd-button "touch /tmp/mode/switch") (layer-switch qwerty)) ;; Control + SemiColon
     esc (tap-macro (cmd-button "rm /tmp/mode/*"))
-    ;; No consigo que se lance bien wofi
     spc (tap-macro (cmd-button "(ls /tmp/mode/switch &&  (setsid /usr/bin/wofi --show drun &) && rm /tmp/mode/*) || YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 57:1 57:0"))
     ret (tap-macro (cmd-button "(ls /tmp/mode/* &&  (setsid alacritty &) && rm /tmp/mode/*) || YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 28:1 28:0"))
     ;; q -> Alt+F4
     q (tap-macro (cmd-button "(ls /tmp/mode/* && YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 56:1 62:1 56:0 62:0 ) || YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 16:1 16:0"))
     w (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/move_workspace"))
     r (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/resize"))
-    ;; TODO get active windows
-    o (tap-macro (cmd-button "(ls /tmp/mode/switch && (setsid /usr/bin/wofi --show dmenu &) && rm /tmp/mode/*)"))
+    o (tap-macro (cmd-button "(ls /tmp/mode/switch && (setsid /home/julian/.local/bin/active_windows &) && rm /tmp/mode/*) || YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 24:1 24:0"))
     a (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/layout"))
     v (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/move_container"))
     m (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/mark"))
