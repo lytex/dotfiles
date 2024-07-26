@@ -1,0 +1,17 @@
+#!/bin/bash
+set -ueo pipefail
+set -x
+
+declare -A window_dict
+window_names=$(kdotool search | xargs -I _ bash -c 'echo -n _¶; ( kdotool getwindowclassname _  | sed -z "s/\n/ :: /";  kdotool getwindowname _ )'  | grep -av plasmashell)
+IFS=$'\n'
+for window in $window_names; do
+    key=$(echo "$window" | awk -F'¶' '{print $2}')
+    value=$(echo "$window" | awk -F'¶' '{print $1}')
+    window_dict["$key"]="$value"
+done
+echo "${!window_dict[@]}"
+
+result=$(kdotool search | xargs -I _ bash -c 'echo -n _¶; ( kdotool getwindowclassname _  | sed -z "s/\n/ :: /";  kdotool getwindowname _ )'  | grep -av plasmashell | awk -F'¶' '{print $2}' | wofi --show dmenu)
+focus_id=${window_dict[$result]}
+kdotool windowactivate $focus_id

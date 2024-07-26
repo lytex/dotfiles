@@ -1,0 +1,87 @@
+#| -------------------------------------------------------------------------- KMonad: US ansi 100% template This file contains the `defsrc` configuration for a standard US-ansi 100% keyboard. Modelled on a standard DAS-keyboard 100%. Copy out the 'defsrc' layer to start your own keyboard configuration. Copy out the `deflayer` template to easily start a new layer with matching `transparent` buttons. -------------------------------------------------------------------------- |#
+;; Run sudo -b ydotoold --socket-path="$HOME/.ydotool_socket" --socket-own="$(id -u):$(id -g)"
+;; sudo mkdir -p /tmp/mode/
+;; ydotool keyboard codes:
+;; https://github.com/torvalds/linux/blob/master/include/uapi/linux/input-event-codes.h
+;; Filter some commands so that they don't get sent e.g. to neovim
+;; kdotool getactivewindow | xargs kdotool getwindowname | grep -v nvim
+
+(defalias   
+    slc (tap-hold 150 (around-next-timeout 200 lctl XX) lctl)
+    ;; This shouldn't be @slc, maybe (around-next-timeout 200 lctl XX) since the 150 timeout is already expired
+    ;; The solution has to work with this: https://github.com/kmonad/kmonad/issues/542
+    ;; TODO Debug Ctrl <150ms Shift+; issues
+    slcw (around-next-timeout 150 (layer-switch esc_layer2) @slc) ;; slc wrapper: Control >150ms SemiColon does not trigger layer-switch
+    csc (tap-macro (cmd-button "touch /tmp/mode/switch") (layer-switch qwerty)) ;; Control + SemiColon
+    esc (tap-macro (cmd-button "rm /tmp/mode/*"))
+    spc (tap-macro (cmd-button "(ls /tmp/mode/switch &&  (setsid /usr/bin/wofi --show drun &) && rm /tmp/mode/*) || YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 57:1 57:0"))
+    ret (tap-macro (cmd-button "(ls /tmp/mode/* &&  (setsid alacritty &) && rm /tmp/mode/*) || YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 28:1 28:0"))
+    ;; q -> Alt+F4
+    q (tap-macro (cmd-button "(ls /tmp/mode/* && YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 56:1 62:1 56:0 62:0 ) || YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 16:1 16:0"))
+    w (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/move_workspace"))
+    r (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/resize"))
+    o (tap-macro (cmd-button "(ls /tmp/mode/switch && (setsid /home/julian/.local/bin/active_windows &) && rm /tmp/mode/*) || YDOTOOL_SOCKET='/home/julian/.ydotool_socket' ydotool key 24:1 24:0"))
+    a (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/layout"))
+    v (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/move_container"))
+    m (tap-macro (cmd-button "rm /tmp/mode/*; touch /tmp/mode/mark"))
+    sls (tap-hold 150 (around-next-timeout 200 lsft XX) lsft)
+    sla (tap-hold 150 (around-next-timeout 200 lalt XX) lalt)
+    slm (tap-hold 150 (around-next-timeout 200 lmet XX) lmet)
+    src (tap-hold 150 (around-next-timeout 200 rctl XX) rctl)
+    srs (tap-hold 150 (around-next-timeout 200 rsft XX) rsft)
+    sra (tap-hold 150 (around-next-timeout 200 ralt XX) ralt))
+
+            ;; xdotool takes a time that makes the kmonadesc lock fail, so we send it as a new process to avoid blocking creating the lock
+            ;; e_j (tap-hold-next 150 j (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonadj &); rm /tmp/kmonadk" "if ! ls /tmp/kmonadesc && ls /tmp/kmonadj && ls /tmp/kmonadk; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi;") :timeout-button j)
+            ;; e_k (tap-hold-next 150 k (cmd-button "rm /tmp/kmonadesc; (touch /tmp/kmonadk &); rm /tmp/kmonadj" "if ! ls /tmp/kmonadesc && ls /tmp/kmonadk && ls /tmp/kmonadj; then (xdotool key 'Escape' &) && touch /tmp/kmonadesc; fi;") :timeout-button k))
+            ;; l (tap-hold-next 150 l (cmd-button "if [ -e /tmp/kmonadj -a ! -e /tmp/kmonadk ]; then (xdotool type 'jl' &) && rm /tmp/kmonadj; elif [ -e /tmp/kmonadk -a ! -e /tmp/kmonadj ]; then (xdotool type 'kl' &) && rm /tmp/kmonadk; else (xdotool key 'l' &); fi") :timeout-button l)
+
+            
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  caps a    s    d    f    g    h    j   k    l    ;    '    ret                        kp4  kp5  kp6
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft                 up         kp1  kp2  kp3  kprt
+  lctl lmet lalt           spc            ralt rmet cmp  rctl            left down rght  kp0  kp.)
+
+
+
+(deflayer qwerty
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12        ssrq slck pause
+  grv   1    2    3    4    5    6    7    8    9    0    -    =    bspc  ins  home pgup  nlck kp/  kp*  kp-
+  tab  @q    w    e    r    t    y    u    i    o    p    [    ]    \     del  end  pgdn  kp7  kp8  kp9  kp+
+  @slcw a    s    d    f    g    h    j    k    l    ;    '   @ret                        kp4  kp5  kp6
+  @sls  z    x    c    v    b    n    m    ,    .    /    @srs                 up         kp1  kp2  kp3  kprt
+  @slcw @slm @sla          @spc            @sra rmet cmp  @src            left down rght  kp0  kp.)
+
+
+(deflayer switch
+  esc        _    _    _    _    _    _    _    _    _   _     _           _    _    _  
+  grv   1    2    3    4    5    6    7    8    9    0    _    _     _     _    _    _     _    _    _    _  
+  tab   q    w    e    r    t    _    _    i    o    p    _    _     _     _    _    _     _    _    _    _  
+  @slcw a    s    d    f    _    h    j    k    l    ;    '    ret                         _    _    _    _  
+  @sls  z    x    c    v    _    _    m    ,    .    _    @srs                 _           _    _    _    _  
+  @slcw @slm @sla           spc            @sra rmet cmp  @src             _   _    _      _    _)
+          
+(deflayer esc_layer2
+ _    _    _    _    _    _    _    _    _    _    _    _    _          _    _    _
+ _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+ _    _    _    _    _    _    _    _    _    _    _    _    _    _     _    _    _     _    _    _    _
+ _    _    _    _    _    _    _    _    _    _  @csc   _    _                          _    _    _     
+ _    _    _    _    _    _    _    _    _    _    _    _                    _          _    _    _    _
+ _    _    _              @spc              _    _    _    _               _    _    _     _    _)
+
+
+
+
+(defcfg
+  input  (device-file "/dev/input/by-path/platform-i8042-serio-0-event-kbd")
+  output (uinput-sink "My KMonad output")
+  ;; cmp-seq ralt    ;; Set the compose key to `RightAlt'
+  ;; cmp-seq-delay 5 ;; 5ms delay between each compose-key sequence press
+  fallthrough true
+  allow-cmd true)
+        
+;; vim: ft=lisp
