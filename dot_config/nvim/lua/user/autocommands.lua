@@ -58,6 +58,11 @@ vim.cmd([[
     autocmd FileType markdown setlocal spell
   augroup end
 
+  augroup _neorepl
+    autocmd!
+    autocmd FileType neorepl inoremap <C-w> <C-\><C-o><C-w>
+  augroup end
+
   augroup _auto_resize
     autocmd!
     autocmd VimResized * tabdo wincmd = 
