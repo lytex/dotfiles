@@ -3,6 +3,11 @@ if not null_ls_status_ok then
 	return
 end
 
+local none_ls_status_ok, none_ls = pcall(require, "none-ls")
+if not none_ls_status_ok then
+	return
+end
+
 -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/nvimtools/none-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
@@ -16,7 +21,7 @@ null_ls.setup({
 		formatting.isort,
 		formatting.stylua,
 		formatting.gofmt,
-		diagnostics.flake8,
-		diagnostics.shellcheck,
+		none_ls.diagnostics.flake8,
+		none_ls.diagnostics.bashls,
 	},
 })
