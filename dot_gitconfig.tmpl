@@ -9,17 +9,23 @@
 	signingkey = 3D5AE531650E3E17C863D3484D4BD9AB9C62DB9D{{ end }}
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --simplify-by-decoration
+	lga = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --simplify-by-decoration --all
 	li = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset' --abbrev-commit --simplify-by-decoration
 [pull]
 	rebase = false
 [push]
 	autoSetupRemote = true
 	followTags = true
+	; default = matching
 [protocol "file"]
 	allow = always
 [core]
 	excludesfile = /home/julian/.gitignore
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [diff]
   colormoved = "default"
   colormovedws = "allow-indentation-change"
-
