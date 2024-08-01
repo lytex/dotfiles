@@ -16,7 +16,19 @@ null_ls.setup({
 		formatting.isort,
 		formatting.stylua,
 		formatting.gofmt,
-		diagnostics.flake8,
-		diagnostics.shellcheck,
+		-- https://github.com/nvimtools/none-ls-extras.nvim/tree/main/lua/none-ls/diagnostics
+		require("none-ls.diagnostics.flake8"),
+		-- diagnostics.shellcheck,
 	},
+})
+
+-- Native instead of shellcheck
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "sh",
+	callback = function()
+		vim.lsp.start({
+			name = "bash-language-server",
+			cmd = { "bash-language-server", "start" },
+		})
+	end,
 })
