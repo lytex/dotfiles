@@ -77,7 +77,7 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Incremental selection alternate mappings
-keymap("n", "<CR>", "<cmd>lua require'nvim-treesitter.incremental_selection'.init_selection()<cr>", opts)
+-- keymap("n", "<CR>", "<cmd>lua require'nvim-treesitter.incremental_selection'.init_selection()<cr>", opts)
 keymap("x", "<TAB>", ":lua require'nvim-treesitter.incremental_selection'.node_incremental()<cr>", opts)
 keymap("x", "<BS>", ":lua require'nvim-treesitter.incremental_selection'.node_decremental()<cr>", opts)
 
