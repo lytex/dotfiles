@@ -72,6 +72,7 @@ return lazy.setup({
 	{ "shaunsingh/solarized.nvim", commit = "fe02ed49cc017cc93657bd6306a2624394611c69" },
 	{ "patstockwell/vim-monokai-tasty", commit = "c585c4ff0744315c6c03fd54afa7c8ca23b039c0" },
 	{ "norcalli/nvim-colorizer.lua", commit = "a065833f35a3a7cc3ef137ac88b5381da2ba302e" },
+	{ "vim-scripts/AnsiEsc.vim", commit = "d2bb7878622e4c16203acf1c92a0f4bc7ac58003" },
 
 	-- cmp plugins
 	{ "hrsh7th/nvim-cmp", commit = "d818fd0624205b34e14888358037fb6f5dc51234" }, -- The completion plugin
