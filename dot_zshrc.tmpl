@@ -452,7 +452,10 @@ alias kx=kubectx
 alias k93=k9s
 function tk9s ()
 {
-    tmux new "tmux display-message -p '#{session_name}' > /tmp/tmux-k9s; sleep 1 ; "'tmux set-option -t $(cat /tmp/tmux-k9s) mouse off; tmux set-option -t $(cat /tmp/tmux-k9s) default-shell $(which k9s); k9s'
+    now=$(date +%s)
+    echo -e '#!/bin/zsh'"\nkubectl config use-context $(kubectl config current-context); k9s" > /tmp/k9s_context_$now
+    chmod +x /tmp/k9s_context_$now
+    tmux new -s $(kubectl config current-context) "tmux display-message -p '#{session_name}' > /tmp/tmux-k9s_$now; sleep 1 ; "'tmux set-option -t $(cat /tmp/tmux-k9s_'$now') mouse off; tmux set-option -t $(cat /tmp/tmux-k9s_'$now') default-shell '/tmp/k9s_context_$now'; k9s'
 }
 alias tk93=tk9s
 alias tk=tk9s
