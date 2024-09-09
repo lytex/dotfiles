@@ -212,6 +212,26 @@ return lazy.setup({
 	{ "tpope/vim-fugitive", commit = "0444df68cd1cdabc7453d6bd84099458327e5513" },
 	-- Branches of a feather, flog together
 	{ "rbong/vim-flog", commit = "83cd74b03d1b2a7122334e277b7a3a188686a59c" },
+	{
+		"SuperBo/fugit2.nvim",
+		opts = {
+			width = 100,
+		},
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"echasnovski/mini.icons",
+			"nvim-lua/plenary.nvim",
+			{
+				"chrisgrieser/nvim-tinygit", -- optional: for Github PR view
+				dependencies = { "stevearc/dressing.nvim" },
+			},
+		},
+		cmd = { "Fugit2", "Fugit2Diff", "Fugit2Graph" },
+		keys = {
+			{ "<leader>F", mode = "n", "<cmd>Fugit2<cr>" },
+		},
+	},
 
 	-- DAP
 	--[[ { "mfussenegger/nvim-dap" }, ]]
