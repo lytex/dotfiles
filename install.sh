@@ -20,7 +20,7 @@ sudo pacman -S doas --noconfirm
 # usermod -aG input julian # Para poder ejecutar kmonad
 
 declare -a pacman_packages=(nodejs npm rust python python-pip python-dbus pyenv neovim git curl lua-jsregexp
-yarn ttf-fira-code ttf-fantasque-nerd python-wheel syncthing inotify-tools zsh fzf xclip feh xdotool chezmoi
+yarn ttf-fira-code ttf-fantasque-nerd python-wheel syncthing inotify-tools zsh fzf fzy xclip feh xdotool chezmoi
 alacritty kitty python-xattr thefuck tealdeer bat man-pages flameshot fortune-mod
 graphviz
 go unzip #lua, clang lsp in neovim
