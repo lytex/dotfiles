@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <!DOCTYPE gui SYSTEM 'kpartgui.dtd'>
-<gui version="11" name="okular_shell">
+<gui name="okular_shell" version="11">
  <MenuBar>
   <Menu name="file">
    <DefineGroup append="open_merge" name="file_open"/>
@@ -20,15 +20,22 @@
    <DefineGroup append="about_merge" name="about_merge"/>
   </Menu>
  </MenuBar>
- <ToolBar noMerge="1" name="mainToolBar">
+ <ToolBar name="mainToolBar" noMerge="1">
   <text>Main Toolbar</text>
   <!--Action name="file_open_recent" /-->
   <!--Action name="file_print" /-->
  </ToolBar>
  <ActionProperties scheme="Default">
-  <Action priority="0" name="okular_show_sidebar"/>
-  <Action shortcut="" name="options_configure_keybinding"/>
-  <Action shortcut="Ctrl+PgDown; G, T" name="tab-next"/>
-  <Action shortcut="Ctrl+PgUp; G, Shift+T" name="tab-previous"/>
+  <Action name="file_open_recent" shortcut=""/>
+  <Action name="help_about_app" shortcut=""/>
+  <Action name="help_about_kde" shortcut=""/>
+  <Action name="help_donate" shortcut=""/>
+  <Action name="help_report_bug" shortcut=""/>
+  <Action name="okular_show_sidebar" priority="0"/>
+  <Action name="options_configure_keybinding" shortcut=""/>
+  <Action name="options_configure_toolbars" shortcut=""/>
+  <Action name="switch_application_language" shortcut=""/>
+  <Action name="tab-next" shortcut="Ctrl+PgDown; G, T"/>
+  <Action name="tab-previous" shortcut="Ctrl+PgUp; G, Shift+T"/>
  </ActionProperties>
 </gui>
