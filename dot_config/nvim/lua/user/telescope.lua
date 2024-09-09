@@ -154,6 +154,10 @@ telescope.setup({
 			search_by = { "path", "title" },
 			hidden_files = true, -- default: false
 			sync_with_nvim_tree = true, -- default false
+			on_project_selected = function(prompt_bufnr)
+				project_actions.change_working_directory(prompt_bufnr, false)
+				vim.cmd("Telescope frecency workspace=CWD")
+			end,
 		},
 		frecency = {
 			auto_validate = true,
