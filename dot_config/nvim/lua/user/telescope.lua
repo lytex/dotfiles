@@ -155,6 +155,12 @@ telescope.setup({
 			hidden_files = true, -- default: false
 			sync_with_nvim_tree = true, -- default false
 		},
+		frecency = {
+			auto_validate = true,
+			matcher = "fuzzy",
+			db_validate_threshold = 1,
+			show_scores = false,
+		},
 
 		-- Your extension configuration goes here:
 		-- extension_name = {
@@ -168,6 +174,7 @@ telescope.load_extension("project")
 telescope.load_extension("fzf")
 telescope.load_extension("refactoring")
 telescope.load_extension("bookmarks")
+telescope.load_extension("frecency")
 
 function vim.getVisualSelection()
 	vim.cmd('noau normal! "vy"')
