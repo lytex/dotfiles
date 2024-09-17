@@ -163,6 +163,7 @@ telescope.setup({
 			auto_validate = true,
 			matcher = "fuzzy",
 			db_validate_threshold = 1,
+			db_safe_mode = false,
 			show_scores = false,
 		},
 
