@@ -26,9 +26,9 @@ plugins:
     background: false
     args:
       - -c
-      - '"$@" | less'
+      - '"$@" | less -r'
       - dummy-arg
-      - kubectl
+      - kubecolor
       - logs
       - $NAME
       - -n
@@ -46,7 +46,7 @@ plugins:
     background: false
     args:
       - -c
-      - '"$@" | less'
+      - '"$@" | less -r'
       - dummy-arg
       - kubectl
       - logs
@@ -106,7 +106,69 @@ plugins:
     background: false
     args:
       - -c
-      - '"$@" | less'
+      - '"$@" | less -r'
+      - dummy-arg
+      - kubectl
+      - logs
+      - -c
+      - $NAME
+      - $POD
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+      - --timestamps=true
+  log-less-job:
+    shortCut: Shift-L
+    description: "logs|less"
+    scopes:
+      - job
+    command: zsh
+    background: false
+    args:
+      - -c
+      - '"$@" | less -r'
+      - dummy-arg
+      - kubectl
+      - logs
+      - -c
+      - $NAME
+      - $POD
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+  raw-logs-follow-job:
+    shortCut: Ctrl-L
+    description: logs -f
+    scopes:
+      - job
+    command: kubectl
+    background: false
+    args:
+      - logs
+      - -f
+      - $NAME
+      - -n
+      - $NAMESPACE
+      - --context
+      - $CONTEXT
+      - --kubeconfig
+      - $KUBECONFIG
+  log-less-job-timestamp:
+    shortCut: Ctrl-T
+    description: "timestamp: logs|less"
+    scopes:
+      - job
+    command: zsh
+    background: false
+    args:
+      - -c
+      - '"$@" | less -r'
       - dummy-arg
       - kubectl
       - logs
