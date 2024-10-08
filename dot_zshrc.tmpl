@@ -459,6 +459,16 @@ function tk9s ()
 }
 alias tk93=tk9s
 alias tk=tk9s
+function wk9s ()
+{
+kubectl config get-contexts | tail +2 | sed -E 's/^\*/ /' \
+    | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview \
+        'if [[ -z {4} ]]; then kubectl --context {2} get pods -A; else kubectl --context {2} get pods --namespace {4}; fi' \
+    | awk ' {print "if [[ -z \\\"\\\""$4" ]]; then k9s --context "$2"; else k9s --context "$2" --namespace "$4"; fi"};' \
+    | xargs | zsh
+}
+alias wk93=wk9s
+alias wk=wk9s
 source <(kubectl completion zsh)
 export KUBECTL_EXTERNAL_DIFF="diff --color=always"
 alias g=gcloud
