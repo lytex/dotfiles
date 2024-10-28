@@ -1,7 +1,7 @@
 -- init.lua
 
 -- Load custom treesitter grammar for org filetype
-require("orgmode").setup_ts_grammar()
+-- require("orgmode").setup_ts_grammar()
 
 -- Treesitter configuration
 require("nvim-treesitter.configs").setup({
@@ -16,7 +16,9 @@ require("nvim-treesitter.configs").setup({
 	ensure_installed = { "org" }, -- Or run :TSUpdate org
 })
 
-require("orgmode").setup({
-	org_agenda_files = { "~/org/*", "~/org/**/*" },
-	org_default_notes_file = "~/org/Inbox.org",
-})
+-- require("orgmode").setup({
+-- 	org_agenda_files = { "~/org/*", "~/org/**/*" },
+-- 	org_default_notes_file = "~/org/Inbox.org",
+-- })
+
+vim.treesitter.language.register("tree-sitter-org", "org")
