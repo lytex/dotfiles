@@ -467,7 +467,21 @@ kubectl config get-contexts | tail +2 | sed -E 's/^\*/ /' \
     | awk ' {print "if [[ -z \\\"\\\""$4" ]]; then k9s --context "$2"; else k9s --context "$2" --namespace "$4"; fi"};' \
     | xargs | zsh
 }
+function wtk9s ()
+{
+    context=$(kubectl config get-contexts | tail +2 | sed -E 's/^\*/ /' \
+        | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview \
+            'if [[ -z {4} ]]; then kubectl --context {2} get pods -A; else kubectl --context {2} get pods --namespace {4}; fi' | awk '{print $2}')
+    kubectl config use-context $context
+    now=$(date +%s)
+    echo -e '#!/bin/zsh'"\nkubectl config use-context $(kubectl config current-context); k9s" > /tmp/k9s_context_$now
+    chmod +x /tmp/k9s_context_$now
+    tmux new -s $(kubectl config current-context) "tmux display-message -p '#{session_name}' > /tmp/tmux-k9s_$now; sleep 1 ; "'tmux set-option -t $(cat /tmp/tmux-k9s_'$now') mouse off; tmux set-option -t $(cat /tmp/tmux-k9s_'$now') default-shell '/tmp/k9s_context_$now'; k9s'
+}
+alias twk9s=wtk9s
 alias wk93=wk9s
+alias twk93=twk9s
+alias wtk93=wtk9s
 alias wk=wk9s
 source <(kubectl completion zsh)
 export KUBECTL_EXTERNAL_DIFF="diff --color=always"
