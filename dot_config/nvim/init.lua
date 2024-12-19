@@ -18,6 +18,8 @@ require("user.sessions")
 require("user.toggleterm")
 require("user.project")
 require("user.org")
+require("user.copilot")
+
 -- require("user.indentline")
 require("user.alpha")
 require("user.whichkey")

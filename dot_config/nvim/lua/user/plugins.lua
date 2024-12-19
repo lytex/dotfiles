@@ -110,9 +110,26 @@ return lazy.setup({
 		dependencies = { "kevinhwang91/promise-async", commit = "28c1d5a295eb5310afa2523d4ae9aa41ec5a9de2" },
 	},
 
+	-- Copilot
+	-- { "github/copilot.vim", commit = "87038123804796ca7af20d1b71c3428d858a9124" },
+	{
+		"zbirenbaum/copilot.lua",
+		commit = "d3783b9283a7c35940ed8d71549030d5f5f9f980",
+		cmd = "Copilot",
+		event = "InsertEnter",
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+		commit = "15fc12af3d0109fa76b60b5cffa1373697e261d1",
+		config = function()
+			require("copilot_cmp").setup()
+		end,
+	},
+
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", commit = "10b8a82b042caf50b78e619d92caf0910211973d" },
 	{ "nvim-telescope/telescope-file-browser.nvim", commit = "8574946bf6d0d820d7f600f3db808f5900a2ae23" },
+
 	{
 		"nvim-telescope/telescope-frecency.nvim",
 		commit = "f67baca08423a6fd00167801a54db38e0b878063",

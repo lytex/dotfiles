@@ -16,8 +16,6 @@ null_ls.setup({
 		formatting.isort,
 		formatting.stylua,
 		formatting.gofmt,
-		-- https://github.com/nvimtools/none-ls-extras.nvim/tree/main/lua/none-ls/diagnostics
-		require("none-ls.diagnostics.flake8"),
 		-- diagnostics.shellcheck,
 	},
 })
