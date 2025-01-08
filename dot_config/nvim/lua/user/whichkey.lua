@@ -18,6 +18,10 @@ function Find_files_noignore_nohidden()
 		)
 	)
 end
+function CopilotTelescope()
+	local actions = require("CopilotChat.actions")
+	require("CopilotChat.integrations.telescope").pick(actions.prompt_actions())
+end
 
 local setup = {
 	plugins = {
@@ -133,6 +137,10 @@ local mappings = {
 		a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "CodeAction" },
 		r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
 		f = { "<cmd>lua vim.diagnostic.open_float()<CR>", "OpenFloat" },
+		["p"] = {
+			name = "Copilot  ",
+			t = { "<cmd>lua CopilotTelescope()<cr>", "CopilotTelescope" },
+		},
 	},
 	["f"] = {
 		[[<cmd>Telescope frecency workspace=CWD<cr>]],

@@ -125,6 +125,19 @@ return lazy.setup({
 			require("copilot_cmp").setup()
 		end,
 	},
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		commit = "2ebe591cff06018e265263e71e1dbc4c5aa8281e",
+		dependencies = {
+			{ "github/copilot.vim" }, -- or zbirenbaum/copilot.lua
+			{ "nvim-lua/plenary.nvim", branch = "master" }, -- for curl, log and async functions
+		},
+		build = "make tiktoken", -- Only on MacOS or Linux
+		opts = {
+			-- See Configuration section for options
+		},
+		-- See Commands section for default commands if you want to lazy load on them
+	},
 
 	-- Telescope
 	{ "nvim-telescope/telescope.nvim", commit = "10b8a82b042caf50b78e619d92caf0910211973d" },
