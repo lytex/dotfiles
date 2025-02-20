@@ -544,8 +544,24 @@ function azupdate () {
 }
 
 function azswitch () {
-    # TODO detect if login is necessary
-    az login
+    az_expiry_ts=$(cat ~/.azure/az_expiry_ts 2>/dev/null) || az_expiry_ts=$(date -u -d "$(az account get-access-token --query "expiresOn" --output tsv)"  +%s.%N)
+    az_expiry_ts=${az_expiry_ts:=0}
+    az_expiry_ts=${az_expiry_ts%.*}
+    echo "$az_expiry_ts" > ~/.azure/az_expiry_ts || true
+    current_ts=$(date -u +%s)
+
+    if [ "$az_expiry_ts" -gt "$current_ts" ]; then
+        :
+    else
+        echo "Refreshing az login token..."
+        if [ "$DESKTOP_SESSION" ]; then
+            az login
+        else
+            az login --use-device-code
+        fi
+        az_expiry_ts=$(date -u -d "$(az account get-access-token --query "expiresOn" --output tsv)"  +%s.%N)
+        echo "$az_expiry_ts" > ~/.azure/az_expiry_ts
+    fi
     # TODO fzf completion with both name and projectId
     azaccount=$(IFS=$'\n' cat ~/.config/azure_projects.txt | fzf --height=20% --preview-window=noborder --border=top --info=inline --preview "echo jq -r '\"map(select(has(\\\"{}\\\")))[0].\\\"{}\\\"\"' ~/.config/azure_projects.json | zsh")
     azsubs=$(jq -r "map(select(has(\"$azaccount\")))[0].\"$azaccount\"" ~/.config/azure_projects.json)

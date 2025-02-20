@@ -21,6 +21,14 @@ matches:
         type: shell
         params:
           cmd: 'date -d "-$ESPANSO_NUM1 days" +"%Y-%m-%d"'
+  # The :dat-<num1>e expands to the date num1 days after today
+  - regex: ":dat-(?P<num1>\\d+)e"
+    replace: "{{result}}"
+    vars:
+      - name: result
+        type: shell
+        params:
+          cmd: 'date -d "+$ESPANSO_NUM1 days" +"%Y-%m-%d"'
   # The :dat<num1>e expands to the date num1 days before today
   - regex: ":dat(?P<num1>\\d+)y"
     replace: "{{result}}"
@@ -64,7 +72,9 @@ matches:
   - trigger: ":000"
     replace: "00:00:00"
 
+    # ;[[": expand (without backslash) to "([^"]+)"
   - regex: ";\\[\\[(?P<char>(.{1}))"
     replace: "{{char}}([^{{char}}]+){{char}}"
+    # ;[]" expand (with backslash) to  "\([^"]+\)"
   - regex: ";\\[\\](?P<char>(.{1}))"
     replace: "{{char}}\\([^{{char}}]+\\){{char}}"
