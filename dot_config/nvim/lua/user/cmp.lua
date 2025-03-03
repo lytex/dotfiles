@@ -116,7 +116,12 @@ cmp.setup({
 		end,
 	},
 	sources = {
-		{ name = "copilot" },
+		{
+			name = "copilot",
+			filetypes = function(filetype)
+				return filetype ~= "yaml" and filetype ~= "yml"
+			end,
+		},
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 		{ name = "buffer" },

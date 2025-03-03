@@ -122,9 +122,22 @@ return lazy.setup({
 		"zbirenbaum/copilot-cmp",
 		commit = "15fc12af3d0109fa76b60b5cffa1373697e261d1",
 		config = function()
-			require("copilot_cmp").setup()
+			require("copilot_cmp").setup({
+				filetypes = {
+					terraform = false,
+					yaml = false,
+					sh = function()
+						if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
+							-- disable for .env files
+							return false
+						end
+						return true
+					end,
+				},
+			})
 		end,
 	},
+
 	{
 		"CopilotC-Nvim/CopilotChat.nvim",
 		commit = "2ebe591cff06018e265263e71e1dbc4c5aa8281e",
