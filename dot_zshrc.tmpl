@@ -407,6 +407,7 @@ function darkmode () {
     plasma-apply-desktoptheme breeze-dark
 
     plasma-apply-cursortheme Quintom_Ink
+    gsettings set org.gnome.desktop.interface color-scheme prefer-dark
     chezmoi apply ~/.config/alacritty/alacritty.*
     chezmoi apply ~/.config/i3/config
     i3 reload
@@ -416,6 +417,7 @@ function lightmode () {
     plasma-apply-colorscheme BreezeLight
     plasma-apply-lookandfeel -a org.kde.breeze.desktop
     plasma-apply-desktoptheme breeze-light
+    gsettings set org.gnome.desktop.interface color-scheme prefer-light
 
     plasma-apply-cursortheme Quintom_Ink
     chezmoi apply ~/.config/alacritty/alacritty.*
