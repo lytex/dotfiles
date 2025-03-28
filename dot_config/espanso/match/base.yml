@@ -115,7 +115,12 @@ matches:
   - trigger: ;cdtmux
     replace: 'attach-session -t . -c "#{pane_current_path}"'
     label: Change tmux directory to current dir
-
+  - trigger: ;text
+    replace: '#:~:text='
+    label: Text fragment URI
+  - trigger: ;ttext
+    replace: '#:~:text=[prefix-,]textStart[,textEnd][,-suffix]'
+    label: Text fragment URI (long)
   - trigger: ;blackformatoff
     replace: "# fmt:off"
   - trigger: ;blackformaton
