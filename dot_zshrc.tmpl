@@ -128,18 +128,19 @@ function fzf-cd-tags () {
 }
 
 function fzf-cd-tags-and-query () {
+    OLD_LBUFFER=$LBUFFER
     tag_list=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="tags:/' | grep -vF ' <bookmark href="tags:/">' | sed -E 's#[ ]*<bookmark href="tags:/([^"]+)">#\1#' | sort -u )
     query=""
     new=""
     local REPLY
 
     autoload -Uz read-from-minibuffer
-    while [ "$new" != "." ] ; do
-        read-from-minibuffer 'tag:' $LBUFFER $RBUFFER
+    while [ "$new" != "--" ] ; do
+        read-from-minibuffer 'tag:'
         new=$REPLY
         if [ "$query" = "" ]; then
             query="tag:$new"
-        elif [ "$new" != "." ]; then
+        elif [ "$new" != "--" ]; then
             query="$query AND tag:$new"
         else
             query=${query% AND}
@@ -147,7 +148,8 @@ function fzf-cd-tags-and-query () {
         fi
     done
     directory=$(echo baloosearch6 "'$query'" | $SHELL | sort -u | my-fzf-command --preview "eza --color=always -w $(( $(brltty-ttysize | awk -Fx '{print $1}')/2 )) {}")
-    RBUFFER=" '${directory}'${RBUFFER}"
+    RBUFFER=" '${directory}'${OLD_RBUFFER}"
+    LBUFFER=$OLD_LBUFFER
 }
 
 zle -N fzf-cd-tags-and-query
