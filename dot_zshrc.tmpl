@@ -135,12 +135,12 @@ function fzf-cd-tags-and-query () {
     local REPLY
 
     autoload -Uz read-from-minibuffer
-    while [ "$new" != "--" ] ; do
+    while [ "$new" != "." ] ; do
         read-from-minibuffer 'tag:'
         new=$REPLY
         if [ "$query" = "" ]; then
             query="tag:$new"
-        elif [ "$new" != "--" ]; then
+        elif [ "$new" != "." ]; then
             query="$query AND tag:$new"
         else
             query=${query% AND}
