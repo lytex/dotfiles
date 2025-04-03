@@ -126,6 +126,31 @@ function fzf-cd-tags () {
     tag=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="tags:/' | grep -vF ' <bookmark href="tags:/">' | sed -E 's#[ ]*<bookmark href="tags:/([^"]+)">#\1#' | sort -u | my-fzf-command --preview 'baloosearch6 tag:{} | sort -u'); directory=$(baloosearch6 tag:$tag | sort -u | my-fzf-command --preview "eza --color=always -w $(( $(brltty-ttysize | awk -Fx '{print $1}')/2 )) {}")
     RBUFFER=" '${directory}'${RBUFFER}"
 }
+
+function fzf-cd-tags-and-query () {
+    tag_list=$(cat ~/.local/share/user-places.xbel | grep -F 'bookmark href="tags:/' | grep -vF ' <bookmark href="tags:/">' | sed -E 's#[ ]*<bookmark href="tags:/([^"]+)">#\1#' | sort -u )
+    query=""
+    new=""
+    local REPLY
+
+    autoload -Uz read-from-minibuffer
+    while [ "$new" != "." ] ; do
+        read-from-minibuffer 'tag:' $LBUFFER $RBUFFER
+        new=$REPLY
+        if [ "$query" = "" ]; then
+            query="tag:$new"
+        elif [ "$new" != "." ]; then
+            query="$query AND tag:$new"
+        else
+            query=${query% AND}
+            break
+        fi
+    done
+    directory=$(echo baloosearch6 "'$query'" | $SHELL | sort -u | my-fzf-command --preview "eza --color=always -w $(( $(brltty-ttysize | awk -Fx '{print $1}')/2 )) {}")
+    RBUFFER=" '${directory}'${RBUFFER}"
+}
+
+zle -N fzf-cd-tags-and-query
 zle -N fzf-cd-tags
 zle -N fzf-cd-places
 
@@ -139,6 +164,7 @@ bindkey -a ' r' fzf-history-widget
 bindkey -a ' f' fzf-history-widget
 bindkey -a ' p' fzf-cd-places
 bindkey -a ' t' fzf-cd-tags
+bindkey -a ' y' fzf-cd-tags-and-query
 bindkey -a '  ' edit-command-line
 
 function tag() {
