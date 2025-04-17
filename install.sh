@@ -57,6 +57,7 @@ makepkg -sri --noconfirm
 declare -a paru_packages=(activitywatch-bin kmonad espanso-bin shellcheck-bin google-chrome
 pandoc-bin bookmarksync-git ferdium-bin notion-app drawio-desktop-bin
 ttf-ms-win11-auto # Windows fonts
+adobe-base-14-fonts # adobe
 winff
 samsung-unified-driver system-config-printer # Printer driver and config
 qmk-udev-rules-git # QMK
