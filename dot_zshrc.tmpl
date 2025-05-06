@@ -171,7 +171,8 @@ bindkey -a '  ' edit-command-line
 
 function tag() {
     setfattr -n user.xdg.tags -v "$@"
-    (setsid baloo_reset &) > /dev/null # Clean cache, non-blocking, to trigger baloo reindex
+    (setsid balooctl6 index "$@" &) > /dev/null # Reindex, non-blocking
+    # (setsid baloo_reset &) > /dev/null # Clean cache, non-blocking, to trigger baloo reindex
 }
 
 function gettag() {
