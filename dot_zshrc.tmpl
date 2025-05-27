@@ -134,10 +134,8 @@ function fzf-cd-tags-and-query () {
     new="notempty" # dummy value so that is not empty at the beggining
     local REPLY
 
-    autoload -Uz read-from-minibuffer
     while [ "$new" != "" ] ; do
-        read-from-minibuffer 'tag:'
-        new=$REPLY
+        new=$(echo $tag_list | my-fzf-command --preview 'baloosearch6 tag:{} | sort -u');
         if [ "$query" = "" ]; then
             query="tag:$new"
         elif [ "$new" != "" ]; then
