@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=emacs
+Comment=emacs start script
+Exec=/usr/bin/emacs --daemon
+StartupNotify=false
+Terminal=true

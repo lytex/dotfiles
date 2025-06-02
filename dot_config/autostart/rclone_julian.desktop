@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=rclone mount
+Comment=rclone mount start script
+Exec=rclone --vfs-cache-mode writes mount julian:  /media/julian/julian
+StartupNotify=false
+Terminal=true

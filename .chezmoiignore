@@ -6,6 +6,10 @@
 {{ if not .work }}
 .config/onedrive
 .config/autostart/onedrive-check.desktop
+.config/autostart/evolution.desktop
+.config/autostart/rclone.desktop
+.config/autostart/rclone_julian.desktop
+.config/autostart/rclone_onedrive.desktop
 .vrapperrc
 .local/share/nvim/telescope-projects-work.txt
 {{ else }}
