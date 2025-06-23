@@ -1,0 +1,46 @@
+[$Version]
+update_info=kwinrules.upd:replace-placement-string-to-enum,kwinrules.upd:use-virtual-desktop-ids
+{{ if .work }}
+[0961da5e-e35f-42cd-a7d3-d21e6e9e8f71]
+Description=Window settings for org.gnome.Evolution
+desktops=\\0
+desktopsrule=3
+screenrule=3
+title=Calendar
+types=1
+wmclass=evolution org.gnome.Evolution
+wmclasscomplete=true
+wmclassmatch=1
+{{ end }}
+[39be299a-f41a-4eb5-9574-ebc964c93bfe]
+Description=Window settings for Ferdium
+clientmachine=localhost
+desktops=\\0
+desktopsrule=3
+screenrule=3
+title=Ferdium - Jira - id.atlassian.com/login?continue=https%3A%2F%2Fid.atlassian.com%2Fjoin%2Fuser-access%3Fresource%3Dari%253Acloud%253Ajira%253A%253Asite%252F17d57a6f-d6a8-4221-85eb-ab91b0ccb221%26continue%3Dhttps%253A%252F%252Faccionacalidad.atlassian.net%252F&application=jira
+types=1
+windowrole=browser-window
+windowrolematch=1
+wmclass=ferdium Ferdium
+wmclasscomplete=true
+wmclassmatch=1
+
+[General]
+{{ if .work }}count=3
+rules=39be299a-f41a-4eb5-9574-ebc964c93bfe,0961da5e-e35f-42cd-a7d3-d21e6e9e8f71,c31a07d9-4786-484a-b2fb-601c2bfe172f
+{{ else }}count=1
+rules=c31a07d9-4786-484a-b2fb-601c2bfe172f{{ end}}
+[c31a07d9-4786-484a-b2fb-601c2bfe172f]
+Description=Force Flameshot size
+above=true
+aboverule=2
+ignoregeometry=true
+ignoregeometryrule=2
+strictgeometryrule=2
+title=flameshot
+titlematch=1
+types=1
+wmclass=flameshot flameshot
+wmclasscomplete=true
+wmclassmatch=1
