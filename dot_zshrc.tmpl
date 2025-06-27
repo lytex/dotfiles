@@ -554,8 +554,24 @@ function gpswitch () {
 }
 
 function azupdate () {
-    # TODO detect if login is necessary
-    az login
+    az_expiry_ts=$(cat ~/.azure/az_expiry_ts 2>/dev/null) || az_expiry_ts=$(date -u -d "$(az account get-access-token --query "expiresOn" --output tsv)"  +%s.%N)
+    az_expiry_ts=${az_expiry_ts:=0}
+    az_expiry_ts=${az_expiry_ts%.*}
+    echo "$az_expiry_ts" > ~/.azure/az_expiry_ts || true
+    current_ts=$(date -u +%s)
+
+    if [ "$az_expiry_ts" -gt "$current_ts" ]; then
+        :
+    else
+        echo "Refreshing az login token..."
+        if [ "$DESKTOP_SESSION" ]; then
+            az login
+        else
+            az login --use-device-code
+        fi
+        az_expiry_ts=$(date -u -d "$(az account get-access-token --query "expiresOn" --output tsv)"  +%s.%N)
+        echo "$az_expiry_ts" > ~/.azure/az_expiry_ts
+    fi
     az account list | jq 'map(.name)' | grep -v -e '\[' -e '\]' | sed 's/  "//;s/"//g;s/,$//' > ~/.config/azure_projects.txt
     az account list | jq 'map({(.name): (.id)})' > ~/.config/azure_projects.json
     IFS=$'\n' 
