@@ -22,6 +22,7 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     pkgs.activitywatch
+    pkgs.awatcher
     pkgs.aw-server-rust
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
@@ -87,8 +88,15 @@
         };
       };
 
-      aw-watcher-window = {
-        package = pkgs.activitywatch;
+      # aw-watcher-window = {
+      #   package = pkgs.activitywatch;
+      #   settings = {
+      #     poll_time = 1;
+      #     exclude_title = true;
+      #   };
+      # };
+      awatcher = {
+        package = pkgs.awatcher;
         settings = {
           poll_time = 1;
           exclude_title = true;
