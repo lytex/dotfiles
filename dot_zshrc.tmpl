@@ -200,8 +200,9 @@ function pdflink {
     ln -s "$HOME/org/roam/$file" "$file"
 }
 
-export PYENV_ROOT=$ZPY_VENVS_HOME
-eval "$(pyenv init -)"
+# export PYENV_ROOT=$ZPY_VENVS_HOME
+# [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init - zsh)"
 # PATH=$(echo $PATH | sed "s#$PYENV_ROOT/shims##" | sed "s/::/:/g")
 
 # Git alias copied from:
@@ -237,17 +238,20 @@ function xptenv() {
 # someday...
 alias ze=zellij
 
-eval $(thefuck --alias)
+export PATH="$PATH:$HOME/.local/bin"
+if [ -d "$HOME/.nix-profile/bin" ] ; then
+    PATH="$HOME/.nix-profile/bin:$PATH"
+fi
+# eval $(thefuck --alias)
 alias f=fuck
 alias t=tldr
 alias tb="command t" # From neomux
-export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.npm/bin"
 alias c=chezmoi
 alias n="$HOME/.local/bin/nvr_wrapper"
-export EDITOR="nvr_wrapper"
-export VISUAL="nvr_wrapper"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 if [ "$TERM" = "xterm-kitty" ]; then
     alias ssh="kitty +kitten ssh"
@@ -514,7 +518,7 @@ alias wk93=wk9s
 alias twk93=twk9s
 alias wtk93=wtk9s
 alias wk=wk9s
-source <(kubectl completion zsh)
+# source <(kubectl completion zsh)
 export KUBECTL_EXTERNAL_DIFF="diff --color=always"
 alias g=gcloud
 
