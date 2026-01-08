@@ -1,0 +1,9 @@
+[Unit]
+Description=home-manager restart several times
+
+[Service]
+ExecStart=bash -c 'sleep 5; while [ ! -z "$(%h/.nix-profile/bin/home-manager switch 2>&1 | grep -i failed)" ]; do sleep 1; done'
+Restart=always
+
+[Install]
+WantedBy=default.target
