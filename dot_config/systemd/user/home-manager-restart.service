@@ -2,8 +2,9 @@
 Description=home-manager restart several times
 
 [Service]
-ExecStart=bash -c 'sleep 5; while [ ! -z "$(%h/.nix-profile/bin/home-manager switch 2>&1 | grep -i failed)" ]; do sleep 1; done'
+ExecStart=/bin/bash -c 'sleep 60; /nix/var/nix/profiles/default/bin/nix-shell "<home-manager>" -A install; while [ ! -z "$(%h/.nix-profile/bin/home-manager switch 2>&1 | grep -i failed)" ]; do sleep 1; done'
 Restart=no
+TimeoutSec=600
 
 [Install]
-WantedBy=default.target
+WantedBy=xdg-desktop-autostart.target 
