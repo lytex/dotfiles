@@ -3,10 +3,11 @@
 sleep 300
 i=0
 status=0
+export PATH="$PATH:/nix/var/nix/profiles/default/bin/"
 while (( status == 0)); do
     sleep 1
     i=$((i+1))
-    /nix/var/nix/profiles/default/bin/nix-shell "<home-manager>" -A install
+    # /nix/var/nix/profiles/default/bin/nix-shell "<home-manager>" -A install
     echo retry $i
     output=$("$HOME/.nix-profile/bin/home-manager" switch 2>&1)
     status_home_manager=$?
