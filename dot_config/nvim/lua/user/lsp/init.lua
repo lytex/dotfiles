@@ -7,7 +7,7 @@ require("user.lsp.mason")
 require("user.lsp.handlers").setup()
 require("user.lsp.null-ls")
 
-lspconfig.yamlls.setup({
+vim.lsp.config("yamlls", {
 	settings = {
 		yaml = {
 			schemas = {
@@ -20,3 +20,4 @@ lspconfig.yamlls.setup({
 		},
 	},
 })
+vim.lsp.enable("yamlls")

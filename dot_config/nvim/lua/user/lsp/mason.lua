@@ -15,7 +15,7 @@ local servers = {
 	"lua_ls",
 	"cssls",
 	"html",
-	"tsserver",
+	"ts_ls",
 	"basedpyright",
 	"ruff",
 	"bashls",
@@ -49,10 +49,6 @@ mason_lspconfig.setup({
 	automatic_installation = { exclude = { "csharp_ls" } }, -- dotnet tool install --global csharp-ls --version 0.5.7 for .NET 6.0
 })
 
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-	return
-end
 
 local opts = {}
 
@@ -69,5 +65,6 @@ for _, server in pairs(servers) do
 		opts = vim.tbl_deep_extend("force", conf_opts, opts)
 	end
 
-	lspconfig[server].setup(opts)
+	vim.lsp.config(server, opts)
+	vim.lsp.enable(server)
 end
